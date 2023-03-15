@@ -16,6 +16,15 @@
     "@types/nanoid": "^3.0.0",
     "@types/node": "^18.15.0",
     "@types/yup": "^0.32.0",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "eslint": "^8.36.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "2.8.4",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   },
@@ -23,9 +32,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev":"nodemon --config nodemon.json src/index.ts",
-  "keywords": ["node", "docker"],
-  "author": "",
-  "license": "ISC"
-}
+    "dev": "nodemon --config nodemon.json src/index.ts",
+    "keywords": [
+      "node",
+      "docker"
+    ],
+    "author": "",
+    "license": "ISC"
+  }
 }
