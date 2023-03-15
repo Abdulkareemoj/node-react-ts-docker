@@ -1,2 +1,5 @@
 # node-shortener-docker
- A dockerized nodejs url shortener
+
+A URL Shortener built wih Node.js, MongoDB, React, Typecript and Docker
+
+
