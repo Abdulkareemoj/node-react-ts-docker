@@ -1,10 +1,11 @@
-import express from "express";
-import config from "config";
-import routes from "./routes";
+// import config from "config";
+import routes from "./routes"
 import bodyParser from "body-parser";
+import express from "express";
+
 
 const app = express();
-const port = config.get("port");
+const port = 3000;
 
 app.use(bodyParser.json);
 
