@@ -2,7 +2,7 @@
   "name": "docker",
   "description": "",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "type": "module",
   "scripts": {
     "dev": "nodemon --config nodemon.json src/index.ts",
