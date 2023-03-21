@@ -1,13 +1,23 @@
-FROM node:14
+FROM node:12-alpine
 
-WORKDIR /app
+ADD package.json /tmp/package.json
 
-COPY package.json ./
+RUN rm -rf dist
 
-RUN npm install
+RUN /tmp && npm install -q
 
-COPY . .
+RUN npm dedupe
 
-EXPOSE 7000
+ADD ./src
 
-CMD [ "node" "index.js"]
+RUN rm -rf /src/node_modules && cp /tmp/node_modules /secrets
+
+WORKDIR /src
+
+RUN npm run-script build
+
+RUN npm install pm2 -g
+
+EXPOSE 3000
+
+CMD ["pm2-runtime", "process.json"]
