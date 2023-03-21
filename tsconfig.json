@@ -6,7 +6,7 @@
   "moduleResolution": "NodeNext",
   "target": "ESNext",
   "sourceMap": true,
-  "outDir": "dist"
+  "outDir": "./build"
 
 },
 "include": ["src/**/*"],
