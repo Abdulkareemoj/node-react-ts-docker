@@ -5,6 +5,7 @@
   "module": "NodeNext",
   "moduleResolution": "NodeNext",
   "target": "ESNext",
+  "esModuleInterop": true,
   "sourceMap": true,
   "outDir": "./build"
 
