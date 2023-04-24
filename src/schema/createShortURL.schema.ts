@@ -1,5 +1,5 @@
 import {object, string} from "yup";
 
 export default object({
-    destination: string().required("Destination required"),
+    destination: string().url("Must be a valid url").required("Destination required"),
 });
