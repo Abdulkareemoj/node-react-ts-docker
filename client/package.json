@@ -2,7 +2,7 @@
   "name": "node-docker-shortener-fe",
   "version": "1.0.0",
   "author": {
-    "name": "Abdulkareem Ojeinde",
+    "name": "Abdulkareem Ojerinde",
     "email": "abdulkareemojerinde@gmail.com",
     "url": "https://github.com/abdulkareemoj"
   },
@@ -14,7 +14,6 @@
     "lint": "eslint src --ext .tsx --ext .ts",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --config ./.prettierrc -w 'src/**/*.{tsx,ts}' && git update-index --again"
-  
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.0",
@@ -22,6 +21,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.4.0",
     "framer-motion": "^10.15.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -29,14 +29,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.10",
- 
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
     "@vitejs/plugin-react": "^4.0.4",
-
     "eslint": "^8.46.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.0.0",
@@ -46,9 +44,7 @@
     "eslint-plugin-react": "^7.33.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-   
     "prettier": "^3.0.1",
-
     "typescript": "^5.1.6",
     "vite": "^4.4.9"
   }
