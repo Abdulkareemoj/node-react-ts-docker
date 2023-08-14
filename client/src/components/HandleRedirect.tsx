@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Box, Spinner } from 'chakra-ui/react';
+import { Box, Spinner } from '@chakra-ui/react';
 import { RouteMatch } from 'react-router-dom';
-
 
 export const SERVER_ENDPOINT =
   process.env.REACT_APP_SERVER_ENDPOINT || 'http://localhost:3000';
@@ -17,10 +16,12 @@ function HandleRedirect() {
   }>();
 
   useEffect(() => {
-    async function getData()) {
+    async function getData() {
       return axios
         .get(`${SERVER_ENDPOINT}/api/createurl/${shortId}`)
-        .then((res: { data: { destination: SetStateAction<string | null>; }; }) =>  setDestination(res.data.destination))
+        .then((res: { data: { destination: SetStateAction<string | null> } }) =>
+          setDestination(res.data.destination)
+        )
         .catch((err: SetStateAction<undefined>) => {
           setError(err);
         });
@@ -28,24 +29,24 @@ function HandleRedirect() {
     getData();
   }, [shortId]);
 
-  useEffect(()=>{
-    if (destination){
+  useEffect(() => {
+    if (destination) {
       window.location.replace(destination);
     }
-  }[destination]);
+  }, [destination]);
 
-  if(!destination && !error){
-    return(
+  if (!destination && !error) {
+    return (
       <Box
-      height="100%"
-      display="flex"
-      alignItems="center"
-      justifyContent="center">
+        height="100%"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
         <Spinner />
-        </Box>
+      </Box>
     );
   }
-  return <p>(error & JSON.stringify(error))</p>;
+  return <p>(error && JSON.stringify(error))</p>;
 }
 export default HandleRedirect;
- 
