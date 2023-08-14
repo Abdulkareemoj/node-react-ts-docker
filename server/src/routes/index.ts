@@ -1,5 +1,5 @@
 import { Express, Request, Response } from "express";
-import { createShortURL, redirectURL, analytics } from "../controllers/shortURL.controller.js";
+import { createShortURL, redirectURL, getAnalytics } from "../controllers/shortURL.controller.js";
 import validateResource from "../middleware/validator.js";
 import shortURLSchema from "../schema/createShortURL.schema.js";
 
@@ -12,7 +12,7 @@ function routes(app: Express) {
 
   app.get("/:shortId", redirectURL);
 
-  app.get("/analytics", analytics);
+  app.get("/analytics", getAnalytics);
 }
 
 export default routes;
