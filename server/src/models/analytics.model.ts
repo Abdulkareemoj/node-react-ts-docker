@@ -13,11 +13,9 @@ const schema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true } // Corrected 'timestamp' to 'timestamps'
+  { timestamps: true },
 );
 
 const analytics = mongoose.model<Analytics>("Analytics", schema); // Change the model name to 'Analytics'
 
 export default analytics;
-
-

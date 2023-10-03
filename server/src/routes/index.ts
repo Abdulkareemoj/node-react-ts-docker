@@ -1,7 +1,11 @@
 import { Express, Request, Response } from "express";
-import { createShortURL, redirectURL, getAnalytics } from "../controllers/shortURL.controller.js";
-import validateResource from "../middleware/validator.js";
-import shortURLSchema from "../schema/createShortURL.schema.js";
+import {
+  createShortURL,
+  getAnalytics,
+  redirectURL,
+} from "../controllers/shortURL.controller";
+import validateResource from "../middleware/validator";
+import shortURLSchema from "../schema/createShortURL.schema";
 
 function routes(app: Express) {
   app.get("/", (req: Request, res: Response) => {

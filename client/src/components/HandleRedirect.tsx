@@ -1,32 +1,37 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import { Box, Spinner } from '@chakra-ui/react';
-import { RouteMatch } from 'react-router-dom';
+import { useMatch } from 'react-router-dom';
 
 export const SERVER_ENDPOINT =
   process.env.REACT_APP_SERVER_ENDPOINT || 'http://localhost:3000';
 
+interface ShortId {
+  shortId: string;
+}
+
 function HandleRedirect() {
   const [destination, setDestination] = useState<null | string>(null);
-  const [error, setError] = useState();
-  const {
-    params: { shortId },
-  } = RouteMatch<{
-    shortId: string;
-  }>();
+  const [error, setError] = useState<Error | undefined>(undefined);
+
+  const match = useMatch<ShortId>('/:shortId');
+  const shortId = match?.params.shortId;
+
+  async function getData({ shortId }: ShortId) {
+    return axios
+      .get(`${SERVER_ENDPOINT}/api/createurl/${shortId}`)
+      .then((res: { data: { destination: SetStateAction<string | null> } }) =>
+        setDestination(res.data.destination)
+      )
+      .catch((err: Error) => {
+        setError(err);
+      });
+  }
 
   useEffect(() => {
-    async function getData() {
-      return axios
-        .get(`${SERVER_ENDPOINT}/api/createurl/${shortId}`)
-        .then((res: { data: { destination: SetStateAction<string | null> } }) =>
-          setDestination(res.data.destination)
-        )
-        .catch((err: SetStateAction<undefined>) => {
-          setError(err);
-        });
+    if (shortId) {
+      getData({ shortId });
     }
-    getData();
   }, [shortId]);
 
   useEffect(() => {
@@ -40,13 +45,28 @@ function HandleRedirect() {
       <Box
         height="100%"
         display="flex"
-        alignItems="center"
         justifyContent="center"
+        alignItems="center"
       >
-        <Spinner />
+        <Spinner size="xl" />
       </Box>
     );
   }
-  return <p>(error && JSON.stringify(error))</p>;
+
+  if (error) {
+    return (
+      <Box
+        height="100%"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <p>Error: {error.message}</p>
+      </Box>
+    );
+  }
+
+  return null;
 }
+
 export default HandleRedirect;

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import HandleRedirect from './components/HandleRedirect';
 import Home from './components/Home';
@@ -6,7 +6,7 @@ import Home from './components/Home';
 function App() {
   return (
     <Router>
-      <Switch>
+      <Routes>
         <Route exact path="/">
           <Home />
         </Route>
@@ -14,7 +14,7 @@ function App() {
         <Route exact path="/:shortId">
           <HandleRedirect />
         </Route>
-      </Switch>
+      </Routes>
     </Router>
   );
 }

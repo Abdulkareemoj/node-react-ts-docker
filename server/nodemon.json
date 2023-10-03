@@ -3,10 +3,12 @@
   "ignore": [".git", "node_modules/", "dist/", "coverage/"],
   "execMap": {
  
-    "ts": "ts-node"
+    "ts": "ts-node "
   },
   "env": {
     "NODE_ENV": "development"
   },
-  "ext": "ts"
+   "watch": ["src"],
+  "ext": "ts",
+  "exec": "ts-node ./src/index.ts"
 }
