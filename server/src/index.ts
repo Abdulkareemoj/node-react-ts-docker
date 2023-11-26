@@ -1,16 +1,18 @@
-import config from "config";
 import routes from "./routes";
 import bodyParser from "body-parser";
 import express from "express";
 import db from "./utils/db";
 import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config({ path: "../.env" });
 
 const app = express();
 app.use(cors({
-  origin: config.get("corsOrigin"),
+  origin: process.env.CORS_ORIGIN,
 }));
 
-const port = config.get("port");
+const port = process.env.PORT;
 
 app.use(bodyParser.json());
 

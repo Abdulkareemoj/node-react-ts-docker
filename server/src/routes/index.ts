@@ -9,7 +9,7 @@ import shortURLSchema from "../schema/createShortURL.schema";
 
 function routes(app: Express) {
   app.get("/", (req: Request, res: Response) => {
-    return res.send("bruh");
+    return res.send("bruhh");
   });
 
   app.post("/api/createurl", validateResource(shortURLSchema), createShortURL);
