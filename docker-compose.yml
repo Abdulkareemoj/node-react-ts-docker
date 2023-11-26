@@ -1,11 +1,10 @@
-version: '3.7'
+version: "3.7"
 services:
-    docker-url:
-      container_name: docker-url-server 
-      enviroment:
-        -NODE_ENV=production
-      build:
-        context: ./
-      image: docker-url
-      ports:
-        -"4000:4000"
+  docker-url:
+    container_name: docker-url-server
+    # enviroment:
+    #   -NODE_ENV=production
+    build:
+      context: ./
+    image: docker-url
+    ports: -"4000:4000"
