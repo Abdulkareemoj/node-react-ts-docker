@@ -1,12 +1,6 @@
 {
   "name": "node-docker-shortener-fe",
   "version": "1.0.0",
-  "author": {
-    "name": "Abdulkareem Ojerinde",
-    "email": "abdulkareemojerinde@gmail.com",
-    "url": "https://github.com/abdulkareemoj"
-  },
-  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
