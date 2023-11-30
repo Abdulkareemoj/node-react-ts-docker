@@ -7,15 +7,11 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/">
-          <Home />
-        </Route>
-
-        <Route exact path="/:shortId">
-          <HandleRedirect />
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/:shortId" element={<HandleRedirect />} />
       </Routes>
     </Router>
   );
 }
+
 export default App;
