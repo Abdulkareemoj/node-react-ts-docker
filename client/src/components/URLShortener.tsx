@@ -3,7 +3,8 @@ import { useState } from 'react';
 
 import { Box, Button, Heading, Input, InputGroup } from '@chakra-ui/react';
 
-import { SERVER_ENDPOINT } from '../config/index';
+const SERVER_ENDPOINT =
+  import.meta.env.VITE_SERVER_ENDPOINT || 'http://localhost:3000';
 
 function URLShortener() {
   // when creatiing more complicated forms use a library like formik for state management instead

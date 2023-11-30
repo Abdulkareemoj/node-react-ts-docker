@@ -3,8 +3,8 @@ import { SetStateAction, useEffect, useState } from 'react';
 import { Box, Spinner } from '@chakra-ui/react';
 import { useMatch } from 'react-router-dom';
 
-export const SERVER_ENDPOINT =
-  process.env.REACT_APP_SERVER_ENDPOINT || 'http://localhost:3000';
+const SERVER_ENDPOINT =
+  import.meta.env.VITE_SERVER_ENDPOINT || 'http://localhost:3000';
 
 interface ShortId {
   shortId: string;
@@ -14,8 +14,10 @@ function HandleRedirect() {
   const [destination, setDestination] = useState<null | string>(null);
   const [error, setError] = useState<Error | undefined>(undefined);
 
-  const match = useMatch<ShortId>('/:shortId');
-  const shortId = match?.params.shortId;
+  // const match = useMatch<ShortId>('/:shortId');
+  // const shortId = match?.params.shortId;
+  const match = useMatch<ShortId, unknown>('/:shortId');
+  const shortId = match?.params?.shortId;
 
   async function getData({ shortId }: ShortId) {
     return axios
@@ -30,7 +32,7 @@ function HandleRedirect() {
 
   useEffect(() => {
     if (shortId) {
-      getData({ shortId });
+      getData({ shortId: shortId });
     }
   }, [shortId]);
 
