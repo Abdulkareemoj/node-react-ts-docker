@@ -7,15 +7,15 @@ import Layout from './components/Layout';
 
 function App() {
   return (
-    <Layout>
-      <Router>
+    <Router>
+      <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/links" element={<Links />} />
           <Route path="/:shortId" element={<HandleRedirect />} />
         </Routes>
-      </Router>
-    </Layout>
+      </Layout>
+    </Router>
   );
 }
 
