@@ -16,15 +16,15 @@ export default function Navbar() {
       borderRightWidth="1px"
     >
       <ChakraLink as={ReactRouterLink} to="/" p="5">
-        Home
+        Dashboard
       </ChakraLink>
-      <ChakraLink as={ReactRouterLink} to="/links" p="5">
-        Links
-      </ChakraLink>
-      <ChakraLink as={ReactRouterLink} to="/contact" p="5">
+      <ChakraLink as={ReactRouterLink} to="#" p="5">
         Contact
       </ChakraLink>
       <Spacer />
+      <ChakraLink as={ReactRouterLink} to="#" p="5">
+        Logout
+      </ChakraLink>
       <Switch
         color="green"
         isChecked={isDark}
