@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-
+import Table from '../components/Table';
 import URLShortenerForm from '../components/URLShortener';
 import Header from '../components/Header';
 
@@ -16,6 +16,9 @@ function Home() {
         alignItems="center"
       >
         <URLShortenerForm />
+      </Box>
+      <Box>
+        <Table />
       </Box>
     </>
   );
