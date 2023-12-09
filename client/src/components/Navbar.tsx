@@ -18,7 +18,7 @@ export default function Navbar() {
       <ChakraLink as={ReactRouterLink} to="/" p="5">
         Dashboard
       </ChakraLink>
-      <ChakraLink as={ReactRouterLink} to="#" p="5">
+      <ChakraLink as={ReactRouterLink} to="/contact" p="5">
         Contact
       </ChakraLink>
       <Spacer />
