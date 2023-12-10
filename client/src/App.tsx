@@ -6,15 +6,16 @@ import Links from './pages/Links';
 import Landing from './pages/Landing';
 import Layout from './components/Layout';
 import Contact from './pages/Contact';
-
+import SignIn from './pages/SignIn';
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/landing" element={<Landing />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<SignIn />} />
         <Route
-          path="*"
+          path="/"
           element={
             <Layout>
               <Routes>
