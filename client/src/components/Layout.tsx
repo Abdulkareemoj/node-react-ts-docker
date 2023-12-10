@@ -1,12 +1,12 @@
 import { Box, Flex } from '@chakra-ui/react';
-import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 import Footer from './Footer';
 // Pass the child props
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Flex>
-        <Navbar />
+        <Sidebar />
         <Box flex="1" mx="20">
           {children}
         </Box>
