@@ -21,6 +21,9 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 
+import { Link as ReactRouterLink } from 'react-router-dom';
+import { Link as ChakraLink } from '@chakra-ui/react';
+
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 
@@ -64,37 +67,15 @@ export default function Navbar() {
             <DesktopNav />
           </Flex>
         </Flex>
-
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={'flex-end'}
-          direction={'row'}
-          spacing={6}
+        <ChakraLink
+          as={ReactRouterLink}
+          to="/login"
+          p="5"
+          fontSize={'sm'}
+          fontWeight={400}
         >
-          <Button
-            as={'a'}
-            fontSize={'sm'}
-            fontWeight={400}
-            variant={'link'}
-            href={'/login'}
-          >
-            Sign In
-          </Button>
-          <Button
-            as={'a'}
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'pink.400'}
-            href={'#'}
-            _hover={{
-              bg: 'pink.300',
-            }}
-          >
-            Sign Up
-          </Button>
-        </Stack>
+          Sign In
+        </ChakraLink>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
@@ -115,10 +96,10 @@ const DesktopNav = () => {
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
-              <Box
-                as="a"
+              <ChakraLink
+                as={ReactRouterLink}
                 p={2}
-                href={navItem.href ?? '#'}
+                to={navItem.to ?? '#'}
                 fontSize={'sm'}
                 fontWeight={500}
                 color={linkColor}
@@ -128,7 +109,7 @@ const DesktopNav = () => {
                 }}
               >
                 {navItem.label}
-              </Box>
+              </ChakraLink>
             </PopoverTrigger>
 
             {navItem.children && (
@@ -154,11 +135,11 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DesktopSubNav = ({ label, to, subLabel }: NavItem) => {
   return (
-    <Box
-      as="a"
-      href={href}
+    <ChakraLink
+      as={ReactRouterLink}
+      to={to}
       role={'group'}
       display={'block'}
       p={2}
@@ -188,7 +169,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
-    </Box>
+    </ChakraLink>
   );
 };
 
@@ -206,15 +187,15 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
+const MobileNavItem = ({ label, children, to }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
-      <Box
+      <ChakraLink
+        as={ReactRouterLink}
         py={2}
-        as="a"
-        href={href ?? '#'}
+        to={to ?? '#'}
         justifyContent="space-between"
         alignItems="center"
         _hover={{
@@ -236,7 +217,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
             h={6}
           />
         )}
-      </Box>
+      </ChakraLink>
 
       <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
         <Stack
@@ -249,7 +230,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         >
           {children &&
             children.map((child) => (
-              <Box as="a" key={child.label} py={2} href={child.href}>
+              <Box as="a" key={child.label} py={2} to={child.to}>
                 {child.label}
               </Box>
             ))}
@@ -263,7 +244,7 @@ interface NavItem {
   label: string;
   subLabel?: string;
   children?: Array<NavItem>;
-  href?: string;
+  to?: string;
 }
 
 const NAV_ITEMS: Array<NavItem> = [
@@ -273,12 +254,12 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: 'Explore Design Work',
         subLabel: 'Trending Design to inspire you',
-        href: '#',
+        to: '#',
       },
       {
         label: 'New & Noteworthy',
         subLabel: 'Up-and-coming Designers',
-        href: '#',
+        to: '#',
       },
     ],
   },
@@ -288,21 +269,21 @@ const NAV_ITEMS: Array<NavItem> = [
       {
         label: 'Job Board',
         subLabel: 'Find your dream design job',
-        href: '#',
+        to: '#',
       },
       {
         label: 'Freelance Projects',
         subLabel: 'An exclusive list for contract work',
-        href: '#',
+        to: '#',
       },
     ],
   },
   {
-    label: 'Learn Design',
-    href: '#',
+    label: 'Contact',
+    to: '/contact',
   },
   {
-    label: 'Hire Designers',
-    href: '#',
+    label: 'About',
+    to: '/about',
   },
 ];
