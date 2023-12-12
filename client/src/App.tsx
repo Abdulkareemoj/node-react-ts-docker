@@ -7,6 +7,7 @@ import Landing from './pages/Landing';
 import Layout from './components/Layout';
 import Contact from './pages/Contact';
 import SignIn from './pages/SignIn';
+import About from './pages/About';
 function App() {
   return (
     <Router>
@@ -14,6 +15,7 @@ function App() {
         <Route path="/landing" element={<Landing />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<SignIn />} />
+        <Route path="/about" element={<About />} />
         <Route
           path="/"
           element={
