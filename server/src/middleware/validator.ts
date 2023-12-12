@@ -15,7 +15,11 @@ async (
     });
     next();
   } catch (e) {
-    return res.status(400).send(e.errors);
+    if (e instanceof Error) {
+      return res.status(400).send(e.message);
+    } else {
+      return res.status(500).send("An unknown error occurred");
+    }
   }
 };
 
