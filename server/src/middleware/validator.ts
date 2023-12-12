@@ -1,20 +1,22 @@
-import { AnyObjectSchema } from "yup";
-import {Request, Response, NextFunction } from "express";
+import { ZodSchema } from "zod";
+import { NextFunction, Request, Response } from "express";
 
-
-const validateResource = (resourceSchema: AnyObjectSchema)=>async (
-    req: Request, res: Response, next: NextFunction
+const validateResource = (resourceSchema: ZodSchema<any>) =>
+async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
 ) => {
-    try {
-        await resourceSchema.validate({
-            body: req.body,
-            query: req.query,
-            params: req.params
-        });
-    } catch (e) {
-        return res.sendStatus(400)
-    }
+  try {
+    resourceSchema.parse({
+      body: req.body,
+      query: req.query,
+      params: req.params,
+    });
+    next();
+  } catch (e) {
+    return res.status(400).send(e.errors);
+  }
 };
 
 export default validateResource;
-
