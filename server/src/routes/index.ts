@@ -16,7 +16,15 @@ function routes(app: Express) {
 
   app.get("/:shortId", redirectURL);
 
-  app.get("/analytics", getAnalytics);
+  app.get("/api/analytics", getAnalytics);
+
+  app.post("/api/signin");
+
+  app.get("/api/test/mod");
+  app.get("/api/test/all");
+  app.get("/api/test/admin");
+
+  app.get("/api/test/user");
 }
 
 export default routes;
