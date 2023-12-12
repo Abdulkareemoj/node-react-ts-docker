@@ -1,5 +1,7 @@
-import {object, string} from "yup";
+import { z } from "zod";
 
-export default object({
-    destination: string().url("Must be a valid url").required("Destination required"),
+export default z.object({
+  destination: z.string().url("Must be a valid url").nonempty(
+    "Destination required",
+  ),
 });
