@@ -8,7 +8,6 @@ import AccordionContent from '../components/LandingPage/Accordion';
 const Landing = () => {
   return (
     <>
-      <Navbar />
       <First />
       <Second />
       <Third />
