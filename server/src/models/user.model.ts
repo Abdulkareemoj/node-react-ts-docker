@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String },
   email: { type: String, required: true, unique: true },
-  role: { type: mongoose.Schema.Types.ObjectId, ref: "Role" },
+  role: { type: String, default: "user" },
 });
 const User = mongoose.model<User>("User", schema);
 
