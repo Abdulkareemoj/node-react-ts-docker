@@ -1,5 +1,23 @@
-import { Flex, Box, Spacer } from '@chakra-ui/react';
+import {
+  Flex,
+  Box,
+  Spacer,
+  useColorModeValue,
+  useDisclosure,
+  Button,
+  CloseButton,
+  HStack,
+  Icon,
+  IconButton,
+  Link,
+  VStack,
+  chakra,
+  useColorMode,
+} from '@chakra-ui/react';
 import Date from './Date';
+import { useViewportScroll } from 'framer-motion';
+import React from 'react';
+
 const Header = () => {
   const mobileNav = useDisclosure();
   const { toggleColorMode: toggleMode } = useColorMode();
@@ -47,7 +65,13 @@ const Header = () => {
       }}
       ml={5}
     >
-      <Icon as={FaHeart} w="4" h="4" color="red.500" mr="2" />
+      <Icon
+        //  as={FaHeart}
+        w="4"
+        h="4"
+        color="red.500"
+        mr="2"
+      />
       <Box as="strong" lineHeight="inherit" fontWeight="semibold">
         Sponsor
       </Box>
@@ -74,18 +98,26 @@ const Header = () => {
         justifySelf="self-start"
         onClick={mobileNav.onClose}
       />
-      <Button w="full" variant="ghost" leftIcon={<AiFillHome />}>
+      <Button
+        w="full"
+        variant="ghost"
+        // leftIcon={<AiFillHome />}
+      >
         Dashboard
       </Button>
       <Button
         w="full"
         variant="solid"
         colorScheme="brand"
-        leftIcon={<AiOutlineInbox />}
+        // leftIcon={<AiOutlineInbox />}
       >
         Inbox
       </Button>
-      <Button w="full" variant="ghost" leftIcon={<BsFillCameraVideoFill />}>
+      <Button
+        w="full"
+        variant="ghost"
+        //   leftIcon={<BsFillCameraVideoFill />}
+      >
         Videos
       </Button>
     </VStack>
@@ -113,9 +145,7 @@ const Header = () => {
             >
               <Flex align="center">
                 <Link href="/">
-                  <HStack>
-                    <Logo />
-                  </HStack>
+                  <HStack>{/* <Logo /> */}</HStack>
                 </Link>
               </Flex>
 
@@ -139,7 +169,7 @@ const Header = () => {
                     href="https://github.com/anubra266/choc-ui"
                   >
                     <Icon
-                      as={AiFillGithub}
+                      // as={AiFillGithub}
                       display="block"
                       transition="color 0.2s"
                       w="5"
@@ -176,7 +206,7 @@ const Header = () => {
                     color: 'inherit',
                   }}
                   variant="ghost"
-                  icon={<AiOutlineMenu />}
+                  // icon={<AiOutlineMenu />}
                   onClick={mobileNav.onOpen}
                 />
               </Flex>
