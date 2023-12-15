@@ -26,7 +26,7 @@ import { ReactText } from 'react';
 
 interface LinkItemProps {
   name: string;
-  icon: IconType;
+  // icon: IconType;
 }
 const LinkItems: Array<LinkItemProps> = [
   // { name: 'Home', icon: FiHome },
@@ -106,7 +106,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 };
 
 interface NavItemProps extends FlexProps {
-  icon: IconType;
+  // icon: IconType;
   children: ReactText;
 }
 const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
