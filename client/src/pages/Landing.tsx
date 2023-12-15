@@ -12,7 +12,6 @@ const Landing = () => {
       <Second />
       <Third />
       <Pricing /> <AccordionContent />
-      <Footer />
     </>
   );
 };
