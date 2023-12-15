@@ -15,7 +15,7 @@ app.use(cors({
 const port = process.env.PORT;
 
 app.use(bodyParser.json());
-
+app.use(express.urlencoded({extended: true}))
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
   db();
