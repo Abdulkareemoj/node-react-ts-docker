@@ -14,17 +14,32 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/*" element={<LandingLayout />}>
-          <Route path="/landing" element={<Landing />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<SignIn />} />
-          <Route path="/about" element={<About />} />
-        </Route>
-        <Route path="/*" element={<DashboardLayout />}>
-          <Route index element={<Home />} />
-          <Route path="/links" element={<Links />} />
-          <Route path="/:shortId" element={<HandleRedirect />} />
-        </Route>
+        <Route
+          path="*"
+          element={
+            <LandingLayout>
+              <Routes>
+                <Route path="/landing" element={<Landing />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/login" element={<SignIn />} />
+                <Route path="/about" element={<About />} />{' '}
+              </Routes>
+            </LandingLayout>
+          }
+        />
+
+        <Route
+          path="*"
+          element={
+            <DashboardLayout>
+              <Routes>
+                <Route path="/dashboard" element={<Home />} />
+                <Route path="/links" element={<Links />} />
+                <Route path="/:shortId" element={<HandleRedirect />} />
+              </Routes>
+            </DashboardLayout>
+          }
+        />
       </Routes>
     </Router>
   );
