@@ -7,6 +7,7 @@ import {
 import validateResource from "../middleware/validator";
 import shortURLSchema from "../schema/createShortURL.schema";
 import { checkRole } from "../middleware/checkRole";
+import { login, logout } from "../middleware/auth.contoller";
 
 function routes(app: Express) {
   app.get("/", (req: Request, res: Response) => {
@@ -19,18 +20,16 @@ function routes(app: Express) {
 
   app.get("/api/analytics", getAnalytics);
 
-  app.post("/api/login");
+  app.post("/login", login);
 
-  app.get("/admin", checkRole(["admin"]), (req: Request, res: Response) => {
-    // Only authenticated admins can reach this
-  });
+  app.post("/logout", logout);
+
+  app.get("/admin", checkRole(["admin"])); // Only authenticated admins can reach this;
 
   app.get(
     "/user",
     checkRole(["user", "admin"]),
-    (req: Request, res: Response) => {
-      // Both authenticated users and admins can reach this
-    },
+    // Both authenticated users and admins can reach this
   );
 }
 
