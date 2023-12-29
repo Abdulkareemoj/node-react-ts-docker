@@ -26,7 +26,10 @@ import { Link as ChakraLink } from '@chakra-ui/react';
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
-
+  // const { toggleColorMode: toggleMode } = useColorMode();
+  // const text = useColorModeValue('dark', 'light');
+  // const SwitchIcon = useColorModeValue(FaMoon, FaSun);
+  // const bg = useColorModeValue('white', 'gray.800');
   return (
     <Box>
       <Flex
@@ -60,7 +63,15 @@ export default function Navbar() {
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}
           >
-            Logo
+            <ChakraLink
+              as={ReactRouterLink}
+              to="/"
+              p="5"
+              fontSize={'sm'}
+              fontWeight={400}
+            >
+              Logo
+            </ChakraLink>
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -77,7 +88,19 @@ export default function Navbar() {
           Sign In
         </ChakraLink>
       </Flex>
-
+      {/* <IconButton
+        size="md"
+        fontSize="lg"
+        aria-label={`Switch to ${text} mode`}
+        variant="ghost"
+        color="current"
+        ml={{
+          base: '0',
+          md: '3',
+        }}
+        onClick={toggleMode}
+        icon={<SwitchIcon />}
+      /> */}
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>

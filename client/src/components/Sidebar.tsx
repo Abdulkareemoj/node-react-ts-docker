@@ -1,177 +1,210 @@
-import React, { ReactNode } from 'react';
 import {
-  IconButton,
+  Avatar,
   Box,
-  CloseButton,
-  Flex,
-  Icon,
-  useColorModeValue,
-  Text,
+  Collapse,
   Drawer,
   DrawerContent,
+  DrawerOverlay,
+  Flex,
+  Icon,
+  IconButton,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Text,
+  useColorModeValue,
   useDisclosure,
-  BoxProps,
-  FlexProps,
 } from '@chakra-ui/react';
-// import {
-//   FiHome,
-//   FiTrendingUp,
-//   FiCompass,
-//   FiStar,
-//   FiSettings,
-//   FiMenu,
-// } from 'react-icons/fi';
-// import { IconType } from 'react-icons';
-import { ReactText } from 'react';
+import { FaBell, FaClipboardCheck, FaRss } from 'react-icons/fa';
+import { AiFillGift } from 'react-icons/ai';
+import { BsGearFill } from 'react-icons/bs';
+import { FiMenu, FiSearch } from 'react-icons/fi';
+import { HiCode, HiCollection } from 'react-icons/hi';
+import { MdHome, MdKeyboardArrowRight } from 'react-icons/md';
+import React from 'react';
+import { Link as ReactRouterLink } from 'react-router-dom';
+import { Link as ChakraLink } from '@chakra-ui/react';
 
-interface LinkItemProps {
-  name: string;
-  // icon: IconType;
-}
-const LinkItems: Array<LinkItemProps> = [
-  // { name: 'Home', icon: FiHome },
-  { name: 'Home' },
+export default function Sidebar() {
+  const sidebar = useDisclosure();
+  const integrations = useDisclosure();
+  const color = useColorModeValue('gray.600', 'gray.300');
 
-  // { name: 'Trending', icon: FiTrendingUp },
-  { name: 'Trending' },
-
-  // { name: 'Explore', icon: FiCompass },
-  { name: 'Explore' },
-
-  // { name: 'Favourites', icon: FiStar },
-  { name: 'Favourites' },
-
-  // { name: 'Settings', icon: FiSettings },
-  { name: 'Settings' },
-];
-
-export default function SimpleSidebar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  return (
-    <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
-      <SidebarContent
-        onClose={() => onClose}
-        display={{ base: 'none', md: 'block' }}
-      />
-      <Drawer
-        isOpen={isOpen}
-        placement="left"
-        onClose={onClose}
-        returnFocusOnClose={false}
-        onOverlayClick={onClose}
-        size="full"
-      >
-        <DrawerContent>
-          <SidebarContent onClose={onClose} />
-        </DrawerContent>
-      </Drawer>
-      {/* mobilenav */}
-      <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p="4">
-        {/* Content */}
-      </Box>
-    </Box>
-  );
-}
-
-interface SidebarProps extends BoxProps {
-  onClose: () => void;
-}
-
-const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
-  return (
-    <Box
-      bg={useColorModeValue('white', 'gray.900')}
-      borderRight="1px"
-      borderRightColor={useColorModeValue('gray.200', 'gray.700')}
-      w={{ base: 'full', md: 60 }}
-      pos="fixed"
-      h="full"
-      {...rest}
-    >
-      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
-        </Text>
-        <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
-      </Flex>
-      {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
-          {link.name}
-        </NavItem>
-      ))}
-      {/* add switcher here somewhere */}
-    </Box>
-  );
-};
-
-interface NavItemProps extends FlexProps {
-  // icon: IconType;
-  children: ReactText;
-}
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
-  return (
-    <Box
-      as="a"
-      href="#"
-      style={{ textDecoration: 'none' }}
-      _focus={{ boxShadow: 'none' }}
-    >
+  const NavItem = (props) => {
+    const { icon, children, ...rest } = props;
+    return (
       <Flex
         align="center"
-        p="4"
-        mx="4"
-        borderRadius="lg"
-        role="group"
+        px="4"
+        pl="4"
+        py="3"
         cursor="pointer"
+        color="inherit"
+        _dark={{ color: 'gray.400' }}
         _hover={{
-          bg: 'cyan.400',
-          color: 'white',
+          bg: 'gray.100',
+          _dark: { bg: 'gray.900' },
+          color: 'gray.900',
         }}
+        role="group"
+        fontWeight="semibold"
+        transition=".15s ease"
         {...rest}
       >
         {icon && (
           <Icon
-            mr="4"
-            fontSize="16"
+            mx="2"
+            boxSize="4"
             _groupHover={{
-              color: 'white',
+              color: color,
             }}
             as={icon}
           />
         )}
         {children}
       </Flex>
+    );
+  };
+
+  const SidebarContent = (props) => (
+    <Box
+      as="nav"
+      pos="fixed"
+      top="0"
+      left="0"
+      zIndex="sticky"
+      h="full"
+      pb="10"
+      overflowX="hidden"
+      overflowY="auto"
+      bg="white"
+      _dark={{ bg: 'gray.800' }}
+      border
+      color="inherit"
+      borderRightWidth="1px"
+      w="60"
+      {...props}
+    >
+      <Flex px="4" py="5" align="center">
+        <Text
+          fontSize="2xl"
+          ml="2"
+          color="brand.500"
+          _dark={{ color: 'white' }}
+          fontWeight="semibold"
+        >
+          Choc UI
+        </Text>
+      </Flex>
+      <Flex
+        direction="column"
+        as="nav"
+        fontSize="sm"
+        color="gray.600"
+        aria-label="Main Navigation"
+      >
+        <ChakraLink as={ReactRouterLink} to="/dashboard/home">
+          <NavItem icon={MdHome}>Home</NavItem>
+        </ChakraLink>
+        <ChakraLink as={ReactRouterLink} to="/dashboard/links">
+          <NavItem icon={FaRss}>Links</NavItem>
+        </ChakraLink>
+        <ChakraLink as={ReactRouterLink} to="/">
+          <NavItem icon={HiCollection}>Collections</NavItem>{' '}
+        </ChakraLink>
+        <ChakraLink as={ReactRouterLink} to="/">
+          <NavItem icon={HiCode} onClick={integrations.onToggle}>
+            Integrations
+            <Icon
+              as={MdKeyboardArrowRight}
+              ml="auto"
+              transform={integrations.isOpen && 'rotate(90deg)'}
+            />
+          </NavItem>{' '}
+        </ChakraLink>
+        <Collapse in={integrations.isOpen}>
+          <ChakraLink as={ReactRouterLink} to="/">
+            {' '}
+            <NavItem pl="12" py="2">
+              Nothing
+            </NavItem>{' '}
+          </ChakraLink>
+          <ChakraLink as={ReactRouterLink} to="/">
+            <NavItem pl="12" py="2">
+              Here
+            </NavItem>{' '}
+          </ChakraLink>
+          <ChakraLink as={ReactRouterLink} to="/">
+            <NavItem pl="12" py="2">
+              Yet
+            </NavItem>{' '}
+          </ChakraLink>
+        </Collapse>
+        <ChakraLink as={ReactRouterLink} to="/">
+          <NavItem icon={AiFillGift}>Changelog</NavItem>{' '}
+        </ChakraLink>
+        <ChakraLink as={ReactRouterLink} to="/">
+          <NavItem icon={BsGearFill}>Settings</NavItem>{' '}
+        </ChakraLink>
+      </Flex>
     </Box>
   );
-};
-
-interface MobileProps extends FlexProps {
-  onOpen: () => void;
-}
-const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   return (
-    <Flex
-      ml={{ base: 0, md: 60 }}
-      px={{ base: 4, md: 24 }}
-      height="20"
-      alignItems="center"
-      bg={useColorModeValue('white', 'gray.900')}
-      borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
-      justifyContent="flex-start"
-      {...rest}
-    >
-      <IconButton
-        variant="outline"
-        onClick={onOpen}
-        aria-label="open menu"
-        // icon={<FiMenu />}
-      />
+    <Box as="section" bg="gray.50" _dark={{ bg: 'gray.700' }} minH="100vh">
+      <SidebarContent display={{ base: 'none', md: 'unset' }} />
+      <Drawer
+        isOpen={sidebar.isOpen}
+        onClose={sidebar.onClose}
+        placement="left"
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <SidebarContent w="full" borderRight="none" />
+        </DrawerContent>
+      </Drawer>
+      <Box ml={{ base: 0, md: 60 }} transition=".3s ease">
+        <Flex
+          as="header"
+          align="center"
+          justify="space-between"
+          w="full"
+          px="4"
+          bg="white"
+          _dark={{ bg: 'gray.800' }}
+          borderBottomWidth="1px"
+          color="inherit"
+          h="14"
+        >
+          <IconButton
+            aria-label="Menu"
+            display={{ base: 'inline-flex', md: 'none' }}
+            onClick={sidebar.onOpen}
+            icon={<FiMenu />}
+            size="sm"
+          />
+          <InputGroup w="96" display={{ base: 'none', md: 'flex' }}>
+            <InputLeftElement color="gray.500">
+              <FiSearch />
+            </InputLeftElement>
+            <Input placeholder="Search for articles..." />
+          </InputGroup>
 
-      <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
-        Logo
-      </Text>
-    </Flex>
+          <Flex align="center">
+            <Icon color="gray.500" as={FaBell} cursor="pointer" />
+            <Avatar
+              ml="4"
+              size="sm"
+              name="anubra266"
+              src="https://avatars.githubusercontent.com/u/30869823?v=4"
+              cursor="pointer"
+            />
+          </Flex>
+        </Flex>
+
+        <Box as="main" p="4">
+          {/* Add content here, remove div below  */}
+        </Box>
+      </Box>
+    </Box>
   );
-};
+}
