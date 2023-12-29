@@ -30,7 +30,7 @@ export async function signIn(req: Request, res: Response) {
     role: user.role,
   };
 
-  const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
+  const token = jwt.sign(payload, process.env.JWT_SECRET!, { expiresIn: "1h" });
 
   res.json({ token });
 }

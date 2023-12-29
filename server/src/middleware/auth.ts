@@ -1,5 +1,15 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Request as ExpressRequest, Response } from "express";
 import jwt from "jsonwebtoken";
+
+interface UserPayload {
+  id: string;
+  username: string;
+  role: string;
+}
+
+interface Request extends ExpressRequest {
+  user?: UserPayload;
+}
 
 export async function logout(req: Request, res: Response) {
 }
@@ -14,12 +24,12 @@ export async function authenticate(
   if (authHeader) {
     const token = authHeader.split(" ")[1]; // Bearer <token>
 
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    jwt.verify(token, process.env.JWT_SECRET!, (err, user) => {
       if (err) {
         return res.sendStatus(403);
       }
 
-      req.user = user;
+      req.user = user as UserPayload;
       next();
     });
   } else {
