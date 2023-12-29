@@ -9,12 +9,11 @@ export default function DashboardLayout({
 }) {
   return (
     <>
-      <Flex>
-        <Sidebar />
-        <Box flex="1" mx="20">
-          {children}
-        </Box>
-      </Flex>
+      <Sidebar />
+      <Box flex="1" mx="20">
+        {children}
+      </Box>
+
       <Footer />
     </>
   );
