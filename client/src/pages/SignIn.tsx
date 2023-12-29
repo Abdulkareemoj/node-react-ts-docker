@@ -18,6 +18,7 @@ import { useNavigate } from 'react-router-dom';
 export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSignIn = async () => {
     try {
@@ -92,6 +93,7 @@ export default function SignIn() {
                 _hover={{
                   bg: 'blue.500',
                 }}
+                onClick={handleSignIn}
               >
                 Sign in
               </Button>
