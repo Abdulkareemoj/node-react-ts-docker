@@ -11,8 +11,34 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
+import axios from 'axios';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSignIn = async () => {
+    try {
+      const response = await axios.post('http://localhost:3001/api/signin', {
+        email,
+        password,
+      });
+
+      const json = response.data;
+
+      if (json.error) {
+        alert(json.message);
+      } else {
+        // Redirect to the dashboard or home page upon successful sign-in
+        navigate('/dashboard/home');
+      }
+    } catch (error) {
+      console.error('Error during sign-in:', error);
+    }
+  };
+
   return (
     <Flex
       minH={'100vh'}
@@ -36,12 +62,21 @@ export default function SignIn() {
           <Stack spacing={4}>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
-              <Input type="password" />
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </FormControl>
+
             <Stack spacing={10}>
               <Stack
                 direction={{ base: 'column', sm: 'row' }}
