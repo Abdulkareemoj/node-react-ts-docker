@@ -13,6 +13,9 @@
     "compile": "tsc"
   },
   "dependencies": {
+    "@lucia-auth/adapter-mongoose": "^3.0.1",
+    "@types/jsonwebtoken": "^9.0.5",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
