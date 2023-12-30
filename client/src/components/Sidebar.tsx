@@ -112,16 +112,15 @@ export default function Sidebar() {
         <ChakraLink as={ReactRouterLink} to="/">
           <NavItem icon={HiCollection}>Collections</NavItem>{' '}
         </ChakraLink>
-        <ChakraLink as={ReactRouterLink} to="/">
-          <NavItem icon={HiCode} onClick={integrations.onToggle}>
-            Integrations
-            <Icon
-              as={MdKeyboardArrowRight}
-              ml="auto"
-              transform={integrations.isOpen && 'rotate(90deg)'}
-            />
-          </NavItem>{' '}
-        </ChakraLink>
+
+        <NavItem icon={HiCode} onClick={integrations.onToggle}>
+          Integrations
+          <Icon
+            as={MdKeyboardArrowRight}
+            ml="auto"
+            transform={integrations.isOpen && 'rotate(90deg)'}
+          />
+        </NavItem>
         <Collapse in={integrations.isOpen}>
           <ChakraLink as={ReactRouterLink} to="/">
             {' '}
