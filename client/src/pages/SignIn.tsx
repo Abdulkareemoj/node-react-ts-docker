@@ -13,17 +13,23 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { useState } from 'react';
+import { GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
+import { useGoogleLogin } from '@react-oauth/google';
 
 export default function SignIn() {
-  const [email, setEmail] = useState('');
+  const [identifier, setIdentifier] = useState(''); // can be either username or email
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  const login = useGoogleLogin({
+    onSuccess: (tokenResponse) => console.log(tokenResponse),
+  });
+
   const handleSignIn = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/api/signin', {
-        email,
+      const response = await axios.post('http://localhost:3000/api/signin', {
+        identifier,
         password,
       });
 
@@ -62,17 +68,19 @@ export default function SignIn() {
         >
           <Stack spacing={4}>
             <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
+              <FormLabel>Username or Email</FormLabel>
               <Input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                placeholder="email@example.com"
+                value={identifier}
+                onChange={(e) => setIdentifier(e.target.value)}
               />
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
               <Input
                 type="password"
+                placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -96,6 +104,25 @@ export default function SignIn() {
                 onClick={handleSignIn}
               >
                 Sign in
+              </Button>
+              <GoogleLogin
+                onSuccess={(credentialResponse) => {
+                  console.log(credentialResponse);
+                }}
+                onError={() => {
+                  console.log('Login Failed');
+                }}
+              />
+              ;
+              <Button
+                bg={'blackAlpha.900'}
+                color={'white'}
+                _hover={{
+                  bg: 'blackAlpha.500',
+                }}
+                onClick={() => login()}
+              >
+                Sign in with Google
               </Button>
             </Stack>
           </Stack>
