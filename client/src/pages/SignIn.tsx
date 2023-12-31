@@ -105,15 +105,7 @@ export default function SignIn() {
               >
                 Sign in
               </Button>
-              <GoogleLogin
-                onSuccess={(credentialResponse) => {
-                  console.log(credentialResponse);
-                }}
-                onError={() => {
-                  console.log('Login Failed');
-                }}
-              />
-              ;
+
               <Button
                 bg={'blackAlpha.900'}
                 color={'white'}
