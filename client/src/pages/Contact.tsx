@@ -17,21 +17,21 @@ import {
   InputLeftElement,
   Textarea,
 } from '@chakra-ui/react';
-// import {
-//   MdPhone,
-//   MdEmail,
-//   MdLocationOn,
-//   MdFacebook,
-//   MdOutlineEmail,
-// } from 'react-icons/md';
-// import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs';
+import {
+  MdPhone,
+  MdEmail,
+  MdLocationOn,
+  MdFacebook,
+  MdOutlineEmail,
+} from 'react-icons/md';
+import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs';
 
 export default function Contact() {
   return (
-    <Container bg="#9DC4FB" maxW="full" mt={0} centerContent overflow="hidden">
+    <Container maxW="full" mt={0} centerContent overflow="hidden">
       <Flex>
         <Box
-          bg="#02054B"
+          bg="blue.800"
           color="white"
           borderRadius="lg"
           m={{ sm: 4, md: 16, lg: 10 }}
@@ -43,7 +43,7 @@ export default function Contact() {
                 <Box>
                   <Heading>Contact</Heading>
                   <Text mt={{ sm: 3, md: 3, lg: 5 }} color="gray.500">
-                    Fill up the form below to contact
+                    Fill the form below to contact us
                   </Text>
                   <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
                     <VStack pl={0} spacing={3} alignItems="flex-start">
@@ -54,9 +54,9 @@ export default function Contact() {
                         variant="ghost"
                         color="#DCE2FF"
                         _hover={{ border: '2px solid #1C6FEB' }}
-                        // leftIcon={<MdPhone color="#1970F1" size="20px" />}
+                        leftIcon={<MdPhone color="#1970F1" size="20px" />}
                       >
-                        +91-988888888
+                        +123-456-7890
                       </Button>
                       <Button
                         size="md"
@@ -65,9 +65,9 @@ export default function Contact() {
                         variant="ghost"
                         color="#DCE2FF"
                         _hover={{ border: '2px solid #1C6FEB' }}
-                        // leftIcon={<MdEmail color="#1970F1" size="20px" />}
+                        leftIcon={<MdEmail color="#1970F1" size="20px" />}
                       >
-                        hello@abc.com
+                        email@example.com
                       </Button>
                       <Button
                         size="md"
@@ -76,43 +76,12 @@ export default function Contact() {
                         variant="ghost"
                         color="#DCE2FF"
                         _hover={{ border: '2px solid #1C6FEB' }}
-                        // leftIcon={<MdLocationOn color="#1970F1" size="20px" />}
+                        leftIcon={<MdLocationOn color="#1970F1" size="20px" />}
                       >
-                        Karnavati, India
+                        Somewhere, Earth
                       </Button>
                     </VStack>
                   </Box>
-                  <HStack
-                    mt={{ lg: 10, md: 10 }}
-                    spacing={5}
-                    px={5}
-                    alignItems="flex-start"
-                  >
-                    <IconButton
-                      aria-label="facebook"
-                      variant="ghost"
-                      size="lg"
-                      isRound={true}
-                      _hover={{ bg: '#0D74FF' }}
-                      // icon={<MdFacebook size="28px" />}
-                    />
-                    <IconButton
-                      aria-label="github"
-                      variant="ghost"
-                      size="lg"
-                      isRound={true}
-                      _hover={{ bg: '#0D74FF' }}
-                      // icon={<BsGithub size="28px" />}
-                    />
-                    <IconButton
-                      aria-label="discord"
-                      variant="ghost"
-                      size="lg"
-                      isRound={true}
-                      _hover={{ bg: '#0D74FF' }}
-                      // icon={<BsDiscord size="28px" />}
-                    />
-                  </HStack>
                 </Box>
               </WrapItem>
               <WrapItem>
@@ -120,19 +89,19 @@ export default function Contact() {
                   <Box m={8} color="#0B0E3F">
                     <VStack spacing={5}>
                       <FormControl id="name">
-                        <FormLabel>Your Name</FormLabel>
+                        <FormLabel>Name</FormLabel>
                         <InputGroup borderColor="#E0E1E7">
                           <InputLeftElement pointerEvents="none">
-                            {/* <BsPerson color="gray.800" /> */}
+                            <BsPerson color="gray.800" />
                           </InputLeftElement>
                           <Input type="text" size="md" />
                         </InputGroup>
                       </FormControl>
                       <FormControl id="name">
-                        <FormLabel>Mail</FormLabel>
+                        <FormLabel>E-Mail Address</FormLabel>
                         <InputGroup borderColor="#E0E1E7">
                           <InputLeftElement pointerEvents="none">
-                            {/* <MdOutlineEmail color="gray.800" /> */}
+                            <MdOutlineEmail color="gray.800" />
                           </InputLeftElement>
                           <Input type="text" size="md" />
                         </InputGroup>
