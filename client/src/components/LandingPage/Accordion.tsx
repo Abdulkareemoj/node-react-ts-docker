@@ -13,12 +13,7 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 
 export default function AccordionContent() {
   return (
-    <Flex
-      minH={'100vh'}
-      align={'center'}
-      justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}
-    >
+    <Flex minH={'30vh'} align={'center'} justify={'center'}>
       <Container>
         <Accordion allowMultiple width="100%" maxW="lg" rounded="lg">
           <AccordionItem>
