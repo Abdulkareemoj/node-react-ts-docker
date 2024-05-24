@@ -10,15 +10,10 @@
     "format": "prettier --config ./.prettierrc -w 'src/**/*.{tsx,ts}' && git update-index --again"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.1.0",
-    "@chakra-ui/react": "^2.8.0",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "@react-oauth/google": "^0.12.1",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.4.0",
     "dotenv": "^16.3.1",
-    "framer-motion": "^10.16.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
