@@ -1,28 +1,42 @@
-import { Express, Request, Response } from "express";
-import {
-  createShortURL,
-  getAnalytics,
-  redirectURL,
-} from "../controllers/shortURL.controller";
-import validateResource from "../middleware/validator";
-import shortURLSchema from "../schema/createShortURL.schema";
-import { authenticate, checkRole } from "../middleware/auth";
-import { signIn } from "../controllers/auth.controller";
+import { Express, Request, Response } from "express"
+import { createUserHandler } from "../controller/user.controller"
+import { createUserSessionHandler, invalidateUserSessionHandler, getUserSessionsHandler } from "../controller/session.controller"
+import { createPostHandler, getPostHandler, updatePostHandler, deletePostHandler} from '../controller/post.controller'
+import validateRequest from '../middleware/validateRequest'
+import  requiresUser from '../middleware/requiresUser'
+import {createUserSchema} from '../schema/user.schema'
+import {createUserSessionSchema} from '../schema/session.schema'
+import {createPostSchema, updatePostSchema, deletePostSchema} from '../schema/post.schema'
 
-function routes(app: Express) {
-  app.get("/", (req: Request, res: Response) => {
-    return res.send("bruhh");
-  });
+export default function (app: Express){
+    app.get("/healthcheck", (req: Request, res: Response) => res.sendStatus(200))
 
-  app.post("/api/createurl", validateResource(shortURLSchema), createShortURL);
+    //Register User
+    app.post("/api/users", validateRequest(createUserSchema), createUserHandler)
 
-  app.get("/:shortId", redirectURL);
+    //Login User
+    app.post( "/api/sessions", validateRequest(createUserSessionSchema), createUserSessionHandler)
 
-  app.get("/api/analytics", getAnalytics);
+    //User sessions
+    app.get("/api/sessions", requiresUser, getUserSessionsHandler)
 
-  app.post("/dashboard/home", authenticate, checkRole(["admin", "user"]));
+    //Logout
+    app.delete("/api/session", requiresUser, invalidateUserSessionHandler)
 
-  app.post("/api/signin", signIn);
+    //Posts
+
+    //Create Post
+app.post("api/posts", [requiresUser, validateRequest(createPostSchema)], createPostHandler)
+
+    //Get Post
+        app.get("api/posts/:postId", getPostHandler)
+
+
+    //Update a Post
+    app.put("api/posts/:postId", [requiresUser, validateRequest(updatePostSchema)], updatePostHandler)
+
+    //Delete a Post
+    app.delete("api/posts/:postId", [requiresUser, validateRequest(deletePostSchema)], deletePostHandler)
+
 }
 
-export default routes;

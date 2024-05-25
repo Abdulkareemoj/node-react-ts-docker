@@ -1,6 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
-import Sidebar from './Sidebar';
-import Footer from './Footer';
+
 // Pass the child props
 export default function DashboardLayout({
   children,
@@ -9,12 +7,9 @@ export default function DashboardLayout({
 }) {
   return (
     <>
-      <Sidebar />
-      <Box flex="1" mx="20">
+   
         {children}
-      </Box>
-
-      <Footer />
+     
     </>
   );
 }
