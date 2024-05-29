@@ -4,7 +4,7 @@ import Links from "./pages/dashboard/Links";
 import Landing from "./pages/Landing";
 import DashboardLayout from "./components/DashboardLayout";
 import Contact from "./pages/Contact";
-import SignIn from "./pages/SignIn";
+import SignIn from "./pages/SignUp";
 import About from "./pages/About";
 function App() {
   return <div>Home</div>;
