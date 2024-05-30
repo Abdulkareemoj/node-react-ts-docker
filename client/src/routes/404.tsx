@@ -1,4 +1,10 @@
-export default function 404(){
+import { createFileRoute } from "@tanstack/react-router";
+
+export const Route = createFileRoute("/404")({
+  component: NotFound,
+});
+
+function NotFound() {
   return (
     <main>
       <div className="max-w-screen-xl mx-auto px-4 flex items-center justify-start h-screen md:px-8">
@@ -32,4 +38,4 @@ export default function 404(){
       </div>
     </main>
   );
-};
+}

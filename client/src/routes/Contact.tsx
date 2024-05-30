@@ -1,4 +1,9 @@
-export default function Contact() {
+import { createFileRoute } from "@tanstack/react-router";
+
+export const Route = createFileRoute("/Contact")({
+  component: Contact,
+});
+function Contact() {
   const contactMethods = [
     {
       icon: (
