@@ -1,24 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { ChakraProvider } from '@chakra-ui/react';
-import { GoogleOAuthProvider } from '@react-oauth/google';
+// /src/main.tsx
 
-import App from './App';
-const colors = {
-  brand: {
-    900: '#1a365d',
-    800: '#153e75',
-    700: '#2a69ac',
+import ReactDOM from "react-dom/client";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { routeTree } from "./routeTree.gen";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+
+const router = createRouter({
+  routeTree,
+  context: {
+    queryClient,
   },
-};
-const clientID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+  defaultPreload: "intent",
+  defaultPreloadStaleTime: 0,
+});
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <GoogleOAuthProvider clientId={clientID}>
-    <React.StrictMode>
-      <ChakraProvider>
-        <App />
-      </ChakraProvider>
-    </React.StrictMode>
-  </GoogleOAuthProvider>
-);
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
+}
+
+const rootElement = document.getElementById("root")!;
+
+if (!rootElement.innerHTML) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
+}

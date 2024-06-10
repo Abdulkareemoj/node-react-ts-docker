@@ -7,7 +7,7 @@ import {
 import validateResource from "../middleware/validator";
 import shortURLSchema from "../schema/createShortURL.schema";
 import { authenticate, checkRole } from "../middleware/auth";
-import { signIn } from "../controllers/auth.controller";
+import { signIn, signOut } from "../controllers/auth.controller";
 
 function routes(app: Express) {
   app.get("/", (req: Request, res: Response) => {
@@ -20,9 +20,9 @@ function routes(app: Express) {
 
   app.get("/api/analytics", getAnalytics);
 
-  app.post("/dashboard/home", authenticate, checkRole(["admin", "user"]));
-
   app.post("/api/signin", signIn);
+
+  app.post("/api/signout", signOut);
 }
 
 export default routes;

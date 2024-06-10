@@ -13,12 +13,13 @@ const __dirname = path.dirname(__filename);
 const envPath = path.resolve(__dirname, "../../.env");
 dotenv.config({ path: envPath });
 
-const app = express();
-app.use(cors({
-  origin: process.env.CORS_ORIGIN,
-}));
-
 const port = process.env.PORT;
+const app = express();
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN,
+  })
+);
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));

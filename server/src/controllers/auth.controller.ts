@@ -70,3 +70,5 @@ export async function signIn(req: Request, res: Response) {
     res.json({ token });
   }
 }
+
+export async function signOut(req: Request, res: Response) {}
