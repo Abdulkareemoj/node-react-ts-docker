@@ -1,218 +1,119 @@
-import {
-  Box,
-  Stack,
-  HStack,
-  Heading,
-  Text,
-  VStack,
-  useColorModeValue,
-  List,
-  ListItem,
-  ListIcon,
-  Button,
-} from '@chakra-ui/react';
-import { FaCheckCircle } from 'react-icons/fa';
+export default function Pricing(){
 
-interface Props {
-  children: React.ReactNode;
-}
-
-function PriceWrapper(props: Props) {
-  const { children } = props;
+  const plans = [
+    {
+      name: "Basic plan",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      price: 12,
+      isMostPop: false,
+      features: [
+        "Curabitur faucibus",
+        "massa ut pretium maximus",
+        "Sed posuere nisi",
+        "Pellentesque eu nibh et neque",
+        "Suspendisse a leo",
+        "Praesent quis venenatis ipsum",
+        "Duis non diam vel tortor",
+      ],
+    },
+    {
+      name: "Startup",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      price: 35,
+      isMostPop: true,
+      features: [
+        "Curabitur faucibus",
+        "massa ut pretium maximus",
+        "Sed posuere nisi",
+        "Pellentesque eu nibh et neque",
+        "Suspendisse a leo",
+        "Praesent quis venenatis ipsum",
+        "Duis non diam vel tortor",
+      ],
+    },
+    {
+      name: "Enterprise",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      price: 60,
+      isMostPop: false,
+      features: [
+        "Curabitur faucibus",
+        "massa ut pretium maximus",
+        "Sed posuere nisi",
+        "Pellentesque eu nibh et neque",
+        "Suspendisse a leo",
+        "Praesent quis venenatis ipsum",
+        "Duis non diam vel tortor",
+      ],
+    },
+  ];
 
   return (
-    <Box
-      mb={4}
-      shadow="base"
-      borderWidth="1px"
-      alignSelf={{ base: 'center', lg: 'flex-start' }}
-      borderColor={useColorModeValue('gray.200', 'gray.500')}
-      borderRadius={'xl'}
-    >
-      {children}
-    </Box>
-  );
-}
-
-export default function ThreeTierPricing() {
-  return (
-    <Box py={12}>
-      <VStack spacing={2} textAlign="center">
-        <Heading as="h1" fontSize="4xl">
-          Plans that fit your need
-        </Heading>
-        <Text fontSize="lg" color={'gray.500'}>
-          Start with 14-day free trial. No credit card needed. Cancel at
-          anytime.
-        </Text>
-      </VStack>
-      <Stack
-        direction={{ base: 'column', md: 'row' }}
-        textAlign="center"
-        justify="center"
-        spacing={{ base: 4, lg: 10 }}
-        py={10}
-      >
-        <PriceWrapper>
-          <Box py={4} px={12}>
-            <Text fontWeight="500" fontSize="2xl">
-              Hobby
-            </Text>
-            <HStack justifyContent="center">
-              <Text fontSize="3xl" fontWeight="600">
-                $
-              </Text>
-              <Text fontSize="5xl" fontWeight="900">
-                79
-              </Text>
-              <Text fontSize="3xl" color="gray.500">
-                /month
-              </Text>
-            </HStack>
-          </Box>
-          <VStack
-            bg={useColorModeValue('gray.50', 'gray.700')}
-            py={4}
-            borderBottomRadius={'xl'}
-          >
-            <List spacing={3} textAlign="start" px={12}>
-              <ListItem>
-                {/* <ListIcon as={FaCheckCircle} color="green.500" /> */}
-                unlimited build minutes
-              </ListItem>
-              <ListItem>
-                {/* <ListIcon as={FaCheckCircle} color="green.500" /> */}
-                Lorem, ipsum dolor.
-              </ListItem>
-              <ListItem>
-                {/* <ListIcon as={FaCheckCircle} color="green.500" /> */}
-                5TB Lorem, ipsum dolor.
-              </ListItem>
-            </List>
-            <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="red" variant="outline">
-                Start trial
-              </Button>
-            </Box>
-          </VStack>
-        </PriceWrapper>
-
-        <PriceWrapper>
-          <Box position="relative">
-            <Box
-              position="absolute"
-              top="-16px"
-              left="50%"
-              style={{ transform: 'translate(-50%)' }}
+    <section className="py-14">
+      <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
+        <div className="relative max-w-xl mx-auto sm:text-center">
+          <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
+            Pricing for all sizes
+          </h3>
+          <div className="mt-3 max-w-xl">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+              efficitur consequat nunc.
+            </p>
+          </div>
+        </div>
+        <div className="mt-16 justify-center gap-6 sm:grid sm:grid-cols-2 sm:space-y-0 lg:grid-cols-3">
+          {plans.map((item, idx) => (
+            <div
+              key={idx}
+              className={`relative flex-1 flex items-stretch flex-col rounded-xl border-2 mt-6 sm:mt-0 ${item.isMostPop ? "mt-10" : ""}`}
             >
-              <Text
-                textTransform="uppercase"
-                bg={useColorModeValue('red.300', 'red.700')}
-                px={3}
-                py={1}
-                color={useColorModeValue('gray.900', 'gray.300')}
-                fontSize="sm"
-                fontWeight="600"
-                rounded="xl"
-              >
-                Most Popular
-              </Text>
-            </Box>
-            <Box py={4} px={12}>
-              <Text fontWeight="500" fontSize="2xl">
-                Growth
-              </Text>
-              <HStack justifyContent="center">
-                <Text fontSize="3xl" fontWeight="600">
-                  $
-                </Text>
-                <Text fontSize="5xl" fontWeight="900">
-                  149
-                </Text>
-                <Text fontSize="3xl" color="gray.500">
-                  /month
-                </Text>
-              </HStack>
-            </Box>
-            <VStack
-              bg={useColorModeValue('gray.50', 'gray.700')}
-              py={4}
-              borderBottomRadius={'xl'}
-            >
-              <List spacing={3} textAlign="start" px={12}>
-                <ListItem>
-                  {/* <ListIcon as={FaCheckCircle} color="green.500" /> */}
-                  unlimited build minutes
-                </ListItem>
-                <ListItem>
-                  {/* <ListIcon as={FaCheckCircle} color="green.500" /> */}
-                  Lorem, ipsum dolor.
-                </ListItem>
-                <ListItem>
-                  {/* <ListIcon as={FaCheckCircle} color="green.500" /> */}
-                  5TB Lorem, ipsum dolor.
-                </ListItem>
-                <ListItem>
-                  {/* <ListIcon as={FaCheckCircle} color="green.500" /> */}
-                  5TB Lorem, ipsum dolor.
-                </ListItem>
-                <ListItem>
-                  {/* <ListIcon as={FaCheckCircle} color="green.500" /> */}
-                  5TB Lorem, ipsum dolor.
-                </ListItem>
-              </List>
-              <Box w="80%" pt={7}>
-                <Button w="full" colorScheme="red">
-                  Start trial
-                </Button>
-              </Box>
-            </VStack>
-          </Box>
-        </PriceWrapper>
-        <PriceWrapper>
-          <Box py={4} px={12}>
-            <Text fontWeight="500" fontSize="2xl">
-              Scale
-            </Text>
-            <HStack justifyContent="center">
-              <Text fontSize="3xl" fontWeight="600">
-                $
-              </Text>
-              <Text fontSize="5xl" fontWeight="900">
-                349
-              </Text>
-              <Text fontSize="3xl" color="gray.500">
-                /month
-              </Text>
-            </HStack>
-          </Box>
-          <VStack
-            bg={useColorModeValue('gray.50', 'gray.700')}
-            py={4}
-            borderBottomRadius={'xl'}
-          >
-            <List spacing={3} textAlign="start" px={12}>
-              <ListItem>
-                {/* <ListIcon as={FaCheckCircle} color="green.500" /> */}
-                unlimited build minutes
-              </ListItem>
-              <ListItem>
-                {/* <ListIcon as={FaCheckCircle} color="green.500" /> */}
-                Lorem, ipsum dolor.
-              </ListItem>
-              <ListItem>
-                {/* <ListIcon as={FaCheckCircle} color="green.500" /> */}
-                5TB Lorem, ipsum dolor.
-              </ListItem>
-            </List>
-            <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="red" variant="outline">
-                Start trial
-              </Button>
-            </Box>
-          </VStack>
-        </PriceWrapper>
-      </Stack>
-    </Box>
+              {item.isMostPop ? (
+                <span class="w-32 absolute -top-5 left-0 right-0 mx-auto px-3 py-2 rounded-full border shadow-md bg-white text-center text-gray-700 text-sm font-semibold">
+                  Most popular
+                </span>
+              ) : (
+                ""
+              )}
+              <div className="p-8 space-y-4 border-b">
+                <span className="text-indigo-600 font-medium">{item.name}</span>
+                <div className="text-gray-800 text-3xl font-semibold">
+                  ${item.price}{" "}
+                  <span className="text-xl text-gray-600 font-normal">/mo</span>
+                </div>
+                <p>{item.desc}</p>
+                <button className="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700">
+                  Get Started
+                </button>
+              </div>
+              <ul className="p-8 space-y-3">
+                <li className="pb-2 text-gray-800 font-medium">
+                  <p>Features</p>
+                </li>
+                {item.features.map((featureItem, idx) => (
+                  <li key={idx} className="flex items-center gap-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-indigo-600"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    {featureItem}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
+};
+
 }

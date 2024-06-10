@@ -12,12 +12,13 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as SignInImport } from './routes/sign-in'
-import { Route as ContactImport } from './routes/contact'
-import { Route as AboutImport } from './routes/about'
+import { Route as SignUpImport } from './routes/SignUp'
+import { Route as SignInImport } from './routes/SignIn'
+import { Route as ContactImport } from './routes/Contact'
+import { Route as AboutImport } from './routes/About'
 import { Route as R404Import } from './routes/404'
-import { Route as IndexImport } from './routes/index'
-import { Route as BlogIndexImport } from './routes/blog/index'
-import { Route as DashboardHomeImport } from './routes/dashboard/home'
+import { Route as DashboardHomeImport } from './routes/dashboard/Home'
+import { Route as BlogIndexImport } from './routes/blog/Index'
 
 // Create/Update Routes
 
@@ -26,13 +27,23 @@ const SignInRoute = SignInImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const SignUpRoute = SignUpImport.update({
+  path: '/SignUp',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SignInRoute = SignInImport.update({
+  path: '/SignIn',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const ContactRoute = ContactImport.update({
-  path: '/contact',
+  path: '/Contact',
   getParentRoute: () => rootRoute,
 } as any)
 
 const AboutRoute = AboutImport.update({
-  path: '/about',
+  path: '/About',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -41,18 +52,13 @@ const R404Route = R404Import.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const IndexRoute = IndexImport.update({
-  path: '/',
+const DashboardHomeRoute = DashboardHomeImport.update({
+  path: '/dashboard/Home',
   getParentRoute: () => rootRoute,
 } as any)
 
 const BlogIndexRoute = BlogIndexImport.update({
-  path: '/blog/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardHomeRoute = DashboardHomeImport.update({
-  path: '/dashboard/home',
+  path: '/blog/Index',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -60,13 +66,6 @@ const DashboardHomeRoute = DashboardHomeImport.update({
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
     '/404': {
       id: '/404'
       path: '/404'
@@ -74,18 +73,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof R404Import
       parentRoute: typeof rootRoute
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
+    '/About': {
+      id: '/About'
+      path: '/About'
+      fullPath: '/About'
       preLoaderRoute: typeof AboutImport
       parentRoute: typeof rootRoute
     }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
+    '/Contact': {
+      id: '/Contact'
+      path: '/Contact'
+      fullPath: '/Contact'
       preLoaderRoute: typeof ContactImport
+      parentRoute: typeof rootRoute
+    }
+    '/SignIn': {
+      id: '/SignIn'
+      path: '/SignIn'
+      fullPath: '/SignIn'
+      preLoaderRoute: typeof SignInImport
+      parentRoute: typeof rootRoute
+    }
+    '/SignUp': {
+      id: '/SignUp'
+      path: '/SignUp'
+      fullPath: '/SignUp'
+      preLoaderRoute: typeof SignUpImport
       parentRoute: typeof rootRoute
     }
     '/sign-in': {
@@ -95,18 +108,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignInImport
       parentRoute: typeof rootRoute
     }
-    '/dashboard/home': {
-      id: '/dashboard/home'
-      path: '/dashboard/home'
-      fullPath: '/dashboard/home'
-      preLoaderRoute: typeof DashboardHomeImport
+    '/blog/Index': {
+      id: '/blog/Index'
+      path: '/blog/Index'
+      fullPath: '/blog/Index'
+      preLoaderRoute: typeof BlogIndexImport
       parentRoute: typeof rootRoute
     }
-    '/blog/': {
-      id: '/blog/'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogIndexImport
+    '/dashboard/Home': {
+      id: '/dashboard/Home'
+      path: '/dashboard/Home'
+      fullPath: '/dashboard/Home'
+      preLoaderRoute: typeof DashboardHomeImport
       parentRoute: typeof rootRoute
     }
   }
@@ -115,13 +128,14 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren({
-  IndexRoute,
   R404Route,
   AboutRoute,
   ContactRoute,
   SignInRoute,
-  DashboardHomeRoute,
+  SignUpRoute,
+  SignInRoute,
   BlogIndexRoute,
+  DashboardHomeRoute,
 })
 
 /* prettier-ignore-end */
@@ -132,35 +146,39 @@ export const routeTree = rootRoute.addChildren({
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
         "/404",
-        "/about",
-        "/contact",
+        "/About",
+        "/Contact",
+        "/SignIn",
+        "/SignUp",
         "/sign-in",
-        "/dashboard/home",
-        "/blog/"
+        "/blog/Index",
+        "/dashboard/Home"
       ]
-    },
-    "/": {
-      "filePath": "index.tsx"
     },
     "/404": {
       "filePath": "404.tsx"
     },
-    "/about": {
-      "filePath": "about.tsx"
+    "/About": {
+      "filePath": "About.tsx"
     },
-    "/contact": {
-      "filePath": "contact.tsx"
+    "/Contact": {
+      "filePath": "Contact.tsx"
+    },
+    "/SignIn": {
+      "filePath": "SignIn.tsx"
+    },
+    "/SignUp": {
+      "filePath": "SignUp.tsx"
     },
     "/sign-in": {
       "filePath": "sign-in.tsx"
     },
-    "/dashboard/home": {
-      "filePath": "dashboard/home.tsx"
+    "/blog/Index": {
+      "filePath": "blog/Index.tsx"
     },
-    "/blog/": {
-      "filePath": "blog/index.tsx"
+    "/dashboard/Home": {
+      "filePath": "dashboard/Home.tsx"
     }
   }
 }

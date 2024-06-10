@@ -1,6 +1,6 @@
-# node-shortener-docker
+# REST-nodets
 
-A URL Shortener built wih Node.js, MongoDB, React, Typescript and Docker
 
-Backend for https://github.com/Abdulkareemoj/shortener-fe
+## A RESTful api written in Node.js with Typescript Express and and mongoose deployed on cyclic
 
+## Also wrote a version in Deno here https://github.com/Abdulkareemoj/REST-Node/tree/deno
