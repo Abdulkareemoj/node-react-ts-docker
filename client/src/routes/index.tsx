@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Header from "../components/header";
 import Footer from "../components/footer";
 import Feature from "../components/feature";
 import Hero from "../components/hero";
@@ -14,7 +13,6 @@ import Pricing from "../components/pricing";
 export const Route = createFileRoute("/")({
   component: () => (
     <>
-      <Header />
       <Hero />
       <Feature />
       <Stats />

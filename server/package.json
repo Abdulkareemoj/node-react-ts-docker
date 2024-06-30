@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "REST API built with TypeScript",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
     "build": "rimraf ./dist && tsc",
     "start": "node dist/index.js",
