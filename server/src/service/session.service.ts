@@ -1,5 +1,5 @@
-import Session from "../model/session.model";
-import UserDocument from "../model/user.model";
+import Session from "../models/session.model";
+import UserDocument from "../models/user.model";
 import { signJwt, verifyJwt } from "../utils/jwt.utils";
 import { get } from "lodash";
 import { ObjectId } from "mongoose";
