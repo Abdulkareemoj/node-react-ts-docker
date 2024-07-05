@@ -1,22 +1,25 @@
 import { Express, Request, Response } from "express";
 import {
-  createShortURL,
+  createShortUrl,
   getAnalytics,
-  redirectURL,
-} from "../controllers/shortURL.controller";
+  getShortUrl,
+  handleRedirect,
+} from "../controller/shortUrl.controller";
 import validateResource from "../middleware/validator";
-import shortURLSchema from "../schema/createShortURL.schema";
-import { authenticate, checkRole } from "../middleware/auth";
-import { signIn, signOut } from "../controllers/auth.controller";
+import shortUrlSchema from "../schema/createShortURL.schema";
+// import { authenticate, checkRole } from "../middleware/auth";
+import { signIn, signOut } from "../controller/auth.controller";
 
 function routes(app: Express) {
   app.get("/", (req: Request, res: Response) => {
     return res.send("bruhh");
   });
 
-  app.post("/api/createurl", validateResource(shortURLSchema), createShortURL);
+  app.post("/api/url", validateResource(shortUrlSchema), createShortUrl);
 
-  app.get("/:shortId", redirectURL);
+  app.get("/:shortId", handleRedirect);
+
+  app.get("/api/url/:shortId", getShortUrl);
 
   app.get("/api/analytics", getAnalytics);
 

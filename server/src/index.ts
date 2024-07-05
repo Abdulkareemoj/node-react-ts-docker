@@ -1,7 +1,7 @@
 import routes from "./routes";
 import bodyParser from "body-parser";
 import express from "express";
-import db from "./utils/db";
+import dbconnect from "./utils/dbconnect";
 import cors from "cors";
 import path from "path";
 import dotenv from "dotenv";
@@ -21,6 +21,6 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
-  db();
+  dbconnect();
   routes(app);
 });
