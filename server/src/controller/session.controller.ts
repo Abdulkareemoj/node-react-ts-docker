@@ -7,7 +7,7 @@ import {
 } from "../service/session.service";
 import { get } from "lodash";
 import { signJwt } from "../utils/jwt.utils";
-import { SessionDocument } from "../model/session.model";
+import { SessionDocument } from "../models/session.model";
 
 export async function createUserSessionHandler(req: Request, res: Response) {
   try {

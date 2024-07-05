@@ -71,4 +71,7 @@ export async function signIn(req: Request, res: Response) {
   }
 }
 
-export async function signOut(req: Request, res: Response) {}
+export async function signOut(req: Request, res: Response) {
+  // implement sign out functionality here
+  res.json({ message: "Sign out successful" });
+}
