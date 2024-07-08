@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const createShortURLSchema = z.object({
+export const createShortURLSchema = z.object({
   body: z.object({
     destination: z
       .string()
@@ -8,5 +8,3 @@ const createShortURLSchema = z.object({
       .min(1, "Destination is required"),
   }),
 });
-
-export default createShortURLSchema;
