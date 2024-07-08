@@ -16,8 +16,11 @@ import { Route as ContactImport } from './routes/contact'
 import { Route as AboutImport } from './routes/about'
 import { Route as R404Import } from './routes/404'
 import { Route as IndexImport } from './routes/index'
+import { Route as ShortenerIndexImport } from './routes/shortener/index'
 import { Route as ProductIndexImport } from './routes/product/index'
 import { Route as BlogIndexImport } from './routes/blog/index'
+import { Route as ShortenerLinksPageImport } from './routes/shortener/linksPage'
+import { Route as ShortenerDashboardImport } from './routes/shortener/dashboard'
 import { Route as DashboardHomeImport } from './routes/dashboard/Home'
 
 // Create/Update Routes
@@ -47,6 +50,11 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const ShortenerIndexRoute = ShortenerIndexImport.update({
+  path: '/shortener/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const ProductIndexRoute = ProductIndexImport.update({
   path: '/product/',
   getParentRoute: () => rootRoute,
@@ -54,6 +62,16 @@ const ProductIndexRoute = ProductIndexImport.update({
 
 const BlogIndexRoute = BlogIndexImport.update({
   path: '/blog/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ShortenerLinksPageRoute = ShortenerLinksPageImport.update({
+  path: '/shortener/linksPage',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ShortenerDashboardRoute = ShortenerDashboardImport.update({
+  path: '/shortener/dashboard',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -108,6 +126,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardHomeImport
       parentRoute: typeof rootRoute
     }
+    '/shortener/dashboard': {
+      id: '/shortener/dashboard'
+      path: '/shortener/dashboard'
+      fullPath: '/shortener/dashboard'
+      preLoaderRoute: typeof ShortenerDashboardImport
+      parentRoute: typeof rootRoute
+    }
+    '/shortener/linksPage': {
+      id: '/shortener/linksPage'
+      path: '/shortener/linksPage'
+      fullPath: '/shortener/linksPage'
+      preLoaderRoute: typeof ShortenerLinksPageImport
+      parentRoute: typeof rootRoute
+    }
     '/blog/': {
       id: '/blog/'
       path: '/blog'
@@ -122,6 +154,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductIndexImport
       parentRoute: typeof rootRoute
     }
+    '/shortener/': {
+      id: '/shortener/'
+      path: '/shortener'
+      fullPath: '/shortener'
+      preLoaderRoute: typeof ShortenerIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -134,8 +173,11 @@ export const routeTree = rootRoute.addChildren({
   ContactRoute,
   SignInRoute,
   DashboardHomeRoute,
+  ShortenerDashboardRoute,
+  ShortenerLinksPageRoute,
   BlogIndexRoute,
   ProductIndexRoute,
+  ShortenerIndexRoute,
 })
 
 /* prettier-ignore-end */
@@ -152,8 +194,11 @@ export const routeTree = rootRoute.addChildren({
         "/contact",
         "/sign-in",
         "/dashboard/Home",
+        "/shortener/dashboard",
+        "/shortener/linksPage",
         "/blog/",
-        "/product/"
+        "/product/",
+        "/shortener/"
       ]
     },
     "/": {
@@ -174,11 +219,20 @@ export const routeTree = rootRoute.addChildren({
     "/dashboard/Home": {
       "filePath": "dashboard/Home.tsx"
     },
+    "/shortener/dashboard": {
+      "filePath": "shortener/dashboard.tsx"
+    },
+    "/shortener/linksPage": {
+      "filePath": "shortener/linksPage.tsx"
+    },
     "/blog/": {
       "filePath": "blog/index.tsx"
     },
     "/product/": {
       "filePath": "product/index.tsx"
+    },
+    "/shortener/": {
+      "filePath": "shortener/index.tsx"
     }
   }
 }
