@@ -5,12 +5,14 @@ import dbconnect from "./utils/dbconnect";
 import cors from "cors";
 import path from "path";
 import dotenv from "dotenv";
+import deserializeUser from "./middleware/deserializeUser";
 
 const envPath = path.resolve(__dirname, "../../.env");
 dotenv.config({ path: envPath });
 
 const port = process.env.PORT;
 const app = express();
+app.use(deserializeUser);
 app.use(
   cors({
     origin: process.env.CORS_ORIGIN,
