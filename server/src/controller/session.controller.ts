@@ -46,10 +46,7 @@ export async function createUserSessionHandler(req: Request, res: Response) {
   }
 }
 
-export async function invalidateUserSessionHandler(
-  req: Request,
-  res: Response
-) {
+export async function deleteSessionHandler(req: Request, res: Response) {
   const sessionId = get(req, "user.session");
   await updateSession({ _id: sessionId }, { valid: false });
   return res.sendStatus(200);
