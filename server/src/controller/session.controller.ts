@@ -5,7 +5,7 @@ import {
   findSessions,
   updateSession,
 } from "../service/session.service";
-import { get } from "lodash";
+import { get } from "lodash-es";
 import { signJwt } from "../utils/jwt.utils";
 import { SessionDocument } from "../models/session.model";
 
