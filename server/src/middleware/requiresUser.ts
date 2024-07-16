@@ -1,4 +1,4 @@
-import { get } from "lodash";
+import { get } from "lodash-es";
 import { Request, Response, NextFunction } from "express";
 
 const requiresUser = async (

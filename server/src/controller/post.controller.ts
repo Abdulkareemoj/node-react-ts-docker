@@ -1,5 +1,5 @@
 import {Request, Response} from 'express'
-import {get} from 'lodash'
+import { get } from 'lodash-es'
 import {createPost, findPost, findAndUpdatePost, deletePost} from '../service/post.service'
 
 

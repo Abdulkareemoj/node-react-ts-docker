@@ -1,7 +1,7 @@
 import Session from "../models/session.model";
 import UserDocument from "../models/user.model";
 import { signJwt, verifyJwt } from "../utils/jwt.utils";
-import { get } from "lodash";
+import { get } from "lodash-es";
 import { ObjectId } from "mongoose";
 import { findUser } from "./user.service";
 import { FilterQuery, UpdateQuery } from "mongoose";
