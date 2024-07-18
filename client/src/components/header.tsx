@@ -10,6 +10,7 @@ export default function Header() {
     { title: "Products", path: "/product" },
     { title: "About", path: "/about" },
     { title: "Contact", path: "/contact" },
+    { title: "Shortener", path: "/shortener" },
   ];
 
   useEffect(() => {
