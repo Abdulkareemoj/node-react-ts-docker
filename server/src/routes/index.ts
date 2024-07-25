@@ -7,7 +7,7 @@ import {
 } from "../controller/shortUrl.controller";
 import validateResource from "../middleware/validateRequest";
 import { createShortURLSchema } from "../schema/createShortUrl.schema";
-import { authenticate, checkRole } from "../middleware/auth";
+// import { authenticate, checkRole } from "../middleware/auth";
 import { signIn, signOut } from "../controller/auth.controller";
 import {
   createProductHandler,
@@ -41,9 +41,10 @@ import {
   getPostHandler,
   updatePostHandler,
 } from "../controller/post.controller";
-import requiresUser from "../middleware/requiresUser";
+import requiresRole from "../middleware/requiresRole";
+import { permissions } from "../middleware/roles";
 
-//TODO add other roles with requiresUser
+//TODO add other roles with requiresRole
 function routes(app: Express) {
   app.get("/", (req: Request, res: Response) => {
     return res.send("bruhh");
@@ -70,20 +71,26 @@ function routes(app: Express) {
     createUserSessionHandler
   );
 
-  app.get("/api/sessions", requiresUser, getUserSessionsHandler);
+  app.get("/api/sessions", requiresRole, getUserSessionsHandler);
 
-  app.delete("/api/sessions", requiresUser, deleteSessionHandler);
+  app.delete("/api/sessions", requiresRole, deleteSessionHandler);
 
   //Product endpoints
   app.post(
     "/api/products",
-    [requiresUser, validateResource(createProductSchema)],
+    [
+      requiresRole(permissions.createProduct),
+      validateResource(createProductSchema),
+    ],
     createProductHandler
   );
 
   app.put(
     "/api/products/:productId",
-    [requiresUser, validateResource(updateProductSchema)],
+    [
+      requiresRole(permissions.updateProduct),
+      validateResource(updateProductSchema),
+    ],
     updateProductHandler
   );
 
@@ -95,20 +102,29 @@ function routes(app: Express) {
 
   app.delete(
     "/api/products/:productId",
-    [requiresUser, validateResource(deleteProductSchema)],
+    [
+      requiresRole(permissions.deleteProduct),
+      validateResource(deleteProductSchema),
+    ],
     deleteProductHandler
   );
 
   //Post endpoints
   app.post(
     "/api/posts",
-    [requiresUser, validateResource(createPostSchema)],
+    [
+      requiresRole(permissions.createProduct),
+      validateResource(createPostSchema),
+    ],
     createPostHandler
   );
 
   app.put(
     "/api/posts/:postId",
-    [requiresUser, validateResource(updatePostSchema)],
+    [
+      requiresRole(permissions.updateProduct),
+      validateResource(updatePostSchema),
+    ],
     updatePostHandler
   );
 
@@ -120,7 +136,10 @@ function routes(app: Express) {
 
   app.delete(
     "/api/posts/:postId",
-    [requiresUser, validateResource(deletePostSchema)],
+    [
+      requiresRole(permissions.deleteProduct),
+      validateResource(deletePostSchema),
+    ],
     getPostHandler
   );
 }
