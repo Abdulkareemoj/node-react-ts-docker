@@ -34,7 +34,7 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.6",
-    "@types/lodash": "^4.17.4",
+    "@types/lodash-es": "^4.17.12",
     "@types/mongoose": "^5.11.97",
     "@types/nanoid": "^3.0.0",
     "@types/node": "^20.12.12",
