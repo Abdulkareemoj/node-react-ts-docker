@@ -2,11 +2,16 @@ import { FilterQuery } from "mongoose";
 import User, { UserDocument, UserInput } from "../models/user.model";
 import { omit } from "lodash-es";
 
-export async function createUser(input: UserInput) {
+// Assuming UserInput now includes roles: string[];
+export async function createUser(input: UserInput & { roles: string[] }) {
   try {
+    // If roles need special handling, do it here before creating the user
+    // For example, if you need to validate or modify roles, do that here
+
+    // Then, pass the input (including roles) to User.create
     return await User.create(input);
   } catch (error) {
-    throw new Error(error as string); // Cast error to string
+    throw new Error(error as string);
   }
 }
 
@@ -21,7 +26,7 @@ export async function validatePassword({
   email: UserDocument["email"];
   password: string;
 }) {
-  const user = await User.findOne({ email });
+  const user = (await User.findOne({ email })) as UserDocument;
   if (!user) {
     return false;
   }
