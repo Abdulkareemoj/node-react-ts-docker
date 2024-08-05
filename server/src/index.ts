@@ -4,10 +4,10 @@ import express from "express";
 import dbconnect from "./utils/dbconnect";
 import cors from "cors";
 import path from "path";
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import deserializeUser from "./middleware/deserializeUser";
-
+import log from "./logger";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -26,7 +26,7 @@ app.use(
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+  log.info(`Server is running at http://localhost:${port}`);
   dbconnect();
   routes(app);
 });
