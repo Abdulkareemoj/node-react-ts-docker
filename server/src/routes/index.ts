@@ -46,7 +46,7 @@ import { permissions } from "../middleware/roles";
 
 //TODO add other roles with requiresRole
 function routes(app: Express) {
-  app.get("/", (req: Request, res: Response) => {
+  app.get("/api/", (req: Request, res: Response) => {
     return res.send("bruhh");
   });
 
