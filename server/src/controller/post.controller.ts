@@ -14,13 +14,23 @@ import {
 } from "../schema/post.schema";
 
 export async function createPostHandler(
-  req: Request<createPostInput["body"]>,
+  req: Request<{}, {}, createPostInput["body"]>,
   res: Response
 ) {
   const userId = get(req, "user._id");
   const body = req.body;
 
-  const post = await createPost({ ...body, user: userId });
+  const postData = {
+    user: userId,
+    title: body.title,
+    description: body.description,
+    image: body.image,
+    authorName: body.authorName,
+    href: body.href,
+    timestamps: new Date(),
+  };
+
+  const post = await createPost(postData);
   return res.send(post);
 }
 
@@ -28,22 +38,33 @@ export async function updatePostHandler(
   req: Request<updatePostInput["params"]>,
   res: Response
 ) {
-  const userId = get(req, "user._id");
-  const postId = get(req, "params.postId");
-  const update = req.body;
-  const post = await findPost({ postId });
+  try {
+    const userId = get(req, "user._id");
+    if (!userId) {
+      return res.status(401).send({ message: "Unauthorized" });
+    }
 
-  if (!post) {
-    return res.sendStatus(404);
-  }
+    const postId = get(req, "params.postId");
+    const update = req.body;
+    const post = await findPost({ postId });
 
-  if (String(post.user) !== userId) {
-    return res.sendStatus(401);
+    if (!post) {
+      return res.status(404).send({ message: "Post not found" });
+    }
+
+    if (post.user !== userId) {
+      return res.status(401).send({ message: "Unauthorized" });
+    }
+
+    const updatedPost = await findAndUpdatePost({ postId }, update, {
+      new: true,
+    });
+
+    return res.send(updatedPost);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({ message: "Internal Server Error" });
   }
-  const updatedPost = await findAndUpdatePost({ postId }, update, {
-    new: true,
-  });
-  return res.send(updatedPost);
 }
 
 export async function getPostHandler(
@@ -71,8 +92,8 @@ export async function deletePostHandler(
     return res.sendStatus(404);
   }
 
-  if (String(post.user) !== userId) {
-    return res.sendStatus(401);
+  if (post.user !== userId) {
+    return res.sendStatus(403);
   }
   await deletePost({ postId });
   return res.sendStatus(200);
