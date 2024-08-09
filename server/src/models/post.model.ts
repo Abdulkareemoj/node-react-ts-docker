@@ -1,31 +1,33 @@
 import mongoose from "mongoose";
 import { UserDocument } from "./user.model";
+import { customAlphabet } from "nanoid";
+
+const nanoid = customAlphabet("abcdefghijklmnopqrstuvwxyz0123456789");
 
 export interface PostDocument extends mongoose.Document {
   user: UserDocument["_id"];
   title: string;
-  desc: string;
-  img: string;
-  authorLogo: string;
+  description: string;
+  image: string;
   authorName: string;
   href: string;
-  valid: boolean;
-  userAgent: string;
-  createdAt: Date;
-  updatedAt: Date;
+  timestamps: Date;
 }
 
 const PostSchema = new mongoose.Schema(
   {
+    postId: {
+      type: String,
+      required: true,
+      unique: true,
+      default: () => `product_${nanoid()}`,
+    },
     user: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
     title: { type: String, required: true },
-    desc: { type: String, required: true },
-    img: { type: String, required: true },
-    authorLogo: { type: String, required: true },
+    description: { type: String, required: true },
+    image: { type: String, required: true },
     authorName: { type: String, required: true },
     href: { type: String, required: true },
-    valid: { type: Boolean, default: true },
-    userAgent: { type: String },
   },
   { timestamps: true }
 );
