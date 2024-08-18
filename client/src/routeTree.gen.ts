@@ -25,7 +25,6 @@ import { Route as ShortenerSettingsImport } from './routes/shortener/Settings'
 import { Route as ShortenerProfileImport } from './routes/shortener/Profile'
 import { Route as ShortenerChartImport } from './routes/shortener/Chart'
 import { Route as ShortenerCalendarImport } from './routes/shortener/Calendar'
-import { Route as DashboardHomeImport } from './routes/dashboard/Home'
 import { Route as ShortenerUiElementsButtonsImport } from './routes/shortener/UiElements/Buttons'
 import { Route as ShortenerUiElementsAlertsImport } from './routes/shortener/UiElements/Alerts'
 import { Route as ShortenerFormFormLayoutImport } from './routes/shortener/Form/FormLayout'
@@ -104,11 +103,6 @@ const ShortenerCalendarRoute = ShortenerCalendarImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const DashboardHomeRoute = DashboardHomeImport.update({
-  path: '/dashboard/Home',
-  getParentRoute: () => rootRoute,
-} as any)
-
 const ShortenerUiElementsButtonsRoute = ShortenerUiElementsButtonsImport.update(
   {
     path: '/shortener/UiElements/Buttons',
@@ -181,13 +175,6 @@ declare module '@tanstack/react-router' {
       path: '/SignUp'
       fullPath: '/SignUp'
       preLoaderRoute: typeof SignUpImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/Home': {
-      id: '/dashboard/Home'
-      path: '/dashboard/Home'
-      fullPath: '/dashboard/Home'
-      preLoaderRoute: typeof DashboardHomeImport
       parentRoute: typeof rootRoute
     }
     '/shortener/Calendar': {
@@ -293,7 +280,6 @@ export const routeTree = rootRoute.addChildren({
   ContactRoute,
   SignInRoute,
   SignUpRoute,
-  DashboardHomeRoute,
   ShortenerCalendarRoute,
   ShortenerChartRoute,
   ShortenerProfileRoute,
@@ -323,7 +309,6 @@ export const routeTree = rootRoute.addChildren({
         "/Contact",
         "/SignIn",
         "/SignUp",
-        "/dashboard/Home",
         "/shortener/Calendar",
         "/shortener/Chart",
         "/shortener/Profile",
@@ -356,9 +341,6 @@ export const routeTree = rootRoute.addChildren({
     },
     "/SignUp": {
       "filePath": "SignUp.tsx"
-    },
-    "/dashboard/Home": {
-      "filePath": "dashboard/Home.tsx"
     },
     "/shortener/Calendar": {
       "filePath": "shortener/Calendar.tsx"
