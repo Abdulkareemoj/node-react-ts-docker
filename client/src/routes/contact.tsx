@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/contact")({
+export const Route = createFileRoute("/Contact")({
   component: Contact,
 });
 function Contact() {
@@ -26,7 +26,7 @@ function Contact() {
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       link: {
         name: "Join our Discord",
-        href: "javascript:void(0)",
+        href: "#",
       },
     },
     {
@@ -55,7 +55,7 @@ function Contact() {
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       link: {
         name: "Send us DMs",
-        href: "javascript:void(0)",
+        href: "#",
       },
     },
   ];
