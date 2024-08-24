@@ -17,10 +17,13 @@ import { Route as ContactImport } from './routes/Contact'
 import { Route as AboutImport } from './routes/About'
 import { Route as R404Import } from './routes/404'
 import { Route as IndexImport } from './routes/index'
+import { Route as ShortenerIndexImport } from './routes/shortener/index'
 import { Route as ProductIndexImport } from './routes/product/index'
 import { Route as BlogIndexImport } from './routes/blog/index'
 import { Route as ShortenerLinksPageImport } from './routes/shortener/linksPage'
 import { Route as ShortenerTablesImport } from './routes/shortener/Tables'
+import { Route as ShortenerSignUpImport } from './routes/shortener/SignUp'
+import { Route as ShortenerSignInImport } from './routes/shortener/SignIn'
 import { Route as ShortenerSettingsImport } from './routes/shortener/Settings'
 import { Route as ShortenerProfileImport } from './routes/shortener/Profile'
 import { Route as ShortenerChartImport } from './routes/shortener/Chart'
@@ -63,6 +66,11 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const ShortenerIndexRoute = ShortenerIndexImport.update({
+  path: '/shortener/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const ProductIndexRoute = ProductIndexImport.update({
   path: '/product/',
   getParentRoute: () => rootRoute,
@@ -80,6 +88,16 @@ const ShortenerLinksPageRoute = ShortenerLinksPageImport.update({
 
 const ShortenerTablesRoute = ShortenerTablesImport.update({
   path: '/shortener/Tables',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ShortenerSignUpRoute = ShortenerSignUpImport.update({
+  path: '/shortener/SignUp',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ShortenerSignInRoute = ShortenerSignInImport.update({
+  path: '/shortener/SignIn',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -205,6 +223,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShortenerSettingsImport
       parentRoute: typeof rootRoute
     }
+    '/shortener/SignIn': {
+      id: '/shortener/SignIn'
+      path: '/shortener/SignIn'
+      fullPath: '/shortener/SignIn'
+      preLoaderRoute: typeof ShortenerSignInImport
+      parentRoute: typeof rootRoute
+    }
+    '/shortener/SignUp': {
+      id: '/shortener/SignUp'
+      path: '/shortener/SignUp'
+      fullPath: '/shortener/SignUp'
+      preLoaderRoute: typeof ShortenerSignUpImport
+      parentRoute: typeof rootRoute
+    }
     '/shortener/Tables': {
       id: '/shortener/Tables'
       path: '/shortener/Tables'
@@ -231,6 +263,13 @@ declare module '@tanstack/react-router' {
       path: '/product'
       fullPath: '/product'
       preLoaderRoute: typeof ProductIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/shortener/': {
+      id: '/shortener/'
+      path: '/shortener'
+      fullPath: '/shortener'
+      preLoaderRoute: typeof ShortenerIndexImport
       parentRoute: typeof rootRoute
     }
     '/shortener/Dashboard/ECommerce': {
@@ -284,10 +323,13 @@ export const routeTree = rootRoute.addChildren({
   ShortenerChartRoute,
   ShortenerProfileRoute,
   ShortenerSettingsRoute,
+  ShortenerSignInRoute,
+  ShortenerSignUpRoute,
   ShortenerTablesRoute,
   ShortenerLinksPageRoute,
   BlogIndexRoute,
   ProductIndexRoute,
+  ShortenerIndexRoute,
   ShortenerDashboardECommerceRoute,
   ShortenerFormFormElementsRoute,
   ShortenerFormFormLayoutRoute,
@@ -313,10 +355,13 @@ export const routeTree = rootRoute.addChildren({
         "/shortener/Chart",
         "/shortener/Profile",
         "/shortener/Settings",
+        "/shortener/SignIn",
+        "/shortener/SignUp",
         "/shortener/Tables",
         "/shortener/linksPage",
         "/blog/",
         "/product/",
+        "/shortener/",
         "/shortener/Dashboard/ECommerce",
         "/shortener/Form/FormElements",
         "/shortener/Form/FormLayout",
@@ -354,6 +399,12 @@ export const routeTree = rootRoute.addChildren({
     "/shortener/Settings": {
       "filePath": "shortener/Settings.tsx"
     },
+    "/shortener/SignIn": {
+      "filePath": "shortener/SignIn.tsx"
+    },
+    "/shortener/SignUp": {
+      "filePath": "shortener/SignUp.tsx"
+    },
     "/shortener/Tables": {
       "filePath": "shortener/Tables.tsx"
     },
@@ -365,6 +416,9 @@ export const routeTree = rootRoute.addChildren({
     },
     "/product/": {
       "filePath": "product/index.tsx"
+    },
+    "/shortener/": {
+      "filePath": "shortener/index.tsx"
     },
     "/shortener/Dashboard/ECommerce": {
       "filePath": "shortener/Dashboard/ECommerce.tsx"
