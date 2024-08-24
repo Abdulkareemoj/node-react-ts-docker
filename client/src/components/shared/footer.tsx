@@ -19,7 +19,7 @@ export default function Footer() {
   ];
   return (
     <footer className="pt-10">
-      <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
+      <div className="max-w-screen-xl mx-auto px-4 text-slate-600 md:px-8">
         <div className="space-y-6 sm:max-w-md sm:mx-auto sm:text-center">
           <img
             src="https://www.floatui.com/logo.svg"
@@ -38,7 +38,7 @@ export default function Footer() {
             </a>
             <a
               href="#"
-              className="flex items-center justify-center gap-x-2 py-2 px-4 text-gray-700 hover:text-gray-500 font-medium duration-150 active:bg-gray-100 border rounded-lg md:inline-flex"
+              className="flex items-center justify-center gap-x-2 py-2 px-4 text-slate-700 hover:text-slate-500 font-medium duration-150 active:bg-slate-100 border rounded-lg md:inline-flex"
             >
               Get access
               <svg
@@ -60,7 +60,7 @@ export default function Footer() {
           <p>© 2022 Float UI Inc. All rights reserved.</p>
           <ul className="flex flex-wrap items-center gap-4 mt-6 sm:text-sm sm:mt-0">
             {footerNavs.map((item, idx) => (
-              <li className="text-gray-800 hover:text-gray-500 duration-150">
+              <li className="text-slate-800 hover:text-slate-500 duration-150">
                 <a key={idx} href={item.href}>
                   {item.name}
                 </a>

@@ -42,10 +42,10 @@ export default function RSection() {
     <section className="py-14">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="max-w-xl mx-auto sm:text-center">
-          <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
+          <h3 className="text-slate-800 text-3xl font-semibold sm:text-4xl">
             Our team
           </h3>
-          <p className="text-gray-600 mt-3">
+          <p className="text-slate-600 mt-3">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown.
@@ -63,7 +63,7 @@ export default function RSection() {
                   />
                 </div>
                 <div className="mt-4">
-                  <h4 className="text-lg text-gray-700 font-semibold">
+                  <h4 className="text-lg text-slate-700 font-semibold">
                     {item.name}
                   </h4>
                   <p className="text-indigo-600">{item.title}</p>

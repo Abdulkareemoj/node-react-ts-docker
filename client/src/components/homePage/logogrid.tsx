@@ -1,19 +1,19 @@
 export default function LogoGrid() {
   return (
-    <div className="py-28 bg-gray-900">
+    <div className="py-28 bg-slate-900">
       <div className="max-w-screen-xl mx-auto px-4 flex-wrap gap-x-12 justify-between items-center md:flex md:px-8 lg:flex-nowrap">
         <div className="max-w-xl space-y-3">
           <h3 className="text-cyan-400 text-sm font-semibold">SHOWCASE</h3>
           <p className="text-white text-3xl font-semibold sm:text-4xl">
             Trusted by the best developers and world-class teams
           </p>
-          <p className="text-gray-300">
+          <p className="text-slate-300">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et est
             hendrerit, porta nunc vitae, gravida justo. Nunc fermentum.
           </p>
         </div>
         <div className="flex-none mt-12 text-white lg:mt-0">
-          <ul className="grid grid-cols-2 gap-2 items-center justify-center [&>*]:bg-gray-700 [&>*]:w-full [&>*]:h-20 [&>*]:flex sm:[&>*]:px-14">
+          <ul className="grid grid-cols-2 gap-2 items-center justify-center [&>*]:bg-slate-700 [&>*]:w-full [&>*]:h-20 [&>*]:flex sm:[&>*]:px-14">
             {/* LOGO 1 */}
             <li>
               <svg

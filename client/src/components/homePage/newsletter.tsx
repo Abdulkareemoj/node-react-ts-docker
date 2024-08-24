@@ -3,10 +3,10 @@ export default function Newsletter() {
     <section className="py-14">
       <div className="max-w-screen-xl mx-auto px-4 justify-between items-center gap-12 md:px-8 md:flex">
         <div className="flex-1 max-w-xl">
-          <h3 className="text-3xl font-bold">
+          <h3 className="text-3xl text-slate-800 font-bold">
             Get all of our updates directly to your inbox.
           </h3>
-          <p className="text-gray-600 mt-3">
+          <p className="text-slate-600 mt-3">
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat.
           </p>
@@ -18,7 +18,7 @@ export default function Newsletter() {
           >
             <div className="relative">
               <svg
-                className="w-6 h-6 text-gray-400 absolute left-3 inset-y-0 my-auto"
+                className="w-6 h-6 text-slate-400 absolute left-3 inset-y-0 my-auto"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -35,7 +35,7 @@ export default function Newsletter() {
                 type="email"
                 required
                 placeholder="Enter your email"
-                className="w-full pl-12 pr-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg sm:max-w-xs"
+                className="w-full pl-12 pr-3 py-2 text-slate-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg sm:max-w-xs"
               />
             </div>
             <button className="block w-full py-3 px-4 font-medium text-sm text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 active:shadow-none rounded-lg shadow sm:w-auto md:w-full">

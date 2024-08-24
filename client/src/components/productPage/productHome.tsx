@@ -41,8 +41,8 @@ export default function ProductHome() {
   return (
     <section className="mt-12 mx-auto px-4 pb-32 max-w-screen-xl md:px-8">
       <div className="text-center">
-        <h1 className="text-5xl text-gray-800 font-semibold">Products</h1>
-        <p className="mt-3 text-gray-500">
+        <h1 className="text-5xl text-slate-800 font-semibold">Products</h1>
+        <p className="mt-3 text-slate-500">
           Products that are loved by the community. Updated every hour.
         </p>
       </div>
@@ -68,17 +68,17 @@ export default function ProductHome() {
                   />
                 </div>
                 <div className="ml-3">
-                  <span className="block text-gray-900">
+                  <span className="block text-slate-900">
                     {items.authorName}
                   </span>
-                  <span className="block text-gray-400 text-sm">
+                  <span className="block text-slate-400 text-sm">
                     {items.date}
                   </span>
                 </div>
               </div>
               <div className="pt-3 ml-4 mr-2 mb-3">
-                <h3 className="text-xl text-gray-900">{items.title}</h3>
-                <p className="text-gray-400 text-sm mt-1">{items.desc}</p>
+                <h3 className="text-xl text-slate-900">{items.title}</h3>
+                <p className="text-slate-400 text-sm mt-1">{items.desc}</p>
               </div>
             </a>
           </article>

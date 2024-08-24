@@ -34,8 +34,8 @@ export default function BlogHome() {
     <section className="mt-12 mx-auto px-4 pb-32 max-w-screen-xl md:px-8">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="text-center">
-          <h1 className="text-5xl text-gray-800 font-semibold">Blog</h1>
-          <p className="mt-3 text-gray-500">
+          <h1 className="text-5xl text-slate-800 font-semibold">Blog</h1>
+          <p className="mt-3 text-slate-500">
             Blogs that are loved by the community. Updated every hour.
           </p>
         </div>
@@ -53,10 +53,10 @@ export default function BlogHome() {
                   <span className="block text-indigo-600 text-sm">
                     {items.date}
                   </span>
-                  <h3 className="text-lg text-gray-800 duration-150 group-hover:text-indigo-600 font-semibold">
+                  <h3 className="text-lg text-slate-800 duration-150 group-hover:text-indigo-600 font-semibold">
                     {items.title}
                   </h3>
-                  <p className="text-gray-600 text-sm duration-150 group-hover:text-gray-800">
+                  <p className="text-slate-600 text-sm duration-150 group-hover:text-slate-800">
                     {items.desc}
                   </p>
                 </div>

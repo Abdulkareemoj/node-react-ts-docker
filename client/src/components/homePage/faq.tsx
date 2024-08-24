@@ -18,12 +18,12 @@ const FaqsCard = (props) => {
       key={idx}
       onClick={handleOpenAnswer}
     >
-      <h4 className="cursor-pointer pb-5 flex items-center justify-between text-lg text-gray-700 font-medium">
+      <h4 className="cursor-pointer pb-5 flex items-center justify-between text-lg text-slate-700 font-medium">
         {faqsList.q}
         {state ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 text-gray-500 ml-2"
+            className="h-5 w-5 text-slate-500 ml-2"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -38,7 +38,7 @@ const FaqsCard = (props) => {
         ) : (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 text-gray-500 ml-2"
+            className="h-5 w-5 text-slate-500 ml-2"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -58,7 +58,7 @@ const FaqsCard = (props) => {
         style={state ? { height: answerH } : { height: "0px" }}
       >
         <div>
-          <p className="text-gray-500">{faqsList.a}</p>
+          <p className="text-slate-500">{faqsList.a}</p>
         </div>
       </div>
     </div>
@@ -92,10 +92,10 @@ export default function FAQ() {
   return (
     <section className="leading-relaxed max-w-screen-xl mt-12 mx-auto px-4 md:px-8">
       <div className="space-y-3 text-center">
-        <h1 className="text-3xl text-gray-800 font-semibold">
+        <h1 className="text-3xl text-slate-800 font-semibold">
           Frequently Asked Questions
         </h1>
-        <p className="text-gray-600 max-w-lg mx-auto text-lg">
+        <p className="text-slate-600 max-w-lg mx-auto text-lg">
           Answered all frequently asked questions, Still confused? feel free to
           contact us.
         </p>

@@ -130,9 +130,9 @@ export default function Feature() {
 
   return (
     <section className="py-14">
-      <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
+      <div className="max-w-screen-xl mx-auto px-4 text-slate-800 md:px-8">
         <div className="max-w-xl space-y-3">
-          <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
+          <h3 className="text-slate-800 text-3xl font-semibold sm:text-4xl">
             Simple solutions for complex issues
           </h3>
           <p>
@@ -148,7 +148,7 @@ export default function Feature() {
                   {item.icon}
                 </div>
                 <div className="space-y-3">
-                  <h4 className="text-lg text-gray-800 font-semibold">
+                  <h4 className="text-lg text-slate-800 font-semibold">
                     {item.title}
                   </h4>
                   <p>{item.desc}</p>

@@ -43,9 +43,9 @@ export default function Pricing() {
 
   return (
     <section className="py-14">
-      <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
+      <div className="max-w-screen-xl mx-auto px-4 text-slate-600 md:px-8">
         <div className="relative max-w-xl mx-auto sm:text-center">
-          <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
+          <h3 className="text-slate-800 text-3xl font-semibold sm:text-4xl">
             Pricing for all sizes
           </h3>
           <div className="mt-3 max-w-xl">
@@ -63,9 +63,11 @@ export default function Pricing() {
             >
               <div>
                 <span className="text-indigo-600 font-medium">{item.name}</span>
-                <div className="mt-4 text-gray-800 text-3xl font-semibold">
+                <div className="mt-4 text-slate-800 text-3xl font-semibold">
                   ${item.price}{" "}
-                  <span className="text-xl text-gray-600 font-normal">/mo</span>
+                  <span className="text-xl text-slate-600 font-normal">
+                    /mo
+                  </span>
                 </div>
               </div>
               <ul className="py-8 space-y-3">
