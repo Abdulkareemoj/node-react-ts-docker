@@ -20,6 +20,8 @@ function ShortenerPage() {
       });
   };
 
+  const handleReset = () => {};
+
   return (
     <main className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-[400px]">
@@ -66,7 +68,7 @@ function ShortenerPage() {
         </div>
       </div>
       <div className="flex justify-end">
-        <button>Reset</button>
+        <button onClick={handleReset}>Reset</button>
       </div>
     </main>
   );
