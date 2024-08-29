@@ -63,9 +63,9 @@ function Contact() {
   return (
     <>
       <section className="py-14">
-        <div className="max-w-screen-xl mx-auto px-4 text-gray-600 gap-12 md:px-8 lg:flex">
+        <div className="max-w-screen-xl mx-auto px-4 text-slate-600 gap-12 md:px-8 lg:flex">
           <div className="max-w-md">
-            <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
+            <h3 className="text-slate-800 text-3xl font-semibold sm:text-4xl">
               Let’s connect
             </h3>
             <p className="mt-3">
@@ -80,10 +80,10 @@ function Contact() {
                   key={idx}
                   className="space-y-3 border-t py-6 md:max-w-sm md:py-0 md:border-t-0 lg:border-l lg:px-12 lg:max-w-none"
                 >
-                  <div className="w-12 h-12 rounded-full border flex items-center justify-center text-gray-700">
+                  <div className="w-12 h-12 rounded-full border flex items-center justify-center text-slate-700">
                     {item.icon}
                   </div>
-                  <h4 className="text-gray-800 text-lg font-medium xl:text-xl">
+                  <h4 className="text-slate-800 text-lg font-medium xl:text-xl">
                     {item.title}
                   </h4>
                   <p>{item.desc}</p>
@@ -112,11 +112,11 @@ function Contact() {
         </div>
       </section>
       <main className="py-14">
-        <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
+        <div className="max-w-screen-xl mx-auto px-4 text-slate-600 md:px-8">
           <div className="max-w-lg mx-auto gap-12 justify-between lg:flex lg:max-w-none">
             <div className="max-w-lg space-y-3">
               <h3 className="text-indigo-600 font-semibold">Contact</h3>
-              <p className="text-gray-800 text-3xl font-semibold sm:text-4xl">
+              <p className="text-slate-800 text-3xl font-semibold sm:text-4xl">
                 Let us know how we can help
               </p>
               <p>
@@ -128,7 +128,9 @@ function Contact() {
                 <ul className="mt-6 flex flex-wrap gap-x-10 gap-y-6 items-center">
                   {contactMethods.map((item, idx) => (
                     <li key={idx} className="flex items-center gap-x-3">
-                      <div className="flex-none text-gray-400">{item.icon}</div>
+                      <div className="flex-none text-slate-400">
+                        {item.icon}
+                      </div>
                       <p>{item.title}</p>
                     </li>
                   ))}
@@ -142,7 +144,7 @@ function Contact() {
                   <input
                     type="text"
                     required
-                    className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                    className="w-full mt-2 px-3 py-2 text-slate-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                   />
                 </div>
                 <div>
@@ -150,7 +152,7 @@ function Contact() {
                   <input
                     type="email"
                     required
-                    className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                    className="w-full mt-2 px-3 py-2 text-slate-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                   />
                 </div>
                 <div>
@@ -158,7 +160,7 @@ function Contact() {
                   <input
                     type="text"
                     required
-                    className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                    className="w-full mt-2 px-3 py-2 text-slate-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                   />
                 </div>
                 <div>
