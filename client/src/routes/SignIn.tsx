@@ -159,7 +159,7 @@ function SignIn() {
               <form>
                 <div className="mb-4">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
-                    Email
+                    Email/Username
                   </label>
                   <div className="relative">
                     <input
@@ -190,7 +190,7 @@ function SignIn() {
 
                 <div className="mb-6">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
-                    Re-type Password
+                    Password
                   </label>
                   <div className="relative">
                     <input
@@ -270,7 +270,7 @@ function SignIn() {
 
                 <div className="mt-6 text-center">
                   <p>
-                    Don’t have any account?{" "}
+                    Don’t have an account?{" "}
                     <Link to="/SignUp" className="text-primary">
                       Sign Up
                     </Link>

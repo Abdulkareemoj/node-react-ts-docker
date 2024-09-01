@@ -9,7 +9,7 @@ import TableOne from "../../../components/shortener/Tables/TableOne";
 
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/shortener/Dashboard/ECommerce")({
+export const Route = createFileRoute("/Dashboard/Summary/")({
   component: () => (
     <DefaultLayout>
       <ECommerce />

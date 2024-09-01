@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { useCopyToClipboard } from "usehooks-ts";
 
@@ -23,27 +23,40 @@ function ShortenerPage() {
   const handleReset = () => {};
 
   return (
-    <main className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-[400px]">
+    <main>
+      <div className="flex flex-col items-center justify-center pt-20 bg-slate-100 ">
         <div>
-          <div>Link Shortener</div>
+          <div className="text-slate-900 text-4xl font-bold p-4">
+            Try our Link Shortener
+          </div>
         </div>
         <div>
-          <div className="grid w-full items-center gap-4">
+          <div className="flex flex-col w-fit items-center gap-4">
             <div className="flex flex-col space-y-1.5">
-              <label htmlFor="long-url">Enter Long URL</label>
+              <label
+                className="text-slate-800 text-2xl flex justify-center font-semibold"
+                htmlFor="long-url"
+              >
+                Enter URL
+              </label>
               <div className="flex items-center space-x-2">
-                <textarea
+                <input
+                  className="border p-2 rounded"
+                  type="text"
                   id="long-url"
                   placeholder="https://example.com/very/long/url"
                 />
-                <button>Generate</button>
+                <button className="bg-blue-500 text-white p-2 rounded">
+                  Generate
+                </button>
               </div>
             </div>
             <div className="container mx-auto">
               <div className="flex flex-col space-y-4">
                 <div className="flex flex-col space-y-1.5">
-                  <div>Shortened URL</div>
+                  <div className="text-slate-900 text-xl font-bold">
+                    Shortened URL
+                  </div>
                   <div className="flex items-center space-x-2">
                     <input
                       readOnly
@@ -62,13 +75,22 @@ function ShortenerPage() {
                 </div>
                 <div className="flex justify-end"></div>
                 <p>Copied value: {copiedText ?? "Nothing is copied yet!"}</p>
+                <div>
+                  <button onClick={handleReset}>Reset</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="flex justify-end">
-        <button onClick={handleReset}>Reset</button>
+        <div className="pt-5">
+          <Link
+            className="text-slate-800 hover:underline"
+            to="/shortener/SignIn"
+          >
+            Sign in
+          </Link>{" "}
+          to Manage Shortened Links
+        </div>
       </div>
     </main>
   );

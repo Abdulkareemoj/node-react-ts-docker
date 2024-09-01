@@ -105,7 +105,8 @@ export default function Header() {
               </svg>
             </Link>
           </div>
-        </div>
+        </div>{" "}
+        <Link to="/SignIn">Sign In</Link>
       </div>
     </nav>
   );

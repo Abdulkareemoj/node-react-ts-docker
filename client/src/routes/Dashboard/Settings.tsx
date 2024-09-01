@@ -2,7 +2,7 @@ import Breadcrumb from "../../components/shortener/Breadcrumbs/Breadcrumb";
 import userThree from "../../assets/images/user/user-03.png";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/shortener/Settings")({
+export const Route = createFileRoute("/Dashboard/Settings")({
   component: Settings,
 });
 function Settings() {

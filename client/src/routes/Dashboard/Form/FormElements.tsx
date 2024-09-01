@@ -14,7 +14,7 @@ import SelectGroupTwo from "../../../components/shortener/Forms/SelectGroup/Sele
 import MultiSelect from "../../../components/shortener/Forms/MultiSelect";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/shortener/Form/FormElements")({
+export const Route = createFileRoute("/Dashboard/Form/FormElements")({
   component: FormElements,
 });
 function FormElements() {

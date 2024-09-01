@@ -722,7 +722,7 @@ interface SidebarProps {
 const paths = [
   { path: "/shortener/Dashboard/ECommerce", label: "E-Commerce" },
   {
-    label: "Form",
+    label: "Form",  
     dropdown: [
       { path: "/shortener/Form/FormElements", label: "Form Elements" },
       { path: "/shortener/Form/FormLayout", label: "Form Layout" },
@@ -753,7 +753,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   return (
     <div className={`sidebar ${sidebarOpen ? "open" : ""}`}>
       <button onClick={() => setSidebarOpen(!sidebarOpen)}>
-        Toggle Sidebar
+        Toggle Sidebar        
       </button>
       <nav>
         <ul>

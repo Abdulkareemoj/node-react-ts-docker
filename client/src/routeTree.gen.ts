@@ -20,19 +20,22 @@ import { Route as IndexImport } from './routes/index'
 import { Route as ShortenerIndexImport } from './routes/shortener/index'
 import { Route as ProductIndexImport } from './routes/product/index'
 import { Route as BlogIndexImport } from './routes/blog/index'
-import { Route as ShortenerLinksPageImport } from './routes/shortener/linksPage'
-import { Route as ShortenerTablesImport } from './routes/shortener/Tables'
+import { Route as DashboardIndexImport } from './routes/Dashboard/index'
 import { Route as ShortenerSignUpImport } from './routes/shortener/SignUp'
 import { Route as ShortenerSignInImport } from './routes/shortener/SignIn'
-import { Route as ShortenerSettingsImport } from './routes/shortener/Settings'
-import { Route as ShortenerProfileImport } from './routes/shortener/Profile'
-import { Route as ShortenerChartImport } from './routes/shortener/Chart'
-import { Route as ShortenerCalendarImport } from './routes/shortener/Calendar'
-import { Route as ShortenerUiElementsButtonsImport } from './routes/shortener/UiElements/Buttons'
-import { Route as ShortenerUiElementsAlertsImport } from './routes/shortener/UiElements/Alerts'
-import { Route as ShortenerFormFormLayoutImport } from './routes/shortener/Form/FormLayout'
-import { Route as ShortenerFormFormElementsImport } from './routes/shortener/Form/FormElements'
-import { Route as ShortenerDashboardECommerceImport } from './routes/shortener/Dashboard/ECommerce'
+import { Route as DashboardLinksPageImport } from './routes/Dashboard/linksPage'
+import { Route as DashboardTablesImport } from './routes/Dashboard/Tables'
+import { Route as DashboardSettingsImport } from './routes/Dashboard/Settings'
+import { Route as DashboardProfileImport } from './routes/Dashboard/Profile'
+import { Route as DashboardChartImport } from './routes/Dashboard/Chart'
+import { Route as DashboardCalendarImport } from './routes/Dashboard/Calendar'
+import { Route as ProductslugIndexImport } from './routes/product/[slug]/index'
+import { Route as BlogslugIndexImport } from './routes/blog/[slug]/index'
+import { Route as DashboardSummaryIndexImport } from './routes/Dashboard/Summary/index'
+import { Route as DashboardUiElementsButtonsImport } from './routes/Dashboard/UiElements/Buttons'
+import { Route as DashboardUiElementsAlertsImport } from './routes/Dashboard/UiElements/Alerts'
+import { Route as DashboardFormFormLayoutImport } from './routes/Dashboard/Form/FormLayout'
+import { Route as DashboardFormFormElementsImport } from './routes/Dashboard/Form/FormElements'
 
 // Create/Update Routes
 
@@ -81,13 +84,8 @@ const BlogIndexRoute = BlogIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const ShortenerLinksPageRoute = ShortenerLinksPageImport.update({
-  path: '/shortener/linksPage',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const ShortenerTablesRoute = ShortenerTablesImport.update({
-  path: '/shortener/Tables',
+const DashboardIndexRoute = DashboardIndexImport.update({
+  path: '/Dashboard/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -101,53 +99,72 @@ const ShortenerSignInRoute = ShortenerSignInImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const ShortenerSettingsRoute = ShortenerSettingsImport.update({
-  path: '/shortener/Settings',
+const DashboardLinksPageRoute = DashboardLinksPageImport.update({
+  path: '/Dashboard/linksPage',
   getParentRoute: () => rootRoute,
 } as any)
 
-const ShortenerProfileRoute = ShortenerProfileImport.update({
-  path: '/shortener/Profile',
+const DashboardTablesRoute = DashboardTablesImport.update({
+  path: '/Dashboard/Tables',
   getParentRoute: () => rootRoute,
 } as any)
 
-const ShortenerChartRoute = ShortenerChartImport.update({
-  path: '/shortener/Chart',
+const DashboardSettingsRoute = DashboardSettingsImport.update({
+  path: '/Dashboard/Settings',
   getParentRoute: () => rootRoute,
 } as any)
 
-const ShortenerCalendarRoute = ShortenerCalendarImport.update({
-  path: '/shortener/Calendar',
+const DashboardProfileRoute = DashboardProfileImport.update({
+  path: '/Dashboard/Profile',
   getParentRoute: () => rootRoute,
 } as any)
 
-const ShortenerUiElementsButtonsRoute = ShortenerUiElementsButtonsImport.update(
+const DashboardChartRoute = DashboardChartImport.update({
+  path: '/Dashboard/Chart',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardCalendarRoute = DashboardCalendarImport.update({
+  path: '/Dashboard/Calendar',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProductslugIndexRoute = ProductslugIndexImport.update({
+  path: '/product/[slug]/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const BlogslugIndexRoute = BlogslugIndexImport.update({
+  path: '/blog/[slug]/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardSummaryIndexRoute = DashboardSummaryIndexImport.update({
+  path: '/Dashboard/Summary/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardUiElementsButtonsRoute = DashboardUiElementsButtonsImport.update(
   {
-    path: '/shortener/UiElements/Buttons',
+    path: '/Dashboard/UiElements/Buttons',
     getParentRoute: () => rootRoute,
   } as any,
 )
 
-const ShortenerUiElementsAlertsRoute = ShortenerUiElementsAlertsImport.update({
-  path: '/shortener/UiElements/Alerts',
+const DashboardUiElementsAlertsRoute = DashboardUiElementsAlertsImport.update({
+  path: '/Dashboard/UiElements/Alerts',
   getParentRoute: () => rootRoute,
 } as any)
 
-const ShortenerFormFormLayoutRoute = ShortenerFormFormLayoutImport.update({
-  path: '/shortener/Form/FormLayout',
+const DashboardFormFormLayoutRoute = DashboardFormFormLayoutImport.update({
+  path: '/Dashboard/Form/FormLayout',
   getParentRoute: () => rootRoute,
 } as any)
 
-const ShortenerFormFormElementsRoute = ShortenerFormFormElementsImport.update({
-  path: '/shortener/Form/FormElements',
+const DashboardFormFormElementsRoute = DashboardFormFormElementsImport.update({
+  path: '/Dashboard/Form/FormElements',
   getParentRoute: () => rootRoute,
 } as any)
-
-const ShortenerDashboardECommerceRoute =
-  ShortenerDashboardECommerceImport.update({
-    path: '/shortener/Dashboard/ECommerce',
-    getParentRoute: () => rootRoute,
-  } as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -195,32 +212,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignUpImport
       parentRoute: typeof rootRoute
     }
-    '/shortener/Calendar': {
-      id: '/shortener/Calendar'
-      path: '/shortener/Calendar'
-      fullPath: '/shortener/Calendar'
-      preLoaderRoute: typeof ShortenerCalendarImport
+    '/Dashboard/Calendar': {
+      id: '/Dashboard/Calendar'
+      path: '/Dashboard/Calendar'
+      fullPath: '/Dashboard/Calendar'
+      preLoaderRoute: typeof DashboardCalendarImport
       parentRoute: typeof rootRoute
     }
-    '/shortener/Chart': {
-      id: '/shortener/Chart'
-      path: '/shortener/Chart'
-      fullPath: '/shortener/Chart'
-      preLoaderRoute: typeof ShortenerChartImport
+    '/Dashboard/Chart': {
+      id: '/Dashboard/Chart'
+      path: '/Dashboard/Chart'
+      fullPath: '/Dashboard/Chart'
+      preLoaderRoute: typeof DashboardChartImport
       parentRoute: typeof rootRoute
     }
-    '/shortener/Profile': {
-      id: '/shortener/Profile'
-      path: '/shortener/Profile'
-      fullPath: '/shortener/Profile'
-      preLoaderRoute: typeof ShortenerProfileImport
+    '/Dashboard/Profile': {
+      id: '/Dashboard/Profile'
+      path: '/Dashboard/Profile'
+      fullPath: '/Dashboard/Profile'
+      preLoaderRoute: typeof DashboardProfileImport
       parentRoute: typeof rootRoute
     }
-    '/shortener/Settings': {
-      id: '/shortener/Settings'
-      path: '/shortener/Settings'
-      fullPath: '/shortener/Settings'
-      preLoaderRoute: typeof ShortenerSettingsImport
+    '/Dashboard/Settings': {
+      id: '/Dashboard/Settings'
+      path: '/Dashboard/Settings'
+      fullPath: '/Dashboard/Settings'
+      preLoaderRoute: typeof DashboardSettingsImport
+      parentRoute: typeof rootRoute
+    }
+    '/Dashboard/Tables': {
+      id: '/Dashboard/Tables'
+      path: '/Dashboard/Tables'
+      fullPath: '/Dashboard/Tables'
+      preLoaderRoute: typeof DashboardTablesImport
+      parentRoute: typeof rootRoute
+    }
+    '/Dashboard/linksPage': {
+      id: '/Dashboard/linksPage'
+      path: '/Dashboard/linksPage'
+      fullPath: '/Dashboard/linksPage'
+      preLoaderRoute: typeof DashboardLinksPageImport
       parentRoute: typeof rootRoute
     }
     '/shortener/SignIn': {
@@ -237,18 +268,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShortenerSignUpImport
       parentRoute: typeof rootRoute
     }
-    '/shortener/Tables': {
-      id: '/shortener/Tables'
-      path: '/shortener/Tables'
-      fullPath: '/shortener/Tables'
-      preLoaderRoute: typeof ShortenerTablesImport
-      parentRoute: typeof rootRoute
-    }
-    '/shortener/linksPage': {
-      id: '/shortener/linksPage'
-      path: '/shortener/linksPage'
-      fullPath: '/shortener/linksPage'
-      preLoaderRoute: typeof ShortenerLinksPageImport
+    '/Dashboard/': {
+      id: '/Dashboard/'
+      path: '/Dashboard'
+      fullPath: '/Dashboard'
+      preLoaderRoute: typeof DashboardIndexImport
       parentRoute: typeof rootRoute
     }
     '/blog/': {
@@ -272,39 +296,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShortenerIndexImport
       parentRoute: typeof rootRoute
     }
-    '/shortener/Dashboard/ECommerce': {
-      id: '/shortener/Dashboard/ECommerce'
-      path: '/shortener/Dashboard/ECommerce'
-      fullPath: '/shortener/Dashboard/ECommerce'
-      preLoaderRoute: typeof ShortenerDashboardECommerceImport
+    '/Dashboard/Form/FormElements': {
+      id: '/Dashboard/Form/FormElements'
+      path: '/Dashboard/Form/FormElements'
+      fullPath: '/Dashboard/Form/FormElements'
+      preLoaderRoute: typeof DashboardFormFormElementsImport
       parentRoute: typeof rootRoute
     }
-    '/shortener/Form/FormElements': {
-      id: '/shortener/Form/FormElements'
-      path: '/shortener/Form/FormElements'
-      fullPath: '/shortener/Form/FormElements'
-      preLoaderRoute: typeof ShortenerFormFormElementsImport
+    '/Dashboard/Form/FormLayout': {
+      id: '/Dashboard/Form/FormLayout'
+      path: '/Dashboard/Form/FormLayout'
+      fullPath: '/Dashboard/Form/FormLayout'
+      preLoaderRoute: typeof DashboardFormFormLayoutImport
       parentRoute: typeof rootRoute
     }
-    '/shortener/Form/FormLayout': {
-      id: '/shortener/Form/FormLayout'
-      path: '/shortener/Form/FormLayout'
-      fullPath: '/shortener/Form/FormLayout'
-      preLoaderRoute: typeof ShortenerFormFormLayoutImport
+    '/Dashboard/UiElements/Alerts': {
+      id: '/Dashboard/UiElements/Alerts'
+      path: '/Dashboard/UiElements/Alerts'
+      fullPath: '/Dashboard/UiElements/Alerts'
+      preLoaderRoute: typeof DashboardUiElementsAlertsImport
       parentRoute: typeof rootRoute
     }
-    '/shortener/UiElements/Alerts': {
-      id: '/shortener/UiElements/Alerts'
-      path: '/shortener/UiElements/Alerts'
-      fullPath: '/shortener/UiElements/Alerts'
-      preLoaderRoute: typeof ShortenerUiElementsAlertsImport
+    '/Dashboard/UiElements/Buttons': {
+      id: '/Dashboard/UiElements/Buttons'
+      path: '/Dashboard/UiElements/Buttons'
+      fullPath: '/Dashboard/UiElements/Buttons'
+      preLoaderRoute: typeof DashboardUiElementsButtonsImport
       parentRoute: typeof rootRoute
     }
-    '/shortener/UiElements/Buttons': {
-      id: '/shortener/UiElements/Buttons'
-      path: '/shortener/UiElements/Buttons'
-      fullPath: '/shortener/UiElements/Buttons'
-      preLoaderRoute: typeof ShortenerUiElementsButtonsImport
+    '/Dashboard/Summary/': {
+      id: '/Dashboard/Summary/'
+      path: '/Dashboard/Summary'
+      fullPath: '/Dashboard/Summary'
+      preLoaderRoute: typeof DashboardSummaryIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/blog/[slug]/': {
+      id: '/blog/[slug]/'
+      path: '/blog/[slug]'
+      fullPath: '/blog/[slug]'
+      preLoaderRoute: typeof BlogslugIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/product/[slug]/': {
+      id: '/product/[slug]/'
+      path: '/product/[slug]'
+      fullPath: '/product/[slug]'
+      preLoaderRoute: typeof ProductslugIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -319,22 +357,25 @@ export const routeTree = rootRoute.addChildren({
   ContactRoute,
   SignInRoute,
   SignUpRoute,
-  ShortenerCalendarRoute,
-  ShortenerChartRoute,
-  ShortenerProfileRoute,
-  ShortenerSettingsRoute,
+  DashboardCalendarRoute,
+  DashboardChartRoute,
+  DashboardProfileRoute,
+  DashboardSettingsRoute,
+  DashboardTablesRoute,
+  DashboardLinksPageRoute,
   ShortenerSignInRoute,
   ShortenerSignUpRoute,
-  ShortenerTablesRoute,
-  ShortenerLinksPageRoute,
+  DashboardIndexRoute,
   BlogIndexRoute,
   ProductIndexRoute,
   ShortenerIndexRoute,
-  ShortenerDashboardECommerceRoute,
-  ShortenerFormFormElementsRoute,
-  ShortenerFormFormLayoutRoute,
-  ShortenerUiElementsAlertsRoute,
-  ShortenerUiElementsButtonsRoute,
+  DashboardFormFormElementsRoute,
+  DashboardFormFormLayoutRoute,
+  DashboardUiElementsAlertsRoute,
+  DashboardUiElementsButtonsRoute,
+  DashboardSummaryIndexRoute,
+  BlogslugIndexRoute,
+  ProductslugIndexRoute,
 })
 
 /* prettier-ignore-end */
@@ -351,22 +392,25 @@ export const routeTree = rootRoute.addChildren({
         "/Contact",
         "/SignIn",
         "/SignUp",
-        "/shortener/Calendar",
-        "/shortener/Chart",
-        "/shortener/Profile",
-        "/shortener/Settings",
+        "/Dashboard/Calendar",
+        "/Dashboard/Chart",
+        "/Dashboard/Profile",
+        "/Dashboard/Settings",
+        "/Dashboard/Tables",
+        "/Dashboard/linksPage",
         "/shortener/SignIn",
         "/shortener/SignUp",
-        "/shortener/Tables",
-        "/shortener/linksPage",
+        "/Dashboard/",
         "/blog/",
         "/product/",
         "/shortener/",
-        "/shortener/Dashboard/ECommerce",
-        "/shortener/Form/FormElements",
-        "/shortener/Form/FormLayout",
-        "/shortener/UiElements/Alerts",
-        "/shortener/UiElements/Buttons"
+        "/Dashboard/Form/FormElements",
+        "/Dashboard/Form/FormLayout",
+        "/Dashboard/UiElements/Alerts",
+        "/Dashboard/UiElements/Buttons",
+        "/Dashboard/Summary/",
+        "/blog/[slug]/",
+        "/product/[slug]/"
       ]
     },
     "/": {
@@ -387,17 +431,23 @@ export const routeTree = rootRoute.addChildren({
     "/SignUp": {
       "filePath": "SignUp.tsx"
     },
-    "/shortener/Calendar": {
-      "filePath": "shortener/Calendar.tsx"
+    "/Dashboard/Calendar": {
+      "filePath": "Dashboard/Calendar.tsx"
     },
-    "/shortener/Chart": {
-      "filePath": "shortener/Chart.tsx"
+    "/Dashboard/Chart": {
+      "filePath": "Dashboard/Chart.tsx"
     },
-    "/shortener/Profile": {
-      "filePath": "shortener/Profile.tsx"
+    "/Dashboard/Profile": {
+      "filePath": "Dashboard/Profile.tsx"
     },
-    "/shortener/Settings": {
-      "filePath": "shortener/Settings.tsx"
+    "/Dashboard/Settings": {
+      "filePath": "Dashboard/Settings.tsx"
+    },
+    "/Dashboard/Tables": {
+      "filePath": "Dashboard/Tables.tsx"
+    },
+    "/Dashboard/linksPage": {
+      "filePath": "Dashboard/linksPage.tsx"
     },
     "/shortener/SignIn": {
       "filePath": "shortener/SignIn.tsx"
@@ -405,11 +455,8 @@ export const routeTree = rootRoute.addChildren({
     "/shortener/SignUp": {
       "filePath": "shortener/SignUp.tsx"
     },
-    "/shortener/Tables": {
-      "filePath": "shortener/Tables.tsx"
-    },
-    "/shortener/linksPage": {
-      "filePath": "shortener/linksPage.tsx"
+    "/Dashboard/": {
+      "filePath": "Dashboard/index.tsx"
     },
     "/blog/": {
       "filePath": "blog/index.tsx"
@@ -420,20 +467,26 @@ export const routeTree = rootRoute.addChildren({
     "/shortener/": {
       "filePath": "shortener/index.tsx"
     },
-    "/shortener/Dashboard/ECommerce": {
-      "filePath": "shortener/Dashboard/ECommerce.tsx"
+    "/Dashboard/Form/FormElements": {
+      "filePath": "Dashboard/Form/FormElements.tsx"
     },
-    "/shortener/Form/FormElements": {
-      "filePath": "shortener/Form/FormElements.tsx"
+    "/Dashboard/Form/FormLayout": {
+      "filePath": "Dashboard/Form/FormLayout.tsx"
     },
-    "/shortener/Form/FormLayout": {
-      "filePath": "shortener/Form/FormLayout.tsx"
+    "/Dashboard/UiElements/Alerts": {
+      "filePath": "Dashboard/UiElements/Alerts.tsx"
     },
-    "/shortener/UiElements/Alerts": {
-      "filePath": "shortener/UiElements/Alerts.tsx"
+    "/Dashboard/UiElements/Buttons": {
+      "filePath": "Dashboard/UiElements/Buttons.tsx"
     },
-    "/shortener/UiElements/Buttons": {
-      "filePath": "shortener/UiElements/Buttons.tsx"
+    "/Dashboard/Summary/": {
+      "filePath": "Dashboard/Summary/index.tsx"
+    },
+    "/blog/[slug]/": {
+      "filePath": "blog/[slug]/index.tsx"
+    },
+    "/product/[slug]/": {
+      "filePath": "product/[slug]/index.tsx"
     }
   }
 }

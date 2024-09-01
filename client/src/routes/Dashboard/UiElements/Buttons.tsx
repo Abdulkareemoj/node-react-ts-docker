@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import Breadcrumb from "../../../components/shortener/Breadcrumbs/Breadcrumb";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/shortener/UiElements/Buttons")({
+export const Route = createFileRoute("/Dashboard/UiElements/Buttons")({
   component: Buttons,
 });
 function Buttons() {
