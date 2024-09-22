@@ -1,10 +1,10 @@
-import Breadcrumb from "../../components/shortener/Breadcrumbs/Breadcrumb";
+import Breadcrumb from "../../components/dashboard/Breadcrumbs/Breadcrumb";
 import CoverOne from "../../assets/images/cover/cover-01.png";
 import userSix from "../../assets/images/user/user-06.png";
 import { Link } from "@tanstack/react-router";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/Dashboard/Profile")({
+export const Route = createFileRoute("/dashboard/Profile")({
   component: Profile,
 });
 function Profile() {

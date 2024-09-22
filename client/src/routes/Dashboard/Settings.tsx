@@ -1,8 +1,8 @@
-import Breadcrumb from "../../components/shortener/Breadcrumbs/Breadcrumb";
+import Breadcrumb from "../../components/dashboard/Breadcrumbs/Breadcrumb";
 import userThree from "../../assets/images/user/user-03.png";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/Dashboard/Settings")({
+export const Route = createFileRoute("/dashboard/Settings")({
   component: Settings,
 });
 function Settings() {

@@ -224,7 +224,7 @@ function SignIn() {
                 </div>
 
                 <div>
-                  <Link className="mb-5" to="/Dashboard">
+                  <Link className="mb-5" to="/dashboard">
                     <input
                       type="submit"
                       value="Sign In"

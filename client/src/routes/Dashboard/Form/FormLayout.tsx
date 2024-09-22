@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import Breadcrumb from "../../../components/shortener/Breadcrumbs/Breadcrumb";
-import SelectGroupOne from "../../../components/shortener/Forms/SelectGroup/SelectGroupOne";
+import Breadcrumb from "../../../components/dashboard/Breadcrumbs/Breadcrumb";
+import SelectGroupOne from "../../../components/dashboard/Forms/SelectGroup/SelectGroupOne";
 
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/Dashboard/Form/FormLayout")({
+export const Route = createFileRoute("/dashboard/form/FormLayout")({
   component: FormLayout,
 });
 function FormLayout() {

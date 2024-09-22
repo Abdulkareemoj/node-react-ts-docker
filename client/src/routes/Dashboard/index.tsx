@@ -1,22 +1,18 @@
-import CardDataStats from "../../components/shortener/CardDataStats";
-import ChartOne from "../../components/shortener/Charts/ChartOne";
-import ChartThree from "../../components/shortener/Charts/ChartThree";
-import ChartTwo from "../../components/shortener/Charts/ChartTwo";
-import ChatCard from "../../components/shortener/Chat/ChatCard";
-import DefaultLayout from "../../components/shortener/DefaultLayout";
-import MapOne from "../../components/shortener/Maps/MapOne";
-import TableOne from "../../components/shortener/Tables/TableOne";
+import CardDataStats from "../../components/dashboard/CardDataStats";
+import ChartOne from "../../components/dashboard/Charts/ChartOne";
+import ChartThree from "../../components/dashboard/Charts/ChartThree";
+import ChartTwo from "../../components/dashboard/Charts/ChartTwo";
+import ChatCard from "../../components/dashboard/Chat/ChatCard";
+import DashboardLayout from "../../components/dashboard/DashboardLayout";
+import MapOne from "../../components/dashboard/Maps/MapOne";
+import TableOne from "../../components/dashboard/Tables/TableOne";
 
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/Dashboard/")({
-  component: () => (
-    <DefaultLayout>
-      <ECommerce />
-    </DefaultLayout>
-  ),
+export const Route = createFileRoute("/dashboard/")({
+  component: () => <HomePage />,
 });
-function ECommerce() {
+function HomePage() {
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
@@ -120,4 +116,4 @@ function ECommerce() {
   );
 }
 
-export default ECommerce;
+export default HomePage;

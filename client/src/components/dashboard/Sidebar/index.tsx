@@ -682,27 +682,27 @@ interface SidebarProps {
 // };
 
 const paths = [
-  { path: "/shortener/Dashboard/ECommerce", label: "E-Commerce" },
+  { path: "/dashboard", label: "Home" },
   {
     label: "Form",
     dropdown: [
-      { path: "/shortener/Form/FormElements", label: "Form Elements" },
-      { path: "/shortener/Form/FormLayout", label: "Form Layout" },
+      { path: "/Form/FormElements", label: "Form Elements" },
+      { path: "/Form/FormLayout", label: "Form Layout" },
     ],
   },
   {
     label: "UI Elements",
     dropdown: [
-      { path: "/shortener/UiElements/Alerts", label: "Alerts" },
-      { path: "/shortener/UiElements/Buttons", label: "Buttons" },
+      { path: "/dashboard/uiElements/Alerts", label: "Alerts" },
+      { path: "/dashboard/uiElements/Buttons", label: "Buttons" },
     ],
   },
-  { path: "/shortener/Calendar", label: "Calendar" },
-  { path: "/shortener/Chart", label: "Chart" },
-  { path: "/shortener/Profile", label: "Profile" },
-  { path: "/shortener/Settings", label: "Settings" },
-  { path: "/shortener/Tables", label: "Tables" },
-  { path: "/shortener/linksPage", label: "Links Page" },
+  { path: "/dashboard/Calendar", label: "Calendar" },
+  { path: "/dashboard/Chart", label: "Chart" },
+  { path: "/dashboard/Profile", label: "Profile" },
+  { path: "/dashboard/Settings", label: "Settings" },
+  { path: "/dashboard/Tables", label: "Tables" },
+  { path: "/dashboard/linksPage", label: "Links Page" },
 ];
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
