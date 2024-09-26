@@ -5,7 +5,7 @@ import ChartTwo from "../../components/dashboard/Charts/ChartTwo";
 
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/dashboard/Chart")({
+export const Route = createFileRoute("/Dashboard/Chart")({
   component: Chart,
 });
 function Chart() {

@@ -2,7 +2,7 @@ import Breadcrumb from "../../../components/dashboard/Breadcrumbs/Breadcrumb";
 
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/dashboard/uiElements/Alerts")({
+export const Route = createFileRoute("/Dashboard/UiElements/Alerts")({
   component: Alerts,
 });
 function Alerts() {

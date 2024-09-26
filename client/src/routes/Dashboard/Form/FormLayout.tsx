@@ -4,7 +4,7 @@ import SelectGroupOne from "../../../components/dashboard/Forms/SelectGroup/Sele
 
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/dashboard/form/FormLayout")({
+export const Route = createFileRoute("/Dashboard/Form/FormLayout")({
   component: FormLayout,
 });
 function FormLayout() {
