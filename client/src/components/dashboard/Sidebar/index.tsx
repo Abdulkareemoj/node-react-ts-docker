@@ -8,34 +8,65 @@ import {
 } from "@headlessui/react";
 import { Link } from "@tanstack/react-router";
 import Logo from "../../../assets/images/logo/logo.svg";
+import { IoMdHome, IoIosSettings } from "react-icons/io";
 
+import { ImProfile } from "react-icons/im";
+import {
+  FaWpforms,
+  FaCalendarAlt,
+  FaChartBar,
+  FaTable,
+  FaLink,
+} from "react-icons/fa";
+
+import { LuLayoutDashboard } from "react-icons/lu";
+import { TbAlertTriangle } from "react-icons/tb";
+import { RxButton } from "react-icons/rx";
 interface SidebarProps {
   sidebarOpen: boolean;
   setSidebarOpen: (arg: boolean) => void;
 }
 
 const paths = [
-  { path: "/dashboard", label: "Home" },
+  { path: "/dashboard", label: "Home", icon: IoMdHome },
   {
     label: "Form",
+    icon: FaWpforms,
     dropdown: [
-      { path: "/dashboard/FormElements", label: "Form Elements" },
-      { path: "/dashboard/FormLayout", label: "Form Layout" },
+      {
+        path: "/dashboard/FormElements",
+        label: "Form Elements",
+        icon: FaWpforms,
+      },
+      {
+        path: "/dashboard/FormLayout",
+        label: "Form Layout",
+        icon: LuLayoutDashboard,
+      },
     ],
   },
   {
     label: "UI Elements",
+    icon: TbAlertTriangle,
     dropdown: [
-      { path: "/dashboard/uiElements/Alerts", label: "Alerts" },
-      { path: "/dashboard/uiElements/Buttons", label: "Buttons" },
+      {
+        path: "/dashboard/uiElements/Alerts",
+        label: "Alerts",
+        icon: TbAlertTriangle,
+      },
+      {
+        path: "/dashboard/uiElements/Buttons",
+        label: "Buttons",
+        icon: RxButton,
+      },
     ],
   },
-  { path: "/dashboard/Calendar", label: "Calendar" },
-  { path: "/dashboard/Chart", label: "Chart" },
-  { path: "/dashboard/Profile", label: "Profile" },
-  { path: "/dashboard/Settings", label: "Settings" },
-  { path: "/dashboard/Tables", label: "Tables" },
-  { path: "/dashboard/linksPage", label: "Links Page" },
+  { path: "/dashboard/Calendar", label: "Calendar", icon: FaCalendarAlt },
+  { path: "/dashboard/Chart", label: "Chart", icon: FaChartBar },
+  { path: "/dashboard/Profile", label: "Profile", icon: ImProfile },
+  { path: "/dashboard/Settings", label: "Settings", icon: IoIosSettings },
+  { path: "/dashboard/Tables", label: "Tables", icon: FaTable },
+  { path: "/dashboard/linksPage", label: "Links Page", icon: FaLink },
 ];
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
@@ -51,7 +82,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         sidebarOpen ? "translate-x-0" : "-translate-x-full"
       } lg:static lg:translate-x-0`}
     >
-      <div className="flex items-center justify-between p-4">
+      <div className="flex items-center justify-between p-4 mt-5">
         <Link to="/">
           <img src={Logo} alt="Logo" className="h-8 w-auto" />
         </Link>
@@ -75,15 +106,16 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           </svg>
         </button>
       </div>
-      <nav className="flex-1 overflow-y-auto">
+      <nav className="flex-1 overflow-y-auto mt-5">
         <ul className="space-y-2">
-          {paths.map(({ path, label, dropdown }) => (
+          {paths.map(({ path, label, icon: Icon, dropdown }) => (
             <li key={label}>
               {path ? (
                 <Link
                   to={path}
-                  className="block px-4 py-2 text-white rounded-md transition-colors duration-300 ease-in-out hover:bg-gray-600"
+                  className="flex items-center px-4 py-2 text-white rounded-md transition-colors duration-300 ease-in-out hover:bg-gray-600"
                 >
+                  <Icon className="w-5 h-5 mr-3" />
                   {label}
                 </Link>
               ) : (
@@ -94,7 +126,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         className="flex items-center justify-between w-full px-4 py-2 text-left text-white rounded-md transition-colors duration-300 ease-in-out hover:bg-gray-600"
                         onClick={() => handleDropdownClick(label)}
                       >
-                        {label}
+                        <div className="flex items-center">
+                          <Icon className="w-5 h-5 mr-3" />
+                          {label}
+                        </div>
                         <svg
                           className={`w-5 h-5 transition-transform ${
                             openDropdown === label ? "rotate-180" : "rotate-0"
@@ -123,20 +158,23 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         leaveTo="transform opacity-0 scale-95"
                       >
                         <MenuItems className="mt-2 space-y-2">
-                          {dropdown?.map(({ path, label }) => (
-                            <MenuItem key={path} as="div">
-                              {({ active }) => (
-                                <Link
-                                  to={path}
-                                  className={`block px-4 py-2 text-gray-700 ${
-                                    active ? "bg-gray-100" : ""
-                                  }`}
-                                >
-                                  {label}
-                                </Link>
-                              )}
-                            </MenuItem>
-                          ))}
+                          {dropdown?.map(
+                            ({ path, label, icon: DropdownIcon }) => (
+                              <MenuItem key={path} as="div">
+                                {({ active }) => (
+                                  <Link
+                                    to={path}
+                                    className={`flex items-center px-4 py-2 text-gray-700 ${
+                                      active ? "bg-gray-100" : ""
+                                    }`}
+                                  >
+                                    <DropdownIcon className="w-5 h-5 mr-3" />
+                                    {label}
+                                  </Link>
+                                )}
+                              </MenuItem>
+                            )
+                          )}
                         </MenuItems>
                       </Transition>
                     </>

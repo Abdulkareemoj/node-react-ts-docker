@@ -1,5 +1,5 @@
 import jsVectorMap from "jsvectormap";
-// import "jsvectormap/dist/css/jsvectormap.css";s
+import "jsvectormap/dist/jsvectormap.css";
 import { useEffect } from "react";
 import "../../../utils/us-aea-en";
 

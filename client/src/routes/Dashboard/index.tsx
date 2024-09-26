@@ -3,7 +3,6 @@ import ChartOne from "../../components/dashboard/Charts/ChartOne";
 import ChartThree from "../../components/dashboard/Charts/ChartThree";
 import ChartTwo from "../../components/dashboard/Charts/ChartTwo";
 import ChatCard from "../../components/dashboard/Chat/ChatCard";
-import DashboardLayout from "../../components/dashboard/DashboardLayout";
 import MapOne from "../../components/dashboard/Maps/MapOne";
 import TableOne from "../../components/dashboard/Tables/TableOne";
 
