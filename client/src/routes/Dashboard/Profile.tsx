@@ -4,7 +4,7 @@ import userSix from "../../assets/images/user/user-06.png";
 import { Link } from "@tanstack/react-router";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/Dashboard/Profile")({
+export const Route = createFileRoute("/dashboard/Profile")({
   component: Profile,
 });
 function Profile() {

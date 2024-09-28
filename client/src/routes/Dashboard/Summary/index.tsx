@@ -8,7 +8,7 @@ import TableOne from "../../../components/dashboard/Tables/TableOne";
 
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/Dashboard/Summary/")({
+export const Route = createFileRoute("/dashboard/summary/")({
   component: () => <ECommerce />,
 });
 function ECommerce() {

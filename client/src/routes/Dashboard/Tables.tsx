@@ -5,7 +5,7 @@ import TableTwo from "../../components/dashboard/Tables/TableTwo";
 
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/Dashboard/Tables")({
+export const Route = createFileRoute("/dashboard/Tables")({
   component: Tables,
 });
 function Tables() {
