@@ -1,8 +1,8 @@
-import Breadcrumb from "../../components/dashboard/Breadcrumbs/Breadcrumb";
+import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
 
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/dashboard/Calendar")({
+export const Route = createFileRoute("/dashboard/user/Calendar")({
   component: Calendar,
 });
 function Calendar() {

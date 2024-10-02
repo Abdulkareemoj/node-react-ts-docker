@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import DropdownMessage from "./DropdownMessage";
 import DropdownNotification from "./DropdownNotification";
 import DropdownUser from "./DropdownUser";
-import LogoIcon from "../../../assets/images/logo/logo-icon.svg";
+import LogoIcon from "@/assets/images/logo/logo-icon.svg";
 import DarkModeSwitcher from "./DarkModeSwitcher";
 
 const Header = (props: {

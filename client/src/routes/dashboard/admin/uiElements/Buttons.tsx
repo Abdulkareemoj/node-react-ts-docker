@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
 
-import Breadcrumb from "../../../components/dashboard/Breadcrumbs/Breadcrumb";
+import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/dashboard/uiElements/Buttons")({
+export const Route = createFileRoute("/dashboard/admin/uiElements/Buttons")({
   component: Buttons,
 });
 function Buttons() {

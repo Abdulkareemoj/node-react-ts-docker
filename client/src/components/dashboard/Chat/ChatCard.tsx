@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import UserOne from "../../../assets/images/user/user-01.png";
-import UserTwo from "../../../assets/images/user/user-02.png";
-import UserThree from "../../../assets/images/user/user-03.png";
-import UserFour from "../../../assets/images/user/user-04.png";
-import UserFive from "../../../assets/images/user/user-05.png";
+import UserOne from "@/assets/images/user/user-01.png";
+import UserTwo from "@/assets/images/user/user-02.png";
+import UserThree from "@/assets/images/user/user-03.png";
+import UserFour from "@/assets/images/user/user-04.png";
+import UserFive from "@/assets/images/user/user-05.png";
 type Chat = {
   avatar: string;
   name: string;

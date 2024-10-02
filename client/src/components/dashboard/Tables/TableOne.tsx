@@ -1,8 +1,8 @@
-import BrandOne from "../../../assets/images/brand/brand-01.svg";
-import BrandTwo from "../../../assets/images/brand/brand-02.svg";
-import BrandThree from "../../../assets/images/brand/brand-03.svg";
-import BrandFour from "../../../assets/images/brand/brand-04.svg";
-import BrandFive from "../../../assets/images/brand/brand-05.svg";
+import BrandOne from "@/assets/images/brand/brand-01.svg";
+import BrandTwo from "@/assets/images/brand/brand-02.svg";
+import BrandThree from "@/assets/images/brand/brand-03.svg";
+import BrandFour from "@/assets/images/brand/brand-04.svg";
+import BrandFive from "@/assets/images/brand/brand-05.svg";
 type Brand = {
   logo: string;
   name: string;

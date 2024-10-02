@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import LogoDark from "../../assets/images/logo/logo-dark.svg";
-import Logo from "../../assets/images/logo/logo.svg";
+import LogoDark from "@/assets/images/logo/logo-dark.svg";
+import Logo from "@/assets/images/logo/logo.svg";
 
 import { createFileRoute } from "@tanstack/react-router";
 

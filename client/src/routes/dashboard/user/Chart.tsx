@@ -1,11 +1,11 @@
-import Breadcrumb from "../../components/dashboard/Breadcrumbs/Breadcrumb";
-import ChartOne from "../../components/dashboard/Charts/ChartOne";
-import ChartThree from "../../components/dashboard/Charts/ChartThree";
-import ChartTwo from "../../components/dashboard/Charts/ChartTwo";
+import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
+import ChartOne from "@/components/dashboard/Charts/ChartOne";
+import ChartThree from "@/components/dashboard/Charts/ChartThree";
+import ChartTwo from "@/components/dashboard/Charts/ChartTwo";
 
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/dashboard/Chart")({
+export const Route = createFileRoute("/dashboard/user/Chart")({
   component: Chart,
 });
 function Chart() {

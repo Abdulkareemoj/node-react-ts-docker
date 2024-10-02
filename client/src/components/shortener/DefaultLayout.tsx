@@ -1,6 +1,6 @@
 import React, { useState, ReactNode } from "react";
-import Header from "../../components/shortener/Header/index";
-import Sidebar from "../../components/shortener/Sidebar/index";
+import Header from "@/components/shortener/Header/index";
+import Sidebar from "@/components/shortener/Sidebar/index";
 
 const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

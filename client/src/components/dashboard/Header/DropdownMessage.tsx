@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import ClickOutside from "../ClickOutside";
 
-import UserOne from "../../../assets/images/user/user-01.png";
-import UserTwo from "../../../assets/images/user/user-02.png";
-import UserThree from "../../../assets/images/user/user-03.png";
-import UserFour from "../../../assets/images/user/user-04.png";
+import UserOne from "@/assets/images/user/user-01.png";
+import UserTwo from "@/assets/images/user/user-02.png";
+import UserThree from "@/assets/images/user/user-03.png";
+import UserFour from "@/assets/images/user/user-04.png";
 
 const DropdownMessage = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);

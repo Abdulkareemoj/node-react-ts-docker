@@ -4,9 +4,9 @@ import bcrypt from "bcryptjs";
 
 export interface UserInput {
   email: string;
-  name: string;
+  username: string;
   password: string;
-    roles: string[];
+  role: string[];
 }
 
 export interface UserDocument extends UserInput, mongoose.Document {
@@ -18,9 +18,9 @@ export interface UserDocument extends UserInput, mongoose.Document {
 const UserSchema = new mongoose.Schema(
   {
     email: { type: String, required: true, unique: true },
-    name: { type: String, required: true },
+    username: { type: String, required: true },
     password: { type: String, required: true },
-    roles: {
+    role: {
       type: [String],
       required: true,
     },

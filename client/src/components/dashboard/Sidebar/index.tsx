@@ -7,7 +7,7 @@ import {
   Transition,
 } from "@headlessui/react";
 import { Link } from "@tanstack/react-router";
-import Logo from "../../../assets/images/logo/logo.svg";
+import Logo from "@/assets/images/logo/logo.svg";
 import { IoMdHome, IoIosSettings } from "react-icons/io";
 
 import { ImProfile } from "react-icons/im";
