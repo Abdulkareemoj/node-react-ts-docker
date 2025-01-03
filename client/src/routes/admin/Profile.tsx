@@ -3,13 +3,14 @@ import CoverOne from "@/assets/images/cover/cover-01.png";
 import userSix from "@/assets/images/user/user-06.png";
 import { Link } from "@tanstack/react-router";
 import { createFileRoute } from "@tanstack/react-router";
+import DashboardLayout from "@/layouts/DashboardLayout";
 
-export const Route = createFileRoute("/dashboard/user/Profile")({
+export const Route = createFileRoute("/admin/Profile")({
   component: Profile,
 });
 function Profile() {
   return (
-    <>
+    <DashboardLayout>
       <Breadcrumb pageName="Profile" />
 
       <div className="overflow-hidden rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -284,7 +285,7 @@ function Profile() {
           </div>
         </div>
       </div>
-    </>
+    </DashboardLayout>
   );
 }
 

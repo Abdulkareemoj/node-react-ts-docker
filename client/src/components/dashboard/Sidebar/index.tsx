@@ -28,18 +28,18 @@ interface SidebarProps {
 }
 
 const paths = [
-  { path: "/dashboard", label: "Home", icon: IoMdHome },
+  { path: "/admin", label: "Home", icon: IoMdHome },
   {
     label: "Form",
     icon: FaWpforms,
     dropdown: [
       {
-        path: "/dashboard/FormElements",
+        path: "/admin/FormElements",
         label: "Form Elements",
         icon: FaWpforms,
       },
       {
-        path: "/dashboard/FormLayout",
+        path: "/admin/FormLayout",
         label: "Form Layout",
         icon: LuLayoutDashboard,
       },
@@ -50,23 +50,23 @@ const paths = [
     icon: TbAlertTriangle,
     dropdown: [
       {
-        path: "/dashboard/uiElements/Alerts",
+        path: "/admin/uiElements/Alerts",
         label: "Alerts",
         icon: TbAlertTriangle,
       },
       {
-        path: "/dashboard/uiElements/Buttons",
+        path: "/admin/uiElements/Buttons",
         label: "Buttons",
         icon: RxButton,
       },
     ],
   },
-  { path: "/dashboard/Calendar", label: "Calendar", icon: FaCalendarAlt },
-  { path: "/dashboard/Chart", label: "Chart", icon: FaChartBar },
-  { path: "/dashboard/Profile", label: "Profile", icon: ImProfile },
-  { path: "/dashboard/Settings", label: "Settings", icon: IoIosSettings },
-  { path: "/dashboard/Tables", label: "Tables", icon: FaTable },
-  { path: "/dashboard/linksPage", label: "Links Page", icon: FaLink },
+  { path: "/admin/Calendar", label: "Calendar", icon: FaCalendarAlt },
+  { path: "/admin/Chart", label: "Chart", icon: FaChartBar },
+  { path: "/admin/Profile", label: "Profile", icon: ImProfile },
+  { path: "/admin/Settings", label: "Settings", icon: IoIosSettings },
+  { path: "/admin/Tables", label: "Tables", icon: FaTable },
+  { path: "/admin/linksPage", label: "Links Page", icon: FaLink },
 ];
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {

@@ -5,15 +5,16 @@ import ChartTwo from "@/components/dashboard/Charts/ChartTwo";
 import ChatCard from "@/components/dashboard/Chat/ChatCard";
 import MapOne from "@/components/dashboard/Maps/MapOne";
 import TableOne from "@/components/dashboard/Tables/TableOne";
+import DashboardLayout from "@/layouts/DashboardLayout";
 
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/dashboard/admin/")({
-  component: () => <HomePage />,
+export const Route = createFileRoute("/admin/summary/")({
+  component: () => <ECommerce />,
 });
-function HomePage() {
+function ECommerce() {
   return (
-    <>
+    <DashboardLayout>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         <CardDataStats title="Total views" total="$3.456K" rate="0.43%" levelUp>
           <svg
@@ -111,8 +112,8 @@ function HomePage() {
         </div>
         <ChatCard />
       </div>
-    </>
+    </DashboardLayout>
   );
 }
 
-export default HomePage;
+export default ECommerce;

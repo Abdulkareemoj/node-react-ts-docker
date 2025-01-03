@@ -20,34 +20,20 @@ import { Route as IndexImport } from './routes/index'
 import { Route as ShortenerIndexImport } from './routes/shortener/index'
 import { Route as ProductIndexImport } from './routes/product/index'
 import { Route as BlogIndexImport } from './routes/blog/index'
-import { Route as ShortenerSignUpImport } from './routes/shortener/SignUp'
-import { Route as ShortenerSignInImport } from './routes/shortener/SignIn'
+import { Route as AdminIndexImport } from './routes/admin/index'
+import { Route as AdminLinksPageImport } from './routes/admin/linksPage'
+import { Route as AdminTablesImport } from './routes/admin/Tables'
+import { Route as AdminSettingsImport } from './routes/admin/Settings'
+import { Route as AdminProfileImport } from './routes/admin/Profile'
+import { Route as AdminChartImport } from './routes/admin/Chart'
+import { Route as AdminCalendarImport } from './routes/admin/Calendar'
 import { Route as ProductslugIndexImport } from './routes/product/[slug]/index'
-import { Route as DashboardUserIndexImport } from './routes/dashboard/user/index'
-import { Route as DashboardAdminIndexImport } from './routes/dashboard/admin/index'
 import { Route as BlogslugIndexImport } from './routes/blog/[slug]/index'
-import { Route as DashboardUserLinksPageImport } from './routes/dashboard/user/linksPage'
-import { Route as DashboardUserTablesImport } from './routes/dashboard/user/Tables'
-import { Route as DashboardUserSettingsImport } from './routes/dashboard/user/Settings'
-import { Route as DashboardUserProfileImport } from './routes/dashboard/user/Profile'
-import { Route as DashboardUserChartImport } from './routes/dashboard/user/Chart'
-import { Route as DashboardUserCalendarImport } from './routes/dashboard/user/Calendar'
-import { Route as DashboardAdminLinksPageImport } from './routes/dashboard/admin/linksPage'
-import { Route as DashboardAdminTablesImport } from './routes/dashboard/admin/Tables'
-import { Route as DashboardAdminSettingsImport } from './routes/dashboard/admin/Settings'
-import { Route as DashboardAdminProfileImport } from './routes/dashboard/admin/Profile'
-import { Route as DashboardAdminChartImport } from './routes/dashboard/admin/Chart'
-import { Route as DashboardAdminCalendarImport } from './routes/dashboard/admin/Calendar'
-import { Route as DashboardUserSummaryIndexImport } from './routes/dashboard/user/summary/index'
-import { Route as DashboardAdminSummaryIndexImport } from './routes/dashboard/admin/summary/index'
-import { Route as DashboardUserUiElementsButtonsImport } from './routes/dashboard/user/uiElements/Buttons'
-import { Route as DashboardUserUiElementsAlertsImport } from './routes/dashboard/user/uiElements/Alerts'
-import { Route as DashboardUserFormFormLayoutImport } from './routes/dashboard/user/form/FormLayout'
-import { Route as DashboardUserFormFormElementsImport } from './routes/dashboard/user/form/FormElements'
-import { Route as DashboardAdminUiElementsButtonsImport } from './routes/dashboard/admin/uiElements/Buttons'
-import { Route as DashboardAdminUiElementsAlertsImport } from './routes/dashboard/admin/uiElements/Alerts'
-import { Route as DashboardAdminFormFormLayoutImport } from './routes/dashboard/admin/form/FormLayout'
-import { Route as DashboardAdminFormFormElementsImport } from './routes/dashboard/admin/form/FormElements'
+import { Route as AdminSummaryIndexImport } from './routes/admin/summary/index'
+import { Route as AdminUiElementsButtonsImport } from './routes/admin/uiElements/Buttons'
+import { Route as AdminUiElementsAlertsImport } from './routes/admin/uiElements/Alerts'
+import { Route as AdminFormFormLayoutImport } from './routes/admin/form/FormLayout'
+import { Route as AdminFormFormElementsImport } from './routes/admin/form/FormElements'
 
 // Create/Update Routes
 
@@ -96,13 +82,38 @@ const BlogIndexRoute = BlogIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const ShortenerSignUpRoute = ShortenerSignUpImport.update({
-  path: '/shortener/SignUp',
+const AdminIndexRoute = AdminIndexImport.update({
+  path: '/admin/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const ShortenerSignInRoute = ShortenerSignInImport.update({
-  path: '/shortener/SignIn',
+const AdminLinksPageRoute = AdminLinksPageImport.update({
+  path: '/admin/linksPage',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AdminTablesRoute = AdminTablesImport.update({
+  path: '/admin/Tables',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AdminSettingsRoute = AdminSettingsImport.update({
+  path: '/admin/Settings',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AdminProfileRoute = AdminProfileImport.update({
+  path: '/admin/Profile',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AdminChartRoute = AdminChartImport.update({
+  path: '/admin/Chart',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AdminCalendarRoute = AdminCalendarImport.update({
+  path: '/admin/Calendar',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -111,140 +122,35 @@ const ProductslugIndexRoute = ProductslugIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const DashboardUserIndexRoute = DashboardUserIndexImport.update({
-  path: '/dashboard/user/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardAdminIndexRoute = DashboardAdminIndexImport.update({
-  path: '/dashboard/admin/',
-  getParentRoute: () => rootRoute,
-} as any)
-
 const BlogslugIndexRoute = BlogslugIndexImport.update({
   path: '/blog/[slug]/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const DashboardUserLinksPageRoute = DashboardUserLinksPageImport.update({
-  path: '/dashboard/user/linksPage',
+const AdminSummaryIndexRoute = AdminSummaryIndexImport.update({
+  path: '/admin/summary/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const DashboardUserTablesRoute = DashboardUserTablesImport.update({
-  path: '/dashboard/user/Tables',
+const AdminUiElementsButtonsRoute = AdminUiElementsButtonsImport.update({
+  path: '/admin/uiElements/Buttons',
   getParentRoute: () => rootRoute,
 } as any)
 
-const DashboardUserSettingsRoute = DashboardUserSettingsImport.update({
-  path: '/dashboard/user/Settings',
+const AdminUiElementsAlertsRoute = AdminUiElementsAlertsImport.update({
+  path: '/admin/uiElements/Alerts',
   getParentRoute: () => rootRoute,
 } as any)
 
-const DashboardUserProfileRoute = DashboardUserProfileImport.update({
-  path: '/dashboard/user/Profile',
+const AdminFormFormLayoutRoute = AdminFormFormLayoutImport.update({
+  path: '/admin/form/FormLayout',
   getParentRoute: () => rootRoute,
 } as any)
 
-const DashboardUserChartRoute = DashboardUserChartImport.update({
-  path: '/dashboard/user/Chart',
+const AdminFormFormElementsRoute = AdminFormFormElementsImport.update({
+  path: '/admin/form/FormElements',
   getParentRoute: () => rootRoute,
 } as any)
-
-const DashboardUserCalendarRoute = DashboardUserCalendarImport.update({
-  path: '/dashboard/user/Calendar',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardAdminLinksPageRoute = DashboardAdminLinksPageImport.update({
-  path: '/dashboard/admin/linksPage',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardAdminTablesRoute = DashboardAdminTablesImport.update({
-  path: '/dashboard/admin/Tables',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardAdminSettingsRoute = DashboardAdminSettingsImport.update({
-  path: '/dashboard/admin/Settings',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardAdminProfileRoute = DashboardAdminProfileImport.update({
-  path: '/dashboard/admin/Profile',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardAdminChartRoute = DashboardAdminChartImport.update({
-  path: '/dashboard/admin/Chart',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardAdminCalendarRoute = DashboardAdminCalendarImport.update({
-  path: '/dashboard/admin/Calendar',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardUserSummaryIndexRoute = DashboardUserSummaryIndexImport.update({
-  path: '/dashboard/user/summary/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardAdminSummaryIndexRoute = DashboardAdminSummaryIndexImport.update(
-  {
-    path: '/dashboard/admin/summary/',
-    getParentRoute: () => rootRoute,
-  } as any,
-)
-
-const DashboardUserUiElementsButtonsRoute =
-  DashboardUserUiElementsButtonsImport.update({
-    path: '/dashboard/user/uiElements/Buttons',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const DashboardUserUiElementsAlertsRoute =
-  DashboardUserUiElementsAlertsImport.update({
-    path: '/dashboard/user/uiElements/Alerts',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const DashboardUserFormFormLayoutRoute =
-  DashboardUserFormFormLayoutImport.update({
-    path: '/dashboard/user/form/FormLayout',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const DashboardUserFormFormElementsRoute =
-  DashboardUserFormFormElementsImport.update({
-    path: '/dashboard/user/form/FormElements',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const DashboardAdminUiElementsButtonsRoute =
-  DashboardAdminUiElementsButtonsImport.update({
-    path: '/dashboard/admin/uiElements/Buttons',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const DashboardAdminUiElementsAlertsRoute =
-  DashboardAdminUiElementsAlertsImport.update({
-    path: '/dashboard/admin/uiElements/Alerts',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const DashboardAdminFormFormLayoutRoute =
-  DashboardAdminFormFormLayoutImport.update({
-    path: '/dashboard/admin/form/FormLayout',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const DashboardAdminFormFormElementsRoute =
-  DashboardAdminFormFormElementsImport.update({
-    path: '/dashboard/admin/form/FormElements',
-    getParentRoute: () => rootRoute,
-  } as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -292,18 +198,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactImport
       parentRoute: typeof rootRoute
     }
-    '/shortener/SignIn': {
-      id: '/shortener/SignIn'
-      path: '/shortener/SignIn'
-      fullPath: '/shortener/SignIn'
-      preLoaderRoute: typeof ShortenerSignInImport
+    '/admin/Calendar': {
+      id: '/admin/Calendar'
+      path: '/admin/Calendar'
+      fullPath: '/admin/Calendar'
+      preLoaderRoute: typeof AdminCalendarImport
       parentRoute: typeof rootRoute
     }
-    '/shortener/SignUp': {
-      id: '/shortener/SignUp'
-      path: '/shortener/SignUp'
-      fullPath: '/shortener/SignUp'
-      preLoaderRoute: typeof ShortenerSignUpImport
+    '/admin/Chart': {
+      id: '/admin/Chart'
+      path: '/admin/Chart'
+      fullPath: '/admin/Chart'
+      preLoaderRoute: typeof AdminChartImport
+      parentRoute: typeof rootRoute
+    }
+    '/admin/Profile': {
+      id: '/admin/Profile'
+      path: '/admin/Profile'
+      fullPath: '/admin/Profile'
+      preLoaderRoute: typeof AdminProfileImport
+      parentRoute: typeof rootRoute
+    }
+    '/admin/Settings': {
+      id: '/admin/Settings'
+      path: '/admin/Settings'
+      fullPath: '/admin/Settings'
+      preLoaderRoute: typeof AdminSettingsImport
+      parentRoute: typeof rootRoute
+    }
+    '/admin/Tables': {
+      id: '/admin/Tables'
+      path: '/admin/Tables'
+      fullPath: '/admin/Tables'
+      preLoaderRoute: typeof AdminTablesImport
+      parentRoute: typeof rootRoute
+    }
+    '/admin/linksPage': {
+      id: '/admin/linksPage'
+      path: '/admin/linksPage'
+      fullPath: '/admin/linksPage'
+      preLoaderRoute: typeof AdminLinksPageImport
+      parentRoute: typeof rootRoute
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminIndexImport
       parentRoute: typeof rootRoute
     }
     '/blog/': {
@@ -327,88 +268,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShortenerIndexImport
       parentRoute: typeof rootRoute
     }
-    '/dashboard/admin/Calendar': {
-      id: '/dashboard/admin/Calendar'
-      path: '/dashboard/admin/Calendar'
-      fullPath: '/dashboard/admin/Calendar'
-      preLoaderRoute: typeof DashboardAdminCalendarImport
+    '/admin/form/FormElements': {
+      id: '/admin/form/FormElements'
+      path: '/admin/form/FormElements'
+      fullPath: '/admin/form/FormElements'
+      preLoaderRoute: typeof AdminFormFormElementsImport
       parentRoute: typeof rootRoute
     }
-    '/dashboard/admin/Chart': {
-      id: '/dashboard/admin/Chart'
-      path: '/dashboard/admin/Chart'
-      fullPath: '/dashboard/admin/Chart'
-      preLoaderRoute: typeof DashboardAdminChartImport
+    '/admin/form/FormLayout': {
+      id: '/admin/form/FormLayout'
+      path: '/admin/form/FormLayout'
+      fullPath: '/admin/form/FormLayout'
+      preLoaderRoute: typeof AdminFormFormLayoutImport
       parentRoute: typeof rootRoute
     }
-    '/dashboard/admin/Profile': {
-      id: '/dashboard/admin/Profile'
-      path: '/dashboard/admin/Profile'
-      fullPath: '/dashboard/admin/Profile'
-      preLoaderRoute: typeof DashboardAdminProfileImport
+    '/admin/uiElements/Alerts': {
+      id: '/admin/uiElements/Alerts'
+      path: '/admin/uiElements/Alerts'
+      fullPath: '/admin/uiElements/Alerts'
+      preLoaderRoute: typeof AdminUiElementsAlertsImport
       parentRoute: typeof rootRoute
     }
-    '/dashboard/admin/Settings': {
-      id: '/dashboard/admin/Settings'
-      path: '/dashboard/admin/Settings'
-      fullPath: '/dashboard/admin/Settings'
-      preLoaderRoute: typeof DashboardAdminSettingsImport
+    '/admin/uiElements/Buttons': {
+      id: '/admin/uiElements/Buttons'
+      path: '/admin/uiElements/Buttons'
+      fullPath: '/admin/uiElements/Buttons'
+      preLoaderRoute: typeof AdminUiElementsButtonsImport
       parentRoute: typeof rootRoute
     }
-    '/dashboard/admin/Tables': {
-      id: '/dashboard/admin/Tables'
-      path: '/dashboard/admin/Tables'
-      fullPath: '/dashboard/admin/Tables'
-      preLoaderRoute: typeof DashboardAdminTablesImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/admin/linksPage': {
-      id: '/dashboard/admin/linksPage'
-      path: '/dashboard/admin/linksPage'
-      fullPath: '/dashboard/admin/linksPage'
-      preLoaderRoute: typeof DashboardAdminLinksPageImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/user/Calendar': {
-      id: '/dashboard/user/Calendar'
-      path: '/dashboard/user/Calendar'
-      fullPath: '/dashboard/user/Calendar'
-      preLoaderRoute: typeof DashboardUserCalendarImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/user/Chart': {
-      id: '/dashboard/user/Chart'
-      path: '/dashboard/user/Chart'
-      fullPath: '/dashboard/user/Chart'
-      preLoaderRoute: typeof DashboardUserChartImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/user/Profile': {
-      id: '/dashboard/user/Profile'
-      path: '/dashboard/user/Profile'
-      fullPath: '/dashboard/user/Profile'
-      preLoaderRoute: typeof DashboardUserProfileImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/user/Settings': {
-      id: '/dashboard/user/Settings'
-      path: '/dashboard/user/Settings'
-      fullPath: '/dashboard/user/Settings'
-      preLoaderRoute: typeof DashboardUserSettingsImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/user/Tables': {
-      id: '/dashboard/user/Tables'
-      path: '/dashboard/user/Tables'
-      fullPath: '/dashboard/user/Tables'
-      preLoaderRoute: typeof DashboardUserTablesImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/user/linksPage': {
-      id: '/dashboard/user/linksPage'
-      path: '/dashboard/user/linksPage'
-      fullPath: '/dashboard/user/linksPage'
-      preLoaderRoute: typeof DashboardUserLinksPageImport
+    '/admin/summary/': {
+      id: '/admin/summary/'
+      path: '/admin/summary'
+      fullPath: '/admin/summary'
+      preLoaderRoute: typeof AdminSummaryIndexImport
       parentRoute: typeof rootRoute
     }
     '/blog/[slug]/': {
@@ -418,95 +310,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogslugIndexImport
       parentRoute: typeof rootRoute
     }
-    '/dashboard/admin/': {
-      id: '/dashboard/admin/'
-      path: '/dashboard/admin'
-      fullPath: '/dashboard/admin'
-      preLoaderRoute: typeof DashboardAdminIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/user/': {
-      id: '/dashboard/user/'
-      path: '/dashboard/user'
-      fullPath: '/dashboard/user'
-      preLoaderRoute: typeof DashboardUserIndexImport
-      parentRoute: typeof rootRoute
-    }
     '/product/[slug]/': {
       id: '/product/[slug]/'
       path: '/product/[slug]'
       fullPath: '/product/[slug]'
       preLoaderRoute: typeof ProductslugIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/admin/form/FormElements': {
-      id: '/dashboard/admin/form/FormElements'
-      path: '/dashboard/admin/form/FormElements'
-      fullPath: '/dashboard/admin/form/FormElements'
-      preLoaderRoute: typeof DashboardAdminFormFormElementsImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/admin/form/FormLayout': {
-      id: '/dashboard/admin/form/FormLayout'
-      path: '/dashboard/admin/form/FormLayout'
-      fullPath: '/dashboard/admin/form/FormLayout'
-      preLoaderRoute: typeof DashboardAdminFormFormLayoutImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/admin/uiElements/Alerts': {
-      id: '/dashboard/admin/uiElements/Alerts'
-      path: '/dashboard/admin/uiElements/Alerts'
-      fullPath: '/dashboard/admin/uiElements/Alerts'
-      preLoaderRoute: typeof DashboardAdminUiElementsAlertsImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/admin/uiElements/Buttons': {
-      id: '/dashboard/admin/uiElements/Buttons'
-      path: '/dashboard/admin/uiElements/Buttons'
-      fullPath: '/dashboard/admin/uiElements/Buttons'
-      preLoaderRoute: typeof DashboardAdminUiElementsButtonsImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/user/form/FormElements': {
-      id: '/dashboard/user/form/FormElements'
-      path: '/dashboard/user/form/FormElements'
-      fullPath: '/dashboard/user/form/FormElements'
-      preLoaderRoute: typeof DashboardUserFormFormElementsImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/user/form/FormLayout': {
-      id: '/dashboard/user/form/FormLayout'
-      path: '/dashboard/user/form/FormLayout'
-      fullPath: '/dashboard/user/form/FormLayout'
-      preLoaderRoute: typeof DashboardUserFormFormLayoutImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/user/uiElements/Alerts': {
-      id: '/dashboard/user/uiElements/Alerts'
-      path: '/dashboard/user/uiElements/Alerts'
-      fullPath: '/dashboard/user/uiElements/Alerts'
-      preLoaderRoute: typeof DashboardUserUiElementsAlertsImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/user/uiElements/Buttons': {
-      id: '/dashboard/user/uiElements/Buttons'
-      path: '/dashboard/user/uiElements/Buttons'
-      fullPath: '/dashboard/user/uiElements/Buttons'
-      preLoaderRoute: typeof DashboardUserUiElementsButtonsImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/admin/summary/': {
-      id: '/dashboard/admin/summary/'
-      path: '/dashboard/admin/summary'
-      fullPath: '/dashboard/admin/summary'
-      preLoaderRoute: typeof DashboardAdminSummaryIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/user/summary/': {
-      id: '/dashboard/user/summary/'
-      path: '/dashboard/user/summary'
-      fullPath: '/dashboard/user/summary'
-      preLoaderRoute: typeof DashboardUserSummaryIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -521,37 +329,23 @@ export const routeTree = rootRoute.addChildren({
   SignUpRoute,
   AboutRoute,
   ContactRoute,
-  ShortenerSignInRoute,
-  ShortenerSignUpRoute,
+  AdminCalendarRoute,
+  AdminChartRoute,
+  AdminProfileRoute,
+  AdminSettingsRoute,
+  AdminTablesRoute,
+  AdminLinksPageRoute,
+  AdminIndexRoute,
   BlogIndexRoute,
   ProductIndexRoute,
   ShortenerIndexRoute,
-  DashboardAdminCalendarRoute,
-  DashboardAdminChartRoute,
-  DashboardAdminProfileRoute,
-  DashboardAdminSettingsRoute,
-  DashboardAdminTablesRoute,
-  DashboardAdminLinksPageRoute,
-  DashboardUserCalendarRoute,
-  DashboardUserChartRoute,
-  DashboardUserProfileRoute,
-  DashboardUserSettingsRoute,
-  DashboardUserTablesRoute,
-  DashboardUserLinksPageRoute,
+  AdminFormFormElementsRoute,
+  AdminFormFormLayoutRoute,
+  AdminUiElementsAlertsRoute,
+  AdminUiElementsButtonsRoute,
+  AdminSummaryIndexRoute,
   BlogslugIndexRoute,
-  DashboardAdminIndexRoute,
-  DashboardUserIndexRoute,
   ProductslugIndexRoute,
-  DashboardAdminFormFormElementsRoute,
-  DashboardAdminFormFormLayoutRoute,
-  DashboardAdminUiElementsAlertsRoute,
-  DashboardAdminUiElementsButtonsRoute,
-  DashboardUserFormFormElementsRoute,
-  DashboardUserFormFormLayoutRoute,
-  DashboardUserUiElementsAlertsRoute,
-  DashboardUserUiElementsButtonsRoute,
-  DashboardAdminSummaryIndexRoute,
-  DashboardUserSummaryIndexRoute,
 })
 
 /* prettier-ignore-end */
@@ -568,37 +362,23 @@ export const routeTree = rootRoute.addChildren({
         "/SignUp",
         "/about",
         "/contact",
-        "/shortener/SignIn",
-        "/shortener/SignUp",
+        "/admin/Calendar",
+        "/admin/Chart",
+        "/admin/Profile",
+        "/admin/Settings",
+        "/admin/Tables",
+        "/admin/linksPage",
+        "/admin/",
         "/blog/",
         "/product/",
         "/shortener/",
-        "/dashboard/admin/Calendar",
-        "/dashboard/admin/Chart",
-        "/dashboard/admin/Profile",
-        "/dashboard/admin/Settings",
-        "/dashboard/admin/Tables",
-        "/dashboard/admin/linksPage",
-        "/dashboard/user/Calendar",
-        "/dashboard/user/Chart",
-        "/dashboard/user/Profile",
-        "/dashboard/user/Settings",
-        "/dashboard/user/Tables",
-        "/dashboard/user/linksPage",
+        "/admin/form/FormElements",
+        "/admin/form/FormLayout",
+        "/admin/uiElements/Alerts",
+        "/admin/uiElements/Buttons",
+        "/admin/summary/",
         "/blog/[slug]/",
-        "/dashboard/admin/",
-        "/dashboard/user/",
-        "/product/[slug]/",
-        "/dashboard/admin/form/FormElements",
-        "/dashboard/admin/form/FormLayout",
-        "/dashboard/admin/uiElements/Alerts",
-        "/dashboard/admin/uiElements/Buttons",
-        "/dashboard/user/form/FormElements",
-        "/dashboard/user/form/FormLayout",
-        "/dashboard/user/uiElements/Alerts",
-        "/dashboard/user/uiElements/Buttons",
-        "/dashboard/admin/summary/",
-        "/dashboard/user/summary/"
+        "/product/[slug]/"
       ]
     },
     "/": {
@@ -619,11 +399,26 @@ export const routeTree = rootRoute.addChildren({
     "/contact": {
       "filePath": "contact.tsx"
     },
-    "/shortener/SignIn": {
-      "filePath": "shortener/SignIn.tsx"
+    "/admin/Calendar": {
+      "filePath": "admin/Calendar.tsx"
     },
-    "/shortener/SignUp": {
-      "filePath": "shortener/SignUp.tsx"
+    "/admin/Chart": {
+      "filePath": "admin/Chart.tsx"
+    },
+    "/admin/Profile": {
+      "filePath": "admin/Profile.tsx"
+    },
+    "/admin/Settings": {
+      "filePath": "admin/Settings.tsx"
+    },
+    "/admin/Tables": {
+      "filePath": "admin/Tables.tsx"
+    },
+    "/admin/linksPage": {
+      "filePath": "admin/linksPage.tsx"
+    },
+    "/admin/": {
+      "filePath": "admin/index.tsx"
     },
     "/blog/": {
       "filePath": "blog/index.tsx"
@@ -634,83 +429,26 @@ export const routeTree = rootRoute.addChildren({
     "/shortener/": {
       "filePath": "shortener/index.tsx"
     },
-    "/dashboard/admin/Calendar": {
-      "filePath": "dashboard/admin/Calendar.tsx"
+    "/admin/form/FormElements": {
+      "filePath": "admin/form/FormElements.tsx"
     },
-    "/dashboard/admin/Chart": {
-      "filePath": "dashboard/admin/Chart.tsx"
+    "/admin/form/FormLayout": {
+      "filePath": "admin/form/FormLayout.tsx"
     },
-    "/dashboard/admin/Profile": {
-      "filePath": "dashboard/admin/Profile.tsx"
+    "/admin/uiElements/Alerts": {
+      "filePath": "admin/uiElements/Alerts.tsx"
     },
-    "/dashboard/admin/Settings": {
-      "filePath": "dashboard/admin/Settings.tsx"
+    "/admin/uiElements/Buttons": {
+      "filePath": "admin/uiElements/Buttons.tsx"
     },
-    "/dashboard/admin/Tables": {
-      "filePath": "dashboard/admin/Tables.tsx"
-    },
-    "/dashboard/admin/linksPage": {
-      "filePath": "dashboard/admin/linksPage.tsx"
-    },
-    "/dashboard/user/Calendar": {
-      "filePath": "dashboard/user/Calendar.tsx"
-    },
-    "/dashboard/user/Chart": {
-      "filePath": "dashboard/user/Chart.tsx"
-    },
-    "/dashboard/user/Profile": {
-      "filePath": "dashboard/user/Profile.tsx"
-    },
-    "/dashboard/user/Settings": {
-      "filePath": "dashboard/user/Settings.tsx"
-    },
-    "/dashboard/user/Tables": {
-      "filePath": "dashboard/user/Tables.tsx"
-    },
-    "/dashboard/user/linksPage": {
-      "filePath": "dashboard/user/linksPage.tsx"
+    "/admin/summary/": {
+      "filePath": "admin/summary/index.tsx"
     },
     "/blog/[slug]/": {
       "filePath": "blog/[slug]/index.tsx"
     },
-    "/dashboard/admin/": {
-      "filePath": "dashboard/admin/index.tsx"
-    },
-    "/dashboard/user/": {
-      "filePath": "dashboard/user/index.tsx"
-    },
     "/product/[slug]/": {
       "filePath": "product/[slug]/index.tsx"
-    },
-    "/dashboard/admin/form/FormElements": {
-      "filePath": "dashboard/admin/form/FormElements.tsx"
-    },
-    "/dashboard/admin/form/FormLayout": {
-      "filePath": "dashboard/admin/form/FormLayout.tsx"
-    },
-    "/dashboard/admin/uiElements/Alerts": {
-      "filePath": "dashboard/admin/uiElements/Alerts.tsx"
-    },
-    "/dashboard/admin/uiElements/Buttons": {
-      "filePath": "dashboard/admin/uiElements/Buttons.tsx"
-    },
-    "/dashboard/user/form/FormElements": {
-      "filePath": "dashboard/user/form/FormElements.tsx"
-    },
-    "/dashboard/user/form/FormLayout": {
-      "filePath": "dashboard/user/form/FormLayout.tsx"
-    },
-    "/dashboard/user/uiElements/Alerts": {
-      "filePath": "dashboard/user/uiElements/Alerts.tsx"
-    },
-    "/dashboard/user/uiElements/Buttons": {
-      "filePath": "dashboard/user/uiElements/Buttons.tsx"
-    },
-    "/dashboard/admin/summary/": {
-      "filePath": "dashboard/admin/summary/index.tsx"
-    },
-    "/dashboard/user/summary/": {
-      "filePath": "dashboard/user/summary/index.tsx"
     }
   }
 }

@@ -1,13 +1,14 @@
 import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
+import DashboardLayout from "@/layouts/DashboardLayout";
 
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/dashboard/user/Calendar")({
+export const Route = createFileRoute("/admin/Calendar")({
   component: Calendar,
 });
 function Calendar() {
   return (
-    <>
+    <DashboardLayout>
       <Breadcrumb pageName="Calendar" />
 
       {/* <!-- ====== Calendar Section Start ====== --> */}
@@ -271,7 +272,7 @@ function Calendar() {
         </table>
       </div>
       {/* <!-- ====== Calendar Section End ====== --> */}
-    </>
+    </DashboardLayout>
   );
 }
 

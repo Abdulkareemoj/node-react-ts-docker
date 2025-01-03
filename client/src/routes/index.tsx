@@ -9,10 +9,14 @@ import RSection from "../components/homePage/section";
 import Contact from "../components/homePage/contact";
 import Stats from "../components/homePage/stats";
 import Pricing from "../components/homePage/pricing";
-
+import RootLayout from "../layouts/RootLayout";
 export const Route = createFileRoute("/")({
-  component: () => (
-    <>
+  component: IndexRoute,
+});
+
+function IndexRoute() {
+  return (
+    <RootLayout>
       <Hero />
       <Feature />
       <Stats />
@@ -21,7 +25,6 @@ export const Route = createFileRoute("/")({
       <Pricing />
       <Newsletter />
       <Contact />
-      <Footer />
-    </>
-  ),
-});
+    </RootLayout>
+  );
+}

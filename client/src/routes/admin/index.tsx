@@ -1,3 +1,4 @@
+import DashboardLayout from "@/layouts/DashboardLayout";
 import CardDataStats from "@/components/dashboard/CardDataStats";
 import ChartOne from "@/components/dashboard/Charts/ChartOne";
 import ChartThree from "@/components/dashboard/Charts/ChartThree";
@@ -8,12 +9,13 @@ import TableOne from "@/components/dashboard/Tables/TableOne";
 
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/dashboard/user/")({
-  component: () => <HomePage />,
+export const Route = createFileRoute("/admin/")({
+  component: AdminHome,
 });
-function HomePage() {
+
+function AdminHome() {
   return (
-    <>
+    <DashboardLayout>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         <CardDataStats title="Total views" total="$3.456K" rate="0.43%" levelUp>
           <svg
@@ -111,8 +113,8 @@ function HomePage() {
         </div>
         <ChatCard />
       </div>
-    </>
+    </DashboardLayout>
   );
 }
 
-export default HomePage;
+export default AdminHome;

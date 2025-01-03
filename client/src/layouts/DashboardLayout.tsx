@@ -1,9 +1,13 @@
 import React, { useState, ReactNode } from "react";
-import Sidebar from "../dashboard/Sidebar/index";
-import Header from "./Header";
-const DashboardLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+import Sidebar from "../components/dashboard/Sidebar/index";
+import Header from "../components/dashboard/Header";
 
+interface AdminLayoutProps {
+  children: ReactNode;
+}
+
+export default function AdminLayout({ children }: AdminLayoutProps) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className="dark:bg-boxdark-2 dark:text-bodydark h-screen">
       {/* Page Wrapper */}
@@ -24,5 +28,4 @@ const DashboardLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
       </div>
     </div>
   );
-};
-export default DashboardLayout;
+}

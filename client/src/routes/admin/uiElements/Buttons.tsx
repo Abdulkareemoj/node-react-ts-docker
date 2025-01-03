@@ -2,13 +2,14 @@ import { Link } from "@tanstack/react-router";
 
 import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
 import { createFileRoute } from "@tanstack/react-router";
+import DashboardLayout from "@/layouts/DashboardLayout";
 
-export const Route = createFileRoute("/dashboard/admin/uiElements/Buttons")({
+export const Route = createFileRoute("/admin/uiElements/Buttons")({
   component: Buttons,
 });
 function Buttons() {
   return (
-    <>
+    <DashboardLayout>
       <Breadcrumb pageName="Buttons" />
 
       {/* <!-- Normal Button Items --> */}
@@ -468,7 +469,7 @@ function Buttons() {
           </div>
         </div>
       </div>
-    </>
+    </DashboardLayout>
   );
 }
 

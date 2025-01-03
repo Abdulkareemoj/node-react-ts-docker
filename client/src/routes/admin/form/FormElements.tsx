@@ -13,13 +13,14 @@ import DatePickerTwo from "@/components/dashboard/Forms/DatePicker/DatePickerTwo
 import SelectGroupTwo from "@/components/dashboard/Forms/SelectGroup/SelectGroupTwo";
 import MultiSelect from "@/components/dashboard/Forms/MultiSelect";
 import { createFileRoute } from "@tanstack/react-router";
+import DashboardLayout from "@/layouts/DashboardLayout";
 
-export const Route = createFileRoute("/dashboard/admin/form/FormElements")({
+export const Route = createFileRoute("/admin/form/FormElements")({
   component: FormElements,
 });
 function FormElements() {
   return (
-    <>
+    <DashboardLayout>
       <Breadcrumb pageName="Form Elements" />
 
       <div className="grid grid-cols-1 gap-9 sm:grid-cols-2">
@@ -202,7 +203,7 @@ function FormElements() {
           </div>
         </div>
       </div>
-    </>
+    </DashboardLayout>
   );
 }
 
