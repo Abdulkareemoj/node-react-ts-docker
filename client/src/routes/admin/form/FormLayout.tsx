@@ -1,16 +1,16 @@
 import { Link } from "@tanstack/react-router";
-import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
-import SelectGroupOne from "@/components/dashboard/Forms/SelectGroup/SelectGroupOne";
+import Breadcrumb from "@/components/admin/Breadcrumbs/Breadcrumb";
+import SelectGroupOne from "@/components/admin/Forms/SelectGroup/SelectGroupOne";
 
 import { createFileRoute } from "@tanstack/react-router";
-import DashboardLayout from "@/layouts/DashboardLayout";
+import AdminLayout from "@/layouts/AdminLayout";
 
 export const Route = createFileRoute("/admin/form/FormLayout")({
   component: FormLayout,
 });
 function FormLayout() {
   return (
-    <DashboardLayout>
+    <AdminLayout>
       <Breadcrumb pageName="Form Layout" />
 
       <div className="grid grid-cols-1 gap-9 sm:grid-cols-2">
@@ -230,7 +230,7 @@ function FormLayout() {
           </div>
         </div>
       </div>
-    </DashboardLayout>
+    </AdminLayout>
   );
 }
 

@@ -1,26 +1,26 @@
-import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
-import CheckboxFive from "@/components/dashboard/Checkboxes/CheckboxFive";
-import CheckboxFour from "@/components/dashboard/Checkboxes/CheckboxFour";
-import CheckboxOne from "@/components/dashboard/Checkboxes/CheckboxOne";
-import CheckboxThree from "@/components/dashboard/Checkboxes/CheckboxThree";
-import CheckboxTwo from "@/components/dashboard/Checkboxes/CheckboxTwo";
-import SwitcherFour from "@/components/dashboard/Switchers/SwitcherFour";
-import SwitcherOne from "@/components/dashboard/Switchers/SwitcherOne";
-import SwitcherThree from "@/components/dashboard/Switchers/SwitcherThree";
-import SwitcherTwo from "@/components/dashboard/Switchers/SwitcherTwo";
-import DatePickerOne from "@/components/dashboard/Forms/DatePicker/DatePickerOne";
-import DatePickerTwo from "@/components/dashboard/Forms/DatePicker/DatePickerTwo";
-import SelectGroupTwo from "@/components/dashboard/Forms/SelectGroup/SelectGroupTwo";
-import MultiSelect from "@/components/dashboard/Forms/MultiSelect";
+import Breadcrumb from "@/components/admin/Breadcrumbs/Breadcrumb";
+import CheckboxFive from "@/components/admin/Checkboxes/CheckboxFive";
+import CheckboxFour from "@/components/admin/Checkboxes/CheckboxFour";
+import CheckboxOne from "@/components/admin/Checkboxes/CheckboxOne";
+import CheckboxThree from "@/components/admin/Checkboxes/CheckboxThree";
+import CheckboxTwo from "@/components/admin/Checkboxes/CheckboxTwo";
+import SwitcherFour from "@/components/admin/Switchers/SwitcherFour";
+import SwitcherOne from "@/components/admin/Switchers/SwitcherOne";
+import SwitcherThree from "@/components/admin/Switchers/SwitcherThree";
+import SwitcherTwo from "@/components/admin/Switchers/SwitcherTwo";
+import DatePickerOne from "@/components/admin/Forms/DatePicker/DatePickerOne";
+import DatePickerTwo from "@/components/admin/Forms/DatePicker/DatePickerTwo";
+import SelectGroupTwo from "@/components/admin/Forms/SelectGroup/SelectGroupTwo";
+import MultiSelect from "@/components/admin/Forms/MultiSelect";
 import { createFileRoute } from "@tanstack/react-router";
-import DashboardLayout from "@/layouts/DashboardLayout";
+import AdminLayout from "@/layouts/AdminLayout";
 
 export const Route = createFileRoute("/admin/form/FormElements")({
   component: FormElements,
 });
 function FormElements() {
   return (
-    <DashboardLayout>
+    <AdminLayout>
       <Breadcrumb pageName="Form Elements" />
 
       <div className="grid grid-cols-1 gap-9 sm:grid-cols-2">
@@ -203,7 +203,7 @@ function FormElements() {
           </div>
         </div>
       </div>
-    </DashboardLayout>
+    </AdminLayout>
   );
 }
 

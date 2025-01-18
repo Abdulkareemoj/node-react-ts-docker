@@ -4,7 +4,7 @@ This repository is a template for creating a full-stack application using Node.j
 
 ## Features
 
-- **Frontend**: Built with React and TypeScript, bundled using Vite for fast development.
+- **Frontend**: Built with Tanstack Router, React and TypeScript, bundled using Vite for fast development.
 - **Backend**: RESTful API built with Node.js, TypeScript, Express, and Mongoose.
 - **Docker**: Containerized setup for both frontend and backend to ensure consistent environments across different setups.
 - **Linting**: ESLint configuration for TypeScript and React to maintain code quality.

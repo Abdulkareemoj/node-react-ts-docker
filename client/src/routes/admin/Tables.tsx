@@ -1,8 +1,8 @@
-import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
-import TableOne from "@/components/dashboard/Tables/TableOne";
-import TableThree from "@/components/dashboard/Tables/TableThree";
-import TableTwo from "@/components/dashboard/Tables/TableTwo";
-import DashboardLayout from "@/layouts/DashboardLayout";
+import Breadcrumb from "@/components/admin/Breadcrumbs/Breadcrumb";
+import TableOne from "@/components/admin/Tables/TableOne";
+import TableThree from "@/components/admin/Tables/TableThree";
+import TableTwo from "@/components/admin/Tables/TableTwo";
+import AdminLayout from "@/layouts/AdminLayout";
 
 import { createFileRoute } from "@tanstack/react-router";
 
@@ -11,7 +11,7 @@ export const Route = createFileRoute("/admin/Tables")({
 });
 function Tables() {
   return (
-    <DashboardLayout>
+    <AdminLayout>
       <Breadcrumb pageName="Tables" />
 
       <div className="flex flex-col gap-10">
@@ -19,6 +19,6 @@ function Tables() {
         <TableTwo />
         <TableThree />
       </div>
-    </DashboardLayout>
+    </AdminLayout>
   );
 }

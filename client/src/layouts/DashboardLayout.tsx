@@ -6,7 +6,7 @@ interface AdminLayoutProps {
   children: ReactNode;
 }
 
-export default function AdminLayout({ children }: AdminLayoutProps) {
+export default function DashboardLayout({ children }: AdminLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className="dark:bg-boxdark-2 dark:text-bodydark h-screen">

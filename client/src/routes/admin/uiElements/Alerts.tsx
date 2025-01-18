@@ -1,5 +1,5 @@
-import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
-import DashboardLayout from "@/layouts/DashboardLayout";
+import Breadcrumb from "@/components/admin/Breadcrumbs/Breadcrumb";
+import AdminLayout from "@/layouts/AdminLayout";
 
 import { createFileRoute } from "@tanstack/react-router";
 
@@ -8,7 +8,7 @@ export const Route = createFileRoute("/admin/uiElements/Alerts")({
 });
 function Alerts() {
   return (
-    <DashboardLayout>
+    <AdminLayout>
       <Breadcrumb pageName="Alerts" />
 
       <div className="rounded-sm border border-stroke bg-white p-4 shadow-default dark:border-strokedark dark:bg-boxdark md:p-6 xl:p-9">
@@ -97,7 +97,7 @@ function Alerts() {
           </div>
         </div>
       </div>
-    </DashboardLayout>
+    </AdminLayout>
   );
 }
 

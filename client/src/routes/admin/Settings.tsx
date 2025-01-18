@@ -1,14 +1,14 @@
-import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
+import Breadcrumb from "@/components/admin/Breadcrumbs/Breadcrumb";
 import userThree from "@/assets/images/user/user-03.png";
 import { createFileRoute } from "@tanstack/react-router";
-import DashboardLayout from "@/layouts/DashboardLayout";
+import AdminLayout from "@/layouts/AdminLayout";
 
 export const Route = createFileRoute("/admin/Settings")({
   component: Settings,
 });
 function Settings() {
   return (
-    <DashboardLayout>
+    <AdminLayout>
       <div className="mx-auto max-w-270">
         <Breadcrumb pageName="Settings" />
 
@@ -309,7 +309,7 @@ function Settings() {
           </div>
         </div>
       </div>
-    </DashboardLayout>
+    </AdminLayout>
   );
 }
 

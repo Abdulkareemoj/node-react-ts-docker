@@ -1,15 +1,15 @@
 import { Link } from "@tanstack/react-router";
 
-import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
+import Breadcrumb from "@/components/admin/Breadcrumbs/Breadcrumb";
 import { createFileRoute } from "@tanstack/react-router";
-import DashboardLayout from "@/layouts/DashboardLayout";
+import AdminLayout from "@/layouts/AdminLayout";
 
 export const Route = createFileRoute("/admin/uiElements/Buttons")({
   component: Buttons,
 });
 function Buttons() {
   return (
-    <DashboardLayout>
+    <AdminLayout>
       <Breadcrumb pageName="Buttons" />
 
       {/* <!-- Normal Button Items --> */}
@@ -469,7 +469,7 @@ function Buttons() {
           </div>
         </div>
       </div>
-    </DashboardLayout>
+    </AdminLayout>
   );
 }
 

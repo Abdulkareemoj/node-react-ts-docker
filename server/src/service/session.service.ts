@@ -10,7 +10,7 @@ type SessionWithId = Omit<typeof Session, "password"> & { _id: ObjectId };
 // const accessToken = config.get<string>("accessTokenttl")
 // const refreshToken = config.get<string>("refreshTokenttl")
 
-// console.l/og(accessToken)
+// console.log(accessToken)
 export async function createSession(userId: string, userAgent: string) {
   const session = await Session.create({ user: userId, userAgent });
   return session.toJSON();

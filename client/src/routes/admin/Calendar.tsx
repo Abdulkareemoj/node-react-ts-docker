@@ -1,5 +1,5 @@
-import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
-import DashboardLayout from "@/layouts/DashboardLayout";
+import Breadcrumb from "@/components/admin/Breadcrumbs/Breadcrumb";
+import AdminLayout from "@/layouts/AdminLayout";
 
 import { createFileRoute } from "@tanstack/react-router";
 
@@ -8,7 +8,7 @@ export const Route = createFileRoute("/admin/Calendar")({
 });
 function Calendar() {
   return (
-    <DashboardLayout>
+    <AdminLayout>
       <Breadcrumb pageName="Calendar" />
 
       {/* <!-- ====== Calendar Section Start ====== --> */}
@@ -272,7 +272,7 @@ function Calendar() {
         </table>
       </div>
       {/* <!-- ====== Calendar Section End ====== --> */}
-    </DashboardLayout>
+    </AdminLayout>
   );
 }
 

@@ -18,9 +18,9 @@ export default function Footer() {
     },
   ];
   return (
-    <footer className="pt-10">
+    <footer className="">
       <div className="max-w-screen-xl mx-auto px-4 text-slate-600 md:px-8">
-        <div className="space-y-6 sm:max-w-md sm:mx-auto sm:text-center">
+        {/* <div className="space-y-6 sm:max-w-md sm:mx-auto sm:text-center">
           <img
             src="https://www.floatui.com/logo.svg"
             className="w-32 sm:mx-auto"
@@ -55,8 +55,8 @@ export default function Footer() {
               </svg>
             </a>
           </div>
-        </div>
-        <div className="mt-10 py-10 border-t items-center justify-between sm:flex">
+        </div> */}
+        <div className=" py-10  items-center justify-between sm:flex">
           <p>© 2022 Float UI Inc. All rights reserved.</p>
           <ul className="flex flex-wrap items-center gap-4 mt-6 sm:text-sm sm:mt-0">
             {footerNavs.map((item, idx) => (

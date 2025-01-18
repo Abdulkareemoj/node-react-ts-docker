@@ -19,8 +19,15 @@ import { Route as R404Import } from './routes/404'
 import { Route as IndexImport } from './routes/index'
 import { Route as ShortenerIndexImport } from './routes/shortener/index'
 import { Route as ProductIndexImport } from './routes/product/index'
+import { Route as DashboardIndexImport } from './routes/dashboard/index'
 import { Route as BlogIndexImport } from './routes/blog/index'
 import { Route as AdminIndexImport } from './routes/admin/index'
+import { Route as DashboardLinksPageImport } from './routes/dashboard/linksPage'
+import { Route as DashboardTablesImport } from './routes/dashboard/Tables'
+import { Route as DashboardSettingsImport } from './routes/dashboard/Settings'
+import { Route as DashboardProfileImport } from './routes/dashboard/Profile'
+import { Route as DashboardChartImport } from './routes/dashboard/Chart'
+import { Route as DashboardCalendarImport } from './routes/dashboard/Calendar'
 import { Route as AdminLinksPageImport } from './routes/admin/linksPage'
 import { Route as AdminTablesImport } from './routes/admin/Tables'
 import { Route as AdminSettingsImport } from './routes/admin/Settings'
@@ -28,8 +35,13 @@ import { Route as AdminProfileImport } from './routes/admin/Profile'
 import { Route as AdminChartImport } from './routes/admin/Chart'
 import { Route as AdminCalendarImport } from './routes/admin/Calendar'
 import { Route as ProductslugIndexImport } from './routes/product/[slug]/index'
+import { Route as DashboardSummaryIndexImport } from './routes/dashboard/summary/index'
 import { Route as BlogslugIndexImport } from './routes/blog/[slug]/index'
 import { Route as AdminSummaryIndexImport } from './routes/admin/summary/index'
+import { Route as DashboardUiElementsButtonsImport } from './routes/dashboard/uiElements/Buttons'
+import { Route as DashboardUiElementsAlertsImport } from './routes/dashboard/uiElements/Alerts'
+import { Route as DashboardFormFormLayoutImport } from './routes/dashboard/form/FormLayout'
+import { Route as DashboardFormFormElementsImport } from './routes/dashboard/form/FormElements'
 import { Route as AdminUiElementsButtonsImport } from './routes/admin/uiElements/Buttons'
 import { Route as AdminUiElementsAlertsImport } from './routes/admin/uiElements/Alerts'
 import { Route as AdminFormFormLayoutImport } from './routes/admin/form/FormLayout'
@@ -77,6 +89,11 @@ const ProductIndexRoute = ProductIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const DashboardIndexRoute = DashboardIndexImport.update({
+  path: '/dashboard/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const BlogIndexRoute = BlogIndexImport.update({
   path: '/blog/',
   getParentRoute: () => rootRoute,
@@ -84,6 +101,36 @@ const BlogIndexRoute = BlogIndexImport.update({
 
 const AdminIndexRoute = AdminIndexImport.update({
   path: '/admin/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardLinksPageRoute = DashboardLinksPageImport.update({
+  path: '/dashboard/linksPage',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardTablesRoute = DashboardTablesImport.update({
+  path: '/dashboard/Tables',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardSettingsRoute = DashboardSettingsImport.update({
+  path: '/dashboard/Settings',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardProfileRoute = DashboardProfileImport.update({
+  path: '/dashboard/Profile',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardChartRoute = DashboardChartImport.update({
+  path: '/dashboard/Chart',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardCalendarRoute = DashboardCalendarImport.update({
+  path: '/dashboard/Calendar',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -122,6 +169,11 @@ const ProductslugIndexRoute = ProductslugIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const DashboardSummaryIndexRoute = DashboardSummaryIndexImport.update({
+  path: '/dashboard/summary/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const BlogslugIndexRoute = BlogslugIndexImport.update({
   path: '/blog/[slug]/',
   getParentRoute: () => rootRoute,
@@ -129,6 +181,28 @@ const BlogslugIndexRoute = BlogslugIndexImport.update({
 
 const AdminSummaryIndexRoute = AdminSummaryIndexImport.update({
   path: '/admin/summary/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardUiElementsButtonsRoute = DashboardUiElementsButtonsImport.update(
+  {
+    path: '/dashboard/uiElements/Buttons',
+    getParentRoute: () => rootRoute,
+  } as any,
+)
+
+const DashboardUiElementsAlertsRoute = DashboardUiElementsAlertsImport.update({
+  path: '/dashboard/uiElements/Alerts',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardFormFormLayoutRoute = DashboardFormFormLayoutImport.update({
+  path: '/dashboard/form/FormLayout',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardFormFormElementsRoute = DashboardFormFormElementsImport.update({
+  path: '/dashboard/form/FormElements',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -240,6 +314,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminLinksPageImport
       parentRoute: typeof rootRoute
     }
+    '/dashboard/Calendar': {
+      id: '/dashboard/Calendar'
+      path: '/dashboard/Calendar'
+      fullPath: '/dashboard/Calendar'
+      preLoaderRoute: typeof DashboardCalendarImport
+      parentRoute: typeof rootRoute
+    }
+    '/dashboard/Chart': {
+      id: '/dashboard/Chart'
+      path: '/dashboard/Chart'
+      fullPath: '/dashboard/Chart'
+      preLoaderRoute: typeof DashboardChartImport
+      parentRoute: typeof rootRoute
+    }
+    '/dashboard/Profile': {
+      id: '/dashboard/Profile'
+      path: '/dashboard/Profile'
+      fullPath: '/dashboard/Profile'
+      preLoaderRoute: typeof DashboardProfileImport
+      parentRoute: typeof rootRoute
+    }
+    '/dashboard/Settings': {
+      id: '/dashboard/Settings'
+      path: '/dashboard/Settings'
+      fullPath: '/dashboard/Settings'
+      preLoaderRoute: typeof DashboardSettingsImport
+      parentRoute: typeof rootRoute
+    }
+    '/dashboard/Tables': {
+      id: '/dashboard/Tables'
+      path: '/dashboard/Tables'
+      fullPath: '/dashboard/Tables'
+      preLoaderRoute: typeof DashboardTablesImport
+      parentRoute: typeof rootRoute
+    }
+    '/dashboard/linksPage': {
+      id: '/dashboard/linksPage'
+      path: '/dashboard/linksPage'
+      fullPath: '/dashboard/linksPage'
+      preLoaderRoute: typeof DashboardLinksPageImport
+      parentRoute: typeof rootRoute
+    }
     '/admin/': {
       id: '/admin/'
       path: '/admin'
@@ -252,6 +368,13 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardIndexImport
       parentRoute: typeof rootRoute
     }
     '/product/': {
@@ -296,6 +419,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminUiElementsButtonsImport
       parentRoute: typeof rootRoute
     }
+    '/dashboard/form/FormElements': {
+      id: '/dashboard/form/FormElements'
+      path: '/dashboard/form/FormElements'
+      fullPath: '/dashboard/form/FormElements'
+      preLoaderRoute: typeof DashboardFormFormElementsImport
+      parentRoute: typeof rootRoute
+    }
+    '/dashboard/form/FormLayout': {
+      id: '/dashboard/form/FormLayout'
+      path: '/dashboard/form/FormLayout'
+      fullPath: '/dashboard/form/FormLayout'
+      preLoaderRoute: typeof DashboardFormFormLayoutImport
+      parentRoute: typeof rootRoute
+    }
+    '/dashboard/uiElements/Alerts': {
+      id: '/dashboard/uiElements/Alerts'
+      path: '/dashboard/uiElements/Alerts'
+      fullPath: '/dashboard/uiElements/Alerts'
+      preLoaderRoute: typeof DashboardUiElementsAlertsImport
+      parentRoute: typeof rootRoute
+    }
+    '/dashboard/uiElements/Buttons': {
+      id: '/dashboard/uiElements/Buttons'
+      path: '/dashboard/uiElements/Buttons'
+      fullPath: '/dashboard/uiElements/Buttons'
+      preLoaderRoute: typeof DashboardUiElementsButtonsImport
+      parentRoute: typeof rootRoute
+    }
     '/admin/summary/': {
       id: '/admin/summary/'
       path: '/admin/summary'
@@ -308,6 +459,13 @@ declare module '@tanstack/react-router' {
       path: '/blog/[slug]'
       fullPath: '/blog/[slug]'
       preLoaderRoute: typeof BlogslugIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/dashboard/summary/': {
+      id: '/dashboard/summary/'
+      path: '/dashboard/summary'
+      fullPath: '/dashboard/summary'
+      preLoaderRoute: typeof DashboardSummaryIndexImport
       parentRoute: typeof rootRoute
     }
     '/product/[slug]/': {
@@ -335,16 +493,28 @@ export const routeTree = rootRoute.addChildren({
   AdminSettingsRoute,
   AdminTablesRoute,
   AdminLinksPageRoute,
+  DashboardCalendarRoute,
+  DashboardChartRoute,
+  DashboardProfileRoute,
+  DashboardSettingsRoute,
+  DashboardTablesRoute,
+  DashboardLinksPageRoute,
   AdminIndexRoute,
   BlogIndexRoute,
+  DashboardIndexRoute,
   ProductIndexRoute,
   ShortenerIndexRoute,
   AdminFormFormElementsRoute,
   AdminFormFormLayoutRoute,
   AdminUiElementsAlertsRoute,
   AdminUiElementsButtonsRoute,
+  DashboardFormFormElementsRoute,
+  DashboardFormFormLayoutRoute,
+  DashboardUiElementsAlertsRoute,
+  DashboardUiElementsButtonsRoute,
   AdminSummaryIndexRoute,
   BlogslugIndexRoute,
+  DashboardSummaryIndexRoute,
   ProductslugIndexRoute,
 })
 
@@ -368,16 +538,28 @@ export const routeTree = rootRoute.addChildren({
         "/admin/Settings",
         "/admin/Tables",
         "/admin/linksPage",
+        "/dashboard/Calendar",
+        "/dashboard/Chart",
+        "/dashboard/Profile",
+        "/dashboard/Settings",
+        "/dashboard/Tables",
+        "/dashboard/linksPage",
         "/admin/",
         "/blog/",
+        "/dashboard/",
         "/product/",
         "/shortener/",
         "/admin/form/FormElements",
         "/admin/form/FormLayout",
         "/admin/uiElements/Alerts",
         "/admin/uiElements/Buttons",
+        "/dashboard/form/FormElements",
+        "/dashboard/form/FormLayout",
+        "/dashboard/uiElements/Alerts",
+        "/dashboard/uiElements/Buttons",
         "/admin/summary/",
         "/blog/[slug]/",
+        "/dashboard/summary/",
         "/product/[slug]/"
       ]
     },
@@ -417,11 +599,32 @@ export const routeTree = rootRoute.addChildren({
     "/admin/linksPage": {
       "filePath": "admin/linksPage.tsx"
     },
+    "/dashboard/Calendar": {
+      "filePath": "dashboard/Calendar.tsx"
+    },
+    "/dashboard/Chart": {
+      "filePath": "dashboard/Chart.tsx"
+    },
+    "/dashboard/Profile": {
+      "filePath": "dashboard/Profile.tsx"
+    },
+    "/dashboard/Settings": {
+      "filePath": "dashboard/Settings.tsx"
+    },
+    "/dashboard/Tables": {
+      "filePath": "dashboard/Tables.tsx"
+    },
+    "/dashboard/linksPage": {
+      "filePath": "dashboard/linksPage.tsx"
+    },
     "/admin/": {
       "filePath": "admin/index.tsx"
     },
     "/blog/": {
       "filePath": "blog/index.tsx"
+    },
+    "/dashboard/": {
+      "filePath": "dashboard/index.tsx"
     },
     "/product/": {
       "filePath": "product/index.tsx"
@@ -441,11 +644,26 @@ export const routeTree = rootRoute.addChildren({
     "/admin/uiElements/Buttons": {
       "filePath": "admin/uiElements/Buttons.tsx"
     },
+    "/dashboard/form/FormElements": {
+      "filePath": "dashboard/form/FormElements.tsx"
+    },
+    "/dashboard/form/FormLayout": {
+      "filePath": "dashboard/form/FormLayout.tsx"
+    },
+    "/dashboard/uiElements/Alerts": {
+      "filePath": "dashboard/uiElements/Alerts.tsx"
+    },
+    "/dashboard/uiElements/Buttons": {
+      "filePath": "dashboard/uiElements/Buttons.tsx"
+    },
     "/admin/summary/": {
       "filePath": "admin/summary/index.tsx"
     },
     "/blog/[slug]/": {
       "filePath": "blog/[slug]/index.tsx"
+    },
+    "/dashboard/summary/": {
+      "filePath": "dashboard/summary/index.tsx"
     },
     "/product/[slug]/": {
       "filePath": "product/[slug]/index.tsx"
