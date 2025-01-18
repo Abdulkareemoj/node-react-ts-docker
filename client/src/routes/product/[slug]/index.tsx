@@ -1,5 +1,13 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
+import RootLayout from "../../../layouts/RootLayout";
+export const Route = createFileRoute("/product/[slug]/")({
+  component: IndexProduct,
+});
 
-export const Route = createFileRoute('/product/[slug]/')({
-  component: () => <div>Hello /blog/[slug]/!</div>
-})
+function IndexProduct() {
+  return (
+    <RootLayout>
+      <div>Hello /product/[slug]/!</div>
+    </RootLayout>
+  );
+}

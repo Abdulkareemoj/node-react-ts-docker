@@ -1,3 +1,4 @@
+import RootLayout from "@/layouts/RootLayout";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/contact")({
@@ -61,7 +62,7 @@ function Contact() {
   ];
 
   return (
-    <>
+    <RootLayout>
       <section className="py-14">
         <div className="max-w-screen-xl mx-auto px-4 text-slate-600 gap-12 md:px-8 lg:flex">
           <div className="max-w-md">
@@ -178,6 +179,6 @@ function Contact() {
           </div>
         </div>
       </main>
-    </>
+    </RootLayout>
   );
 }

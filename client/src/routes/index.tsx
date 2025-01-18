@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Footer from "../components/shared/footer";
 import Feature from "../components/homePage/feature";
 import Hero from "../components/homePage/hero";
 import LogoGrid from "../components/homePage/logogrid";

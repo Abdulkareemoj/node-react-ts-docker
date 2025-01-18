@@ -1,3 +1,4 @@
+import RootLayout from "@/layouts/RootLayout";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/about")({
@@ -5,5 +6,9 @@ export const Route = createFileRoute("/about")({
 });
 
 function About() {
-  return <div>About</div>;
+  return (
+    <RootLayout>
+      <div>About</div>
+    </RootLayout>
+  );
 }

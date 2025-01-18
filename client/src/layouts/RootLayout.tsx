@@ -9,7 +9,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <div className="p-2">
+      <div className="">
         <Header />
         {/* <h2 className="text-2xl">Root Layout</h2> */}
         {children}

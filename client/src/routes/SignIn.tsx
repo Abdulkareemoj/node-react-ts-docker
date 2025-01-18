@@ -3,13 +3,14 @@ import LogoDark from "../assets/images/logo/logo-dark.svg";
 import Logo from "../assets/images/logo/logo.svg";
 
 import { createFileRoute } from "@tanstack/react-router";
+import RootLayout from "@/layouts/RootLayout";
 
 export const Route = createFileRoute("/SignIn")({
   component: SignIn,
 });
 function SignIn() {
   return (
-    <>
+    <RootLayout>
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
@@ -281,8 +282,6 @@ function SignIn() {
           </div>
         </div>
       </div>
-    </>
+    </RootLayout>
   );
 }
-
-export default SignIn;
