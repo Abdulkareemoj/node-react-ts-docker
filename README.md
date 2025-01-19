@@ -48,7 +48,7 @@ or
 yarn install
 ```
 
-# Running the Application
+## Running the Application
 
 - Using Docker
   Build and run the Docker containers:
@@ -57,7 +57,7 @@ yarn install
 docker-compose up --build
 ```
 
-Access the frontend at http://localhost:3000.
+Access the frontend at <http://localhost:3000>.
 
 - Without Docker
 
@@ -83,7 +83,7 @@ or
 yarn dev
 ```
 
-Access the frontend at http://localhost:3000.
+Access the frontend at <http://localhost:3000>.
 
 ## Project Structure
 
