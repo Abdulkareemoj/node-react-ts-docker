@@ -2,14 +2,13 @@ import { FilterQuery } from "mongoose";
 import User, { UserDocument, UserInput } from "../models/user.model";
 import { omit } from "lodash-es";
 
-// Assuming UserInput now includes roles: string[];
-export async function createUser(input: UserInput & { roles: string[] }) {
+export async function createUser(input: UserInput) {
   try {
-    // If roles need special handling, do it here before creating the user
-    // For example, if you need to validate or modify roles, do that here
+    // Select the first role from the roles array as the user's role
+    const { role, ...rest } = input;
 
-    // Then, pass the input (including roles) to User.create
-    return await User.create(input);
+    // Pass the modified input to User.create
+    return await User.create({ ...rest, role });
   } catch (error) {
     throw new Error(error as string);
   }

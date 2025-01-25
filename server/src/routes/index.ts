@@ -43,10 +43,10 @@ import {
 } from "../controller/post.controller";
 import requiresRole from "../middleware/requiresRole";
 import { permissions } from "../middleware/roles";
+import { verifyToken } from "../middleware/verifyToken";
 
-//TODO add other roles with requiresRole
 function routes(app: Express) {
-  app.get("/api/", (req: Request, res: Response) => {
+  app.get("/api/healthcheck", (req: Request, res: Response) => {
     return res.send("bruhh");
   });
 
@@ -60,7 +60,7 @@ function routes(app: Express) {
 
   app.post("/api/signin", signIn);
 
-  app.post("/api/signout", signOut);
+  app.post("/signout", verifyToken, signOut);
 
   app.post("/api/users", validateResource(createUserSchema), createUserHandler);
 

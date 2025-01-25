@@ -6,7 +6,9 @@ export interface UserInput {
   email: string;
   username: string;
   password: string;
-  role: string[];
+  firstname: string;
+  lastname: string;
+  role: string;
 }
 
 export interface UserDocument extends UserInput, mongoose.Document {
@@ -21,7 +23,8 @@ const UserSchema = new mongoose.Schema(
     username: { type: String, required: true },
     password: { type: String, required: true },
     role: {
-      type: [String],
+      type: String,
+      enum: ["user", "admin", "superadmin"],
       required: true,
     },
   },
