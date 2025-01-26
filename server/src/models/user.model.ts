@@ -26,6 +26,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       enum: ["user", "admin", "superadmin"],
       required: true,
+      default: "user",
     },
   },
   {
@@ -40,11 +41,9 @@ UserSchema.pre("save", async function (next) {
     return next();
   }
 
-  const salt = bcrypt.genSalt(
-    process.env.SALT_WORK_FACTOR as unknown as number
-  );
-
-  const hash = await bcrypt.hashSync(user.password, await salt);
+  const saltRounds = parseInt(process.env.SALT_WORK_FACTOR || "10", 10);
+  const salt = await bcrypt.genSalt(saltRounds);
+  const hash = await bcrypt.hash(user.password, salt);
 
   user.password = hash;
 

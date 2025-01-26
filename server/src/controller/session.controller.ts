@@ -8,6 +8,7 @@ import {
 import { get } from "lodash-es";
 import { signJwt } from "../utils/jwt.utils";
 import { SessionDocument } from "../models/session.model";
+import { env } from "../globals";
 
 export async function createUserSessionHandler(req: Request, res: Response) {
   try {

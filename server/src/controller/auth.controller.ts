@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import User from "../models/user.model"; // Replace with your User model
 import { OAuth2Client } from "google-auth-library";
+import { env } from "../globals";
 
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 const tokenBlacklist: Set<string> = new Set(); // Temporary in-memory storage for blacklisted tokens
@@ -74,7 +75,7 @@ export async function signIn(req: Request, res: Response) {
 
 export async function signUp(req: Request, res: Response) {
   try {
-    const { username, email, password, token } = req.body;
+    const { username, email, password, token, role = "user" } = req.body; // Default role if not provided
 
     if (token) {
       // Google Sign-Up Flow
@@ -98,7 +99,7 @@ export async function signUp(req: Request, res: Response) {
       }
 
       // Create a new user
-      user = new User({ googleId, email: googleEmail });
+      user = new User({ googleId, email: googleEmail, role: "user" }); // Default role
       await user.save();
 
       const userToken = jwt.sign({ userId: user.id }, process.env.JWT_SECRET!, {
@@ -132,6 +133,7 @@ export async function signUp(req: Request, res: Response) {
         username,
         email,
         password: hashedPassword,
+        role, // Use the role provided or default to "user"
       });
 
       await user.save();

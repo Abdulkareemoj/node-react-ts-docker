@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-const privateKey = process.env.PRIVATE_KEY as string;
-const publicKey = process.env.PUBLIC_KEY as string;
+const privateKey = process.env.PRIVATE_KEY;
+const publicKey = process.env.PUBLIC_KEY;
 console.log(process.env.PRIVATE_KEY); // should log your private key
 console.log(process.env.PUBLIC_KEY); // should log your public key
 

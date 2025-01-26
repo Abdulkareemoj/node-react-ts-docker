@@ -8,7 +8,7 @@ import {
 import validateResource from "../middleware/validateRequest";
 import { createShortURLSchema } from "../schema/createShortUrl.schema";
 // import { authenticate, checkRole } from "../middleware/auth";
-import { signIn, signOut } from "../controller/auth.controller";
+import { signIn, signOut, signUp } from "../controller/auth.controller";
 import {
   createProductHandler,
   updateProductHandler,
@@ -59,6 +59,8 @@ function routes(app: Express) {
   app.get("/api/analytics", getAnalytics);
 
   app.post("/api/signin", signIn);
+
+  app.post("/api/signup", signUp);
 
   app.post("/signout", verifyToken, signOut);
 
