@@ -1,6 +1,6 @@
 import defaultTheme from "tailwindcss/defaultTheme";
+import { type Config } from "tailwindcss";
 
-/** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
@@ -251,4 +251,4 @@ export default {
     },
   },
   plugins: [],
-};
+} satisfies Config;
