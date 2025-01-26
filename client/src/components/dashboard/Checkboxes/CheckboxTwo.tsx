@@ -23,7 +23,7 @@ const CheckboxTwo = () => {
               isChecked && 'border-primary bg-gray dark:bg-transparent'
             }`}
           >
-            <span className={`opacity-0 ${isChecked && '!opacity-100'}`}>
+            <span className={`opacity-0 ${isChecked && 'opacity-100!'}`}>
               <svg
                 width="11"
                 height="8"

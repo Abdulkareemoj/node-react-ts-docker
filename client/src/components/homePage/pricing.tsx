@@ -43,7 +43,7 @@ export default function Pricing() {
 
   return (
     <section className="py-14">
-      <div className="max-w-screen-xl mx-auto px-4 text-slate-600 md:px-8">
+      <div className="max-w-(--breakpoint-xl) mx-auto px-4 text-slate-600 md:px-8">
         <div className="relative max-w-xl mx-auto sm:text-center">
           <h3 className="text-slate-800 text-3xl font-semibold sm:text-4xl">
             Pricing for all sizes

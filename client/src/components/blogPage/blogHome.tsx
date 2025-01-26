@@ -31,8 +31,8 @@ export default function BlogHome() {
   ];
 
   return (
-    <section className="mt-12 mx-auto px-4 pb-32 max-w-screen-xl md:px-8">
-      <div className="max-w-screen-xl mx-auto px-4 md:px-8">
+    <section className="mt-12 mx-auto px-4 pb-32 max-w-(--breakpoint-xl) md:px-8">
+      <div className="max-w-(--breakpoint-xl) mx-auto px-4 md:px-8">
         <div className="text-center">
           <h1 className="text-5xl text-slate-800 font-semibold">Blog</h1>
           <p className="mt-3 text-slate-500">

@@ -25,7 +25,7 @@ const CheckboxThree = () => {
           >
             <span
               className={`text-primary opacity-0 ${
-                isChecked && '!opacity-100'
+                isChecked && 'opacity-100!'
               }`}
             >
               <svg

@@ -19,7 +19,7 @@ const createToast = (title: string, msg: string, type: number) => {
         <button
           onClick={() => toast.dismiss(t.id)}
           type="button"
-          className="mr-2 box-content rounded-none border-none opacity-100 hover:no-underline hover:opacity-50 focus:opacity-50 focus:shadow-none focus:outline-none text-white"
+          className="mr-2 box-content rounded-none border-none opacity-100 hover:no-underline hover:opacity-50 focus:opacity-50 focus:shadow-none focus:outline-hidden text-white"
           data-te-toast-dismiss
           aria-label="Close"
         >

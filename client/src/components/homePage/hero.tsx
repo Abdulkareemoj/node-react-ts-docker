@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <div className="bg-slate-950">
       <section className="relative">
-        <div className="relative z-10 max-w-screen-xl mx-auto px-4 py-28 md:px-8">
+        <div className="relative z-10 max-w-(--breakpoint-xl) mx-auto px-4 py-28 md:px-8">
           <div className="space-y-5 max-w-4xl mx-auto text-center">
             <h2 className="text-4xl text-white font-extrabold mx-auto md:text-5xl">
               Build and scale up your startup with the best tools
@@ -18,7 +18,7 @@ export default function Hero() {
               <input
                 type="text"
                 placeholder="Enter your email"
-                className="w-full px-3 py-2.5 text-gray-400 bg-gray-700 focus:bg-gray-900 duration-150 outline-none rounded-lg shadow sm:max-w-sm sm:w-auto"
+                className="w-full px-3 py-2.5 text-gray-400 bg-gray-700 focus:bg-gray-900 duration-150 outline-hidden rounded-lg shadow-sm sm:max-w-sm sm:w-auto"
               />
               <button className="flex items-center justify-center gap-x-2 py-2.5 px-4 mt-3 w-full text-sm text-white font-medium bg-sky-500 hover:bg-sky-400 active:bg-sky-600 duration-150 rounded-lg sm:mt-0 sm:w-auto">
                 Get started

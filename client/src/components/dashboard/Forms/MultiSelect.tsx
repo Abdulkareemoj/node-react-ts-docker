@@ -111,12 +111,12 @@ const MultiSelect: React.FC<DropdownProps> = ({ id }) => {
           <div className="relative z-20 inline-block w-full">
             <div className="relative flex flex-col items-center">
               <div ref={trigger} onClick={open} className="w-full">
-                <div className="mb-2 flex rounded border border-stroke py-2 pl-3 pr-3 outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
+                <div className="mb-2 flex rounded-sm border border-stroke py-2 pl-3 pr-3 outline-hidden transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input">
                   <div className="flex flex-auto flex-wrap gap-3">
                     {selected.map((index) => (
                       <div
                         key={index}
-                        className="my-1.5 flex items-center justify-center rounded border-[.5px] border-stroke bg-gray px-2.5 py-1.5 text-sm font-medium dark:border-strokedark dark:bg-white/30"
+                        className="my-1.5 flex items-center justify-center rounded-sm border-[.5px] border-stroke bg-gray px-2.5 py-1.5 text-sm font-medium dark:border-strokedark dark:bg-white/30"
                       >
                         <div className="max-w-full flex-initial">
                           {options[index].text}
@@ -150,7 +150,7 @@ const MultiSelect: React.FC<DropdownProps> = ({ id }) => {
                       <div className="flex-1">
                         <input
                           placeholder="Select an option"
-                          className="h-full w-full appearance-none bg-transparent p-1 px-2 outline-none"
+                          className="h-full w-full appearance-none bg-transparent p-1 px-2 outline-hidden"
                           defaultValue={selectedValues()}
                         />
                       </div>
@@ -160,7 +160,7 @@ const MultiSelect: React.FC<DropdownProps> = ({ id }) => {
                     <button
                       type="button"
                       onClick={open}
-                      className="h-6 w-6 cursor-pointer outline-none focus:outline-none"
+                      className="h-6 w-6 cursor-pointer outline-hidden focus:outline-hidden"
                     >
                       <svg
                         width="24"

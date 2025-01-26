@@ -90,7 +90,7 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="leading-relaxed max-w-screen-xl mt-12 mx-auto px-4 md:px-8">
+    <section className="leading-relaxed max-w-(--breakpoint-xl) mt-12 mx-auto px-4 md:px-8">
       <div className="space-y-3 text-center">
         <h1 className="text-3xl text-slate-800 font-semibold">
           Frequently Asked Questions

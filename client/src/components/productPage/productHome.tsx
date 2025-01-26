@@ -39,7 +39,7 @@ export default function ProductHome() {
   ];
 
   return (
-    <section className="mt-12 mx-auto px-4 pb-32 max-w-screen-xl md:px-8">
+    <section className="mt-12 mx-auto px-4 pb-32 max-w-(--breakpoint-xl) md:px-8">
       <div className="text-center">
         <h1 className="text-5xl text-slate-800 font-semibold">Products</h1>
         <p className="mt-3 text-slate-500">
@@ -49,7 +49,7 @@ export default function ProductHome() {
       <div className="mt-12 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((items, key) => (
           <article
-            className="max-w-md mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-sm"
+            className="max-w-md mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-xs"
             key={key}
           >
             <a href={items.href}>

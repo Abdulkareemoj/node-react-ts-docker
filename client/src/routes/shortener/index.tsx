@@ -43,12 +43,12 @@ function ShortenerPage() {
                 </label>
                 <div className="flex items-center space-x-2">
                   <input
-                    className="border p-2 rounded"
+                    className="border p-2 rounded-sm"
                     type="text"
                     id="long-url"
                     placeholder="https://example.com/very/long/url"
                   />
-                  <button className="bg-blue-500 text-white p-2 rounded">
+                  <button className="bg-blue-500 text-white p-2 rounded-sm">
                     Generate
                   </button>
                 </div>
@@ -63,13 +63,13 @@ function ShortenerPage() {
                       <input
                         readOnly
                         value={copiedText ?? "https://short.ly/abc123"}
-                        className="border p-2 rounded"
+                        className="border p-2 rounded-sm"
                       />
                       <button
                         onClick={handleCopy(
                           copiedText ?? "https://short.ly/abc123"
                         )}
-                        className="bg-blue-500 text-white p-2 rounded"
+                        className="bg-blue-500 text-white p-2 rounded-sm"
                       >
                         Copy
                       </button>

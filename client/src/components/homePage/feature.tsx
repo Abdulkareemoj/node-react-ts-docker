@@ -130,7 +130,7 @@ export default function Feature() {
 
   return (
     <section className="py-14">
-      <div className="max-w-screen-xl mx-auto px-4 text-slate-800 md:px-8">
+      <div className="max-w-(--breakpoint-xl) mx-auto px-4 text-slate-800 md:px-8">
         <div className="max-w-xl space-y-3">
           <h3 className="text-slate-800 text-3xl font-semibold sm:text-4xl">
             Simple solutions for complex issues

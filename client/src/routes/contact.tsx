@@ -64,7 +64,7 @@ function Contact() {
   return (
     <RootLayout>
       <section className="py-14">
-        <div className="max-w-screen-xl mx-auto px-4 text-slate-600 gap-12 md:px-8 lg:flex">
+        <div className="max-w-(--breakpoint-xl) mx-auto px-4 text-slate-600 gap-12 md:px-8 lg:flex">
           <div className="max-w-md">
             <h3 className="text-slate-800 text-3xl font-semibold sm:text-4xl">
               Let’s connect
@@ -113,7 +113,7 @@ function Contact() {
         </div>
       </section>
       <main className="py-14">
-        <div className="max-w-screen-xl mx-auto px-4 text-slate-600 md:px-8">
+        <div className="max-w-(--breakpoint-xl) mx-auto px-4 text-slate-600 md:px-8">
           <div className="max-w-lg mx-auto gap-12 justify-between lg:flex lg:max-w-none">
             <div className="max-w-lg space-y-3">
               <h3 className="text-indigo-600 font-semibold">Contact</h3>
@@ -145,7 +145,7 @@ function Contact() {
                   <input
                     type="text"
                     required
-                    className="w-full mt-2 px-3 py-2 text-slate-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                    className="w-full mt-2 px-3 py-2 text-slate-500 bg-transparent outline-hidden border focus:border-indigo-600 shadow-xs rounded-lg"
                   />
                 </div>
                 <div>
@@ -153,7 +153,7 @@ function Contact() {
                   <input
                     type="email"
                     required
-                    className="w-full mt-2 px-3 py-2 text-slate-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                    className="w-full mt-2 px-3 py-2 text-slate-500 bg-transparent outline-hidden border focus:border-indigo-600 shadow-xs rounded-lg"
                   />
                 </div>
                 <div>
@@ -161,14 +161,14 @@ function Contact() {
                   <input
                     type="text"
                     required
-                    className="w-full mt-2 px-3 py-2 text-slate-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                    className="w-full mt-2 px-3 py-2 text-slate-500 bg-transparent outline-hidden border focus:border-indigo-600 shadow-xs rounded-lg"
                   />
                 </div>
                 <div>
                   <label className="font-medium">Message</label>
                   <textarea
                     required
-                    className="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                    className="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-transparent outline-hidden border focus:border-indigo-600 shadow-xs rounded-lg"
                   ></textarea>
                 </div>
                 <button className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150">

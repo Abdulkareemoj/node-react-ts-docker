@@ -19,7 +19,7 @@ export default function Footer() {
   ];
   return (
     <footer className="">
-      <div className="max-w-screen-xl mx-auto px-4 text-slate-600 md:px-8">
+      <div className="max-w-(--breakpoint-xl) mx-auto px-4 text-slate-600 md:px-8">
         {/* <div className="space-y-6 sm:max-w-md sm:mx-auto sm:text-center">
           <img
             src="https://www.floatui.com/logo.svg"
