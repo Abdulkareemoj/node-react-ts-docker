@@ -5,6 +5,8 @@ import axios from "axios";
 import { FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import RootLayout from "@/layouts/RootLayout";
+import { axiosClient } from "@/utils/endpoints";
+import Swal from "sweetalert2";
 
 export const Route = createFileRoute("/SignUp")({
   component: SignUp,
@@ -17,18 +19,30 @@ function SignUp() {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await axios.post("/api/signup", data, {
+      const response = await axiosClient.post("/api/signup", data, {
         headers: {
           "Content-Type": "application/json",
         },
       });
 
-      alert(response.data.message); // Replace with SweetAlert for better UX
+      Swal.fire({
+        icon: "success",
+        title: "Signed up successfully",
+        text: response.data.message,
+      });
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
-        alert(error.response.data.message); // Replace with SweetAlert for error notifications
+        Swal.fire({
+          icon: "error",
+          title: "Sign up failed",
+          text: error.response.data.message,
+        });
       } else {
-        alert("An unexpected error occurred"); // Replace with SweetAlert for error notifications
+        Swal.fire({
+          icon: "error",
+          title: "An unexpected error occurred",
+          text: "Please try again later.",
+        });
       }
     }
   };

@@ -6,6 +6,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import RootLayout from "@/layouts/RootLayout";
 import { FormEvent } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export const Route = createFileRoute("/SignIn")({
   component: SignIn,
@@ -24,12 +25,24 @@ function SignIn() {
         },
       });
 
-      alert(response.data.message); // Replace with SweetAlert for better UX
+      Swal.fire({
+        icon: "success",
+        title: "Signed in successfully",
+        text: response.data.message,
+      });
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
-        alert(error.response.data.message); // Replace with SweetAlert for error notifications
+        Swal.fire({
+          icon: "error",
+          title: "Sign in failed",
+          text: error.response.data.message,
+        });
       } else {
-        alert("An unexpected error occurred"); // Replace with SweetAlert for error notifications
+        Swal.fire({
+          icon: "error",
+          title: "An unexpected error occurred",
+          text: "Please try again later.",
+        });
       }
     }
   };
