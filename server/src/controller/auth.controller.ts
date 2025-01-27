@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import User from "../models/user.model"; // Replace with your User model
 import { OAuth2Client } from "google-auth-library";
-import { env } from "../globals";
 
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 const tokenBlacklist: Set<string> = new Set(); // Temporary in-memory storage for blacklisted tokens

@@ -11,7 +11,7 @@ const validateRequest =
         query: req.query,
         params: req.params,
       });
-      next()
+      next();
 
       return next();
     } catch (e: any) {
