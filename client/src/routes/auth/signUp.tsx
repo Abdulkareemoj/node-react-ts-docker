@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, Navigate } from "@tanstack/react-router";
 import axios from "axios";
 import { FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
@@ -28,6 +28,7 @@ function SignUp() {
         title: "Signed up successfully",
         text: response.data.message,
       });
+      return <Navigate to="/auth/signIn" />;
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
         Swal.fire({

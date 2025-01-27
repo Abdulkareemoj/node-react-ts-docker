@@ -1,15 +1,18 @@
-import { Link } from "@tanstack/react-router";
+import { Link, Navigate } from "@tanstack/react-router";
 import { axiosClient } from "../../utils/endpoints";
 import { createFileRoute } from "@tanstack/react-router";
 import RootLayout from "@/layouts/RootLayout";
 import { FormEvent } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useAuth } from "@/utils/authContext";
 
 export const Route = createFileRoute("/auth/signIn")({
   component: SignIn,
 });
 function SignIn() {
+  const { login } = useAuth(); // Get the login function from context
+
   const handleSignIn = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -23,11 +26,27 @@ function SignIn() {
         },
       });
 
+      // Assuming the response contains the token and user data
+      const { token, user } = response.data;
+
+      // Store the token and user role in the context
+      login(user.role); // Set the role in the context
+
+      // Optionally, you can store the token in localStorage or sessionStorage
+      localStorage.setItem("token", token); // Store the token for future requests
+
       Swal.fire({
         icon: "success",
         title: "Signed in successfully",
         text: response.data.message,
       });
+
+      // Redirect to the appropriate page based on the role
+      if (user.role === "admin") {
+        return <Navigate to="/admin" />; // Redirect to admin dashboard
+      } else {
+        return <Navigate to="/dashboard" />; // Redirect to user dashboard
+      }
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
         Swal.fire({
@@ -44,6 +63,7 @@ function SignIn() {
       }
     }
   };
+
   return (
     <RootLayout>
       <div className="flex min-h-full flex-1">
