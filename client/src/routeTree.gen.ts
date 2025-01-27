@@ -13,8 +13,6 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as ContactImport } from './routes/contact'
 import { Route as AboutImport } from './routes/about'
-import { Route as SignUpImport } from './routes/SignUp'
-import { Route as SignInImport } from './routes/SignIn'
 import { Route as R404Import } from './routes/404'
 import { Route as IndexImport } from './routes/index'
 import { Route as ShortenerIndexImport } from './routes/shortener/index'
@@ -28,6 +26,9 @@ import { Route as DashboardSettingsImport } from './routes/dashboard/Settings'
 import { Route as DashboardProfileImport } from './routes/dashboard/Profile'
 import { Route as DashboardChartImport } from './routes/dashboard/Chart'
 import { Route as DashboardCalendarImport } from './routes/dashboard/Calendar'
+import { Route as AuthUnauthorizedImport } from './routes/auth/unauthorized'
+import { Route as AuthSignUpImport } from './routes/auth/signUp'
+import { Route as AuthSignInImport } from './routes/auth/signIn'
 import { Route as AdminLinksPageImport } from './routes/admin/linksPage'
 import { Route as AdminTablesImport } from './routes/admin/Tables'
 import { Route as AdminSettingsImport } from './routes/admin/Settings'
@@ -58,18 +59,6 @@ const ContactRoute = ContactImport.update({
 const AboutRoute = AboutImport.update({
   id: '/about',
   path: '/about',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const SignUpRoute = SignUpImport.update({
-  id: '/SignUp',
-  path: '/SignUp',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const SignInRoute = SignInImport.update({
-  id: '/SignIn',
-  path: '/SignIn',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -148,6 +137,24 @@ const DashboardChartRoute = DashboardChartImport.update({
 const DashboardCalendarRoute = DashboardCalendarImport.update({
   id: '/dashboard/Calendar',
   path: '/dashboard/Calendar',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AuthUnauthorizedRoute = AuthUnauthorizedImport.update({
+  id: '/auth/unauthorized',
+  path: '/auth/unauthorized',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AuthSignUpRoute = AuthSignUpImport.update({
+  id: '/auth/signUp',
+  path: '/auth/signUp',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AuthSignInRoute = AuthSignInImport.update({
+  id: '/auth/signIn',
+  path: '/auth/signIn',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -279,20 +286,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof R404Import
       parentRoute: typeof rootRoute
     }
-    '/SignIn': {
-      id: '/SignIn'
-      path: '/SignIn'
-      fullPath: '/SignIn'
-      preLoaderRoute: typeof SignInImport
-      parentRoute: typeof rootRoute
-    }
-    '/SignUp': {
-      id: '/SignUp'
-      path: '/SignUp'
-      fullPath: '/SignUp'
-      preLoaderRoute: typeof SignUpImport
-      parentRoute: typeof rootRoute
-    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -347,6 +340,27 @@ declare module '@tanstack/react-router' {
       path: '/admin/linksPage'
       fullPath: '/admin/linksPage'
       preLoaderRoute: typeof AdminLinksPageImport
+      parentRoute: typeof rootRoute
+    }
+    '/auth/signIn': {
+      id: '/auth/signIn'
+      path: '/auth/signIn'
+      fullPath: '/auth/signIn'
+      preLoaderRoute: typeof AuthSignInImport
+      parentRoute: typeof rootRoute
+    }
+    '/auth/signUp': {
+      id: '/auth/signUp'
+      path: '/auth/signUp'
+      fullPath: '/auth/signUp'
+      preLoaderRoute: typeof AuthSignUpImport
+      parentRoute: typeof rootRoute
+    }
+    '/auth/unauthorized': {
+      id: '/auth/unauthorized'
+      path: '/auth/unauthorized'
+      fullPath: '/auth/unauthorized'
+      preLoaderRoute: typeof AuthUnauthorizedImport
       parentRoute: typeof rootRoute
     }
     '/dashboard/Calendar': {
@@ -518,8 +532,6 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/404': typeof R404Route
-  '/SignIn': typeof SignInRoute
-  '/SignUp': typeof SignUpRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/admin/Calendar': typeof AdminCalendarRoute
@@ -528,6 +540,9 @@ export interface FileRoutesByFullPath {
   '/admin/Settings': typeof AdminSettingsRoute
   '/admin/Tables': typeof AdminTablesRoute
   '/admin/linksPage': typeof AdminLinksPageRoute
+  '/auth/signIn': typeof AuthSignInRoute
+  '/auth/signUp': typeof AuthSignUpRoute
+  '/auth/unauthorized': typeof AuthUnauthorizedRoute
   '/dashboard/Calendar': typeof DashboardCalendarRoute
   '/dashboard/Chart': typeof DashboardChartRoute
   '/dashboard/Profile': typeof DashboardProfileRoute
@@ -556,8 +571,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/404': typeof R404Route
-  '/SignIn': typeof SignInRoute
-  '/SignUp': typeof SignUpRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/admin/Calendar': typeof AdminCalendarRoute
@@ -566,6 +579,9 @@ export interface FileRoutesByTo {
   '/admin/Settings': typeof AdminSettingsRoute
   '/admin/Tables': typeof AdminTablesRoute
   '/admin/linksPage': typeof AdminLinksPageRoute
+  '/auth/signIn': typeof AuthSignInRoute
+  '/auth/signUp': typeof AuthSignUpRoute
+  '/auth/unauthorized': typeof AuthUnauthorizedRoute
   '/dashboard/Calendar': typeof DashboardCalendarRoute
   '/dashboard/Chart': typeof DashboardChartRoute
   '/dashboard/Profile': typeof DashboardProfileRoute
@@ -595,8 +611,6 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/404': typeof R404Route
-  '/SignIn': typeof SignInRoute
-  '/SignUp': typeof SignUpRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/admin/Calendar': typeof AdminCalendarRoute
@@ -605,6 +619,9 @@ export interface FileRoutesById {
   '/admin/Settings': typeof AdminSettingsRoute
   '/admin/Tables': typeof AdminTablesRoute
   '/admin/linksPage': typeof AdminLinksPageRoute
+  '/auth/signIn': typeof AuthSignInRoute
+  '/auth/signUp': typeof AuthSignUpRoute
+  '/auth/unauthorized': typeof AuthUnauthorizedRoute
   '/dashboard/Calendar': typeof DashboardCalendarRoute
   '/dashboard/Chart': typeof DashboardChartRoute
   '/dashboard/Profile': typeof DashboardProfileRoute
@@ -635,8 +652,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/404'
-    | '/SignIn'
-    | '/SignUp'
     | '/about'
     | '/contact'
     | '/admin/Calendar'
@@ -645,6 +660,9 @@ export interface FileRouteTypes {
     | '/admin/Settings'
     | '/admin/Tables'
     | '/admin/linksPage'
+    | '/auth/signIn'
+    | '/auth/signUp'
+    | '/auth/unauthorized'
     | '/dashboard/Calendar'
     | '/dashboard/Chart'
     | '/dashboard/Profile'
@@ -672,8 +690,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/404'
-    | '/SignIn'
-    | '/SignUp'
     | '/about'
     | '/contact'
     | '/admin/Calendar'
@@ -682,6 +698,9 @@ export interface FileRouteTypes {
     | '/admin/Settings'
     | '/admin/Tables'
     | '/admin/linksPage'
+    | '/auth/signIn'
+    | '/auth/signUp'
+    | '/auth/unauthorized'
     | '/dashboard/Calendar'
     | '/dashboard/Chart'
     | '/dashboard/Profile'
@@ -709,8 +728,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/404'
-    | '/SignIn'
-    | '/SignUp'
     | '/about'
     | '/contact'
     | '/admin/Calendar'
@@ -719,6 +736,9 @@ export interface FileRouteTypes {
     | '/admin/Settings'
     | '/admin/Tables'
     | '/admin/linksPage'
+    | '/auth/signIn'
+    | '/auth/signUp'
+    | '/auth/unauthorized'
     | '/dashboard/Calendar'
     | '/dashboard/Chart'
     | '/dashboard/Profile'
@@ -748,8 +768,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   R404Route: typeof R404Route
-  SignInRoute: typeof SignInRoute
-  SignUpRoute: typeof SignUpRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   AdminCalendarRoute: typeof AdminCalendarRoute
@@ -758,6 +776,9 @@ export interface RootRouteChildren {
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminTablesRoute: typeof AdminTablesRoute
   AdminLinksPageRoute: typeof AdminLinksPageRoute
+  AuthSignInRoute: typeof AuthSignInRoute
+  AuthSignUpRoute: typeof AuthSignUpRoute
+  AuthUnauthorizedRoute: typeof AuthUnauthorizedRoute
   DashboardCalendarRoute: typeof DashboardCalendarRoute
   DashboardChartRoute: typeof DashboardChartRoute
   DashboardProfileRoute: typeof DashboardProfileRoute
@@ -786,8 +807,6 @@ export interface RootRouteChildren {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   R404Route: R404Route,
-  SignInRoute: SignInRoute,
-  SignUpRoute: SignUpRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   AdminCalendarRoute: AdminCalendarRoute,
@@ -796,6 +815,9 @@ const rootRouteChildren: RootRouteChildren = {
   AdminSettingsRoute: AdminSettingsRoute,
   AdminTablesRoute: AdminTablesRoute,
   AdminLinksPageRoute: AdminLinksPageRoute,
+  AuthSignInRoute: AuthSignInRoute,
+  AuthSignUpRoute: AuthSignUpRoute,
+  AuthUnauthorizedRoute: AuthUnauthorizedRoute,
   DashboardCalendarRoute: DashboardCalendarRoute,
   DashboardChartRoute: DashboardChartRoute,
   DashboardProfileRoute: DashboardProfileRoute,
@@ -833,8 +855,6 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/404",
-        "/SignIn",
-        "/SignUp",
         "/about",
         "/contact",
         "/admin/Calendar",
@@ -843,6 +863,9 @@ export const routeTree = rootRoute
         "/admin/Settings",
         "/admin/Tables",
         "/admin/linksPage",
+        "/auth/signIn",
+        "/auth/signUp",
+        "/auth/unauthorized",
         "/dashboard/Calendar",
         "/dashboard/Chart",
         "/dashboard/Profile",
@@ -874,12 +897,6 @@ export const routeTree = rootRoute
     "/404": {
       "filePath": "404.tsx"
     },
-    "/SignIn": {
-      "filePath": "SignIn.tsx"
-    },
-    "/SignUp": {
-      "filePath": "SignUp.tsx"
-    },
     "/about": {
       "filePath": "about.tsx"
     },
@@ -903,6 +920,15 @@ export const routeTree = rootRoute
     },
     "/admin/linksPage": {
       "filePath": "admin/linksPage.tsx"
+    },
+    "/auth/signIn": {
+      "filePath": "auth/signIn.tsx"
+    },
+    "/auth/signUp": {
+      "filePath": "auth/signUp.tsx"
+    },
+    "/auth/unauthorized": {
+      "filePath": "auth/unauthorized.tsx"
     },
     "/dashboard/Calendar": {
       "filePath": "dashboard/Calendar.tsx"
