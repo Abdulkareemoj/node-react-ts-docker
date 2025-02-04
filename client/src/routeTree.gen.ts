@@ -39,14 +39,20 @@ import { Route as ProductslugIndexImport } from './routes/product/[slug]/index'
 import { Route as DashboardSummaryIndexImport } from './routes/dashboard/summary/index'
 import { Route as BlogslugIndexImport } from './routes/blog/[slug]/index'
 import { Route as AdminSummaryIndexImport } from './routes/admin/summary/index'
+import { Route as AdminProductsIndexImport } from './routes/admin/products/index'
+import { Route as AdminPostsIndexImport } from './routes/admin/posts/index'
 import { Route as DashboardUiElementsButtonsImport } from './routes/dashboard/uiElements/Buttons'
 import { Route as DashboardUiElementsAlertsImport } from './routes/dashboard/uiElements/Alerts'
 import { Route as DashboardFormFormLayoutImport } from './routes/dashboard/form/FormLayout'
 import { Route as DashboardFormFormElementsImport } from './routes/dashboard/form/FormElements'
 import { Route as AdminUiElementsButtonsImport } from './routes/admin/uiElements/Buttons'
 import { Route as AdminUiElementsAlertsImport } from './routes/admin/uiElements/Alerts'
+import { Route as AdminProductsAddProductImport } from './routes/admin/products/addProduct'
+import { Route as AdminPostsAddProductImport } from './routes/admin/posts/addProduct'
 import { Route as AdminFormFormLayoutImport } from './routes/admin/form/FormLayout'
 import { Route as AdminFormFormElementsImport } from './routes/admin/form/FormElements'
+import { Route as AdminProductsproductIdIndexImport } from './routes/admin/products/[productId]/index'
+import { Route as AdminPostspostIdIndexImport } from './routes/admin/posts/[postId]/index'
 
 // Create/Update Routes
 
@@ -218,6 +224,18 @@ const AdminSummaryIndexRoute = AdminSummaryIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const AdminProductsIndexRoute = AdminProductsIndexImport.update({
+  id: '/admin/products/',
+  path: '/admin/products/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AdminPostsIndexRoute = AdminPostsIndexImport.update({
+  id: '/admin/posts/',
+  path: '/admin/posts/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const DashboardUiElementsButtonsRoute = DashboardUiElementsButtonsImport.update(
   {
     id: '/dashboard/uiElements/Buttons',
@@ -256,6 +274,18 @@ const AdminUiElementsAlertsRoute = AdminUiElementsAlertsImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const AdminProductsAddProductRoute = AdminProductsAddProductImport.update({
+  id: '/admin/products/addProduct',
+  path: '/admin/products/addProduct',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AdminPostsAddProductRoute = AdminPostsAddProductImport.update({
+  id: '/admin/posts/addProduct',
+  path: '/admin/posts/addProduct',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const AdminFormFormLayoutRoute = AdminFormFormLayoutImport.update({
   id: '/admin/form/FormLayout',
   path: '/admin/form/FormLayout',
@@ -265,6 +295,19 @@ const AdminFormFormLayoutRoute = AdminFormFormLayoutImport.update({
 const AdminFormFormElementsRoute = AdminFormFormElementsImport.update({
   id: '/admin/form/FormElements',
   path: '/admin/form/FormElements',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AdminProductsproductIdIndexRoute =
+  AdminProductsproductIdIndexImport.update({
+    id: '/admin/products/[productId]/',
+    path: '/admin/products/[productId]/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const AdminPostspostIdIndexRoute = AdminPostspostIdIndexImport.update({
+  id: '/admin/posts/[postId]/',
+  path: '/admin/posts/[postId]/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -454,6 +497,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminFormFormLayoutImport
       parentRoute: typeof rootRoute
     }
+    '/admin/posts/addProduct': {
+      id: '/admin/posts/addProduct'
+      path: '/admin/posts/addProduct'
+      fullPath: '/admin/posts/addProduct'
+      preLoaderRoute: typeof AdminPostsAddProductImport
+      parentRoute: typeof rootRoute
+    }
+    '/admin/products/addProduct': {
+      id: '/admin/products/addProduct'
+      path: '/admin/products/addProduct'
+      fullPath: '/admin/products/addProduct'
+      preLoaderRoute: typeof AdminProductsAddProductImport
+      parentRoute: typeof rootRoute
+    }
     '/admin/uiElements/Alerts': {
       id: '/admin/uiElements/Alerts'
       path: '/admin/uiElements/Alerts'
@@ -496,6 +553,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardUiElementsButtonsImport
       parentRoute: typeof rootRoute
     }
+    '/admin/posts/': {
+      id: '/admin/posts/'
+      path: '/admin/posts'
+      fullPath: '/admin/posts'
+      preLoaderRoute: typeof AdminPostsIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/admin/products/': {
+      id: '/admin/products/'
+      path: '/admin/products'
+      fullPath: '/admin/products'
+      preLoaderRoute: typeof AdminProductsIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/admin/summary/': {
       id: '/admin/summary/'
       path: '/admin/summary'
@@ -522,6 +593,20 @@ declare module '@tanstack/react-router' {
       path: '/product/[slug]'
       fullPath: '/product/[slug]'
       preLoaderRoute: typeof ProductslugIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/admin/posts/[postId]/': {
+      id: '/admin/posts/[postId]/'
+      path: '/admin/posts/[postId]'
+      fullPath: '/admin/posts/[postId]'
+      preLoaderRoute: typeof AdminPostspostIdIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/admin/products/[productId]/': {
+      id: '/admin/products/[productId]/'
+      path: '/admin/products/[productId]'
+      fullPath: '/admin/products/[productId]'
+      preLoaderRoute: typeof AdminProductsproductIdIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -556,16 +641,22 @@ export interface FileRoutesByFullPath {
   '/shortener': typeof ShortenerIndexRoute
   '/admin/form/FormElements': typeof AdminFormFormElementsRoute
   '/admin/form/FormLayout': typeof AdminFormFormLayoutRoute
+  '/admin/posts/addProduct': typeof AdminPostsAddProductRoute
+  '/admin/products/addProduct': typeof AdminProductsAddProductRoute
   '/admin/uiElements/Alerts': typeof AdminUiElementsAlertsRoute
   '/admin/uiElements/Buttons': typeof AdminUiElementsButtonsRoute
   '/dashboard/form/FormElements': typeof DashboardFormFormElementsRoute
   '/dashboard/form/FormLayout': typeof DashboardFormFormLayoutRoute
   '/dashboard/uiElements/Alerts': typeof DashboardUiElementsAlertsRoute
   '/dashboard/uiElements/Buttons': typeof DashboardUiElementsButtonsRoute
+  '/admin/posts': typeof AdminPostsIndexRoute
+  '/admin/products': typeof AdminProductsIndexRoute
   '/admin/summary': typeof AdminSummaryIndexRoute
   '/blog/[slug]': typeof BlogslugIndexRoute
   '/dashboard/summary': typeof DashboardSummaryIndexRoute
   '/product/[slug]': typeof ProductslugIndexRoute
+  '/admin/posts/[postId]': typeof AdminPostspostIdIndexRoute
+  '/admin/products/[productId]': typeof AdminProductsproductIdIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -595,16 +686,22 @@ export interface FileRoutesByTo {
   '/shortener': typeof ShortenerIndexRoute
   '/admin/form/FormElements': typeof AdminFormFormElementsRoute
   '/admin/form/FormLayout': typeof AdminFormFormLayoutRoute
+  '/admin/posts/addProduct': typeof AdminPostsAddProductRoute
+  '/admin/products/addProduct': typeof AdminProductsAddProductRoute
   '/admin/uiElements/Alerts': typeof AdminUiElementsAlertsRoute
   '/admin/uiElements/Buttons': typeof AdminUiElementsButtonsRoute
   '/dashboard/form/FormElements': typeof DashboardFormFormElementsRoute
   '/dashboard/form/FormLayout': typeof DashboardFormFormLayoutRoute
   '/dashboard/uiElements/Alerts': typeof DashboardUiElementsAlertsRoute
   '/dashboard/uiElements/Buttons': typeof DashboardUiElementsButtonsRoute
+  '/admin/posts': typeof AdminPostsIndexRoute
+  '/admin/products': typeof AdminProductsIndexRoute
   '/admin/summary': typeof AdminSummaryIndexRoute
   '/blog/[slug]': typeof BlogslugIndexRoute
   '/dashboard/summary': typeof DashboardSummaryIndexRoute
   '/product/[slug]': typeof ProductslugIndexRoute
+  '/admin/posts/[postId]': typeof AdminPostspostIdIndexRoute
+  '/admin/products/[productId]': typeof AdminProductsproductIdIndexRoute
 }
 
 export interface FileRoutesById {
@@ -635,16 +732,22 @@ export interface FileRoutesById {
   '/shortener/': typeof ShortenerIndexRoute
   '/admin/form/FormElements': typeof AdminFormFormElementsRoute
   '/admin/form/FormLayout': typeof AdminFormFormLayoutRoute
+  '/admin/posts/addProduct': typeof AdminPostsAddProductRoute
+  '/admin/products/addProduct': typeof AdminProductsAddProductRoute
   '/admin/uiElements/Alerts': typeof AdminUiElementsAlertsRoute
   '/admin/uiElements/Buttons': typeof AdminUiElementsButtonsRoute
   '/dashboard/form/FormElements': typeof DashboardFormFormElementsRoute
   '/dashboard/form/FormLayout': typeof DashboardFormFormLayoutRoute
   '/dashboard/uiElements/Alerts': typeof DashboardUiElementsAlertsRoute
   '/dashboard/uiElements/Buttons': typeof DashboardUiElementsButtonsRoute
+  '/admin/posts/': typeof AdminPostsIndexRoute
+  '/admin/products/': typeof AdminProductsIndexRoute
   '/admin/summary/': typeof AdminSummaryIndexRoute
   '/blog/[slug]/': typeof BlogslugIndexRoute
   '/dashboard/summary/': typeof DashboardSummaryIndexRoute
   '/product/[slug]/': typeof ProductslugIndexRoute
+  '/admin/posts/[postId]/': typeof AdminPostspostIdIndexRoute
+  '/admin/products/[productId]/': typeof AdminProductsproductIdIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -676,16 +779,22 @@ export interface FileRouteTypes {
     | '/shortener'
     | '/admin/form/FormElements'
     | '/admin/form/FormLayout'
+    | '/admin/posts/addProduct'
+    | '/admin/products/addProduct'
     | '/admin/uiElements/Alerts'
     | '/admin/uiElements/Buttons'
     | '/dashboard/form/FormElements'
     | '/dashboard/form/FormLayout'
     | '/dashboard/uiElements/Alerts'
     | '/dashboard/uiElements/Buttons'
+    | '/admin/posts'
+    | '/admin/products'
     | '/admin/summary'
     | '/blog/[slug]'
     | '/dashboard/summary'
     | '/product/[slug]'
+    | '/admin/posts/[postId]'
+    | '/admin/products/[productId]'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -714,16 +823,22 @@ export interface FileRouteTypes {
     | '/shortener'
     | '/admin/form/FormElements'
     | '/admin/form/FormLayout'
+    | '/admin/posts/addProduct'
+    | '/admin/products/addProduct'
     | '/admin/uiElements/Alerts'
     | '/admin/uiElements/Buttons'
     | '/dashboard/form/FormElements'
     | '/dashboard/form/FormLayout'
     | '/dashboard/uiElements/Alerts'
     | '/dashboard/uiElements/Buttons'
+    | '/admin/posts'
+    | '/admin/products'
     | '/admin/summary'
     | '/blog/[slug]'
     | '/dashboard/summary'
     | '/product/[slug]'
+    | '/admin/posts/[postId]'
+    | '/admin/products/[productId]'
   id:
     | '__root__'
     | '/'
@@ -752,16 +867,22 @@ export interface FileRouteTypes {
     | '/shortener/'
     | '/admin/form/FormElements'
     | '/admin/form/FormLayout'
+    | '/admin/posts/addProduct'
+    | '/admin/products/addProduct'
     | '/admin/uiElements/Alerts'
     | '/admin/uiElements/Buttons'
     | '/dashboard/form/FormElements'
     | '/dashboard/form/FormLayout'
     | '/dashboard/uiElements/Alerts'
     | '/dashboard/uiElements/Buttons'
+    | '/admin/posts/'
+    | '/admin/products/'
     | '/admin/summary/'
     | '/blog/[slug]/'
     | '/dashboard/summary/'
     | '/product/[slug]/'
+    | '/admin/posts/[postId]/'
+    | '/admin/products/[productId]/'
   fileRoutesById: FileRoutesById
 }
 
@@ -792,16 +913,22 @@ export interface RootRouteChildren {
   ShortenerIndexRoute: typeof ShortenerIndexRoute
   AdminFormFormElementsRoute: typeof AdminFormFormElementsRoute
   AdminFormFormLayoutRoute: typeof AdminFormFormLayoutRoute
+  AdminPostsAddProductRoute: typeof AdminPostsAddProductRoute
+  AdminProductsAddProductRoute: typeof AdminProductsAddProductRoute
   AdminUiElementsAlertsRoute: typeof AdminUiElementsAlertsRoute
   AdminUiElementsButtonsRoute: typeof AdminUiElementsButtonsRoute
   DashboardFormFormElementsRoute: typeof DashboardFormFormElementsRoute
   DashboardFormFormLayoutRoute: typeof DashboardFormFormLayoutRoute
   DashboardUiElementsAlertsRoute: typeof DashboardUiElementsAlertsRoute
   DashboardUiElementsButtonsRoute: typeof DashboardUiElementsButtonsRoute
+  AdminPostsIndexRoute: typeof AdminPostsIndexRoute
+  AdminProductsIndexRoute: typeof AdminProductsIndexRoute
   AdminSummaryIndexRoute: typeof AdminSummaryIndexRoute
   BlogslugIndexRoute: typeof BlogslugIndexRoute
   DashboardSummaryIndexRoute: typeof DashboardSummaryIndexRoute
   ProductslugIndexRoute: typeof ProductslugIndexRoute
+  AdminPostspostIdIndexRoute: typeof AdminPostspostIdIndexRoute
+  AdminProductsproductIdIndexRoute: typeof AdminProductsproductIdIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -831,16 +958,22 @@ const rootRouteChildren: RootRouteChildren = {
   ShortenerIndexRoute: ShortenerIndexRoute,
   AdminFormFormElementsRoute: AdminFormFormElementsRoute,
   AdminFormFormLayoutRoute: AdminFormFormLayoutRoute,
+  AdminPostsAddProductRoute: AdminPostsAddProductRoute,
+  AdminProductsAddProductRoute: AdminProductsAddProductRoute,
   AdminUiElementsAlertsRoute: AdminUiElementsAlertsRoute,
   AdminUiElementsButtonsRoute: AdminUiElementsButtonsRoute,
   DashboardFormFormElementsRoute: DashboardFormFormElementsRoute,
   DashboardFormFormLayoutRoute: DashboardFormFormLayoutRoute,
   DashboardUiElementsAlertsRoute: DashboardUiElementsAlertsRoute,
   DashboardUiElementsButtonsRoute: DashboardUiElementsButtonsRoute,
+  AdminPostsIndexRoute: AdminPostsIndexRoute,
+  AdminProductsIndexRoute: AdminProductsIndexRoute,
   AdminSummaryIndexRoute: AdminSummaryIndexRoute,
   BlogslugIndexRoute: BlogslugIndexRoute,
   DashboardSummaryIndexRoute: DashboardSummaryIndexRoute,
   ProductslugIndexRoute: ProductslugIndexRoute,
+  AdminPostspostIdIndexRoute: AdminPostspostIdIndexRoute,
+  AdminProductsproductIdIndexRoute: AdminProductsproductIdIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -879,16 +1012,22 @@ export const routeTree = rootRoute
         "/shortener/",
         "/admin/form/FormElements",
         "/admin/form/FormLayout",
+        "/admin/posts/addProduct",
+        "/admin/products/addProduct",
         "/admin/uiElements/Alerts",
         "/admin/uiElements/Buttons",
         "/dashboard/form/FormElements",
         "/dashboard/form/FormLayout",
         "/dashboard/uiElements/Alerts",
         "/dashboard/uiElements/Buttons",
+        "/admin/posts/",
+        "/admin/products/",
         "/admin/summary/",
         "/blog/[slug]/",
         "/dashboard/summary/",
-        "/product/[slug]/"
+        "/product/[slug]/",
+        "/admin/posts/[postId]/",
+        "/admin/products/[productId]/"
       ]
     },
     "/": {
@@ -969,6 +1108,12 @@ export const routeTree = rootRoute
     "/admin/form/FormLayout": {
       "filePath": "admin/form/FormLayout.tsx"
     },
+    "/admin/posts/addProduct": {
+      "filePath": "admin/posts/addProduct.tsx"
+    },
+    "/admin/products/addProduct": {
+      "filePath": "admin/products/addProduct.tsx"
+    },
     "/admin/uiElements/Alerts": {
       "filePath": "admin/uiElements/Alerts.tsx"
     },
@@ -987,6 +1132,12 @@ export const routeTree = rootRoute
     "/dashboard/uiElements/Buttons": {
       "filePath": "dashboard/uiElements/Buttons.tsx"
     },
+    "/admin/posts/": {
+      "filePath": "admin/posts/index.tsx"
+    },
+    "/admin/products/": {
+      "filePath": "admin/products/index.tsx"
+    },
     "/admin/summary/": {
       "filePath": "admin/summary/index.tsx"
     },
@@ -998,6 +1149,12 @@ export const routeTree = rootRoute
     },
     "/product/[slug]/": {
       "filePath": "product/[slug]/index.tsx"
+    },
+    "/admin/posts/[postId]/": {
+      "filePath": "admin/posts/[postId]/index.tsx"
+    },
+    "/admin/products/[productId]/": {
+      "filePath": "admin/products/[productId]/index.tsx"
     }
   }
 }

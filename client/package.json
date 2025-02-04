@@ -34,9 +34,9 @@
     "usehooks-ts": "^3.1.0"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.0.0",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "autoprefixer": "^10.4.20",
     "@typescript-eslint/eslint-plugin": "^8.21.0",
     "@typescript-eslint/parser": "^8.21.0",
     "@vitejs/plugin-react": "^4.3.4",
@@ -44,7 +44,7 @@
     "eslint-plugin-react-refresh": "^0.4.18",
     "file-loader": "^6.2.0",
     "postcss": "^8.5.1",
-    "tailwindcss": "^4.0.0",
+    "tailwindcss": "^3.4.10",
     "typescript": "^5.7.3",
     "vite": "^6.0.11",
     "vite-tsconfig-paths": "^5.1.4"

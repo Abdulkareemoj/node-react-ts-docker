@@ -8,9 +8,9 @@ import {
 } from "@headlessui/react";
 import { Link } from "@tanstack/react-router";
 import Logo from "@/assets/images/logo/logo.svg";
-import { IoMdHome, IoIosSettings } from "react-icons/io";
+import { IoMdHome, IoIosSettings, IoIosPaper } from "react-icons/io";
 
-import { ImProfile } from "react-icons/im";
+import { ImProfile, ImBoxAdd } from "react-icons/im";
 import {
   FaWpforms,
   FaCalendarAlt,
@@ -34,12 +34,12 @@ const paths = [
     icon: FaWpforms,
     dropdown: [
       {
-        path: "/admin/FormElements",
+        path: "/admin/form/FormElements",
         label: "Form Elements",
         icon: FaWpforms,
       },
       {
-        path: "/admin/FormLayout",
+        path: "/admin/form/FormLayout",
         label: "Form Layout",
         icon: LuLayoutDashboard,
       },
@@ -58,6 +58,38 @@ const paths = [
         path: "/admin/uiElements/Buttons",
         label: "Buttons",
         icon: RxButton,
+      },
+    ],
+  },
+  {
+    label: "Posts",
+    icon: IoIosPaper,
+    dropdown: [
+      {
+        path: "/admin/posts/",
+        label: "All Posts",
+        icon: IoIosPaper,
+      },
+      {
+        path: "/admin/posts/addPost",
+        label: "Add Post ",
+        icon: IoIosPaper,
+      },
+    ],
+  },
+  {
+    label: "Products",
+    icon: ImBoxAdd,
+    dropdown: [
+      {
+        path: "/admin/products/",
+        label: "All Products",
+        icon: ImBoxAdd,
+      },
+      {
+        path: "/admin/products/addProduct",
+        label: "Add Product ",
+        icon: ImBoxAdd,
       },
     ],
   },

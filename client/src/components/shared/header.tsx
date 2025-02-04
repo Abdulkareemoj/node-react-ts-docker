@@ -90,7 +90,7 @@ export default function Header() {
                 type="button"
                 className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >
-                <Link to="/SignIn">Sign In</Link>
+                <Link to="/auth/signin">Sign In</Link>
               </button>
             </div>
             <div className="hidden md:ml-4 md:flex md:shrink-0 md:items-center">

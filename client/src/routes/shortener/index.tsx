@@ -25,7 +25,7 @@ function ShortenerPage() {
 
   return (
     <RootLayout>
-      <main>
+      <main className="p-10">
         <div className="flex flex-col items-center justify-center pt-20 bg-slate-100 ">
           <div>
             <div className="text-slate-900 text-4xl font-bold p-4">
@@ -85,7 +85,7 @@ function ShortenerPage() {
             </div>
           </div>
           <div className="pt-5">
-            <Link className="text-slate-800 hover:underline" to="/SignIn">
+            <Link className="text-slate-800 hover:underline" to="/auth/signIn">
               Sign in
             </Link>{" "}
             to Manage Shortened Links

@@ -26,14 +26,10 @@ function SignIn() {
         },
       });
 
-      // Assuming the response contains the token and user data
       const { token, user } = response.data;
 
-      // Store the token and user role in the context
-      login(user.role); // Set the role in the context
-
-      // Optionally, you can store the token in localStorage or sessionStorage
-      localStorage.setItem("token", token); // Store the token for future requests
+      login(user.role);
+      localStorage.setItem("token", token);
 
       Swal.fire({
         icon: "success",
@@ -43,9 +39,9 @@ function SignIn() {
 
       // Redirect to the appropriate page based on the role
       if (user.role === "admin") {
-        return <Navigate to="/admin" />; // Redirect to admin dashboard
+        return <Navigate to="/admin" />;
       } else {
-        return <Navigate to="/dashboard" />; // Redirect to user dashboard
+        return <Navigate to="/dashboard" />;
       }
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
