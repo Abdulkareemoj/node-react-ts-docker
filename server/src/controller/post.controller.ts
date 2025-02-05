@@ -18,6 +18,11 @@ export async function createPostHandler(
   res: Response
 ) {
   const userId = get(req, "user._id");
+
+  if (!userId) {
+    return res.status(401).send({ message: "Unauthorized" });
+  }
+
   const body = req.body;
 
   const postData = {
@@ -27,11 +32,15 @@ export async function createPostHandler(
     image: body.image,
     authorName: body.authorName,
     href: body.href,
-    timestamps: new Date(),
   };
 
-  const post = await createPost(postData);
-  return res.send(post);
+  try {
+    const post = await createPost(postData);
+    return res.status(201).send(post);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({ message: "Internal Server Error" });
+  }
 }
 
 export async function updatePostHandler(
