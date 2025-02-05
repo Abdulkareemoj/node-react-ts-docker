@@ -48,7 +48,7 @@ import { Route as DashboardFormFormElementsImport } from './routes/dashboard/for
 import { Route as AdminUiElementsButtonsImport } from './routes/admin/uiElements/Buttons'
 import { Route as AdminUiElementsAlertsImport } from './routes/admin/uiElements/Alerts'
 import { Route as AdminProductsAddProductImport } from './routes/admin/products/addProduct'
-import { Route as AdminPostsAddProductImport } from './routes/admin/posts/addProduct'
+import { Route as AdminPostsAddPostImport } from './routes/admin/posts/addPost'
 import { Route as AdminFormFormLayoutImport } from './routes/admin/form/FormLayout'
 import { Route as AdminFormFormElementsImport } from './routes/admin/form/FormElements'
 import { Route as AdminProductsproductIdIndexImport } from './routes/admin/products/[productId]/index'
@@ -280,9 +280,9 @@ const AdminProductsAddProductRoute = AdminProductsAddProductImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AdminPostsAddProductRoute = AdminPostsAddProductImport.update({
-  id: '/admin/posts/addProduct',
-  path: '/admin/posts/addProduct',
+const AdminPostsAddPostRoute = AdminPostsAddPostImport.update({
+  id: '/admin/posts/addPost',
+  path: '/admin/posts/addPost',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -497,11 +497,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminFormFormLayoutImport
       parentRoute: typeof rootRoute
     }
-    '/admin/posts/addProduct': {
-      id: '/admin/posts/addProduct'
-      path: '/admin/posts/addProduct'
-      fullPath: '/admin/posts/addProduct'
-      preLoaderRoute: typeof AdminPostsAddProductImport
+    '/admin/posts/addPost': {
+      id: '/admin/posts/addPost'
+      path: '/admin/posts/addPost'
+      fullPath: '/admin/posts/addPost'
+      preLoaderRoute: typeof AdminPostsAddPostImport
       parentRoute: typeof rootRoute
     }
     '/admin/products/addProduct': {
@@ -641,7 +641,7 @@ export interface FileRoutesByFullPath {
   '/shortener': typeof ShortenerIndexRoute
   '/admin/form/FormElements': typeof AdminFormFormElementsRoute
   '/admin/form/FormLayout': typeof AdminFormFormLayoutRoute
-  '/admin/posts/addProduct': typeof AdminPostsAddProductRoute
+  '/admin/posts/addPost': typeof AdminPostsAddPostRoute
   '/admin/products/addProduct': typeof AdminProductsAddProductRoute
   '/admin/uiElements/Alerts': typeof AdminUiElementsAlertsRoute
   '/admin/uiElements/Buttons': typeof AdminUiElementsButtonsRoute
@@ -686,7 +686,7 @@ export interface FileRoutesByTo {
   '/shortener': typeof ShortenerIndexRoute
   '/admin/form/FormElements': typeof AdminFormFormElementsRoute
   '/admin/form/FormLayout': typeof AdminFormFormLayoutRoute
-  '/admin/posts/addProduct': typeof AdminPostsAddProductRoute
+  '/admin/posts/addPost': typeof AdminPostsAddPostRoute
   '/admin/products/addProduct': typeof AdminProductsAddProductRoute
   '/admin/uiElements/Alerts': typeof AdminUiElementsAlertsRoute
   '/admin/uiElements/Buttons': typeof AdminUiElementsButtonsRoute
@@ -732,7 +732,7 @@ export interface FileRoutesById {
   '/shortener/': typeof ShortenerIndexRoute
   '/admin/form/FormElements': typeof AdminFormFormElementsRoute
   '/admin/form/FormLayout': typeof AdminFormFormLayoutRoute
-  '/admin/posts/addProduct': typeof AdminPostsAddProductRoute
+  '/admin/posts/addPost': typeof AdminPostsAddPostRoute
   '/admin/products/addProduct': typeof AdminProductsAddProductRoute
   '/admin/uiElements/Alerts': typeof AdminUiElementsAlertsRoute
   '/admin/uiElements/Buttons': typeof AdminUiElementsButtonsRoute
@@ -779,7 +779,7 @@ export interface FileRouteTypes {
     | '/shortener'
     | '/admin/form/FormElements'
     | '/admin/form/FormLayout'
-    | '/admin/posts/addProduct'
+    | '/admin/posts/addPost'
     | '/admin/products/addProduct'
     | '/admin/uiElements/Alerts'
     | '/admin/uiElements/Buttons'
@@ -823,7 +823,7 @@ export interface FileRouteTypes {
     | '/shortener'
     | '/admin/form/FormElements'
     | '/admin/form/FormLayout'
-    | '/admin/posts/addProduct'
+    | '/admin/posts/addPost'
     | '/admin/products/addProduct'
     | '/admin/uiElements/Alerts'
     | '/admin/uiElements/Buttons'
@@ -867,7 +867,7 @@ export interface FileRouteTypes {
     | '/shortener/'
     | '/admin/form/FormElements'
     | '/admin/form/FormLayout'
-    | '/admin/posts/addProduct'
+    | '/admin/posts/addPost'
     | '/admin/products/addProduct'
     | '/admin/uiElements/Alerts'
     | '/admin/uiElements/Buttons'
@@ -913,7 +913,7 @@ export interface RootRouteChildren {
   ShortenerIndexRoute: typeof ShortenerIndexRoute
   AdminFormFormElementsRoute: typeof AdminFormFormElementsRoute
   AdminFormFormLayoutRoute: typeof AdminFormFormLayoutRoute
-  AdminPostsAddProductRoute: typeof AdminPostsAddProductRoute
+  AdminPostsAddPostRoute: typeof AdminPostsAddPostRoute
   AdminProductsAddProductRoute: typeof AdminProductsAddProductRoute
   AdminUiElementsAlertsRoute: typeof AdminUiElementsAlertsRoute
   AdminUiElementsButtonsRoute: typeof AdminUiElementsButtonsRoute
@@ -958,7 +958,7 @@ const rootRouteChildren: RootRouteChildren = {
   ShortenerIndexRoute: ShortenerIndexRoute,
   AdminFormFormElementsRoute: AdminFormFormElementsRoute,
   AdminFormFormLayoutRoute: AdminFormFormLayoutRoute,
-  AdminPostsAddProductRoute: AdminPostsAddProductRoute,
+  AdminPostsAddPostRoute: AdminPostsAddPostRoute,
   AdminProductsAddProductRoute: AdminProductsAddProductRoute,
   AdminUiElementsAlertsRoute: AdminUiElementsAlertsRoute,
   AdminUiElementsButtonsRoute: AdminUiElementsButtonsRoute,
@@ -1012,7 +1012,7 @@ export const routeTree = rootRoute
         "/shortener/",
         "/admin/form/FormElements",
         "/admin/form/FormLayout",
-        "/admin/posts/addProduct",
+        "/admin/posts/addPost",
         "/admin/products/addProduct",
         "/admin/uiElements/Alerts",
         "/admin/uiElements/Buttons",
@@ -1108,8 +1108,8 @@ export const routeTree = rootRoute
     "/admin/form/FormLayout": {
       "filePath": "admin/form/FormLayout.tsx"
     },
-    "/admin/posts/addProduct": {
-      "filePath": "admin/posts/addProduct.tsx"
+    "/admin/posts/addPost": {
+      "filePath": "admin/posts/addPost.tsx"
     },
     "/admin/products/addProduct": {
       "filePath": "admin/products/addProduct.tsx"
