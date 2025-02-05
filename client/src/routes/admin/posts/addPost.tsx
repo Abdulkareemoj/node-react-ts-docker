@@ -1,25 +1,21 @@
-import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
-import AdminLayout from "@/layouts/AdminLayout";
-import { axiosClient } from "@/utils/endpoints";
-import {
-  createFileRoute,
-  useNavigate,
-  useParams,
-} from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useNavigate } from "@tanstack/react-router";
+import Breadcrumb from "@/components/admin/Breadcrumbs/Breadcrumb";
+import { useEffect, useState } from "react";
 import { useQuill } from "react-quilljs";
 
 import "quill/dist/quill.snow.css";
+import { createFileRoute } from "@tanstack/react-router";
+import AdminLayout from "@/layouts/AdminLayout";
+import { axiosClient } from "@/utils/endpoints";
 
-export const Route = createFileRoute("/admin/posts/[postId]/")({
-  component: ViewPost,
+export const Route = createFileRoute("/admin/posts/addPost")({
+  component: AddPost,
 });
 
-export default function ViewPost() {
-  const { postId } = useParams();
+export default function AddPost() {
   const { quill, quillRef } = useQuill();
   const navigate = useNavigate();
-
+  const [range, setRange] = useState(null);
   const [post, setPost] = useState({
     title: "",
     description: "",
@@ -28,52 +24,45 @@ export default function ViewPost() {
     href: "",
   });
 
-  const [range, setRange] = useState(null); // Fix for missing state
-
   useEffect(() => {
     if (quill) {
-      quill.clipboard.dangerouslyPasteHTML(post.description || "");
+      // Set initial content using HTML string instead of Delta
+      quill.clipboard.dangerouslyPasteHTML(`
+        <h1>Hello</h1>
+        <p>Some <strong>initial</strong> <u>content</u></p>
+      `);
+
+      // Handle text change
       quill.on("text-change", () => {
         setPost((prev) => ({ ...prev, description: quill.root.innerHTML }));
       });
-      quill.on("selection-change", (range) => setRange(range));
+
+      // Handle selection change
+      quill.on("selection-change", (range) => {
+        setRange(range);
+      });
     }
   }, [quill]);
-
-  useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const response = await axiosClient.get(`/api/posts/${postId}`);
-        setPost(response.data);
-      } catch (error) {
-        console.error("Error fetching post:", error);
-      }
-    };
-    fetchPost();
-  }, [postId]);
 
   function handleChange(e) {
     const { name, value } = e.target;
     setPost((prev) => ({ ...prev, [name]: value }));
   }
 
-  async function handleUpdate(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axiosClient.put(`/api/posts/${postId}`, post);
+      await axiosClient.post("/api/posts", post);
       navigate({ to: "/admin/posts" });
     } catch (error) {
-      console.error("Error updating post:", error);
+      console.error("Error creating post:", error);
     }
   }
 
-  if (!post) return <p className="text-center text-gray-500">Loading...</p>;
-
   return (
     <AdminLayout>
-      <Breadcrumb pageName="Edit Post" />
-
-      <form onSubmit={handleUpdate} className="space-y-4">
+      <Breadcrumb pageName="Add Post" />
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label>Title</label>
           <input
@@ -132,7 +121,7 @@ export default function ViewPost() {
           type="submit"
           className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
         >
-          Update Post
+          Create Post
         </button>
       </form>
     </AdminLayout>
