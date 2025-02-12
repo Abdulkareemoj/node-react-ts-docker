@@ -28,17 +28,21 @@ export async function createPostHandler(
   const postData = {
     user: userId,
     title: body.title,
-    description: body.description,
+    content: body.content,
     image: body.image,
     authorName: body.authorName,
-    href: body.href,
   };
 
   try {
     const post = await createPost(postData);
     return res.status(201).send(post);
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
+    if (error.name === "ValidationError") {
+      return res
+        .status(400)
+        .send({ message: "Validation error", errors: error.errors });
+    }
     return res.status(500).send({ message: "Internal Server Error" });
   }
 }

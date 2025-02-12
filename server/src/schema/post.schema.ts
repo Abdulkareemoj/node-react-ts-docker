@@ -3,16 +3,11 @@ import { TypeOf, z } from "zod";
 const payload = {
   body: z.object({
     title: z.string({ required_error: "Title is required" }),
-    description: z
-      .string({ required_error: "Description is required" })
-      .min(20),
+    content: z.string({ required_error: "Description is required" }).min(20),
     image: z
       .string({ required_error: "Image URL is required" })
       .url("Must be a valid URL"),
     authorName: z.string({ required_error: "Author name is required" }),
-    href: z
-      .string({ required_error: "Href is required" })
-      .url("Must be a valid URL"),
   }),
 };
 const params = {

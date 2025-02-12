@@ -38,6 +38,7 @@ import {
 } from "../schema/post.schema";
 import {
   createPostHandler,
+  deletePostHandler,
   getPostHandler,
   updatePostHandler,
 } from "../controller/post.controller";
@@ -111,22 +112,16 @@ function routes(app: Express) {
     deleteProductHandler
   );
 
-  //Post endpoints
+  //Posts endpoints
   app.post(
     "/api/posts",
-    [
-      requiresRole(permissions.createProduct),
-      validateResource(createPostSchema),
-    ],
+    [requiresRole(permissions.createPost), validateResource(createPostSchema)],
     createPostHandler
   );
 
   app.put(
     "/api/posts/:postId",
-    [
-      requiresRole(permissions.updateProduct),
-      validateResource(updatePostSchema),
-    ],
+    [requiresRole(permissions.updatePost), validateResource(updatePostSchema)],
     updatePostHandler
   );
 
@@ -138,11 +133,8 @@ function routes(app: Express) {
 
   app.delete(
     "/api/posts/:postId",
-    [
-      requiresRole(permissions.deleteProduct),
-      validateResource(deletePostSchema),
-    ],
-    getPostHandler
+    [requiresRole(permissions.deletePost), validateResource(deletePostSchema)],
+    deletePostHandler
   );
 }
 
