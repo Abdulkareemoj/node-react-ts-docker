@@ -1,23 +1,38 @@
-FROM node:12-alpine
+FROM node:20-alpine AS builder
 
-ADD package.json /tmp/package.json
+WORKDIR /app
 
-RUN rm -rf dist
+# Copy package.json and lock files for both client and server
+COPY client/package*.json client/
+COPY server/package*.json server/
 
-RUN /tmp && npm install -q
+# Install dependencies for both client and server
+RUN npm install
 
-RUN npm dedupe
+# Copy source code
+COPY . .
 
-ADD ./src
+# Build the client and server applications
+RUN cd client && npm run build
+RUN cd server && npm run build
 
-RUN rm -rf /src/node_modules && cp /tmp/node_modules /secrets
+# Production image - Using Nginx to serve both frontend and backend
+FROM nginx:alpine
 
-WORKDIR /src
+# Remove default Nginx configuration
+RUN rm /etc/nginx/conf.d/default.conf
 
-RUN npm run-script build
+# Copy custom Nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-RUN npm install pm2 -g
+# Copy built frontend files
+COPY --from=builder /app/client/build /usr/share/nginx/html
 
-EXPOSE 3000
+# Copy built backend files (only necessary if you have static assets in the backend)
+# COPY --from=builder /app/server/dist /app/server/dist  # Uncomment if needed
 
-CMD ["pm2-runtime", "process.json"]
+# Expose port 80 (or your desired port)
+EXPOSE 80
+
+# Nginx starts automatically
+CMD ["nginx", "-g", "daemon off;"]

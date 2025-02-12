@@ -11,9 +11,14 @@ import log from "./logger";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const envPath = path.resolve(__dirname, "../../.env");
+// const envPath = path.resolve(__dirname, "../../.env");
 
-dotenv.config({ path: envPath });
+// dotenv.config({ path: envPath });
+
+if (process.env.NODE_ENV !== "production") {
+  const envPath = path.resolve(__dirname, "../../.env");
+  dotenv.config({ path: envPath });
+}
 
 const port = process.env.PORT;
 const app = express();

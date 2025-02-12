@@ -99,7 +99,10 @@ node-react-ts-docker/
 │ ├── package.json
 │ └── ... # Other configuration files
 ├── .gitignore
+├── .env
 ├── docker-compose.yml
+├── Dockerfile
+├── nginx.conf
 └── README.md
 ```
 

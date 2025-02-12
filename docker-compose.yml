@@ -1,10 +1,28 @@
-version: "3.7"
+version: "3.8"
 services:
-  docker-url:
-    container_name: docker-url-server
-    # enviroment:
-    #   -NODE_ENV=production
+  app: # Single service for the entire application
+    container_name: docker-full-app
     build:
       context: ./
-    image: docker-url
-    ports: -"4000:4000"
+      dockerfile: Dockerfile
+    image: docker-full-app
+    ports:
+      - "80:80" # Map host port 80 to container port 80
+    environment:
+      # Backend environment variables (if needed)
+      NODE_ENV: production
+      # ... other backend environment variables
+      PORT:
+      CORS_ORIGIN:
+      GOOGLE_CLIENT_ID:
+      JWT_SECRET:
+      ACCESS_TOKEN_TTL:
+      REFRESH_TOKEN_TTL:
+      MONGO_URI:
+      PUBLIC_KEY:
+      PRIVATE_KEY:
+      SALT_WORK_FACTOR:
+      VITE_BACKEND_BASE_URL:
+
+    restart: always
+    # No volumes needed in this setup (usually)
