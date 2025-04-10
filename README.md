@@ -67,7 +67,7 @@ Start the backend server:
 cd server
 npm run dev
 or
-pnpm run dev
+pnpm dev
 or
 yarn dev
 ```
@@ -78,7 +78,7 @@ Start the frontend development server:
 cd client
 npm run dev
 or
-pnpm run dev
+pnpm dev
 or
 yarn dev
 ```
