@@ -20,7 +20,7 @@ import { Route as ProductIndexImport } from './routes/product/index'
 import { Route as DashboardIndexImport } from './routes/dashboard/index'
 import { Route as BlogIndexImport } from './routes/blog/index'
 import { Route as AdminIndexImport } from './routes/admin/index'
-import { Route as DashboardLinksPageImport } from './routes/dashboard/link-shortener'
+import { Route as DashboardLinkShortenerImport } from './routes/dashboard/link-shortener'
 import { Route as DashboardTablesImport } from './routes/dashboard/Tables'
 import { Route as DashboardSettingsImport } from './routes/dashboard/Settings'
 import { Route as DashboardProfileImport } from './routes/dashboard/Profile'
@@ -29,7 +29,6 @@ import { Route as DashboardCalendarImport } from './routes/dashboard/Calendar'
 import { Route as AuthUnauthorizedImport } from './routes/auth/unauthorized'
 import { Route as AuthSignupImport } from './routes/auth/signup'
 import { Route as AuthSigninImport } from './routes/auth/signin'
-import { Route as AdminLinkShortenerImport } fr./routes/admin/link-shortenershortener'
 import { Route as AdminTablesImport } from './routes/admin/Tables'
 import { Route as AdminSettingsImport } from './routes/admin/Settings'
 import { Route as AdminProfileImport } from './routes/admin/Profile'
@@ -110,9 +109,9 @@ const AdminIndexRoute = AdminIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const DashboardLinksPageRoute = DashboardLinksPageImport.update({
-  id: '/dashboard/linksPage',
-  path: '/dashboard/linksPage',
+const DashboardLinkShortenerRoute = DashboardLinkShortenerImport.update({
+  id: '/dashboard/link-shortener',
+  path: '/dashboard/link-shortener',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -161,12 +160,6 @@ const AuthSignupRoute = AuthSignupImport.update({
 const AuthSigninRoute = AuthSigninImport.update({
   id: '/auth/signin',
   path: '/auth/signin',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AdminLinkShortenerRoute = AdminLinkShortenerImport.update({
-  id: '/admin/link-shortener',
-  path: '/admin/link-shortener',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -378,13 +371,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminTablesImport
       parentRoute: typeof rootRoute
     }
-    '/admin/link-shortener': {
-      id: '/admin/link-shortener'
-      path: '/admin/link-shortener'
-      fullPath: '/admin/link-shortener'
-      preLoaderRoute: typeof AdminLinkShortenerImport
-      parentRoute: typeof rootRoute
-    }
     '/auth/signin': {
       id: '/auth/signin'
       path: '/auth/signin'
@@ -441,11 +427,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardTablesImport
       parentRoute: typeof rootRoute
     }
-    '/dashboard/linksPage': {
-      id: '/dashboard/linksPage'
-      path: '/dashboard/linksPage'
-      fullPath: '/dashboard/linksPage'
-      preLoaderRoute: typeof DashboardLinksPageImport
+    '/dashboard/link-shortener': {
+      id: '/dashboard/link-shortener'
+      path: '/dashboard/link-shortener'
+      fullPath: '/dashboard/link-shortener'
+      preLoaderRoute: typeof DashboardLinkShortenerImport
       parentRoute: typeof rootRoute
     }
     '/admin/': {
@@ -624,7 +610,6 @@ export interface FileRoutesByFullPath {
   '/admin/Profile': typeof AdminProfileRoute
   '/admin/Settings': typeof AdminSettingsRoute
   '/admin/Tables': typeof AdminTablesRoute
-  '/admin/link-shortener': typeof AdminLinkShortenerRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/unauthorized': typeof AuthUnauthorizedRoute
@@ -633,7 +618,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/Profile': typeof DashboardProfileRoute
   '/dashboard/Settings': typeof DashboardSettingsRoute
   '/dashboard/Tables': typeof DashboardTablesRoute
-  '/dashboard/linksPage': typeof DashboardLinksPageRoute
+  '/dashboard/link-shortener': typeof DashboardLinkShortenerRoute
   '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
   '/dashboard': typeof DashboardIndexRoute
@@ -669,7 +654,6 @@ export interface FileRoutesByTo {
   '/admin/Profile': typeof AdminProfileRoute
   '/admin/Settings': typeof AdminSettingsRoute
   '/admin/Tables': typeof AdminTablesRoute
-  '/admin/link-shortener': typeof AdminLinkShortenerRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/unauthorized': typeof AuthUnauthorizedRoute
@@ -678,7 +662,7 @@ export interface FileRoutesByTo {
   '/dashboard/Profile': typeof DashboardProfileRoute
   '/dashboard/Settings': typeof DashboardSettingsRoute
   '/dashboard/Tables': typeof DashboardTablesRoute
-  '/dashboard/linksPage': typeof DashboardLinksPageRoute
+  '/dashboard/link-shortener': typeof DashboardLinkShortenerRoute
   '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
   '/dashboard': typeof DashboardIndexRoute
@@ -715,7 +699,6 @@ export interface FileRoutesById {
   '/admin/Profile': typeof AdminProfileRoute
   '/admin/Settings': typeof AdminSettingsRoute
   '/admin/Tables': typeof AdminTablesRoute
-  '/admin/link-shortener': typeof AdminLinkShortenerRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/unauthorized': typeof AuthUnauthorizedRoute
@@ -724,7 +707,7 @@ export interface FileRoutesById {
   '/dashboard/Profile': typeof DashboardProfileRoute
   '/dashboard/Settings': typeof DashboardSettingsRoute
   '/dashboard/Tables': typeof DashboardTablesRoute
-  '/dashboard/linksPage': typeof DashboardLinksPageRoute
+  '/dashboard/link-shortener': typeof DashboardLinkShortenerRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
@@ -762,7 +745,6 @@ export interface FileRouteTypes {
     | '/admin/Profile'
     | '/admin/Settings'
     | '/admin/Tables'
-    | '/admin/link-shortener'
     | '/auth/signin'
     | '/auth/signup'
     | '/auth/unauthorized'
@@ -771,7 +753,7 @@ export interface FileRouteTypes {
     | '/dashboard/Profile'
     | '/dashboard/Settings'
     | '/dashboard/Tables'
-    | '/dashboard/linksPage'
+    | '/dashboard/link-shortener'
     | '/admin'
     | '/blog'
     | '/dashboard'
@@ -806,7 +788,6 @@ export interface FileRouteTypes {
     | '/admin/Profile'
     | '/admin/Settings'
     | '/admin/Tables'
-    | '/admin/link-shortener'
     | '/auth/signin'
     | '/auth/signup'
     | '/auth/unauthorized'
@@ -815,7 +796,7 @@ export interface FileRouteTypes {
     | '/dashboard/Profile'
     | '/dashboard/Settings'
     | '/dashboard/Tables'
-    | '/dashboard/linksPage'
+    | '/dashboard/link-shortener'
     | '/admin'
     | '/blog'
     | '/dashboard'
@@ -850,7 +831,6 @@ export interface FileRouteTypes {
     | '/admin/Profile'
     | '/admin/Settings'
     | '/admin/Tables'
-    | '/admin/link-shortener'
     | '/auth/signin'
     | '/auth/signup'
     | '/auth/unauthorized'
@@ -859,7 +839,7 @@ export interface FileRouteTypes {
     | '/dashboard/Profile'
     | '/dashboard/Settings'
     | '/dashboard/Tables'
-    | '/dashboard/linksPage'
+    | '/dashboard/link-shortener'
     | '/admin/'
     | '/blog/'
     | '/dashboard/'
@@ -896,7 +876,6 @@ export interface RootRouteChildren {
   AdminProfileRoute: typeof AdminProfileRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminTablesRoute: typeof AdminTablesRoute
-  AdminLinkShortenerRoute: typeof AdminLinkShortenerRoute
   AuthSigninRoute: typeof AuthSigninRoute
   AuthSignupRoute: typeof AuthSignupRoute
   AuthUnauthorizedRoute: typeof AuthUnauthorizedRoute
@@ -905,7 +884,7 @@ export interface RootRouteChildren {
   DashboardProfileRoute: typeof DashboardProfileRoute
   DashboardSettingsRoute: typeof DashboardSettingsRoute
   DashboardTablesRoute: typeof DashboardTablesRoute
-  DashboardLinksPageRoute: typeof DashboardLinksPageRoute
+  DashboardLinkShortenerRoute: typeof DashboardLinkShortenerRoute
   AdminIndexRoute: typeof AdminIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
@@ -941,7 +920,6 @@ const rootRouteChildren: RootRouteChildren = {
   AdminProfileRoute: AdminProfileRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   AdminTablesRoute: AdminTablesRoute,
-  AdminLinkShortenerRoute: AdminLinkShortenerRoute,
   AuthSigninRoute: AuthSigninRoute,
   AuthSignupRoute: AuthSignupRoute,
   AuthUnauthorizedRoute: AuthUnauthorizedRoute,
@@ -950,7 +928,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardProfileRoute: DashboardProfileRoute,
   DashboardSettingsRoute: DashboardSettingsRoute,
   DashboardTablesRoute: DashboardTablesRoute,
-  DashboardLinksPageRoute: DashboardLinksPageRoute,
+  DashboardLinkShortenerRoute: DashboardLinkShortenerRoute,
   AdminIndexRoute: AdminIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
   DashboardIndexRoute: DashboardIndexRoute,
@@ -995,7 +973,6 @@ export const routeTree = rootRoute
         "/admin/Profile",
         "/admin/Settings",
         "/admin/Tables",
-        "/admin/link-shortener",
         "/auth/signin",
         "/auth/signup",
         "/auth/unauthorized",
@@ -1004,7 +981,7 @@ export const routeTree = rootRoute
         "/dashboard/Profile",
         "/dashboard/Settings",
         "/dashboard/Tables",
-        "/dashboard/linksPage",
+        "/dashboard/link-shortener",
         "/admin/",
         "/blog/",
         "/dashboard/",
@@ -1057,9 +1034,6 @@ export const routeTree = rootRoute
     "/admin/Tables": {
       "filePath": "admin/Tables.tsx"
     },
-    "/admin/link-shortener": {
-      "filePath": "admin/link-shortener.tsx"
-    },
     "/auth/signin": {
       "filePath": "auth/signin.tsx"
     },
@@ -1084,8 +1058,8 @@ export const routeTree = rootRoute
     "/dashboard/Tables": {
       "filePath": "dashboard/Tables.tsx"
     },
-    "/dashboard/linksPage": {
-      "filePath": "dashboard/linksPage.tsx"
+    "/dashboard/link-shortener": {
+      "filePath": "dashboard/link-shortener.tsx"
     },
     "/admin/": {
       "filePath": "admin/index.tsx"
