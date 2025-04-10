@@ -66,7 +66,7 @@ const paths = [
   { path: "/dashboard/Profile", label: "Profile", icon: ImProfile },
   { path: "/dashboard/Settings", label: "Settings", icon: IoIosSettings },
   { path: "/dashboard/Tables", label: "Tables", icon: FaTable },
-  { path: "/dashboard/linksPage", label: "Links Page", icon: FaLink },
+  { path: "/dashboard/link-shortener", label: "Links Page", icon: FaLink },
 ];
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
