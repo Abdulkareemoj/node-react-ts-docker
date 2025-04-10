@@ -98,7 +98,7 @@ const paths = [
   { path: "/admin/Profile", label: "Profile", icon: ImProfile },
   { path: "/admin/Settings", label: "Settings", icon: IoIosSettings },
   { path: "/admin/Tables", label: "Tables", icon: FaTable },
-  { path: "/admin/linksPage", label: "Links Page", icon: FaLink },
+  { path: "/admin/link-shortener", label: "Links Page", icon: FaLink },
 ];
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {

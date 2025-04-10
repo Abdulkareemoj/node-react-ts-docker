@@ -27,9 +27,9 @@ import { Route as DashboardProfileImport } from './routes/dashboard/Profile'
 import { Route as DashboardChartImport } from './routes/dashboard/Chart'
 import { Route as DashboardCalendarImport } from './routes/dashboard/Calendar'
 import { Route as AuthUnauthorizedImport } from './routes/auth/unauthorized'
-import { Route as AuthSignUpImport } from './routes/auth/signUp'
-import { Route as AuthSignInImport } from './routes/auth/signIn'
-import { Route as AdminLinksPageImport } from './routes/admin/linksPage'
+import { Route as AuthSignupImport } from './routes/auth/signup'
+import { Route as AuthSigninImport } from './routes/auth/signin'
+import { Route as AdminLinkShortenerImport } fr./routes/admin/link-shortenershortener'
 import { Route as AdminTablesImport } from './routes/admin/Tables'
 import { Route as AdminSettingsImport } from './routes/admin/Settings'
 import { Route as AdminProfileImport } from './routes/admin/Profile'
@@ -152,21 +152,21 @@ const AuthUnauthorizedRoute = AuthUnauthorizedImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AuthSignUpRoute = AuthSignUpImport.update({
-  id: '/auth/signUp',
-  path: '/auth/signUp',
+const AuthSignupRoute = AuthSignupImport.update({
+  id: '/auth/signup',
+  path: '/auth/signup',
   getParentRoute: () => rootRoute,
 } as any)
 
-const AuthSignInRoute = AuthSignInImport.update({
-  id: '/auth/signIn',
-  path: '/auth/signIn',
+const AuthSigninRoute = AuthSigninImport.update({
+  id: '/auth/signin',
+  path: '/auth/signin',
   getParentRoute: () => rootRoute,
 } as any)
 
-const AdminLinksPageRoute = AdminLinksPageImport.update({
-  id: '/admin/linksPage',
-  path: '/admin/linksPage',
+const AdminLinkShortenerRoute = AdminLinkShortenerImport.update({
+  id: '/admin/link-shortener',
+  path: '/admin/link-shortener',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -378,25 +378,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminTablesImport
       parentRoute: typeof rootRoute
     }
-    '/admin/linksPage': {
-      id: '/admin/linksPage'
-      path: '/admin/linksPage'
-      fullPath: '/admin/linksPage'
-      preLoaderRoute: typeof AdminLinksPageImport
+    '/admin/link-shortener': {
+      id: '/admin/link-shortener'
+      path: '/admin/link-shortener'
+      fullPath: '/admin/link-shortener'
+      preLoaderRoute: typeof AdminLinkShortenerImport
       parentRoute: typeof rootRoute
     }
-    '/auth/signIn': {
-      id: '/auth/signIn'
-      path: '/auth/signIn'
-      fullPath: '/auth/signIn'
-      preLoaderRoute: typeof AuthSignInImport
+    '/auth/signin': {
+      id: '/auth/signin'
+      path: '/auth/signin'
+      fullPath: '/auth/signin'
+      preLoaderRoute: typeof AuthSigninImport
       parentRoute: typeof rootRoute
     }
-    '/auth/signUp': {
-      id: '/auth/signUp'
-      path: '/auth/signUp'
-      fullPath: '/auth/signUp'
-      preLoaderRoute: typeof AuthSignUpImport
+    '/auth/signup': {
+      id: '/auth/signup'
+      path: '/auth/signup'
+      fullPath: '/auth/signup'
+      preLoaderRoute: typeof AuthSignupImport
       parentRoute: typeof rootRoute
     }
     '/auth/unauthorized': {
@@ -624,9 +624,9 @@ export interface FileRoutesByFullPath {
   '/admin/Profile': typeof AdminProfileRoute
   '/admin/Settings': typeof AdminSettingsRoute
   '/admin/Tables': typeof AdminTablesRoute
-  '/admin/linksPage': typeof AdminLinksPageRoute
-  '/auth/signIn': typeof AuthSignInRoute
-  '/auth/signUp': typeof AuthSignUpRoute
+  '/admin/link-shortener': typeof AdminLinkShortenerRoute
+  '/auth/signin': typeof AuthSigninRoute
+  '/auth/signup': typeof AuthSignupRoute
   '/auth/unauthorized': typeof AuthUnauthorizedRoute
   '/dashboard/Calendar': typeof DashboardCalendarRoute
   '/dashboard/Chart': typeof DashboardChartRoute
@@ -669,9 +669,9 @@ export interface FileRoutesByTo {
   '/admin/Profile': typeof AdminProfileRoute
   '/admin/Settings': typeof AdminSettingsRoute
   '/admin/Tables': typeof AdminTablesRoute
-  '/admin/linksPage': typeof AdminLinksPageRoute
-  '/auth/signIn': typeof AuthSignInRoute
-  '/auth/signUp': typeof AuthSignUpRoute
+  '/admin/link-shortener': typeof AdminLinkShortenerRoute
+  '/auth/signin': typeof AuthSigninRoute
+  '/auth/signup': typeof AuthSignupRoute
   '/auth/unauthorized': typeof AuthUnauthorizedRoute
   '/dashboard/Calendar': typeof DashboardCalendarRoute
   '/dashboard/Chart': typeof DashboardChartRoute
@@ -715,9 +715,9 @@ export interface FileRoutesById {
   '/admin/Profile': typeof AdminProfileRoute
   '/admin/Settings': typeof AdminSettingsRoute
   '/admin/Tables': typeof AdminTablesRoute
-  '/admin/linksPage': typeof AdminLinksPageRoute
-  '/auth/signIn': typeof AuthSignInRoute
-  '/auth/signUp': typeof AuthSignUpRoute
+  '/admin/link-shortener': typeof AdminLinkShortenerRoute
+  '/auth/signin': typeof AuthSigninRoute
+  '/auth/signup': typeof AuthSignupRoute
   '/auth/unauthorized': typeof AuthUnauthorizedRoute
   '/dashboard/Calendar': typeof DashboardCalendarRoute
   '/dashboard/Chart': typeof DashboardChartRoute
@@ -762,9 +762,9 @@ export interface FileRouteTypes {
     | '/admin/Profile'
     | '/admin/Settings'
     | '/admin/Tables'
-    | '/admin/linksPage'
-    | '/auth/signIn'
-    | '/auth/signUp'
+    | '/admin/link-shortener'
+    | '/auth/signin'
+    | '/auth/signup'
     | '/auth/unauthorized'
     | '/dashboard/Calendar'
     | '/dashboard/Chart'
@@ -806,9 +806,9 @@ export interface FileRouteTypes {
     | '/admin/Profile'
     | '/admin/Settings'
     | '/admin/Tables'
-    | '/admin/linksPage'
-    | '/auth/signIn'
-    | '/auth/signUp'
+    | '/admin/link-shortener'
+    | '/auth/signin'
+    | '/auth/signup'
     | '/auth/unauthorized'
     | '/dashboard/Calendar'
     | '/dashboard/Chart'
@@ -850,9 +850,9 @@ export interface FileRouteTypes {
     | '/admin/Profile'
     | '/admin/Settings'
     | '/admin/Tables'
-    | '/admin/linksPage'
-    | '/auth/signIn'
-    | '/auth/signUp'
+    | '/admin/link-shortener'
+    | '/auth/signin'
+    | '/auth/signup'
     | '/auth/unauthorized'
     | '/dashboard/Calendar'
     | '/dashboard/Chart'
@@ -896,9 +896,9 @@ export interface RootRouteChildren {
   AdminProfileRoute: typeof AdminProfileRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminTablesRoute: typeof AdminTablesRoute
-  AdminLinksPageRoute: typeof AdminLinksPageRoute
-  AuthSignInRoute: typeof AuthSignInRoute
-  AuthSignUpRoute: typeof AuthSignUpRoute
+  AdminLinkShortenerRoute: typeof AdminLinkShortenerRoute
+  AuthSigninRoute: typeof AuthSigninRoute
+  AuthSignupRoute: typeof AuthSignupRoute
   AuthUnauthorizedRoute: typeof AuthUnauthorizedRoute
   DashboardCalendarRoute: typeof DashboardCalendarRoute
   DashboardChartRoute: typeof DashboardChartRoute
@@ -941,9 +941,9 @@ const rootRouteChildren: RootRouteChildren = {
   AdminProfileRoute: AdminProfileRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   AdminTablesRoute: AdminTablesRoute,
-  AdminLinksPageRoute: AdminLinksPageRoute,
-  AuthSignInRoute: AuthSignInRoute,
-  AuthSignUpRoute: AuthSignUpRoute,
+  AdminLinkShortenerRoute: AdminLinkShortenerRoute,
+  AuthSigninRoute: AuthSigninRoute,
+  AuthSignupRoute: AuthSignupRoute,
   AuthUnauthorizedRoute: AuthUnauthorizedRoute,
   DashboardCalendarRoute: DashboardCalendarRoute,
   DashboardChartRoute: DashboardChartRoute,
@@ -995,9 +995,9 @@ export const routeTree = rootRoute
         "/admin/Profile",
         "/admin/Settings",
         "/admin/Tables",
-        "/admin/linksPage",
-        "/auth/signIn",
-        "/auth/signUp",
+        "/admin/link-shortener",
+        "/auth/signin",
+        "/auth/signup",
         "/auth/unauthorized",
         "/dashboard/Calendar",
         "/dashboard/Chart",
@@ -1057,14 +1057,14 @@ export const routeTree = rootRoute
     "/admin/Tables": {
       "filePath": "admin/Tables.tsx"
     },
-    "/admin/linksPage": {
-      "filePath": "admin/linksPage.tsx"
+    "/admin/link-shortener": {
+      "filePath": "admin/link-shortener.tsx"
     },
-    "/auth/signIn": {
-      "filePath": "auth/signIn.tsx"
+    "/auth/signin": {
+      "filePath": "auth/signin.tsx"
     },
-    "/auth/signUp": {
-      "filePath": "auth/signUp.tsx"
+    "/auth/signup": {
+      "filePath": "auth/signup.tsx"
     },
     "/auth/unauthorized": {
       "filePath": "auth/unauthorized.tsx"
