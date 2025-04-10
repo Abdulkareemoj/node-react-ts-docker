@@ -1,6 +1,7 @@
 import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
 import AdminLayout from "@/layouts/AdminLayout";
 import { axiosClient } from "@/utils/endpoints";
+import { Button } from "@headlessui/react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 
@@ -24,10 +25,14 @@ export default function Posts() {
     fetchPosts();
   }, []);
 
-  function handleDelete(postId) {
-    fetch(`/api/posts/${postId}`, { method: "DELETE" })
-      .then(() => setPosts(posts.filter((p) => p.postId !== postId)))
-      .catch((err) => console.error("Error deleting post:", err));
+  function handleDelete(postId: string) {
+    axiosClient
+      .delete(`/api/posts/${postId}`)
+      .then(() => setPosts(posts.filter((p) => p.id !== postId))) // Ensure "id" matches API response
+      .catch((err) => {
+        console.error("Error deleting post:", err);
+        alert("Error deleting post: " + err.message);
+      });
   }
 
   return (
@@ -35,7 +40,7 @@ export default function Posts() {
       <Breadcrumb pageName="All Posts" />
       <div className="flex justify-end mb-4">
         <Link to="/admin/posts/addPost" className="btn btn-primary">
-          Add New Post
+          <button> Add New Post</button>
         </Link>
       </div>
 

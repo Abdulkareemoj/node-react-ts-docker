@@ -16,25 +16,24 @@ export const Route = createFileRoute("/admin/posts/[postId]/")({
 });
 
 export default function ViewPost() {
-  const { postId } = useParams();
+  const { postId } = useParams({ from: Route.id });
   const { quill, quillRef } = useQuill();
   const navigate = useNavigate();
 
   const [post, setPost] = useState({
     title: "",
-    description: "",
+    content: "",
     image: "",
     authorName: "",
-    href: "",
   });
-
-  const [range, setRange] = useState(null); // Fix for missing state
+  const [loading, setLoading] = useState(true);
+  const [range, setRange] = useState(null);
 
   useEffect(() => {
     if (quill) {
-      quill.clipboard.dangerouslyPasteHTML(post.description || "");
+      quill.clipboard.dangerouslyPasteHTML(post.content || "");
       quill.on("text-change", () => {
-        setPost((prev) => ({ ...prev, description: quill.root.innerHTML }));
+        setPost((prev) => ({ ...prev, content: quill.root.innerHTML }));
       });
       quill.on("selection-change", (range) => setRange(range));
     }
@@ -42,11 +41,15 @@ export default function ViewPost() {
 
   useEffect(() => {
     const fetchPost = async () => {
+      setLoading(true);
       try {
         const response = await axiosClient.get(`/api/posts/${postId}`);
         setPost(response.data);
       } catch (error) {
         console.error("Error fetching post:", error);
+        alert("Error fetching post: " + error.message);
+      } finally {
+        setLoading(false);
       }
     };
     fetchPost();
@@ -62,12 +65,15 @@ export default function ViewPost() {
     try {
       await axiosClient.put(`/api/posts/${postId}`, post);
       navigate({ to: "/admin/posts" });
-    } catch (error) {
-      console.error("Error updating post:", error);
+    } catch (error: any) {
+      console.error("Error creating post:", error);
+      alert("Error creating post: " + error.message);
     }
   }
 
-  if (!post) return <p className="text-center text-gray-500">Loading...</p>;
+  if (loading) return <p className="text-center text-gray-500">Loading...</p>;
+  if (!post)
+    return <p className="text-center text-gray-500">Post not found.</p>;
 
   return (
     <AdminLayout>
@@ -115,17 +121,6 @@ export default function ViewPost() {
           <div className="border border-gray-300 rounded-lg min-h-[200px] bg-white p-3">
             <div ref={quillRef} className="min-h-[150px]" />
           </div>
-        </div>
-
-        <div>
-          <label>External Link</label>
-          <input
-            type="url"
-            name="href"
-            value={post.href}
-            onChange={handleChange}
-            className="input w-full"
-          />
         </div>
 
         <button

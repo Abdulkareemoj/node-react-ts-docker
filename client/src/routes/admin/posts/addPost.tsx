@@ -15,34 +15,39 @@ export const Route = createFileRoute("/admin/posts/addPost")({
 export default function AddPost() {
   const { quill, quillRef } = useQuill();
   const navigate = useNavigate();
-  const [range, setRange] = useState(null);
+  // const [range, setRange] = useState(null);
   const [post, setPost] = useState({
     title: "",
-    description: "",
+    content: "",
     image: "",
     authorName: "",
-    href: "",
   });
 
+  // useEffect(() => {
+  //   if (quill) {
+  //     // Set initial content using HTML string instead of Delta
+  //     quill.clipboard.dangerouslyPasteHTML(`
+  //       <h1>Hello</h1>
+  //       <p>Some <strong>initial</strong> <u>content</u></p>
+  //     `);
+
+  //     // Handle text change
+  //     quill.on("text-change", () => {
+  //       setPost((prev) => ({ ...prev, content: quill.root.innerHTML }));
+  //     });
+
+  //     // Handle selection change
+  //     quill.on("selection-change", (range) => {
+  //       setRange(range);
+  //     });
+  //   }
+  // }, [quill]);
+
   useEffect(() => {
-    if (quill) {
-      // Set initial content using HTML string instead of Delta
-      quill.clipboard.dangerouslyPasteHTML(`
-        <h1>Hello</h1>
-        <p>Some <strong>initial</strong> <u>content</u></p>
-      `);
-
-      // Handle text change
-      quill.on("text-change", () => {
-        setPost((prev) => ({ ...prev, description: quill.root.innerHTML }));
-      });
-
-      // Handle selection change
-      quill.on("selection-change", (range) => {
-        setRange(range);
-      });
+    if (quill && post.content) {
+      quill.clipboard.dangerouslyPasteHTML(post.content);
     }
-  }, [quill]);
+  }, [quill, post.content]);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -54,8 +59,9 @@ export default function AddPost() {
     try {
       await axiosClient.post("/api/posts", post);
       navigate({ to: "/admin/posts" });
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error creating post:", error);
+      alert("Error creating post: " + error.message);
     }
   }
 
@@ -104,17 +110,6 @@ export default function AddPost() {
           <div className="border border-gray-300 rounded-lg min-h-[200px] bg-white p-3">
             <div ref={quillRef} className="min-h-[150px]" />
           </div>
-        </div>
-
-        <div>
-          <label>External Link</label>
-          <input
-            type="url"
-            name="href"
-            value={post.href}
-            onChange={handleChange}
-            className="input w-full"
-          />
         </div>
 
         <button
