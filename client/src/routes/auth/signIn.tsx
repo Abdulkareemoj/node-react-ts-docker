@@ -7,7 +7,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useAuth } from "@/utils/authContext";
 
-export const Route = createFileRoute("/auth/signIn")({
+export const Route = createFileRoute("/auth/signin")({
   component: SignIn,
 });
 function SignIn() {
@@ -245,8 +245,8 @@ function SignIn() {
               </div>
               <div className="mt-6 text-center">
                 <p>
-                  Dont have an account?
-                  <Link to="/auth/signUp" className="text-primary">
+                  Dont have an account?{""}
+                  <Link to="/auth/signup" className="text-primary">
                     Sign up
                   </Link>
                 </p>

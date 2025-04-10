@@ -6,7 +6,7 @@ import RootLayout from "@/layouts/RootLayout";
 import { axiosClient } from "@/utils/endpoints";
 import Swal from "sweetalert2";
 
-export const Route = createFileRoute("/auth/signUp")({
+export const Route = createFileRoute("/auth/signup")({
   component: SignUp,
 });
 function SignUp() {
@@ -28,7 +28,7 @@ function SignUp() {
         title: "Signed up successfully",
         text: response.data.message,
       });
-      return <Navigate to="/auth/signIn" />;
+      return <Navigate to="/auth/signin" />;
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
         Swal.fire({
@@ -219,15 +219,6 @@ function SignUp() {
                         Remember me
                       </label>
                     </div>
-
-                    <div className="text-sm/6">
-                      <a
-                        href="#"
-                        className="font-semibold text-indigo-600 hover:text-indigo-500"
-                      >
-                        Forgot password?
-                      </a>
-                    </div>
                   </div>
 
                   <div>
@@ -309,8 +300,8 @@ function SignUp() {
               <div className="mt-6 text-center">
                 <p>
                   Already have an account?{" "}
-                  <Link to="/auth/signIn" className="text-primary">
-                    Sign up
+                  <Link to="/auth/signin" className="text-primary">
+                    Sign In
                   </Link>
                 </p>
               </div>
