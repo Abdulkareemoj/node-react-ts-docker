@@ -92,7 +92,7 @@ const navigation = {
 export default function Footer() {
   return (
     <footer className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 pt-8 pb-8 sm:pt-24 lg:px-8 lg:pt-16">
+      <div className="mx-auto  pt-8 pb-8 sm:pt-24 px-8 lg:pt-16">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <img

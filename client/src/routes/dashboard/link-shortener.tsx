@@ -6,13 +6,14 @@ import { AreaChart } from "@/components/dashboard/AreaChart";
 import { DatePickerWithRange } from "@/components/dashboard/DateRangePicker";
 import { Card, CardContent } from "@/components/dashboard/Card";
 import { Input } from "@/components/dashboard/Input";
+import { Button } from "@/components/dashboard/Button";
 
 export const Route = createFileRoute("/dashboard/link-shortener")({
   component: () => (
     <DashboardLayout>
       <div className="flex min-h-screen w-full flex-col bg-gray-50">
         <main className="flex-1 p-6 md:p-8">
-          <div className="mx-auto max-w-6xl space-y-8">
+          <div className="mx-auto  space-y-8">
             {/* Header */}
             <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
               <div>
@@ -108,10 +109,10 @@ export const Route = createFileRoute("/dashboard/link-shortener")({
                       // onChange={(e) => setSearchQuery(e.target.value)}
                     />
                   </div>
-                  <button className="gap-2">
+                  <Button variant="outline" className="gap-2">
                     <PlusIcon className="h-4 w-4" />
                     <span>New Link</span>
-                  </button>
+                  </Button>
                 </div>
               </div>
               <LinksTable

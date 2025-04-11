@@ -1,99 +1,14 @@
+import { Button } from "@/components/dashboard/Button";
 import UrlShortener from "@/components/shared/url-shortener";
 import RootLayout from "@/layouts/RootLayout";
 import { createFileRoute, Link } from "@tanstack/react-router";
-
-// import { useCopyToClipboard } from "usehooks-ts";
-
-// import { CopyIcon } from "@/components/icons"
 
 export const Route = createFileRoute("/shortener/")({
   component: ShortenerPage,
 });
 function ShortenerPage() {
-  // const [copiedText, copy] = useCopyToClipboard();
-
-  // const handleCopy = (text: string) => () => {
-  //   copy(text)
-  //     .then(() => {
-  //       console.log("Copied!", { text });
-  //     })
-  //     .catch((error) => {
-  //       console.error("Failed to copy!", error);
-  //     });
-  // };
-
-  // const handleReset = () => {};
-
   return (
     <RootLayout>
-      {/* <main className="p-10">
-        <div className="flex flex-col items-center justify-center pt-20 bg-slate-100 ">
-          <div>
-            <div className="text-slate-900 text-4xl font-bold p-4">
-              Try our Link Shortener
-            </div>
-          </div>
-          <div>
-            <div className="flex flex-col w-fit items-center gap-4">
-              <div className="flex flex-col space-y-1.5">
-                <label
-                  className="text-slate-800 text-2xl flex justify-center font-semibold"
-                  htmlFor="long-url"
-                >
-                  Enter URL
-                </label>
-                <div className="flex items-center space-x-2">
-                  <input
-                    className="border p-2 rounded-sm"
-                    type="text"
-                    id="long-url"
-                    placeholder="https://example.com/very/long/url"
-                  />
-                  <button className="bg-blue-500 text-white p-2 rounded-sm">
-                    Generate
-                  </button>
-                </div>
-              </div>
-              <div className="container mx-auto">
-                <div className="flex flex-col space-y-4">
-                  <div className="flex flex-col space-y-1.5">
-                    <div className="text-slate-900 text-xl font-bold">
-                      Shortened URL
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <input
-                        readOnly
-                        value={copiedText ?? "https://short.ly/abc123"}
-                        className="border p-2 rounded-sm"
-                      />
-                      <button
-                        onClick={handleCopy(
-                          copiedText ?? "https://short.ly/abc123"
-                        )}
-                        className="bg-blue-500 text-white p-2 rounded-sm"
-                      >
-                        Copy
-                      </button>
-                    </div>
-                  </div>
-                  <div className="flex justify-end"></div>
-                  <p>Copied value: {copiedText ?? "Nothing is copied yet!"}</p>
-                  <div>
-                    <button onClick={handleReset}>Reset</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="pt-5">
-            <Link className="text-slate-800 hover:underline" to="/auth/signin">
-              Sign in
-            </Link>{" "}
-            to Manage Shortened Links
-          </div>
-        </div>
-      </main>
-       */}
       <main className="min-h-screen font-sans">
         {/* Hero Section */}
         <section className="bg-blue-50 py-16 md:py-24">
@@ -125,12 +40,12 @@ function ShortenerPage() {
                           id="shortened-url"
                           className="flex-grow bg-white border rounded-l-md py-2 px-3 text-sm focus:outline-none"
                         />
-                        <button
+                        <Button
                           id="copy-button"
                           className="bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-r-md border-y border-r py-2 px-4 text-sm font-medium transition-colors"
                         >
                           Copy
-                        </button>
+                        </Button>
                       </div>
                     </div>
                   </div>
@@ -409,7 +324,7 @@ function ShortenerPage() {
                 for free, it's time for you to analyze it.
               </p>
               <Link
-                to="#"
+                to="/auth/signin"
                 className="inline-flex items-center justify-center bg-white text-blue-600 rounded-md py-2 px-4 text-sm font-medium hover:bg-blue-50"
               >
                 Get Started
@@ -589,7 +504,7 @@ function ShortenerPage() {
               efficiently.
             </p>
             <Link
-              to="#"
+              to="/dashboard/link-shortener"
               className="inline-flex items-center justify-center bg-blue-600 text-white rounded-md py-2 px-6 text-sm font-medium hover:bg-blue-700"
             >
               Get Started

@@ -8,9 +8,12 @@ import {
 } from "@headlessui/react";
 import { Link } from "@tanstack/react-router";
 import Logo from "@/assets/images/logo/logo.svg";
-import { IoMdHome, IoIosSettings } from "react-icons/io";
+import {
+  IoMdHome,
+  //  IoIosSettings
+} from "react-icons/io";
 
-import { ImProfile } from "react-icons/im";
+// import { ImProfile } from "react-icons/im";
 import {
   FaWpforms,
   FaCalendarAlt,
@@ -63,8 +66,8 @@ const paths = [
   },
   { path: "/dashboard/Calendar", label: "Calendar", icon: FaCalendarAlt },
   { path: "/dashboard/Chart", label: "Chart", icon: FaChartBar },
-  { path: "/dashboard/Profile", label: "Profile", icon: ImProfile },
-  { path: "/dashboard/Settings", label: "Settings", icon: IoIosSettings },
+  // { path: "/dashboard/Profile", label: "Profile", icon: ImProfile },
+  // { path: "/dashboard/Settings", label: "Settings", icon: IoIosSettings },
   { path: "/dashboard/Tables", label: "Tables", icon: FaTable },
   { path: "/dashboard/link-shortener", label: "Links Page", icon: FaLink },
 ];
