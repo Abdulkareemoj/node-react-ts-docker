@@ -2,7 +2,6 @@ import { Button } from "@/components/dashboard/Button";
 import UrlShortener from "@/components/shared/url-shortener";
 import RootLayout from "@/layouts/RootLayout";
 import { createFileRoute, Link } from "@tanstack/react-router";
-
 export const Route = createFileRoute("/shortener/")({
   component: ShortenerPage,
 });

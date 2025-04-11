@@ -7,6 +7,7 @@ import { DatePickerWithRange } from "@/components/dashboard/DateRangePicker";
 import { Card, CardContent } from "@/components/dashboard/Card";
 import { Input } from "@/components/dashboard/Input";
 import { Button } from "@/components/dashboard/Button";
+import { CreateLinkDialog } from "@/components/dashboard/NewLinkDialog";
 
 export const Route = createFileRoute("/dashboard/link-shortener")({
   component: () => (
@@ -109,10 +110,11 @@ export const Route = createFileRoute("/dashboard/link-shortener")({
                       // onChange={(e) => setSearchQuery(e.target.value)}
                     />
                   </div>
-                  <Button variant="outline" className="gap-2">
+                  {/* <Button variant="outline" className="gap-2">
                     <PlusIcon className="h-4 w-4" />
                     <span>New Link</span>
-                  </Button>
+                  </Button> */}
+                  <CreateLinkDialog />
                 </div>
               </div>
               <LinksTable
