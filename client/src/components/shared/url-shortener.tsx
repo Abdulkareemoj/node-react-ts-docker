@@ -1,6 +1,5 @@
 import { axiosClient } from "@/utils/endpoints";
 import type React from "react";
-
 import { useState } from "react";
 
 export default function UrlShortener() {
@@ -30,28 +29,28 @@ export default function UrlShortener() {
     setError(null);
 
     try {
-      const response = await axiosClient.post("/api/url", {
-        // method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ destination: url }),
-      });
+      const response = await axiosClient.post(
+        "/api/url",
+        { destination: url },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to create short URL");
-      }
+      // Axios automatically parses JSON responses
+      const data = response.data;
 
       // Construct the full short URL
       const baseUrl = window.location.origin;
       setShortUrl(`${baseUrl}/${data.shortId}`);
       setUrl("");
-    } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "An unknown error occurred"
-      );
+    } catch (err: any) {
+      // Axios error handling
+      const errorMessage =
+        err.response?.data?.error || err.message || "An unknown error occurred";
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }

@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { CalendarIcon, CopyIcon, LinkIcon } from "lucide-react";
 import { format } from "date-fns";
@@ -16,7 +14,7 @@ import {
 } from "./Dialog";
 import { Input } from "./Input";
 import { Label } from "./Label";
-import { RadioGroup, RadioGroupItem } from "./Radio-group";
+import { RadioGroup, RadioGroupItem } from "./Radio-Group";
 import { Popover, PopoverContent, PopoverTrigger } from "./Popover";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./Tabs";
 import { cn } from "@/utils/utils";
