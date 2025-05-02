@@ -7,7 +7,11 @@ import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import deserializeUser from "./middleware/deserializeUser";
+import swaggerOptions from "./docs/swagger.options";
+import swaggerUi from "swagger-ui-express";
+import swaggerJsdoc from "swagger-jsdoc";
 import log from "./logger";
+import morgan from "morgan";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,7 +25,10 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const port = process.env.PORT;
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
 const app = express();
+app.use(express.json());
+app.use(morgan("tiny"));
 app.use(deserializeUser);
 app.use(
   cors({
@@ -29,10 +36,12 @@ app.use(
     credentials: true,
   })
 );
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.listen(port, () => {
   log.info(`Server is running at http://localhost:${port}`);
+  log.info(`Swagger UI available at http://localhost:${port}/api-docs`);
   dbconnect();
   routes(app);
 });
