@@ -1,9 +1,14 @@
-import { createFileRoute } from '@tanstack/react-router'
+import RootLayout from "@/components/layout/RootLayout";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/auth/unauthorized')({
+export const Route = createFileRoute("/auth/unauthorized")({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
-  return <div>Hello "/shortener/unauthorized"!</div>
+  return (
+    <RootLayout>
+      <div>Hello "/shortener/unauthorized"!</div>{" "}
+    </RootLayout>
+  );
 }

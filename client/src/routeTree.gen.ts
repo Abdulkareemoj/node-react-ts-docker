@@ -8,1128 +8,466 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-// Import Routes
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ProductRouteImport } from './routes/product'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductIndexRouteImport } from './routes/product/index'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AuthUnauthorizedRouteImport } from './routes/auth/unauthorized'
+import { Route as AuthSignupRouteImport } from './routes/auth/signup'
+import { Route as AuthSigninRouteImport } from './routes/auth/signin'
+import { Route as ToolsLinkShortenerIndexRouteImport } from './routes/tools/link-shortener/index'
+import { Route as AdminProductsIndexRouteImport } from './routes/admin/products/index'
+import { Route as AdminPostsIndexRouteImport } from './routes/admin/posts/index'
+import { Route as AdminProductsAddProductRouteImport } from './routes/admin/products/addProduct'
+import { Route as AdminPostsAddPostRouteImport } from './routes/admin/posts/addPost'
+import { Route as AdminProductsChar91productIdChar93IndexRouteImport } from './routes/admin/products/[productId]/index'
+import { Route as AdminPostsChar91postIdChar93IndexRouteImport } from './routes/admin/posts/[postId]/index'
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as ContactImport } from './routes/contact'
-import { Route as AboutImport } from './routes/about'
-import { Route as R404Import } from './routes/404'
-import { Route as IndexImport } from './routes/index'
-import { Route as ShortenerIndexImport } from './routes/shortener/index'
-import { Route as ProductIndexImport } from './routes/product/index'
-import { Route as DashboardIndexImport } from './routes/dashboard/index'
-import { Route as BlogIndexImport } from './routes/blog/index'
-import { Route as AdminIndexImport } from './routes/admin/index'
-import { Route as DashboardLinkShortenerImport } from './routes/dashboard/link-shortener'
-import { Route as DashboardTablesImport } from './routes/dashboard/Tables'
-import { Route as DashboardSettingsImport } from './routes/dashboard/Settings'
-import { Route as DashboardProfileImport } from './routes/dashboard/Profile'
-import { Route as DashboardChartImport } from './routes/dashboard/Chart'
-import { Route as DashboardCalendarImport } from './routes/dashboard/Calendar'
-import { Route as AuthUnauthorizedImport } from './routes/auth/unauthorized'
-import { Route as AuthSignupImport } from './routes/auth/signup'
-import { Route as AuthSigninImport } from './routes/auth/signin'
-import { Route as AdminTablesImport } from './routes/admin/Tables'
-import { Route as AdminSettingsImport } from './routes/admin/Settings'
-import { Route as AdminProfileImport } from './routes/admin/Profile'
-import { Route as AdminChartImport } from './routes/admin/Chart'
-import { Route as AdminCalendarImport } from './routes/admin/Calendar'
-import { Route as ProductslugIndexImport } from './routes/product/[slug]/index'
-import { Route as DashboardSummaryIndexImport } from './routes/dashboard/summary/index'
-import { Route as BlogslugIndexImport } from './routes/blog/[slug]/index'
-import { Route as AdminSummaryIndexImport } from './routes/admin/summary/index'
-import { Route as AdminProductsIndexImport } from './routes/admin/products/index'
-import { Route as AdminPostsIndexImport } from './routes/admin/posts/index'
-import { Route as DashboardUiElementsButtonsImport } from './routes/dashboard/uiElements/Buttons'
-import { Route as DashboardUiElementsAlertsImport } from './routes/dashboard/uiElements/Alerts'
-import { Route as DashboardFormFormLayoutImport } from './routes/dashboard/form/FormLayout'
-import { Route as DashboardFormFormElementsImport } from './routes/dashboard/form/FormElements'
-import { Route as AdminUiElementsButtonsImport } from './routes/admin/uiElements/Buttons'
-import { Route as AdminUiElementsAlertsImport } from './routes/admin/uiElements/Alerts'
-import { Route as AdminProductsAddProductImport } from './routes/admin/products/addProduct'
-import { Route as AdminPostsAddPostImport } from './routes/admin/posts/addPost'
-import { Route as AdminFormFormLayoutImport } from './routes/admin/form/FormLayout'
-import { Route as AdminFormFormElementsImport } from './routes/admin/form/FormElements'
-import { Route as AdminProductsproductIdIndexImport } from './routes/admin/products/[productId]/index'
-import { Route as AdminPostspostIdIndexImport } from './routes/admin/posts/[postId]/index'
-
-// Create/Update Routes
-
-const ContactRoute = ContactImport.update({
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductRoute = ProductRouteImport.update({
+  id: '/product',
+  path: '/product',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AboutRoute = AboutImport.update({
+const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const R404Route = R404Import.update({
-  id: '/404',
-  path: '/404',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const IndexRoute = IndexImport.update({
+const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const ShortenerIndexRoute = ShortenerIndexImport.update({
-  id: '/shortener/',
-  path: '/shortener/',
-  getParentRoute: () => rootRoute,
+const ProductIndexRoute = ProductIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProductRoute,
 } as any)
-
-const ProductIndexRoute = ProductIndexImport.update({
-  id: '/product/',
-  path: '/product/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardIndexRoute = DashboardIndexImport.update({
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/dashboard/',
   path: '/dashboard/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const BlogIndexRoute = BlogIndexImport.update({
+const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AdminIndexRoute = AdminIndexImport.update({
+const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/admin/',
   path: '/admin/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const DashboardLinkShortenerRoute = DashboardLinkShortenerImport.update({
-  id: '/dashboard/link-shortener',
-  path: '/dashboard/link-shortener',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardTablesRoute = DashboardTablesImport.update({
-  id: '/dashboard/Tables',
-  path: '/dashboard/Tables',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardSettingsRoute = DashboardSettingsImport.update({
-  id: '/dashboard/Settings',
-  path: '/dashboard/Settings',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardProfileRoute = DashboardProfileImport.update({
-  id: '/dashboard/Profile',
-  path: '/dashboard/Profile',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardChartRoute = DashboardChartImport.update({
-  id: '/dashboard/Chart',
-  path: '/dashboard/Chart',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardCalendarRoute = DashboardCalendarImport.update({
-  id: '/dashboard/Calendar',
-  path: '/dashboard/Calendar',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AuthUnauthorizedRoute = AuthUnauthorizedImport.update({
+const AuthUnauthorizedRoute = AuthUnauthorizedRouteImport.update({
   id: '/auth/unauthorized',
   path: '/auth/unauthorized',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AuthSignupRoute = AuthSignupImport.update({
+const AuthSignupRoute = AuthSignupRouteImport.update({
   id: '/auth/signup',
   path: '/auth/signup',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AuthSigninRoute = AuthSigninImport.update({
+const AuthSigninRoute = AuthSigninRouteImport.update({
   id: '/auth/signin',
   path: '/auth/signin',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AdminTablesRoute = AdminTablesImport.update({
-  id: '/admin/Tables',
-  path: '/admin/Tables',
-  getParentRoute: () => rootRoute,
+const ToolsLinkShortenerIndexRoute = ToolsLinkShortenerIndexRouteImport.update({
+  id: '/tools/link-shortener/',
+  path: '/tools/link-shortener/',
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AdminSettingsRoute = AdminSettingsImport.update({
-  id: '/admin/Settings',
-  path: '/admin/Settings',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AdminProfileRoute = AdminProfileImport.update({
-  id: '/admin/Profile',
-  path: '/admin/Profile',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AdminChartRoute = AdminChartImport.update({
-  id: '/admin/Chart',
-  path: '/admin/Chart',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AdminCalendarRoute = AdminCalendarImport.update({
-  id: '/admin/Calendar',
-  path: '/admin/Calendar',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const ProductslugIndexRoute = ProductslugIndexImport.update({
-  id: '/product/[slug]/',
-  path: '/product/[slug]/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardSummaryIndexRoute = DashboardSummaryIndexImport.update({
-  id: '/dashboard/summary/',
-  path: '/dashboard/summary/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const BlogslugIndexRoute = BlogslugIndexImport.update({
-  id: '/blog/[slug]/',
-  path: '/blog/[slug]/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AdminSummaryIndexRoute = AdminSummaryIndexImport.update({
-  id: '/admin/summary/',
-  path: '/admin/summary/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AdminProductsIndexRoute = AdminProductsIndexImport.update({
+const AdminProductsIndexRoute = AdminProductsIndexRouteImport.update({
   id: '/admin/products/',
   path: '/admin/products/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AdminPostsIndexRoute = AdminPostsIndexImport.update({
+const AdminPostsIndexRoute = AdminPostsIndexRouteImport.update({
   id: '/admin/posts/',
   path: '/admin/posts/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const DashboardUiElementsButtonsRoute = DashboardUiElementsButtonsImport.update(
-  {
-    id: '/dashboard/uiElements/Buttons',
-    path: '/dashboard/uiElements/Buttons',
-    getParentRoute: () => rootRoute,
-  } as any,
-)
-
-const DashboardUiElementsAlertsRoute = DashboardUiElementsAlertsImport.update({
-  id: '/dashboard/uiElements/Alerts',
-  path: '/dashboard/uiElements/Alerts',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardFormFormLayoutRoute = DashboardFormFormLayoutImport.update({
-  id: '/dashboard/form/FormLayout',
-  path: '/dashboard/form/FormLayout',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashboardFormFormElementsRoute = DashboardFormFormElementsImport.update({
-  id: '/dashboard/form/FormElements',
-  path: '/dashboard/form/FormElements',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AdminUiElementsButtonsRoute = AdminUiElementsButtonsImport.update({
-  id: '/admin/uiElements/Buttons',
-  path: '/admin/uiElements/Buttons',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AdminUiElementsAlertsRoute = AdminUiElementsAlertsImport.update({
-  id: '/admin/uiElements/Alerts',
-  path: '/admin/uiElements/Alerts',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AdminProductsAddProductRoute = AdminProductsAddProductImport.update({
+const AdminProductsAddProductRoute = AdminProductsAddProductRouteImport.update({
   id: '/admin/products/addProduct',
   path: '/admin/products/addProduct',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AdminPostsAddPostRoute = AdminPostsAddPostImport.update({
+const AdminPostsAddPostRoute = AdminPostsAddPostRouteImport.update({
   id: '/admin/posts/addPost',
   path: '/admin/posts/addPost',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-const AdminFormFormLayoutRoute = AdminFormFormLayoutImport.update({
-  id: '/admin/form/FormLayout',
-  path: '/admin/form/FormLayout',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AdminFormFormElementsRoute = AdminFormFormElementsImport.update({
-  id: '/admin/form/FormElements',
-  path: '/admin/form/FormElements',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AdminProductsproductIdIndexRoute =
-  AdminProductsproductIdIndexImport.update({
+const AdminProductsChar91productIdChar93IndexRoute =
+  AdminProductsChar91productIdChar93IndexRouteImport.update({
     id: '/admin/products/[productId]/',
     path: '/admin/products/[productId]/',
-    getParentRoute: () => rootRoute,
+    getParentRoute: () => rootRouteImport,
   } as any)
-
-const AdminPostspostIdIndexRoute = AdminPostspostIdIndexImport.update({
-  id: '/admin/posts/[postId]/',
-  path: '/admin/posts/[postId]/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-// Populate the FileRoutesByPath interface
-
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/404': {
-      id: '/404'
-      path: '/404'
-      fullPath: '/404'
-      preLoaderRoute: typeof R404Import
-      parentRoute: typeof rootRoute
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutImport
-      parentRoute: typeof rootRoute
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/Calendar': {
-      id: '/admin/Calendar'
-      path: '/admin/Calendar'
-      fullPath: '/admin/Calendar'
-      preLoaderRoute: typeof AdminCalendarImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/Chart': {
-      id: '/admin/Chart'
-      path: '/admin/Chart'
-      fullPath: '/admin/Chart'
-      preLoaderRoute: typeof AdminChartImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/Profile': {
-      id: '/admin/Profile'
-      path: '/admin/Profile'
-      fullPath: '/admin/Profile'
-      preLoaderRoute: typeof AdminProfileImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/Settings': {
-      id: '/admin/Settings'
-      path: '/admin/Settings'
-      fullPath: '/admin/Settings'
-      preLoaderRoute: typeof AdminSettingsImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/Tables': {
-      id: '/admin/Tables'
-      path: '/admin/Tables'
-      fullPath: '/admin/Tables'
-      preLoaderRoute: typeof AdminTablesImport
-      parentRoute: typeof rootRoute
-    }
-    '/auth/signin': {
-      id: '/auth/signin'
-      path: '/auth/signin'
-      fullPath: '/auth/signin'
-      preLoaderRoute: typeof AuthSigninImport
-      parentRoute: typeof rootRoute
-    }
-    '/auth/signup': {
-      id: '/auth/signup'
-      path: '/auth/signup'
-      fullPath: '/auth/signup'
-      preLoaderRoute: typeof AuthSignupImport
-      parentRoute: typeof rootRoute
-    }
-    '/auth/unauthorized': {
-      id: '/auth/unauthorized'
-      path: '/auth/unauthorized'
-      fullPath: '/auth/unauthorized'
-      preLoaderRoute: typeof AuthUnauthorizedImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/Calendar': {
-      id: '/dashboard/Calendar'
-      path: '/dashboard/Calendar'
-      fullPath: '/dashboard/Calendar'
-      preLoaderRoute: typeof DashboardCalendarImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/Chart': {
-      id: '/dashboard/Chart'
-      path: '/dashboard/Chart'
-      fullPath: '/dashboard/Chart'
-      preLoaderRoute: typeof DashboardChartImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/Profile': {
-      id: '/dashboard/Profile'
-      path: '/dashboard/Profile'
-      fullPath: '/dashboard/Profile'
-      preLoaderRoute: typeof DashboardProfileImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/Settings': {
-      id: '/dashboard/Settings'
-      path: '/dashboard/Settings'
-      fullPath: '/dashboard/Settings'
-      preLoaderRoute: typeof DashboardSettingsImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/Tables': {
-      id: '/dashboard/Tables'
-      path: '/dashboard/Tables'
-      fullPath: '/dashboard/Tables'
-      preLoaderRoute: typeof DashboardTablesImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/link-shortener': {
-      id: '/dashboard/link-shortener'
-      path: '/dashboard/link-shortener'
-      fullPath: '/dashboard/link-shortener'
-      preLoaderRoute: typeof DashboardLinkShortenerImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/': {
-      id: '/admin/'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/blog/': {
-      id: '/blog/'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/': {
-      id: '/dashboard/'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/product/': {
-      id: '/product/'
-      path: '/product'
-      fullPath: '/product'
-      preLoaderRoute: typeof ProductIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/shortener/': {
-      id: '/shortener/'
-      path: '/shortener'
-      fullPath: '/shortener'
-      preLoaderRoute: typeof ShortenerIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/form/FormElements': {
-      id: '/admin/form/FormElements'
-      path: '/admin/form/FormElements'
-      fullPath: '/admin/form/FormElements'
-      preLoaderRoute: typeof AdminFormFormElementsImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/form/FormLayout': {
-      id: '/admin/form/FormLayout'
-      path: '/admin/form/FormLayout'
-      fullPath: '/admin/form/FormLayout'
-      preLoaderRoute: typeof AdminFormFormLayoutImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/posts/addPost': {
-      id: '/admin/posts/addPost'
-      path: '/admin/posts/addPost'
-      fullPath: '/admin/posts/addPost'
-      preLoaderRoute: typeof AdminPostsAddPostImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/products/addProduct': {
-      id: '/admin/products/addProduct'
-      path: '/admin/products/addProduct'
-      fullPath: '/admin/products/addProduct'
-      preLoaderRoute: typeof AdminProductsAddProductImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/uiElements/Alerts': {
-      id: '/admin/uiElements/Alerts'
-      path: '/admin/uiElements/Alerts'
-      fullPath: '/admin/uiElements/Alerts'
-      preLoaderRoute: typeof AdminUiElementsAlertsImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/uiElements/Buttons': {
-      id: '/admin/uiElements/Buttons'
-      path: '/admin/uiElements/Buttons'
-      fullPath: '/admin/uiElements/Buttons'
-      preLoaderRoute: typeof AdminUiElementsButtonsImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/form/FormElements': {
-      id: '/dashboard/form/FormElements'
-      path: '/dashboard/form/FormElements'
-      fullPath: '/dashboard/form/FormElements'
-      preLoaderRoute: typeof DashboardFormFormElementsImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/form/FormLayout': {
-      id: '/dashboard/form/FormLayout'
-      path: '/dashboard/form/FormLayout'
-      fullPath: '/dashboard/form/FormLayout'
-      preLoaderRoute: typeof DashboardFormFormLayoutImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/uiElements/Alerts': {
-      id: '/dashboard/uiElements/Alerts'
-      path: '/dashboard/uiElements/Alerts'
-      fullPath: '/dashboard/uiElements/Alerts'
-      preLoaderRoute: typeof DashboardUiElementsAlertsImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/uiElements/Buttons': {
-      id: '/dashboard/uiElements/Buttons'
-      path: '/dashboard/uiElements/Buttons'
-      fullPath: '/dashboard/uiElements/Buttons'
-      preLoaderRoute: typeof DashboardUiElementsButtonsImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/posts/': {
-      id: '/admin/posts/'
-      path: '/admin/posts'
-      fullPath: '/admin/posts'
-      preLoaderRoute: typeof AdminPostsIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/products/': {
-      id: '/admin/products/'
-      path: '/admin/products'
-      fullPath: '/admin/products'
-      preLoaderRoute: typeof AdminProductsIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/summary/': {
-      id: '/admin/summary/'
-      path: '/admin/summary'
-      fullPath: '/admin/summary'
-      preLoaderRoute: typeof AdminSummaryIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/blog/[slug]/': {
-      id: '/blog/[slug]/'
-      path: '/blog/[slug]'
-      fullPath: '/blog/[slug]'
-      preLoaderRoute: typeof BlogslugIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashboard/summary/': {
-      id: '/dashboard/summary/'
-      path: '/dashboard/summary'
-      fullPath: '/dashboard/summary'
-      preLoaderRoute: typeof DashboardSummaryIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/product/[slug]/': {
-      id: '/product/[slug]/'
-      path: '/product/[slug]'
-      fullPath: '/product/[slug]'
-      preLoaderRoute: typeof ProductslugIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/posts/[postId]/': {
-      id: '/admin/posts/[postId]/'
-      path: '/admin/posts/[postId]'
-      fullPath: '/admin/posts/[postId]'
-      preLoaderRoute: typeof AdminPostspostIdIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin/products/[productId]/': {
-      id: '/admin/products/[productId]/'
-      path: '/admin/products/[productId]'
-      fullPath: '/admin/products/[productId]'
-      preLoaderRoute: typeof AdminProductsproductIdIndexImport
-      parentRoute: typeof rootRoute
-    }
-  }
-}
-
-// Create and export the route tree
+const AdminPostsChar91postIdChar93IndexRoute =
+  AdminPostsChar91postIdChar93IndexRouteImport.update({
+    id: '/admin/posts/[postId]/',
+    path: '/admin/posts/[postId]/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/404': typeof R404Route
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/admin/Calendar': typeof AdminCalendarRoute
-  '/admin/Chart': typeof AdminChartRoute
-  '/admin/Profile': typeof AdminProfileRoute
-  '/admin/Settings': typeof AdminSettingsRoute
-  '/admin/Tables': typeof AdminTablesRoute
+  '/privacy': typeof PrivacyRoute
+  '/product': typeof ProductRouteWithChildren
+  '/terms': typeof TermsRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/unauthorized': typeof AuthUnauthorizedRoute
-  '/dashboard/Calendar': typeof DashboardCalendarRoute
-  '/dashboard/Chart': typeof DashboardChartRoute
-  '/dashboard/Profile': typeof DashboardProfileRoute
-  '/dashboard/Settings': typeof DashboardSettingsRoute
-  '/dashboard/Tables': typeof DashboardTablesRoute
-  '/dashboard/link-shortener': typeof DashboardLinkShortenerRoute
   '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
   '/dashboard': typeof DashboardIndexRoute
-  '/product': typeof ProductIndexRoute
-  '/shortener': typeof ShortenerIndexRoute
-  '/admin/form/FormElements': typeof AdminFormFormElementsRoute
-  '/admin/form/FormLayout': typeof AdminFormFormLayoutRoute
+  '/product/': typeof ProductIndexRoute
   '/admin/posts/addPost': typeof AdminPostsAddPostRoute
   '/admin/products/addProduct': typeof AdminProductsAddProductRoute
-  '/admin/uiElements/Alerts': typeof AdminUiElementsAlertsRoute
-  '/admin/uiElements/Buttons': typeof AdminUiElementsButtonsRoute
-  '/dashboard/form/FormElements': typeof DashboardFormFormElementsRoute
-  '/dashboard/form/FormLayout': typeof DashboardFormFormLayoutRoute
-  '/dashboard/uiElements/Alerts': typeof DashboardUiElementsAlertsRoute
-  '/dashboard/uiElements/Buttons': typeof DashboardUiElementsButtonsRoute
   '/admin/posts': typeof AdminPostsIndexRoute
   '/admin/products': typeof AdminProductsIndexRoute
-  '/admin/summary': typeof AdminSummaryIndexRoute
-  '/blog/[slug]': typeof BlogslugIndexRoute
-  '/dashboard/summary': typeof DashboardSummaryIndexRoute
-  '/product/[slug]': typeof ProductslugIndexRoute
-  '/admin/posts/[postId]': typeof AdminPostspostIdIndexRoute
-  '/admin/products/[productId]': typeof AdminProductsproductIdIndexRoute
+  '/tools/link-shortener': typeof ToolsLinkShortenerIndexRoute
+  '/admin/posts/[postId]': typeof AdminPostsChar91postIdChar93IndexRoute
+  '/admin/products/[productId]': typeof AdminProductsChar91productIdChar93IndexRoute
 }
-
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/404': typeof R404Route
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/admin/Calendar': typeof AdminCalendarRoute
-  '/admin/Chart': typeof AdminChartRoute
-  '/admin/Profile': typeof AdminProfileRoute
-  '/admin/Settings': typeof AdminSettingsRoute
-  '/admin/Tables': typeof AdminTablesRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/unauthorized': typeof AuthUnauthorizedRoute
-  '/dashboard/Calendar': typeof DashboardCalendarRoute
-  '/dashboard/Chart': typeof DashboardChartRoute
-  '/dashboard/Profile': typeof DashboardProfileRoute
-  '/dashboard/Settings': typeof DashboardSettingsRoute
-  '/dashboard/Tables': typeof DashboardTablesRoute
-  '/dashboard/link-shortener': typeof DashboardLinkShortenerRoute
   '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
   '/dashboard': typeof DashboardIndexRoute
   '/product': typeof ProductIndexRoute
-  '/shortener': typeof ShortenerIndexRoute
-  '/admin/form/FormElements': typeof AdminFormFormElementsRoute
-  '/admin/form/FormLayout': typeof AdminFormFormLayoutRoute
   '/admin/posts/addPost': typeof AdminPostsAddPostRoute
   '/admin/products/addProduct': typeof AdminProductsAddProductRoute
-  '/admin/uiElements/Alerts': typeof AdminUiElementsAlertsRoute
-  '/admin/uiElements/Buttons': typeof AdminUiElementsButtonsRoute
-  '/dashboard/form/FormElements': typeof DashboardFormFormElementsRoute
-  '/dashboard/form/FormLayout': typeof DashboardFormFormLayoutRoute
-  '/dashboard/uiElements/Alerts': typeof DashboardUiElementsAlertsRoute
-  '/dashboard/uiElements/Buttons': typeof DashboardUiElementsButtonsRoute
   '/admin/posts': typeof AdminPostsIndexRoute
   '/admin/products': typeof AdminProductsIndexRoute
-  '/admin/summary': typeof AdminSummaryIndexRoute
-  '/blog/[slug]': typeof BlogslugIndexRoute
-  '/dashboard/summary': typeof DashboardSummaryIndexRoute
-  '/product/[slug]': typeof ProductslugIndexRoute
-  '/admin/posts/[postId]': typeof AdminPostspostIdIndexRoute
-  '/admin/products/[productId]': typeof AdminProductsproductIdIndexRoute
+  '/tools/link-shortener': typeof ToolsLinkShortenerIndexRoute
+  '/admin/posts/[postId]': typeof AdminPostsChar91postIdChar93IndexRoute
+  '/admin/products/[productId]': typeof AdminProductsChar91productIdChar93IndexRoute
 }
-
 export interface FileRoutesById {
-  __root__: typeof rootRoute
+  __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/404': typeof R404Route
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/admin/Calendar': typeof AdminCalendarRoute
-  '/admin/Chart': typeof AdminChartRoute
-  '/admin/Profile': typeof AdminProfileRoute
-  '/admin/Settings': typeof AdminSettingsRoute
-  '/admin/Tables': typeof AdminTablesRoute
+  '/privacy': typeof PrivacyRoute
+  '/product': typeof ProductRouteWithChildren
+  '/terms': typeof TermsRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/unauthorized': typeof AuthUnauthorizedRoute
-  '/dashboard/Calendar': typeof DashboardCalendarRoute
-  '/dashboard/Chart': typeof DashboardChartRoute
-  '/dashboard/Profile': typeof DashboardProfileRoute
-  '/dashboard/Settings': typeof DashboardSettingsRoute
-  '/dashboard/Tables': typeof DashboardTablesRoute
-  '/dashboard/link-shortener': typeof DashboardLinkShortenerRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/product/': typeof ProductIndexRoute
-  '/shortener/': typeof ShortenerIndexRoute
-  '/admin/form/FormElements': typeof AdminFormFormElementsRoute
-  '/admin/form/FormLayout': typeof AdminFormFormLayoutRoute
   '/admin/posts/addPost': typeof AdminPostsAddPostRoute
   '/admin/products/addProduct': typeof AdminProductsAddProductRoute
-  '/admin/uiElements/Alerts': typeof AdminUiElementsAlertsRoute
-  '/admin/uiElements/Buttons': typeof AdminUiElementsButtonsRoute
-  '/dashboard/form/FormElements': typeof DashboardFormFormElementsRoute
-  '/dashboard/form/FormLayout': typeof DashboardFormFormLayoutRoute
-  '/dashboard/uiElements/Alerts': typeof DashboardUiElementsAlertsRoute
-  '/dashboard/uiElements/Buttons': typeof DashboardUiElementsButtonsRoute
   '/admin/posts/': typeof AdminPostsIndexRoute
   '/admin/products/': typeof AdminProductsIndexRoute
-  '/admin/summary/': typeof AdminSummaryIndexRoute
-  '/blog/[slug]/': typeof BlogslugIndexRoute
-  '/dashboard/summary/': typeof DashboardSummaryIndexRoute
-  '/product/[slug]/': typeof ProductslugIndexRoute
-  '/admin/posts/[postId]/': typeof AdminPostspostIdIndexRoute
-  '/admin/products/[productId]/': typeof AdminProductsproductIdIndexRoute
+  '/tools/link-shortener/': typeof ToolsLinkShortenerIndexRoute
+  '/admin/posts/[postId]/': typeof AdminPostsChar91postIdChar93IndexRoute
+  '/admin/products/[productId]/': typeof AdminProductsChar91productIdChar93IndexRoute
 }
-
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/404'
     | '/about'
     | '/contact'
-    | '/admin/Calendar'
-    | '/admin/Chart'
-    | '/admin/Profile'
-    | '/admin/Settings'
-    | '/admin/Tables'
+    | '/privacy'
+    | '/product'
+    | '/terms'
     | '/auth/signin'
     | '/auth/signup'
     | '/auth/unauthorized'
-    | '/dashboard/Calendar'
-    | '/dashboard/Chart'
-    | '/dashboard/Profile'
-    | '/dashboard/Settings'
-    | '/dashboard/Tables'
-    | '/dashboard/link-shortener'
     | '/admin'
     | '/blog'
     | '/dashboard'
-    | '/product'
-    | '/shortener'
-    | '/admin/form/FormElements'
-    | '/admin/form/FormLayout'
+    | '/product/'
     | '/admin/posts/addPost'
     | '/admin/products/addProduct'
-    | '/admin/uiElements/Alerts'
-    | '/admin/uiElements/Buttons'
-    | '/dashboard/form/FormElements'
-    | '/dashboard/form/FormLayout'
-    | '/dashboard/uiElements/Alerts'
-    | '/dashboard/uiElements/Buttons'
     | '/admin/posts'
     | '/admin/products'
-    | '/admin/summary'
-    | '/blog/[slug]'
-    | '/dashboard/summary'
-    | '/product/[slug]'
+    | '/tools/link-shortener'
     | '/admin/posts/[postId]'
     | '/admin/products/[productId]'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/404'
     | '/about'
     | '/contact'
-    | '/admin/Calendar'
-    | '/admin/Chart'
-    | '/admin/Profile'
-    | '/admin/Settings'
-    | '/admin/Tables'
+    | '/privacy'
+    | '/terms'
     | '/auth/signin'
     | '/auth/signup'
     | '/auth/unauthorized'
-    | '/dashboard/Calendar'
-    | '/dashboard/Chart'
-    | '/dashboard/Profile'
-    | '/dashboard/Settings'
-    | '/dashboard/Tables'
-    | '/dashboard/link-shortener'
     | '/admin'
     | '/blog'
     | '/dashboard'
     | '/product'
-    | '/shortener'
-    | '/admin/form/FormElements'
-    | '/admin/form/FormLayout'
     | '/admin/posts/addPost'
     | '/admin/products/addProduct'
-    | '/admin/uiElements/Alerts'
-    | '/admin/uiElements/Buttons'
-    | '/dashboard/form/FormElements'
-    | '/dashboard/form/FormLayout'
-    | '/dashboard/uiElements/Alerts'
-    | '/dashboard/uiElements/Buttons'
     | '/admin/posts'
     | '/admin/products'
-    | '/admin/summary'
-    | '/blog/[slug]'
-    | '/dashboard/summary'
-    | '/product/[slug]'
+    | '/tools/link-shortener'
     | '/admin/posts/[postId]'
     | '/admin/products/[productId]'
   id:
     | '__root__'
     | '/'
-    | '/404'
     | '/about'
     | '/contact'
-    | '/admin/Calendar'
-    | '/admin/Chart'
-    | '/admin/Profile'
-    | '/admin/Settings'
-    | '/admin/Tables'
+    | '/privacy'
+    | '/product'
+    | '/terms'
     | '/auth/signin'
     | '/auth/signup'
     | '/auth/unauthorized'
-    | '/dashboard/Calendar'
-    | '/dashboard/Chart'
-    | '/dashboard/Profile'
-    | '/dashboard/Settings'
-    | '/dashboard/Tables'
-    | '/dashboard/link-shortener'
     | '/admin/'
     | '/blog/'
     | '/dashboard/'
     | '/product/'
-    | '/shortener/'
-    | '/admin/form/FormElements'
-    | '/admin/form/FormLayout'
     | '/admin/posts/addPost'
     | '/admin/products/addProduct'
-    | '/admin/uiElements/Alerts'
-    | '/admin/uiElements/Buttons'
-    | '/dashboard/form/FormElements'
-    | '/dashboard/form/FormLayout'
-    | '/dashboard/uiElements/Alerts'
-    | '/dashboard/uiElements/Buttons'
     | '/admin/posts/'
     | '/admin/products/'
-    | '/admin/summary/'
-    | '/blog/[slug]/'
-    | '/dashboard/summary/'
-    | '/product/[slug]/'
+    | '/tools/link-shortener/'
     | '/admin/posts/[postId]/'
     | '/admin/products/[productId]/'
   fileRoutesById: FileRoutesById
 }
-
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  R404Route: typeof R404Route
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  AdminCalendarRoute: typeof AdminCalendarRoute
-  AdminChartRoute: typeof AdminChartRoute
-  AdminProfileRoute: typeof AdminProfileRoute
-  AdminSettingsRoute: typeof AdminSettingsRoute
-  AdminTablesRoute: typeof AdminTablesRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ProductRoute: typeof ProductRouteWithChildren
+  TermsRoute: typeof TermsRoute
   AuthSigninRoute: typeof AuthSigninRoute
   AuthSignupRoute: typeof AuthSignupRoute
   AuthUnauthorizedRoute: typeof AuthUnauthorizedRoute
-  DashboardCalendarRoute: typeof DashboardCalendarRoute
-  DashboardChartRoute: typeof DashboardChartRoute
-  DashboardProfileRoute: typeof DashboardProfileRoute
-  DashboardSettingsRoute: typeof DashboardSettingsRoute
-  DashboardTablesRoute: typeof DashboardTablesRoute
-  DashboardLinkShortenerRoute: typeof DashboardLinkShortenerRoute
   AdminIndexRoute: typeof AdminIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
-  ProductIndexRoute: typeof ProductIndexRoute
-  ShortenerIndexRoute: typeof ShortenerIndexRoute
-  AdminFormFormElementsRoute: typeof AdminFormFormElementsRoute
-  AdminFormFormLayoutRoute: typeof AdminFormFormLayoutRoute
   AdminPostsAddPostRoute: typeof AdminPostsAddPostRoute
   AdminProductsAddProductRoute: typeof AdminProductsAddProductRoute
-  AdminUiElementsAlertsRoute: typeof AdminUiElementsAlertsRoute
-  AdminUiElementsButtonsRoute: typeof AdminUiElementsButtonsRoute
-  DashboardFormFormElementsRoute: typeof DashboardFormFormElementsRoute
-  DashboardFormFormLayoutRoute: typeof DashboardFormFormLayoutRoute
-  DashboardUiElementsAlertsRoute: typeof DashboardUiElementsAlertsRoute
-  DashboardUiElementsButtonsRoute: typeof DashboardUiElementsButtonsRoute
   AdminPostsIndexRoute: typeof AdminPostsIndexRoute
   AdminProductsIndexRoute: typeof AdminProductsIndexRoute
-  AdminSummaryIndexRoute: typeof AdminSummaryIndexRoute
-  BlogslugIndexRoute: typeof BlogslugIndexRoute
-  DashboardSummaryIndexRoute: typeof DashboardSummaryIndexRoute
-  ProductslugIndexRoute: typeof ProductslugIndexRoute
-  AdminPostspostIdIndexRoute: typeof AdminPostspostIdIndexRoute
-  AdminProductsproductIdIndexRoute: typeof AdminProductsproductIdIndexRoute
+  ToolsLinkShortenerIndexRoute: typeof ToolsLinkShortenerIndexRoute
+  AdminPostsChar91postIdChar93IndexRoute: typeof AdminPostsChar91postIdChar93IndexRoute
+  AdminProductsChar91productIdChar93IndexRoute: typeof AdminProductsChar91productIdChar93IndexRoute
 }
 
-const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  R404Route: R404Route,
-  AboutRoute: AboutRoute,
-  ContactRoute: ContactRoute,
-  AdminCalendarRoute: AdminCalendarRoute,
-  AdminChartRoute: AdminChartRoute,
-  AdminProfileRoute: AdminProfileRoute,
-  AdminSettingsRoute: AdminSettingsRoute,
-  AdminTablesRoute: AdminTablesRoute,
-  AuthSigninRoute: AuthSigninRoute,
-  AuthSignupRoute: AuthSignupRoute,
-  AuthUnauthorizedRoute: AuthUnauthorizedRoute,
-  DashboardCalendarRoute: DashboardCalendarRoute,
-  DashboardChartRoute: DashboardChartRoute,
-  DashboardProfileRoute: DashboardProfileRoute,
-  DashboardSettingsRoute: DashboardSettingsRoute,
-  DashboardTablesRoute: DashboardTablesRoute,
-  DashboardLinkShortenerRoute: DashboardLinkShortenerRoute,
-  AdminIndexRoute: AdminIndexRoute,
-  BlogIndexRoute: BlogIndexRoute,
-  DashboardIndexRoute: DashboardIndexRoute,
-  ProductIndexRoute: ProductIndexRoute,
-  ShortenerIndexRoute: ShortenerIndexRoute,
-  AdminFormFormElementsRoute: AdminFormFormElementsRoute,
-  AdminFormFormLayoutRoute: AdminFormFormLayoutRoute,
-  AdminPostsAddPostRoute: AdminPostsAddPostRoute,
-  AdminProductsAddProductRoute: AdminProductsAddProductRoute,
-  AdminUiElementsAlertsRoute: AdminUiElementsAlertsRoute,
-  AdminUiElementsButtonsRoute: AdminUiElementsButtonsRoute,
-  DashboardFormFormElementsRoute: DashboardFormFormElementsRoute,
-  DashboardFormFormLayoutRoute: DashboardFormFormLayoutRoute,
-  DashboardUiElementsAlertsRoute: DashboardUiElementsAlertsRoute,
-  DashboardUiElementsButtonsRoute: DashboardUiElementsButtonsRoute,
-  AdminPostsIndexRoute: AdminPostsIndexRoute,
-  AdminProductsIndexRoute: AdminProductsIndexRoute,
-  AdminSummaryIndexRoute: AdminSummaryIndexRoute,
-  BlogslugIndexRoute: BlogslugIndexRoute,
-  DashboardSummaryIndexRoute: DashboardSummaryIndexRoute,
-  ProductslugIndexRoute: ProductslugIndexRoute,
-  AdminPostspostIdIndexRoute: AdminPostspostIdIndexRoute,
-  AdminProductsproductIdIndexRoute: AdminProductsproductIdIndexRoute,
-}
-
-export const routeTree = rootRoute
-  ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
-
-/* ROUTE_MANIFEST_START
-{
-  "routes": {
-    "__root__": {
-      "filePath": "__root.tsx",
-      "children": [
-        "/",
-        "/404",
-        "/about",
-        "/contact",
-        "/admin/Calendar",
-        "/admin/Chart",
-        "/admin/Profile",
-        "/admin/Settings",
-        "/admin/Tables",
-        "/auth/signin",
-        "/auth/signup",
-        "/auth/unauthorized",
-        "/dashboard/Calendar",
-        "/dashboard/Chart",
-        "/dashboard/Profile",
-        "/dashboard/Settings",
-        "/dashboard/Tables",
-        "/dashboard/link-shortener",
-        "/admin/",
-        "/blog/",
-        "/dashboard/",
-        "/product/",
-        "/shortener/",
-        "/admin/form/FormElements",
-        "/admin/form/FormLayout",
-        "/admin/posts/addPost",
-        "/admin/products/addProduct",
-        "/admin/uiElements/Alerts",
-        "/admin/uiElements/Buttons",
-        "/dashboard/form/FormElements",
-        "/dashboard/form/FormLayout",
-        "/dashboard/uiElements/Alerts",
-        "/dashboard/uiElements/Buttons",
-        "/admin/posts/",
-        "/admin/products/",
-        "/admin/summary/",
-        "/blog/[slug]/",
-        "/dashboard/summary/",
-        "/product/[slug]/",
-        "/admin/posts/[postId]/",
-        "/admin/products/[productId]/"
-      ]
-    },
-    "/": {
-      "filePath": "index.tsx"
-    },
-    "/404": {
-      "filePath": "404.tsx"
-    },
-    "/about": {
-      "filePath": "about.tsx"
-    },
-    "/contact": {
-      "filePath": "contact.tsx"
-    },
-    "/admin/Calendar": {
-      "filePath": "admin/Calendar.tsx"
-    },
-    "/admin/Chart": {
-      "filePath": "admin/Chart.tsx"
-    },
-    "/admin/Profile": {
-      "filePath": "admin/Profile.tsx"
-    },
-    "/admin/Settings": {
-      "filePath": "admin/Settings.tsx"
-    },
-    "/admin/Tables": {
-      "filePath": "admin/Tables.tsx"
-    },
-    "/auth/signin": {
-      "filePath": "auth/signin.tsx"
-    },
-    "/auth/signup": {
-      "filePath": "auth/signup.tsx"
-    },
-    "/auth/unauthorized": {
-      "filePath": "auth/unauthorized.tsx"
-    },
-    "/dashboard/Calendar": {
-      "filePath": "dashboard/Calendar.tsx"
-    },
-    "/dashboard/Chart": {
-      "filePath": "dashboard/Chart.tsx"
-    },
-    "/dashboard/Profile": {
-      "filePath": "dashboard/Profile.tsx"
-    },
-    "/dashboard/Settings": {
-      "filePath": "dashboard/Settings.tsx"
-    },
-    "/dashboard/Tables": {
-      "filePath": "dashboard/Tables.tsx"
-    },
-    "/dashboard/link-shortener": {
-      "filePath": "dashboard/link-shortener.tsx"
-    },
-    "/admin/": {
-      "filePath": "admin/index.tsx"
-    },
-    "/blog/": {
-      "filePath": "blog/index.tsx"
-    },
-    "/dashboard/": {
-      "filePath": "dashboard/index.tsx"
-    },
-    "/product/": {
-      "filePath": "product/index.tsx"
-    },
-    "/shortener/": {
-      "filePath": "shortener/index.tsx"
-    },
-    "/admin/form/FormElements": {
-      "filePath": "admin/form/FormElements.tsx"
-    },
-    "/admin/form/FormLayout": {
-      "filePath": "admin/form/FormLayout.tsx"
-    },
-    "/admin/posts/addPost": {
-      "filePath": "admin/posts/addPost.tsx"
-    },
-    "/admin/products/addProduct": {
-      "filePath": "admin/products/addProduct.tsx"
-    },
-    "/admin/uiElements/Alerts": {
-      "filePath": "admin/uiElements/Alerts.tsx"
-    },
-    "/admin/uiElements/Buttons": {
-      "filePath": "admin/uiElements/Buttons.tsx"
-    },
-    "/dashboard/form/FormElements": {
-      "filePath": "dashboard/form/FormElements.tsx"
-    },
-    "/dashboard/form/FormLayout": {
-      "filePath": "dashboard/form/FormLayout.tsx"
-    },
-    "/dashboard/uiElements/Alerts": {
-      "filePath": "dashboard/uiElements/Alerts.tsx"
-    },
-    "/dashboard/uiElements/Buttons": {
-      "filePath": "dashboard/uiElements/Buttons.tsx"
-    },
-    "/admin/posts/": {
-      "filePath": "admin/posts/index.tsx"
-    },
-    "/admin/products/": {
-      "filePath": "admin/products/index.tsx"
-    },
-    "/admin/summary/": {
-      "filePath": "admin/summary/index.tsx"
-    },
-    "/blog/[slug]/": {
-      "filePath": "blog/[slug]/index.tsx"
-    },
-    "/dashboard/summary/": {
-      "filePath": "dashboard/summary/index.tsx"
-    },
-    "/product/[slug]/": {
-      "filePath": "product/[slug]/index.tsx"
-    },
-    "/admin/posts/[postId]/": {
-      "filePath": "admin/posts/[postId]/index.tsx"
-    },
-    "/admin/products/[productId]/": {
-      "filePath": "admin/products/[productId]/index.tsx"
+declare module '@tanstack/react-router' {
+  interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product': {
+      id: '/product'
+      path: '/product'
+      fullPath: '/product'
+      preLoaderRoute: typeof ProductRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product/': {
+      id: '/product/'
+      path: '/'
+      fullPath: '/product/'
+      preLoaderRoute: typeof ProductIndexRouteImport
+      parentRoute: typeof ProductRoute
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/unauthorized': {
+      id: '/auth/unauthorized'
+      path: '/auth/unauthorized'
+      fullPath: '/auth/unauthorized'
+      preLoaderRoute: typeof AuthUnauthorizedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/signup': {
+      id: '/auth/signup'
+      path: '/auth/signup'
+      fullPath: '/auth/signup'
+      preLoaderRoute: typeof AuthSignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/signin': {
+      id: '/auth/signin'
+      path: '/auth/signin'
+      fullPath: '/auth/signin'
+      preLoaderRoute: typeof AuthSigninRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/link-shortener/': {
+      id: '/tools/link-shortener/'
+      path: '/tools/link-shortener'
+      fullPath: '/tools/link-shortener'
+      preLoaderRoute: typeof ToolsLinkShortenerIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/products/': {
+      id: '/admin/products/'
+      path: '/admin/products'
+      fullPath: '/admin/products'
+      preLoaderRoute: typeof AdminProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/posts/': {
+      id: '/admin/posts/'
+      path: '/admin/posts'
+      fullPath: '/admin/posts'
+      preLoaderRoute: typeof AdminPostsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/products/addProduct': {
+      id: '/admin/products/addProduct'
+      path: '/admin/products/addProduct'
+      fullPath: '/admin/products/addProduct'
+      preLoaderRoute: typeof AdminProductsAddProductRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/posts/addPost': {
+      id: '/admin/posts/addPost'
+      path: '/admin/posts/addPost'
+      fullPath: '/admin/posts/addPost'
+      preLoaderRoute: typeof AdminPostsAddPostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/products/[productId]/': {
+      id: '/admin/products/[productId]/'
+      path: '/admin/products/[productId]'
+      fullPath: '/admin/products/[productId]'
+      preLoaderRoute: typeof AdminProductsChar91productIdChar93IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/posts/[postId]/': {
+      id: '/admin/posts/[postId]/'
+      path: '/admin/posts/[postId]'
+      fullPath: '/admin/posts/[postId]'
+      preLoaderRoute: typeof AdminPostsChar91postIdChar93IndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-ROUTE_MANIFEST_END */
+
+interface ProductRouteChildren {
+  ProductIndexRoute: typeof ProductIndexRoute
+}
+
+const ProductRouteChildren: ProductRouteChildren = {
+  ProductIndexRoute: ProductIndexRoute,
+}
+
+const ProductRouteWithChildren =
+  ProductRoute._addFileChildren(ProductRouteChildren)
+
+const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  PrivacyRoute: PrivacyRoute,
+  ProductRoute: ProductRouteWithChildren,
+  TermsRoute: TermsRoute,
+  AuthSigninRoute: AuthSigninRoute,
+  AuthSignupRoute: AuthSignupRoute,
+  AuthUnauthorizedRoute: AuthUnauthorizedRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  BlogIndexRoute: BlogIndexRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
+  AdminPostsAddPostRoute: AdminPostsAddPostRoute,
+  AdminProductsAddProductRoute: AdminProductsAddProductRoute,
+  AdminPostsIndexRoute: AdminPostsIndexRoute,
+  AdminProductsIndexRoute: AdminProductsIndexRoute,
+  ToolsLinkShortenerIndexRoute: ToolsLinkShortenerIndexRoute,
+  AdminPostsChar91postIdChar93IndexRoute:
+    AdminPostsChar91postIdChar93IndexRoute,
+  AdminProductsChar91productIdChar93IndexRoute:
+    AdminProductsChar91productIdChar93IndexRoute,
+}
+export const routeTree = rootRouteImport
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
