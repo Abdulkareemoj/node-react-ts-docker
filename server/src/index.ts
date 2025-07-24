@@ -7,9 +7,6 @@ import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import deserializeUser from "./middleware/deserializeUser";
-import swaggerOptions from "./docs/swagger.options";
-import swaggerUi from "swagger-ui-express";
-import swaggerJsdoc from "swagger-jsdoc";
 import log from "./logger";
 import morgan from "morgan";
 
@@ -25,7 +22,6 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const port = process.env.PORT;
-const swaggerSpec = swaggerJsdoc(swaggerOptions);
 const app = express();
 app.use(express.json());
 app.use(morgan("tiny"));
@@ -36,7 +32,6 @@ app.use(
     credentials: true,
   })
 );
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.listen(port, () => {

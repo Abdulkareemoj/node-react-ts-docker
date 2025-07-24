@@ -1,40 +1,40 @@
-import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
-import AdminLayout from "@/layouts/AdminLayout";
-import { axiosClient } from "@/utils/endpoints";
+// import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
+import AdminLayout from "@/components/layout/AdminLayout";
+// import { axiosClient } from "@/utils/endpoints";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 export const Route = createFileRoute("/admin/products/")({
   component: Products,
 });
 
 export default function Products() {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axiosClient.get("/api/products");
-        setProducts(response.data);
-      } catch (error) {
-        console.error("Error fetching Products:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     try {
+  //       const response = await axiosClient.get("/api/products");
+  //       setProducts(response.data);
+  //     } catch (error) {
+  //       console.error("Error fetching Products:", error);
+  //     }
+  //   };
 
-    fetchProducts();
-  }, []);
+  //   fetchProducts();
+  // }, []);
 
-  function handleDelete(productId) {
-    fetch(`/api/products/${productId}`, { method: "DELETE" })
-      .then(() =>
-        setProducts(products.filter((p) => p.productId !== productId))
-      )
-      .catch((err) => console.error("Error deleting product:", err));
-  }
+  // function handleDelete(productId) {
+  //   fetch(`/api/products/${productId}`, { method: "DELETE" })
+  //     .then(() =>
+  //       setProducts(products.filter((p) => p.productId !== productId))
+  //     )
+  //     .catch((err) => console.error("Error deleting product:", err));
+  // }
 
   return (
     <AdminLayout>
-      <Breadcrumb pageName="All Products" />
+      {/* <Breadcrumb pageName="All Products" />
       <div className="flex justify-end mb-4">
         <Link to="/admin/products/addProduct" className="btn btn-primary">
           Add New product
@@ -70,7 +70,7 @@ export default function Products() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </AdminLayout>
   );
 }

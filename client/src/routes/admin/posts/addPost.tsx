@@ -1,27 +1,26 @@
-import { useNavigate } from "@tanstack/react-router";
-import Breadcrumb from "@/components/admin/Breadcrumbs/Breadcrumb";
-import { useEffect, useState } from "react";
-import { useQuill } from "react-quilljs";
+// import Breadcrumb from "@/components/admin/Breadcrumbs/Breadcrumb";
+// import { useEffect, useState } from "react";
+// import { useQuill } from "react-quilljs";
 
-import "quill/dist/quill.snow.css";
-import { createFileRoute } from "@tanstack/react-router";
-import AdminLayout from "@/layouts/AdminLayout";
-import { axiosClient } from "@/utils/endpoints";
+// import "quill/dist/quill.snow.css";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import AdminLayout from "@/components/layout/AdminLayout";
+// import { axiosClient } from "@/utils/endpoints";
 
 export const Route = createFileRoute("/admin/posts/addPost")({
   component: AddPost,
 });
 
 export default function AddPost() {
-  const { quill, quillRef } = useQuill();
-  const navigate = useNavigate();
-  // const [range, setRange] = useState(null);
-  const [post, setPost] = useState({
-    title: "",
-    content: "",
-    image: "",
-    authorName: "",
-  });
+  //   const { quill, quillRef } = useQuill();
+  //   const navigate = useNavigate();
+  //   // const [range, setRange] = useState(null);
+  //   const [post, setPost] = useState({
+  //     title: "",
+  //     content: "",
+  //     image: "",
+  //     authorName: "",
+  //   });
 
   // useEffect(() => {
   //   if (quill) {
@@ -43,31 +42,32 @@ export default function AddPost() {
   //   }
   // }, [quill]);
 
-  useEffect(() => {
-    if (quill && post.content) {
-      quill.clipboard.dangerouslyPasteHTML(post.content);
-    }
-  }, [quill, post.content]);
+  //   useEffect(() => {
+  //     if (quill && post.content) {
+  //       quill.clipboard.dangerouslyPasteHTML(post.content);
+  //     }
+  //   }, [quill, post.content]);
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setPost((prev) => ({ ...prev, [name]: value }));
-  }
+  //   function handleChange(e) {
+  //     const { name, value } = e.target;
+  //     setPost((prev) => ({ ...prev, [name]: value }));
+  //   }
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    try {
-      await axiosClient.post("/api/posts", post);
-      navigate({ to: "/admin/posts" });
-    } catch (error: any) {
-      console.error("Error creating post:", error);
-      alert("Error creating post: " + error.message);
-    }
-  }
+  //   async function handleSubmit(e) {
+  //     e.preventDefault();
+  //     try {
+  //       await axiosClient.post("/api/posts", post);
+  //       navigate({ to: "/admin/posts" });
+  //     } catch (error: any) {
+  //       console.error("Error creating post:", error);
+  //       alert("Error creating post: " + error.message);
+  //     }
+  //   }
 
   return (
     <AdminLayout>
-      <Breadcrumb pageName="Add Post" />
+      <div>help</div>
+      {/* <Breadcrumb pageName="Add Post" />
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label>Title</label>
@@ -118,7 +118,7 @@ export default function AddPost() {
         >
           Create Post
         </button>
-      </form>
+      </form> */}
     </AdminLayout>
   );
 }

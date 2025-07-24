@@ -34,7 +34,7 @@ export default function Header() {
         isScrolled ? "bg-background/80 shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="container flex h-16 items-center justify-between">
+      <div className=" px-4 md:px-6 flex h-16 items-center justify-between">
         <div className="flex items-center gap-2 font-bold">
           <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground">
             S

@@ -11,9 +11,8 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div>
         <Navbar />
-        {/* <h2 className="text-2xl">Root Layout</h2> */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

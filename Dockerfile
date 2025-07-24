@@ -13,8 +13,8 @@ RUN npm install
 COPY . .
 
 # Build the client and server applications
-RUN cd client && npm run build
-RUN cd server && npm run build
+RUN cd client && pnpm run build
+RUN cd server && pnpm run build
 
 # Production image - Using Nginx to serve both frontend and backend
 FROM nginx:alpine

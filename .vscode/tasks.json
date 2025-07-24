@@ -17,7 +17,7 @@
     {
       "label": "Run Client",
       "type": "shell",
-      "command": "npm run dev",
+      "command": "pnpm run dev",
       "group": "none",
       "presentation": {
         "reveal": "always",

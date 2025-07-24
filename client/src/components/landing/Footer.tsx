@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 export default function Footer() {
   return (
     <footer className="w-full border-t bg-background/95 backdrop-blur-sm">
-      <div className="container flex flex-col gap-8 px-4 py-10 md:px-6 lg:py-16">
+      <div className=" flex flex-col gap-8 px-4 py-10 md:px-6 lg:py-16">
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div className="space-y-4">
             <div className="flex items-center gap-2 font-bold">

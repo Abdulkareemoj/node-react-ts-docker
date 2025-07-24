@@ -18,9 +18,9 @@ export const Route = createFileRoute("/")({
 
 function App() {
   return (
-    <div className="flex min-h-[100dvh] flex-col">
+    <>
       <Header />
-      <main className="flex-1">
+      <main className="px-4 md:px-8 lg:px-16 xl:px-10 2xl:px-32">
         <Hero />
         <Logos />
         <Features />
@@ -31,6 +31,6 @@ function App() {
         <CTA />
       </main>
       <Footer />
-    </div>
+    </>
   );
 }

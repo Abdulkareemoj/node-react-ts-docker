@@ -1,43 +1,44 @@
-import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
-import AdminLayout from "@/layouts/AdminLayout";
-import { axiosClient } from "@/utils/endpoints";
-import { Button } from "@headlessui/react";
+// import Breadcrumb from "@/components/dashboard/Breadcrumbs/Breadcrumb";
+import AdminLayout from "@/components/layout/AdminLayout";
+// import { axiosClient } from "@/utils/endpoints";
+// import { Button } from "@headlessui/react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 export const Route = createFileRoute("/admin/posts/")({
   component: Posts,
 });
 
 export default function Posts() {
-  const [posts, setPosts] = useState([]);
+  //   const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await axiosClient.get("/api/posts");
-        setPosts(response.data);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
+  //   useEffect(() => {
+  //     const fetchPosts = async () => {
+  //       try {
+  //         const response = await axiosClient.get("/api/posts");
+  //         setPosts(response.data);
+  //       } catch (error) {
+  //         console.error("Error fetching posts:", error);
+  //       }
+  //     };
 
-    fetchPosts();
-  }, []);
+  //     fetchPosts();
+  //   }, []);
 
-  function handleDelete(postId: string) {
-    axiosClient
-      .delete(`/api/posts/${postId}`)
-      .then(() => setPosts(posts.filter((p) => p.id !== postId))) // Ensure "id" matches API response
-      .catch((err) => {
-        console.error("Error deleting post:", err);
-        alert("Error deleting post: " + err.message);
-      });
-  }
+  //   function handleDelete(postId: string) {
+  //     axiosClient
+  //       .delete(`/api/posts/${postId}`)
+  //       .then(() => setPosts(posts.filter((p) => p.id !== postId))) // Ensure "id" matches API response
+  //       .catch((err) => {
+  //         console.error("Error deleting post:", err);
+  //         alert("Error deleting post: " + err.message);
+  //       });
+  //   }
 
   return (
     <AdminLayout>
-      <Breadcrumb pageName="All Posts" />
+      <div>help</div>
+      {/* <Breadcrumb pageName="All Posts" />
       <div className="flex justify-end mb-4">
         <Link to="/admin/posts/addPost" className="btn btn-primary">
           <button> Add New Post</button>
@@ -70,7 +71,7 @@ export default function Posts() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </AdminLayout>
   );
 }
