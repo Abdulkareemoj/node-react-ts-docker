@@ -89,13 +89,13 @@ export default function Navbar() {
             <span className="sr-only">Toggle theme</span>
           </Button>
           <Link
-            to="#"
+            to="/auth/signin"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            Log in
+            Log In
           </Link>
           <Button className="rounded-full">
-            Get Started
+            <Link to="/dashboard"> Get Started</Link>
             <ChevronRight className="ml-1 size-4" />
           </Button>
         </div>
@@ -134,7 +134,7 @@ export default function Navbar() {
           exit={{ opacity: 0, y: -20 }}
           className="md:hidden absolute top-16 inset-x-0 bg-background/95 backdrop-blur-lg border-b"
         >
-          <div className="container py-4 flex flex-col gap-4">
+          <div className=" p-4 flex flex-col gap-4">
             <Link
               to="/products"
               className="py-2 text-sm font-medium"
@@ -170,7 +170,7 @@ export default function Navbar() {
             >
               Contact
             </Link>
-            <div className="flex flex-col gap-2 pt-2 border-t">
+            <div className="flex flex-col gap-2 py-4 border-t">
               <Link
                 to="#"
                 className="py-2 text-sm font-medium"

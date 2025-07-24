@@ -133,7 +133,7 @@ export default function Header() {
           exit={{ opacity: 0, y: -20 }}
           className="md:hidden absolute top-16 inset-x-0 bg-background/95 backdrop-blur-lg border-b"
         >
-          <div className="container py-4 flex flex-col gap-4">
+          <div className=" p-4 flex flex-col gap-4">
             <Link
               to="/product"
               className="py-2 text-sm font-medium"

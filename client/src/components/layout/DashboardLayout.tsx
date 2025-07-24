@@ -21,6 +21,7 @@ import { CircleGauge } from "lucide-react";
 import type { ReactNode } from "react";
 import { ThemeProvider } from "../integrations/theme-provider";
 import { Toaster } from "../ui/sonner";
+import { ModeToggle } from "../shared/ModeToggle";
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -57,6 +58,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             </Breadcrumb>
           </div>
           <div className="flex gap-3 ml-auto">
+            <ModeToggle />
             <FeedbackDialog />
             <UserDropdown />
           </div>
