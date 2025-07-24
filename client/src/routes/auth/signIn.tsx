@@ -1,16 +1,21 @@
 import { Link, Navigate } from "@tanstack/react-router";
-import { axiosClient } from "../../utils/endpoints";
+import { axiosClient } from "@/utils/endpoints";
 import { createFileRoute } from "@tanstack/react-router";
-import RootLayout from "@/layouts/RootLayout";
-import { FormEvent } from "react";
+import type { FormEvent } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useAuth } from "@/utils/authContext";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useAuth } from "@/components/integrations/authContext";
+import { cn } from "@/lib/utils";
+import RootLayout from "@/components/layout/RootLayout";
 
 export const Route = createFileRoute("/auth/signin")({
   component: SignIn,
 });
-function SignIn() {
+function SignIn({ className, ...props }: React.ComponentProps<"div">) {
   const { login } = useAuth(); // Get the login function from context
 
   const handleSignIn = async (event: FormEvent<HTMLFormElement>) => {
@@ -62,206 +67,133 @@ function SignIn() {
 
   return (
     <RootLayout>
-      <div className="flex min-h-full flex-1">
-        <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
-          <div className="mx-auto w-full max-w-sm lg:w-96">
-            <div>
-              <img
-                alt="Your Company"
-                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-10 w-auto"
-              />
-              <h2 className="mt-8 text-2xl/9 font-bold tracking-tight text-gray-900">
-                Sign in to your account
-              </h2>
-            </div>
-
-            <div className="mt-10">
-              <div>
-                <form onSubmit={handleSignIn} className="space-y-6">
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm/6 font-medium text-gray-900"
-                    >
-                      Email address/Username
-                    </label>
-                    <div className="mt-2">
-                      <input
+      <div className="bg-muted flex min-h-svh flex-col items-center justify-center p-6 md:p-10">
+        <div className="w-full max-w-sm md:max-w-3xl">
+          <div className={cn("flex flex-col gap-6", className)} {...props}>
+            <Card className="overflow-hidden p-0">
+              <CardContent className="grid p-0 md:grid-cols-2">
+                <form onSubmit={handleSignIn} className="p-6 md:p-8">
+                  <div className="flex flex-col gap-6">
+                    <div className="flex flex-col items-center text-center">
+                      <h1 className="text-2xl font-bold">Welcome back</h1>
+                      <p className="text-muted-foreground text-balance">
+                        Login to your Acme Inc account
+                      </p>
+                    </div>
+                    <div className="grid gap-3">
+                      <Label htmlFor="email">Email</Label>
+                      <Input
                         id="email"
                         name="identifier"
                         type="text"
                         required
                         autoComplete="email"
-                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                       />
                     </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="password"
-                      className="block text-sm/6 font-medium text-gray-900"
-                    >
-                      Password
-                    </label>
-                    <div className="mt-2">
-                      <input
+                    <div className="grid gap-3">
+                      <div className="flex items-center">
+                        <Label htmlFor="password">Password</Label>
+                        <a
+                          href="#"
+                          className="ml-auto text-sm underline-offset-2 hover:underline"
+                        >
+                          Forgot your password?
+                        </a>
+                      </div>
+                      <Input
                         id="password"
                         name="password"
                         type="password"
                         required
                         autoComplete="current-password"
-                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                       />
                     </div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex gap-3">
-                      <div className="flex h-6 shrink-0 items-center">
-                        <div className="group grid size-4 grid-cols-1">
-                          <input
-                            id="remember-me"
-                            name="remember-me"
-                            type="checkbox"
-                            className="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
+                    <Button type="submit" className="w-full">
+                      Login
+                    </Button>
+                    <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
+                      <span className="bg-card text-muted-foreground relative z-10 px-2">
+                        Or continue with
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-4">
+                      <Button
+                        variant="outline"
+                        type="button"
+                        className="w-full"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
+                            fill="currentColor"
                           />
-                          <svg
-                            fill="none"
-                            viewBox="0 0 14 14"
-                            className="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25"
-                          >
-                            <path
-                              d="M3 8L6 11L11 3.5"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="opacity-0 group-has-checked:opacity-100"
-                            />
-                            <path
-                              d="M3 7H11"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="opacity-0 group-has-indeterminate:opacity-100"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                      <label
-                        htmlFor="remember-me"
-                        className="block text-sm/6 text-gray-900"
+                        </svg>
+                        <span className="sr-only">Login with Apple</span>
+                      </Button>
+                      <Button
+                        variant="outline"
+                        type="button"
+                        className="w-full"
                       >
-                        Remember me
-                      </label>
-                    </div>
-
-                    <div className="text-sm/6">
-                      <a
-                        href="#"
-                        className="font-semibold text-indigo-600 hover:text-indigo-500"
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        <span className="sr-only">Login with Google</span>
+                      </Button>
+                      <Button
+                        variant="outline"
+                        type="button"
+                        className="w-full"
                       >
-                        Forgot password?
-                      </a>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        <span className="sr-only">Login with Meta</span>
+                      </Button>
                     </div>
-                  </div>
-
-                  <div>
-                    <button
-                      type="submit"
-                      className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                      Sign in
-                    </button>
+                    <div className="text-center text-sm">
+                      Don&apos;t have an account?{" "}
+                      <Link
+                        to="/auth/signup"
+                        className="underline underline-offset-4"
+                      >
+                        Sign up
+                      </Link>
+                    </div>
                   </div>
                 </form>
-              </div>
-
-              <div className="mt-10">
-                <div className="relative">
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 flex items-center"
-                  >
-                    <div className="w-full border-t border-gray-200" />
-                  </div>
-                  <div className="relative flex justify-center text-sm/6 font-medium">
-                    <span className="bg-white px-6 text-gray-900">
-                      Or continue with
-                    </span>
-                  </div>
+                <div className="bg-muted relative hidden md:block">
+                  <img
+                    src="/placeholder.svg"
+                    alt="Image"
+                    className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+                  />
                 </div>
-
-                <div className="mt-6 grid grid-cols-2 gap-4">
-                  <a
-                    href="#"
-                    className="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 focus-visible:ring-transparent"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                      className="h-5 w-5"
-                    >
-                      <path
-                        d="M12.0003 4.75C13.7703 4.75 15.3553 5.36002 16.6053 6.54998L20.0303 3.125C17.9502 1.19 15.2353 0 12.0003 0C7.31028 0 3.25527 2.69 1.28027 6.60998L5.27028 9.70498C6.21525 6.86002 8.87028 4.75 12.0003 4.75Z"
-                        fill="#EA4335"
-                      />
-                      <path
-                        d="M23.49 12.275C23.49 11.49 23.415 10.73 23.3 10H12V14.51H18.47C18.18 15.99 17.34 17.25 16.08 18.1L19.945 21.1C22.2 19.01 23.49 15.92 23.49 12.275Z"
-                        fill="#4285F4"
-                      />
-                      <path
-                        d="M5.26498 14.2949C5.02498 13.5699 4.88501 12.7999 4.88501 11.9999C4.88501 11.1999 5.01998 10.4299 5.26498 9.7049L1.275 6.60986C0.46 8.22986 0 10.0599 0 11.9999C0 13.9399 0.46 15.7699 1.28 17.3899L5.26498 14.2949Z"
-                        fill="#FBBC05"
-                      />
-                      <path
-                        d="M12.0004 24.0001C15.2404 24.0001 17.9654 22.935 19.9454 21.095L16.0804 18.095C15.0054 18.82 13.6204 19.245 12.0004 19.245C8.8704 19.245 6.21537 17.135 5.2654 14.29L1.27539 17.385C3.25539 21.31 7.3104 24.0001 12.0004 24.0001Z"
-                        fill="#34A853"
-                      />
-                    </svg>
-                    <span className="text-sm/6 font-semibold">Google</span>
-                  </a>
-
-                  <a
-                    href="#"
-                    className="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 focus-visible:ring-transparent"
-                  >
-                    <svg
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      aria-hidden="true"
-                      className="size-5 fill-[#24292F]"
-                    >
-                      <path
-                        d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                        clipRule="evenodd"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                    <span className="text-sm/6 font-semibold">Facebook</span>
-                  </a>
-                </div>
-              </div>
-              <div className="mt-6 text-center">
-                <p>
-                  Dont have an account?{""}
-                  <Link to="/auth/signup" className="text-primary">
-                    Sign up
-                  </Link>
-                </p>
-              </div>
+              </CardContent>
+            </Card>
+            <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
+              By clicking continue, you agree to our{" "}
+              <Link to="/terms">Terms of Service </Link> and{" "}
+              <Link to="/privacy">Privacy Policy</Link>.
             </div>
           </div>
         </div>
-        <div className="relative hidden w-0 flex-1 lg:block">
-          <img
-            alt=""
-            src="https://images.unsplash.com/photo-1496917756835-20cb06e75b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
-            className="absolute inset-0 size-full object-cover"
-          />
-        </div>
-      </div>
+      </div>{" "}
     </RootLayout>
   );
 }

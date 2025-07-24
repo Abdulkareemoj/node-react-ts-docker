@@ -1,15 +1,27 @@
 import { Link, Navigate } from "@tanstack/react-router";
 import axios from "axios";
-import { FormEvent } from "react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import type { FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import RootLayout from "@/layouts/RootLayout";
 import { axiosClient } from "@/utils/endpoints";
 import Swal from "sweetalert2";
+import { GalleryVerticalEnd } from "lucide-react";
+import RootLayout from "@/components/layout/RootLayout";
 
 export const Route = createFileRoute("/auth/signup")({
   component: SignUp,
 });
-function SignUp() {
+function SignUp({ className, ...props }: React.ComponentProps<"div">) {
   const handleSignUp = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -48,272 +60,144 @@ function SignUp() {
 
   return (
     <RootLayout>
-      <div className="flex min-h-full flex-1">
-        <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
-          <div className="mx-auto w-full max-w-sm lg:w-96">
-            <div>
-              <img
-                alt="Your Company"
-                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-10 w-auto"
-              />
-              <h2 className="mt-8 text-2xl/9 font-bold tracking-tight text-gray-900">
-                Create your account
-              </h2>
+      <div className="bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
+        <div className="flex w-full max-w-sm flex-col gap-6">
+          <Link
+            to="/"
+            className="flex items-center gap-2 self-center font-medium"
+          >
+            <div className="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md">
+              <GalleryVerticalEnd className="size-4" />
             </div>
-
-            <div className="mt-10">
-              <div>
-                <form onSubmit={handleSignUp} className="space-y-6">
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm/6 font-medium text-gray-900"
-                    >
-                      Username
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        id="email"
-                        name="username"
-                        placeholder="Enter your username"
-                        required
-                        autoComplete="email"
-                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm/6 font-medium text-gray-900"
-                    >
-                      Firstname
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        id="email"
-                        name="firstname"
-                        placeholder="Enter your Firstname"
-                        required
-                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm/6 font-medium text-gray-900"
-                    >
-                      Lastname
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        id="email"
-                        name="lastname"
-                        placeholder="Enter your Lastname"
-                        required
-                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm/6 font-medium text-gray-900"
-                    >
-                      Email address
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        id="email"
-                        name="identifier"
-                        type="email"
-                        required
-                        autoComplete="email"
-                        placeholder="Enter your email"
-                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="password"
-                      className="block text-sm/6 font-medium text-gray-900"
-                    >
-                      Password
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        id="password"
-                        name="password"
-                        type="password"
-                        required
-                        placeholder="Password"
-                        autoComplete="current-password"
-                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="password"
-                      className="block text-sm/6 font-medium text-gray-900"
-                    >
-                      Re-type Password
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        id="password"
-                        name="passwordConfirmation"
-                        placeholder="Re-enter your password"
-                        type="password"
-                        required
-                        autoComplete="current-password"
-                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex gap-3">
-                      <div className="flex h-6 shrink-0 items-center">
-                        <div className="group grid size-4 grid-cols-1">
-                          <input
-                            id="remember-me"
-                            name="remember-me"
-                            type="checkbox"
-                            className="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
+            Acme Inc.
+          </Link>
+          <div className={cn("flex flex-col gap-6", className)} {...props}>
+            <Card>
+              <CardHeader className="text-center">
+                <CardTitle className="text-xl">Welcome back</CardTitle>
+                <CardDescription>
+                  Login with your Apple or Google account
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSignUp}>
+                  <div className="grid gap-6">
+                    <div className="flex flex-col gap-4">
+                      <Button variant="outline" className="w-full">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
+                            fill="currentColor"
                           />
-                          <svg
-                            fill="none"
-                            viewBox="0 0 14 14"
-                            className="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white group-has-disabled:stroke-gray-950/25"
-                          >
-                            <path
-                              d="M3 8L6 11L11 3.5"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="opacity-0 group-has-checked:opacity-100"
-                            />
-                            <path
-                              d="M3 7H11"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="opacity-0 group-has-indeterminate:opacity-100"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                      <label
-                        htmlFor="remember-me"
-                        className="block text-sm/6 text-gray-900"
-                      >
-                        Remember me
-                      </label>
+                        </svg>
+                        Login with Apple
+                      </Button>
+                      <Button variant="outline" className="w-full">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        Login with Google
+                      </Button>
                     </div>
-                  </div>
-
-                  <div>
-                    <button
-                      type="submit"
-                      className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                      Create Account
-                    </button>
+                    <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
+                      <span className="bg-card text-muted-foreground relative z-10 px-2">
+                        Or Sign Up with
+                      </span>
+                    </div>
+                    <div className="grid gap-2">
+                      <div className="grid gap-3">
+                        <Label htmlFor="email">Username</Label>
+                        <Input
+                          id="email"
+                          name="username"
+                          placeholder="Enter your username"
+                          required
+                          autoComplete="email"
+                        />
+                      </div>
+                      <div className="grid gap-3">
+                        <Label htmlFor="email">Firstname</Label>
+                        <Input
+                          id="email"
+                          name="firstname"
+                          placeholder="Enter your Firstname"
+                          required
+                        />
+                      </div>
+                      <div className="grid gap-3">
+                        <Label htmlFor="email">Lastname</Label>
+                        <Input
+                          id="email"
+                          name="lastname"
+                          placeholder="Enter your Lastname"
+                          required
+                        />
+                      </div>
+                      <div className="grid gap-3">
+                        <Label htmlFor="email">Email Address</Label>
+                        <Input
+                          id="email"
+                          name="identifier"
+                          type="email"
+                          required
+                          autoComplete="email"
+                          placeholder="Enter your email"
+                        />
+                      </div>
+                      <div className="grid gap-3">
+                        <Label htmlFor="email">Password</Label>
+                        <Input
+                          id="password"
+                          name="password"
+                          type="password"
+                          required
+                          placeholder="Password"
+                          autoComplete="current-password"
+                        />
+                      </div>
+                      <div className="grid gap-3">
+                        <Label htmlFor="email">Confirm Password</Label>
+                        <Input
+                          id="password"
+                          name="passwordConfirmation"
+                          placeholder="Re-enter your password"
+                          type="password"
+                          required
+                          autoComplete="current-password"
+                        />
+                      </div>
+                      <Button type="submit" className="w-full">
+                        Sign Up
+                      </Button>
+                    </div>
+                    <div className="text-center text-sm">
+                      Already have an account?{" "}
+                      <Link
+                        to="/auth/signin"
+                        className="underline underline-offset-4"
+                      >
+                        Sign In
+                      </Link>
+                    </div>
                   </div>
                 </form>
-              </div>
-
-              <div className="mt-10">
-                <div className="relative">
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 flex items-center"
-                  >
-                    <div className="w-full border-t border-gray-200" />
-                  </div>
-                  <div className="relative flex justify-center text-sm/6 font-medium">
-                    <span className="bg-white px-6 text-gray-900">
-                      Or continue with
-                    </span>
-                  </div>
-                </div>
-
-                <div className="mt-6 grid grid-cols-2 gap-4">
-                  <a
-                    href="#"
-                    className="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 focus-visible:ring-transparent"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                      className="h-5 w-5"
-                    >
-                      <path
-                        d="M12.0003 4.75C13.7703 4.75 15.3553 5.36002 16.6053 6.54998L20.0303 3.125C17.9502 1.19 15.2353 0 12.0003 0C7.31028 0 3.25527 2.69 1.28027 6.60998L5.27028 9.70498C6.21525 6.86002 8.87028 4.75 12.0003 4.75Z"
-                        fill="#EA4335"
-                      />
-                      <path
-                        d="M23.49 12.275C23.49 11.49 23.415 10.73 23.3 10H12V14.51H18.47C18.18 15.99 17.34 17.25 16.08 18.1L19.945 21.1C22.2 19.01 23.49 15.92 23.49 12.275Z"
-                        fill="#4285F4"
-                      />
-                      <path
-                        d="M5.26498 14.2949C5.02498 13.5699 4.88501 12.7999 4.88501 11.9999C4.88501 11.1999 5.01998 10.4299 5.26498 9.7049L1.275 6.60986C0.46 8.22986 0 10.0599 0 11.9999C0 13.9399 0.46 15.7699 1.28 17.3899L5.26498 14.2949Z"
-                        fill="#FBBC05"
-                      />
-                      <path
-                        d="M12.0004 24.0001C15.2404 24.0001 17.9654 22.935 19.9454 21.095L16.0804 18.095C15.0054 18.82 13.6204 19.245 12.0004 19.245C8.8704 19.245 6.21537 17.135 5.2654 14.29L1.27539 17.385C3.25539 21.31 7.3104 24.0001 12.0004 24.0001Z"
-                        fill="#34A853"
-                      />
-                    </svg>
-                    <span className="text-sm/6 font-semibold">Google</span>
-                  </a>
-
-                  <a
-                    href="#"
-                    className="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 focus-visible:ring-transparent"
-                  >
-                    <svg
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      aria-hidden="true"
-                      className="size-5 fill-[#24292F]"
-                    >
-                      <path
-                        d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                        clipRule="evenodd"
-                        fillRule="evenodd"
-                      />
-                    </svg>
-                    <span className="text-sm/6 font-semibold">Facebook</span>
-                  </a>
-                </div>
-              </div>
-              <div className="mt-6 text-center">
-                <p>
-                  Already have an account?{" "}
-                  <Link to="/auth/signin" className="text-primary">
-                    Sign In
-                  </Link>
-                </p>
-              </div>
+              </CardContent>
+            </Card>
+            <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
+              By clicking continue, you agree to our{" "}
+              <Link to="/terms">Terms of Service </Link> and{" "}
+              <Link to="/privacy">Privacy Policy</Link>.
             </div>
           </div>
-        </div>
-        <div className="relative hidden w-0 flex-1 lg:block">
-          <img
-            alt=""
-            src="https://images.unsplash.com/photo-1496917756835-20cb06e75b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
-            className="absolute inset-0 size-full object-cover"
-          />
         </div>
       </div>
     </RootLayout>
