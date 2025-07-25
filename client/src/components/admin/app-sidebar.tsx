@@ -1,5 +1,4 @@
-import * as React from "react";
-
+import type * as React from "react";
 import { SearchForm } from "@/components/admin/search-form";
 import {
   Sidebar,
@@ -16,18 +15,19 @@ import {
 } from "@/components/ui/sidebar";
 import {
   Gauge,
-  ChartSpline,
-  BookUser,
-  PackageOpen,
-  Cable,
+  BarChartIcon as ChartSpline,
+  FileText,
+  Package,
+  LinkIcon,
   Proportions,
   TowerControl,
   Settings,
   Info,
   LogOut,
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
-// This is sample data.
+// Updated navigation data to match your backend controllers
 const data = {
   navMain: [
     {
@@ -36,38 +36,37 @@ const data = {
       items: [
         {
           title: "Dashboard",
-          url: "#",
+          url: "/admin",
           icon: Gauge,
         },
         {
-          title: "Insights",
-          url: "#",
+          title: "Analytics",
+          url: "/admin/analytics",
           icon: ChartSpline,
         },
         {
-          title: "Contacts",
-          url: "#",
-          icon: BookUser,
-          isActive: true,
+          title: "Blog Management",
+          url: "/admin/posts",
+          icon: FileText,
         },
         {
-          title: "Tools",
-          url: "#",
-          icon: PackageOpen,
+          title: "Product Management",
+          url: "/admin/products",
+          icon: Package,
         },
         {
-          title: "Integration",
-          url: "#",
-          icon: Cable,
+          title: "Link Shortener",
+          url: "/admin/links",
+          icon: LinkIcon,
         },
         {
           title: "Layouts",
-          url: "#",
+          url: "/admin/layouts",
           icon: Proportions,
         },
         {
           title: "Reports",
-          url: "#",
+          url: "/admin/reports",
           icon: TowerControl,
         },
       ],
@@ -78,12 +77,12 @@ const data = {
       items: [
         {
           title: "Settings",
-          url: "#",
+          url: "/admin/settings",
           icon: Settings,
         },
         {
           title: "Help Center",
-          url: "#",
+          url: "/admin/help",
           icon: Info,
         },
       ],
@@ -128,9 +127,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     <SidebarMenuButton
                       asChild
                       className="group/menu-button font-medium gap-3 h-9 rounded-md bg-gradient-to-r hover:bg-transparent hover:from-sidebar-accent hover:to-sidebar-accent/40 data-[active=true]:from-primary/20 data-[active=true]:to-primary/5 [&>svg]:size-auto"
-                      isActive={item.isActive}
                     >
-                      <a href={item.url}>
+                      <Link to={item.url}>
                         {item.icon && (
                           <item.icon
                             className="text-muted-foreground/60 group-data-[active=true]/menu-button:text-primary"
@@ -139,7 +137,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                           />
                         )}
                         <span>{item.title}</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
