@@ -3,7 +3,6 @@ import { Users, Target, Award, Heart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { createFileRoute } from "@tanstack/react-router";
-import { Root } from "@radix-ui/react-slot";
 import RootLayout from "@/components/layout/RootLayout";
 export const Route = createFileRoute("/about")({
   component: AboutPage,
