@@ -14,14 +14,21 @@ import { Route as ProductRouteImport } from './routes/product'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as R404RouteImport } from './routes/404'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductIndexRouteImport } from './routes/product/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as DashboardSettingsRouteImport } from './routes/dashboard/settings'
+import { Route as DashboardLinksRouteImport } from './routes/dashboard/links'
+import { Route as DashboardContactsRouteImport } from './routes/dashboard/contacts'
 import { Route as AuthUnauthorizedRouteImport } from './routes/auth/unauthorized'
 import { Route as AuthSignupRouteImport } from './routes/auth/signup'
 import { Route as AuthSigninRouteImport } from './routes/auth/signin'
+import { Route as AdminSettingsRouteImport } from './routes/admin/settings'
+import { Route as AdminLinksRouteImport } from './routes/admin/links'
+import { Route as AdminContactsRouteImport } from './routes/admin/contacts'
 import { Route as ToolsLinkShortenerIndexRouteImport } from './routes/tools/link-shortener/index'
 import { Route as AdminProductsIndexRouteImport } from './routes/admin/products/index'
 import { Route as AdminPostsIndexRouteImport } from './routes/admin/posts/index'
@@ -55,6 +62,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const R404Route = R404RouteImport.update({
+  id: '/404',
+  path: '/404',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -80,6 +92,21 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/admin/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
+  id: '/dashboard/settings',
+  path: '/dashboard/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardLinksRoute = DashboardLinksRouteImport.update({
+  id: '/dashboard/links',
+  path: '/dashboard/links',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardContactsRoute = DashboardContactsRouteImport.update({
+  id: '/dashboard/contacts',
+  path: '/dashboard/contacts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthUnauthorizedRoute = AuthUnauthorizedRouteImport.update({
   id: '/auth/unauthorized',
   path: '/auth/unauthorized',
@@ -93,6 +120,21 @@ const AuthSignupRoute = AuthSignupRouteImport.update({
 const AuthSigninRoute = AuthSigninRouteImport.update({
   id: '/auth/signin',
   path: '/auth/signin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/admin/settings',
+  path: '/admin/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLinksRoute = AdminLinksRouteImport.update({
+  id: '/admin/links',
+  path: '/admin/links',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminContactsRoute = AdminContactsRouteImport.update({
+  id: '/admin/contacts',
+  path: '/admin/contacts',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsLinkShortenerIndexRoute = ToolsLinkShortenerIndexRouteImport.update({
@@ -135,14 +177,21 @@ const AdminPostsChar91postIdChar93IndexRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/404': typeof R404Route
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRouteWithChildren
   '/terms': typeof TermsRoute
+  '/admin/contacts': typeof AdminContactsRoute
+  '/admin/links': typeof AdminLinksRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/unauthorized': typeof AuthUnauthorizedRoute
+  '/dashboard/contacts': typeof DashboardContactsRoute
+  '/dashboard/links': typeof DashboardLinksRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
   '/dashboard': typeof DashboardIndexRoute
@@ -157,13 +206,20 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/404': typeof R404Route
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/admin/contacts': typeof AdminContactsRoute
+  '/admin/links': typeof AdminLinksRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/unauthorized': typeof AuthUnauthorizedRoute
+  '/dashboard/contacts': typeof DashboardContactsRoute
+  '/dashboard/links': typeof DashboardLinksRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
   '/dashboard': typeof DashboardIndexRoute
@@ -179,14 +235,21 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/404': typeof R404Route
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRouteWithChildren
   '/terms': typeof TermsRoute
+  '/admin/contacts': typeof AdminContactsRoute
+  '/admin/links': typeof AdminLinksRoute
+  '/admin/settings': typeof AdminSettingsRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/auth/unauthorized': typeof AuthUnauthorizedRoute
+  '/dashboard/contacts': typeof DashboardContactsRoute
+  '/dashboard/links': typeof DashboardLinksRoute
+  '/dashboard/settings': typeof DashboardSettingsRoute
   '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
@@ -203,14 +266,21 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/404'
     | '/about'
     | '/contact'
     | '/privacy'
     | '/product'
     | '/terms'
+    | '/admin/contacts'
+    | '/admin/links'
+    | '/admin/settings'
     | '/auth/signin'
     | '/auth/signup'
     | '/auth/unauthorized'
+    | '/dashboard/contacts'
+    | '/dashboard/links'
+    | '/dashboard/settings'
     | '/admin'
     | '/blog'
     | '/dashboard'
@@ -225,13 +295,20 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/404'
     | '/about'
     | '/contact'
     | '/privacy'
     | '/terms'
+    | '/admin/contacts'
+    | '/admin/links'
+    | '/admin/settings'
     | '/auth/signin'
     | '/auth/signup'
     | '/auth/unauthorized'
+    | '/dashboard/contacts'
+    | '/dashboard/links'
+    | '/dashboard/settings'
     | '/admin'
     | '/blog'
     | '/dashboard'
@@ -246,14 +323,21 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/404'
     | '/about'
     | '/contact'
     | '/privacy'
     | '/product'
     | '/terms'
+    | '/admin/contacts'
+    | '/admin/links'
+    | '/admin/settings'
     | '/auth/signin'
     | '/auth/signup'
     | '/auth/unauthorized'
+    | '/dashboard/contacts'
+    | '/dashboard/links'
+    | '/dashboard/settings'
     | '/admin/'
     | '/blog/'
     | '/dashboard/'
@@ -269,14 +353,21 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  R404Route: typeof R404Route
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   PrivacyRoute: typeof PrivacyRoute
   ProductRoute: typeof ProductRouteWithChildren
   TermsRoute: typeof TermsRoute
+  AdminContactsRoute: typeof AdminContactsRoute
+  AdminLinksRoute: typeof AdminLinksRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
   AuthSigninRoute: typeof AuthSigninRoute
   AuthSignupRoute: typeof AuthSignupRoute
   AuthUnauthorizedRoute: typeof AuthUnauthorizedRoute
+  DashboardContactsRoute: typeof DashboardContactsRoute
+  DashboardLinksRoute: typeof DashboardLinksRoute
+  DashboardSettingsRoute: typeof DashboardSettingsRoute
   AdminIndexRoute: typeof AdminIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
@@ -326,6 +417,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/404': {
+      id: '/404'
+      path: '/404'
+      fullPath: '/404'
+      preLoaderRoute: typeof R404RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -361,6 +459,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/settings': {
+      id: '/dashboard/settings'
+      path: '/dashboard/settings'
+      fullPath: '/dashboard/settings'
+      preLoaderRoute: typeof DashboardSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/links': {
+      id: '/dashboard/links'
+      path: '/dashboard/links'
+      fullPath: '/dashboard/links'
+      preLoaderRoute: typeof DashboardLinksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/contacts': {
+      id: '/dashboard/contacts'
+      path: '/dashboard/contacts'
+      fullPath: '/dashboard/contacts'
+      preLoaderRoute: typeof DashboardContactsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auth/unauthorized': {
       id: '/auth/unauthorized'
       path: '/auth/unauthorized'
@@ -380,6 +499,27 @@ declare module '@tanstack/react-router' {
       path: '/auth/signin'
       fullPath: '/auth/signin'
       preLoaderRoute: typeof AuthSigninRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/admin/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/links': {
+      id: '/admin/links'
+      path: '/admin/links'
+      fullPath: '/admin/links'
+      preLoaderRoute: typeof AdminLinksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/contacts': {
+      id: '/admin/contacts'
+      path: '/admin/contacts'
+      fullPath: '/admin/contacts'
+      preLoaderRoute: typeof AdminContactsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/link-shortener/': {
@@ -447,14 +587,21 @@ const ProductRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  R404Route: R404Route,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   PrivacyRoute: PrivacyRoute,
   ProductRoute: ProductRouteWithChildren,
   TermsRoute: TermsRoute,
+  AdminContactsRoute: AdminContactsRoute,
+  AdminLinksRoute: AdminLinksRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
   AuthSigninRoute: AuthSigninRoute,
   AuthSignupRoute: AuthSignupRoute,
   AuthUnauthorizedRoute: AuthUnauthorizedRoute,
+  DashboardContactsRoute: DashboardContactsRoute,
+  DashboardLinksRoute: DashboardLinksRoute,
+  DashboardSettingsRoute: DashboardSettingsRoute,
   AdminIndexRoute: AdminIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
   DashboardIndexRoute: DashboardIndexRoute,
