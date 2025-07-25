@@ -1,8 +1,12 @@
-import { Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "../components/ui/button";
 import { Home, ArrowLeft, Search } from "lucide-react";
 
-export default function NotFound() {
+export const Route = createFileRoute("/404")({
+  component: NotFound,
+});
+
+function NotFound() {
   return (
     <div className="flex min-h-screen flex-col bg-white dark:bg-[#0F0F12]">
       <div className="flex flex-1 flex-col items-center justify-center px-6 py-12">
