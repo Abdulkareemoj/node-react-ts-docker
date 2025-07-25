@@ -26,6 +26,7 @@ import {
   Info,
   LogOut,
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 // This is sample data.
 const data = {
@@ -36,54 +37,54 @@ const data = {
       items: [
         {
           title: "Dashboard",
-          url: "#",
+          url: "/dashboard",
           icon: Gauge,
         },
         {
           title: "Insights",
-          url: "#",
+          url: "/dashboard",
           icon: ChartSpline,
         },
         {
           title: "Contacts",
-          url: "#",
+          url: "/dashboard/contacts",
           icon: BookUser,
           isActive: true,
         },
         {
           title: "Tools",
-          url: "#",
+          url: "/dashboard",
           icon: PackageOpen,
         },
         {
-          title: "Integration",
-          url: "#",
+          title: "Posts",
+          url: "/dashboard",
           icon: Cable,
         },
         {
-          title: "Layouts",
-          url: "#",
+          title: "Products",
+          url: "/dashboard",
           icon: Proportions,
         },
         {
           title: "Reports",
-          url: "#",
+          url: "/dashboard",
           icon: TowerControl,
         },
       ],
     },
     {
       title: "Other",
-      url: "#",
+      url: "/dashboard",
       items: [
         {
           title: "Settings",
-          url: "#",
+          url: "/dashboard",
           icon: Settings,
         },
         {
           title: "Help Center",
-          url: "#",
+          url: "/dashboard",
           icon: Info,
         },
       ],
@@ -128,9 +129,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     <SidebarMenuButton
                       asChild
                       className="group/menu-button font-medium gap-3 h-9 rounded-md bg-gradient-to-r hover:bg-transparent hover:from-sidebar-accent hover:to-sidebar-accent/40 data-[active=true]:from-primary/20 data-[active=true]:to-primary/5 [&>svg]:size-auto"
-                      isActive={item.isActive}
                     >
-                      <a href={item.url}>
+                      <Link to={item.url}>
                         {item.icon && (
                           <item.icon
                             className="text-muted-foreground/60 group-data-[active=true]/menu-button:text-primary"
@@ -139,7 +139,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                           />
                         )}
                         <span>{item.title}</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
