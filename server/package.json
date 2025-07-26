@@ -13,6 +13,7 @@
   },
   "author": "abdulkareemoj",
   "dependencies": {
+    "@scalar/express-api-reference": "^0.8.12",
     "bcryptjs": "^3.0.2",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
@@ -27,6 +28,8 @@
     "nanoid": "^5.1.5",
     "pino": "^9.7.0",
     "pino-pretty": "^13.0.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "zod": "^4.0.8"
   },
   "devDependencies": {
