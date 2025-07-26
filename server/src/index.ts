@@ -9,12 +9,12 @@ import dotenv from "dotenv";
 import deserializeUser from "./middleware/deserializeUser";
 import log from "./logger";
 import morgan from "morgan";
+import { apiReference } from "@scalar/express-api-reference";
+import swaggerJSDoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-// const envPath = path.resolve(__dirname, "../../.env");
-
-// dotenv.config({ path: envPath });
 
 if (process.env.NODE_ENV !== "production") {
   const envPath = path.resolve(__dirname, "../../.env");
@@ -23,6 +23,20 @@ if (process.env.NODE_ENV !== "production") {
 
 const port = process.env.PORT;
 const app = express();
+
+const swaggerOptions = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "API Docs",
+      version: "1.0.0",
+    },
+  },
+  apis: ["./src/routes/*.ts"], // Path to your routes file
+};
+
+const swaggerSpec = swaggerJSDoc(swaggerOptions);
+
 app.use(express.json());
 app.use(morgan("tiny"));
 app.use(deserializeUser);
@@ -32,11 +46,20 @@ app.use(
     credentials: true,
   })
 );
+app.use(
+  "/reference",
+  apiReference({
+    theme: "purple",
+    url: "/openapi.json",
+  })
+);
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.get("/openapi.json", (req, res) => res.json(swaggerSpec));
 app.listen(port, () => {
   log.info(`Server is running at http://localhost:${port}`);
-  log.info(`Swagger UI available at http://localhost:${port}/api-docs`);
+  log.info(`Scalar is available at http://localhost:${port}/reference`);
   dbconnect();
   routes(app);
 });
