@@ -27,8 +27,10 @@ import { Route as AuthUnauthorizedRouteImport } from './routes/auth/unauthorized
 import { Route as AuthSignupRouteImport } from './routes/auth/signup'
 import { Route as AuthSigninRouteImport } from './routes/auth/signin'
 import { Route as AdminSettingsRouteImport } from './routes/admin/settings'
+import { Route as AdminReportsRouteImport } from './routes/admin/reports'
 import { Route as AdminLinksRouteImport } from './routes/admin/links'
 import { Route as AdminContactsRouteImport } from './routes/admin/contacts'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin/analytics'
 import { Route as ToolsLinkShortenerIndexRouteImport } from './routes/tools/link-shortener/index'
 import { Route as AdminProductsIndexRouteImport } from './routes/admin/products/index'
 import { Route as AdminPostsIndexRouteImport } from './routes/admin/posts/index'
@@ -127,6 +129,11 @@ const AdminSettingsRoute = AdminSettingsRouteImport.update({
   path: '/admin/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/admin/reports',
+  path: '/admin/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminLinksRoute = AdminLinksRouteImport.update({
   id: '/admin/links',
   path: '/admin/links',
@@ -135,6 +142,11 @@ const AdminLinksRoute = AdminLinksRouteImport.update({
 const AdminContactsRoute = AdminContactsRouteImport.update({
   id: '/admin/contacts',
   path: '/admin/contacts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/admin/analytics',
+  path: '/admin/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsLinkShortenerIndexRoute = ToolsLinkShortenerIndexRouteImport.update({
@@ -183,8 +195,10 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRouteWithChildren
   '/terms': typeof TermsRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/contacts': typeof AdminContactsRoute
   '/admin/links': typeof AdminLinksRoute
+  '/admin/reports': typeof AdminReportsRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
@@ -211,8 +225,10 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/contacts': typeof AdminContactsRoute
   '/admin/links': typeof AdminLinksRoute
+  '/admin/reports': typeof AdminReportsRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
@@ -241,8 +257,10 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/product': typeof ProductRouteWithChildren
   '/terms': typeof TermsRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/contacts': typeof AdminContactsRoute
   '/admin/links': typeof AdminLinksRoute
+  '/admin/reports': typeof AdminReportsRoute
   '/admin/settings': typeof AdminSettingsRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
@@ -272,8 +290,10 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/product'
     | '/terms'
+    | '/admin/analytics'
     | '/admin/contacts'
     | '/admin/links'
+    | '/admin/reports'
     | '/admin/settings'
     | '/auth/signin'
     | '/auth/signup'
@@ -300,8 +320,10 @@ export interface FileRouteTypes {
     | '/contact'
     | '/privacy'
     | '/terms'
+    | '/admin/analytics'
     | '/admin/contacts'
     | '/admin/links'
+    | '/admin/reports'
     | '/admin/settings'
     | '/auth/signin'
     | '/auth/signup'
@@ -329,8 +351,10 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/product'
     | '/terms'
+    | '/admin/analytics'
     | '/admin/contacts'
     | '/admin/links'
+    | '/admin/reports'
     | '/admin/settings'
     | '/auth/signin'
     | '/auth/signup'
@@ -359,8 +383,10 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ProductRoute: typeof ProductRouteWithChildren
   TermsRoute: typeof TermsRoute
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
   AdminContactsRoute: typeof AdminContactsRoute
   AdminLinksRoute: typeof AdminLinksRoute
+  AdminReportsRoute: typeof AdminReportsRoute
   AdminSettingsRoute: typeof AdminSettingsRoute
   AuthSigninRoute: typeof AuthSigninRoute
   AuthSignupRoute: typeof AuthSignupRoute
@@ -508,6 +534,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminSettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/admin/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/links': {
       id: '/admin/links'
       path: '/admin/links'
@@ -520,6 +553,13 @@ declare module '@tanstack/react-router' {
       path: '/admin/contacts'
       fullPath: '/admin/contacts'
       preLoaderRoute: typeof AdminContactsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/admin/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/link-shortener/': {
@@ -593,8 +633,10 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ProductRoute: ProductRouteWithChildren,
   TermsRoute: TermsRoute,
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
   AdminContactsRoute: AdminContactsRoute,
   AdminLinksRoute: AdminLinksRoute,
+  AdminReportsRoute: AdminReportsRoute,
   AdminSettingsRoute: AdminSettingsRoute,
   AuthSigninRoute: AuthSigninRoute,
   AuthSignupRoute: AuthSignupRoute,
