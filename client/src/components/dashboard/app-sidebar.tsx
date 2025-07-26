@@ -21,7 +21,6 @@ import {
   PackageOpen,
   Cable,
   Proportions,
-  TowerControl,
   Settings,
   Info,
   LogOut,
@@ -66,11 +65,6 @@ const data = {
           url: "/dashboard",
           icon: Proportions,
         },
-        {
-          title: "Reports",
-          url: "/dashboard",
-          icon: TowerControl,
-        },
       ],
     },
     {
@@ -79,7 +73,7 @@ const data = {
       items: [
         {
           title: "Settings",
-          url: "/dashboard",
+          url: "/dashboard/settings",
           icon: Settings,
         },
         {

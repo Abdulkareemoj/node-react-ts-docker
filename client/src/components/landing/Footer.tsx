@@ -18,7 +18,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <Link
-                to="facebook.com"
+                to="https://www.facebook.com"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 <svg

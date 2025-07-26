@@ -31,49 +31,50 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const { role } = useAuth(); // Get the user role
   return (
     // <ProtectedRoute requiredRole="admin">
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <SidebarProvider>
+        <AppSidebar />
+        <SidebarInset className="overflow-hidden px-4 md:px-6 lg:px-8">
+          <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+            <div className="flex flex-1 items-center gap-2 px-3">
+              <SidebarTrigger className="-ms-4" />
+              <Separator
+                orientation="vertical"
+                className="mr-2 data-[orientation=vertical]:h-4"
+              />
+              <Breadcrumb>
+                <BreadcrumbList>
+                  <BreadcrumbItem className="hidden md:block">
+                    <BreadcrumbLink href="#">
+                      <CircleGauge size={22} aria-hidden="true" />
+                      <span className="sr-only">Dashboard</span>
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator className="hidden md:block" />
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>Contacts</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
+            </div>
+            <div className="flex gap-3 ml-auto">
+              <ModeToggle />
+              <FeedbackDialog />
+              <UserDropdown />
+            </div>
+          </header>
 
-    <SidebarProvider>
-      <AppSidebar />
-      <SidebarInset className="overflow-hidden px-4 md:px-6 lg:px-8">
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
-          <div className="flex flex-1 items-center gap-2 px-3">
-            <SidebarTrigger className="-ms-4" />
-            <Separator
-              orientation="vertical"
-              className="mr-2 data-[orientation=vertical]:h-4"
-            />
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">
-                    <CircleGauge size={22} aria-hidden="true" />
-                    <span className="sr-only">Dashboard</span>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator className="hidden md:block" />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>Contacts</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
-          </div>
-          <div className="flex gap-3 ml-auto">
-            <ModeToggle />
-            <FeedbackDialog />
-            <UserDropdown />
-          </div>
-        </header>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
           {children}
-        </ThemeProvider>
-        <Toaster />
-      </SidebarInset>
-    </SidebarProvider>
+
+          <Toaster />
+        </SidebarInset>
+      </SidebarProvider>{" "}
+    </ThemeProvider>
     // </ProtectedRoute>
   );
 }

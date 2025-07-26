@@ -2,7 +2,7 @@ import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import type { ReactNode } from "react";
 import { Toaster } from "../ui/sonner";
-import { ThemeProvider } from "../integrations/theme-provider";
+import { ThemeProvider } from "@/components/integrations/theme-provider";
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -10,15 +10,14 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <>
-      <div>
-        <Navbar />
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-        </ThemeProvider>
-        <Toaster />
-      </div>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <Navbar />
+
+      {children}
+
+      <Toaster />
+
       <Footer />
-    </>
+    </ThemeProvider>
   );
 }
