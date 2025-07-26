@@ -11,7 +11,6 @@ import Testimonial from "@/components/landing/Testimonial";
 import CTA from "@/components/landing/CTA";
 import FAQ from "@/components/landing/FAQ";
 import Footer from "@/components/shared/Footer";
-import { ThemeProvider } from "@/components/integrations/theme-provider";
 
 export const Route = createFileRoute("/")({
   component: App,
@@ -19,19 +18,17 @@ export const Route = createFileRoute("/")({
 
 function App() {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <>
       <Header />
-      <main className="px-4 md:px-8 lg:px-16 xl:px-10 2xl:px-32">
-        <Hero />
-        <Logos />
-        <Features />
-        <HIW />
-        <Testimonial />
-        <FAQ />
-        <Pricing />
-        <CTA />
-      </main>
+      <Hero />
+      <Logos />
+      <Features />
+      <HIW />
+      <Testimonial />
+      <FAQ />
+      <Pricing />
+      <CTA />
       <Footer />
-    </ThemeProvider>
+    </>
   );
 }

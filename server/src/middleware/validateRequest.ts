@@ -1,9 +1,9 @@
-import { AnyZodObject } from "zod";
+import { ZodObject } from "zod";
 import { Request, Response, NextFunction } from "express";
 import log from "../logger";
 
 const validateRequest =
-  (schema: AnyZodObject) =>
+  (schema: ZodObject) =>
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       schema.parse({

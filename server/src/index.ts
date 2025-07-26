@@ -12,6 +12,7 @@ import morgan from "morgan";
 import { apiReference } from "@scalar/express-api-reference";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
+import { at } from "lodash-es";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -59,7 +60,9 @@ app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.get("/openapi.json", (req, res) => res.json(swaggerSpec));
 app.listen(port, () => {
   log.info(`Server is running at http://localhost:${port}`);
-  log.info(`Scalar is available at http://localhost:${port}/reference`);
+  log.info(
+    `Scalar is available at http://localhost:${port}/reference and Swagger at http://localhost:${port}/docs`
+  );
   dbconnect();
   routes(app);
 });
