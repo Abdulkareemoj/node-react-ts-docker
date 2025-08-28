@@ -84,7 +84,7 @@ function SignIn({ className, ...props }: React.ComponentProps<"div">) {
                       <Label htmlFor="email">Email</Label>
                       <Input
                         id="email"
-                        name="identifier"
+                        name="email"
                         type="text"
                         required
                         autoComplete="email"
