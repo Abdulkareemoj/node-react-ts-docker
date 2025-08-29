@@ -4,13 +4,10 @@ import { omit } from "lodash-es";
 
 export async function createUser(input: UserInput) {
   try {
-    // Select the first role from the roles array as the user's role
-    const { role, ...rest } = input;
-
-    // Pass the modified input to User.create
-    return await User.create({ ...rest, role });
-  } catch (error) {
-    throw new Error(error as string);
+    return await User.create(input);
+  } catch (error: any) {
+    // We are throwing the original error, so the controller can handle specific error codes (e.g., 11000 for duplicates)
+    throw error;
   }
 }
 
@@ -25,7 +22,7 @@ export async function validatePassword({
   email: UserDocument["email"];
   password: string;
 }) {
-  const user = (await User.findOne({ email })) as UserDocument;
+  const user = await User.findOne({ email });
   if (!user) {
     return false;
   }
