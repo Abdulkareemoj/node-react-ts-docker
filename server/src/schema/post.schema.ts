@@ -2,17 +2,17 @@ import { TypeOf, z } from "zod";
 
 const payload = {
   body: z.object({
-    title: z.string({ required_error: "Title is required" }),
-    content: z.string({ required_error: "Description is required" }).min(20),
+    title: z.string({ message: "Title is required" }),
+    content: z.string({ message: "Description is required" }).min(20),
     image: z
-      .string({ required_error: "Image URL is required" })
+      .string({ message: "Image URL is required" })
       .url("Must be a valid URL"),
-    authorName: z.string({ required_error: "Author name is required" }),
+    authorName: z.string({ message: "Author name is required" }),
   }),
 };
 const params = {
   params: z.object({
-    postId: z.string({ required_error: "postId required" }),
+    postId: z.string({ message: "postId required" }),
   }),
 };
 
