@@ -1,24 +1,20 @@
 import jwt from "jsonwebtoken";
+
 const privateKey = process.env.PRIVATE_KEY;
 const publicKey = process.env.PUBLIC_KEY;
-console.log(process.env.PRIVATE_KEY); // should log your private key
-console.log(process.env.PUBLIC_KEY); // should log your public key
 
-export function signJwt(object: Object, options?: jwt.SignOptions | undefined) {
-  return jwt.sign(object, privateKey, {
-    ...(options && options),
-    algorithm: "RS256",
-  });
+export function signJwt(payload: object, options?: jwt.SignOptions) {
+  return jwt.sign(payload, privateKey, { algorithm: "RS256", ...options });
 }
 
 export function verifyJwt(token: string) {
   try {
-    const decoded = jwt.verify(token, publicKey);
+    const decoded = jwt.verify(token, publicKey, { algorithms: ["RS256"] });
     return { valid: true, expired: false, decoded };
   } catch (error: any) {
     return {
       valid: false,
-      expired: error.message === "jwt expired",
+      expired: error.message.includes("jwt expired"),
       decoded: null,
     };
   }
