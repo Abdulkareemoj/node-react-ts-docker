@@ -1,52 +1,24 @@
-import { TypeOf, array, object, string } from "zod";
+import { z } from "zod";
 
-export const createUserSchema = object({
-  body: object({
-    username: string({
-      required_error: "username is required",
-    }),
-    password: string({
-      required_error: "Password is required",
-    }).min(6, "Password is too short"),
-    passwordConfirmation: string({
-      required_error: "Confirmation is required",
-    }),
-    firstname: string({
-      required_error: "Firstname is required",
-    }),
-    lastname: string({
-      required_error: "Lastname is required",
-    }),
-    role: string({
-      required_error: "Role is required",
+export const createUserSchema = z.object({
+  body: z
+    .object({
+      username: z.string().min(1, "Username is required"),
+      email: z.string().email("Invalid email address"),
+      firstname: z.string().min(1, "First name is required"),
+      lastname: z.string().min(1, "Last name is required"),
+      password: z
+        .string()
+        .min(6, "Password must be at least 6 characters long"),
+      passwordConfirmation: z.string({
+        message: "Password confirmation is required",
+      }),
+      role: z.enum(["user", "admin", "superadmin"]).optional().default("user"),
     })
-      .refine((role) => ["user", "admin", "superadmin"].includes(role), {
-        message: "Invalid role",
-      })
-      .default("user"), // Default to "user" if no role is specified
-    email: string({ required_error: "Email is required" }).email(
-      "Must be a valid email"
-    ),
-  }).refine((data) => data.password === data.passwordConfirmation, {
-    message: "Passwords do not match",
-    path: ["passwordConfirmation"],
-  }),
+    .refine((data) => data.password === data.passwordConfirmation, {
+      path: ["passwordConfirmation"],
+      message: "Passwords don’t match",
+    }),
 });
 
-export const createUserSessionSchema = object({
-  body: object({
-    password: string({
-      required_error: "Password is required",
-    }).min(6, "Password is too short"),
-    email: string({ required_error: "Email is required" }).email(
-      "Must be a valid email"
-    ),
-  }),
-});
-
-export type CreateUserInput = Omit<
-  TypeOf<typeof createUserSchema>,
-  "body.passwordConfirmation"
->;
-
-export type CreateUserSessionInput = TypeOf<typeof createUserSessionSchema>;
+export type CreateUserInput = z.infer<typeof createUserSchema>;
