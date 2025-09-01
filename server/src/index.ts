@@ -1,26 +1,27 @@
+import path from "path";
+import { fileURLToPath } from "url";
+import dotenv from "dotenv";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Load environment variables before any other imports
+if (process.env.NODE_ENV !== "production") {
+  const envPath = path.resolve(__dirname, "../../.env");
+  dotenv.config({ path: envPath });
+}
+
 import routes from "./routes";
 import bodyParser from "body-parser";
 import express from "express";
 import dbconnect from "./utils/dbconnect";
 import cors from "cors";
-import path from "path";
-import { fileURLToPath } from "url";
-import dotenv from "dotenv";
 import deserializeUser from "./middleware/deserializeUser";
 import log from "./logger";
 import morgan from "morgan";
 import { apiReference } from "@scalar/express-api-reference";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
-import { at } from "lodash-es";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-if (process.env.NODE_ENV !== "production") {
-  const envPath = path.resolve(__dirname, "../../.env");
-  dotenv.config({ path: envPath });
-}
 
 const port = process.env.PORT;
 const app = express();
@@ -43,7 +44,7 @@ app.use(morgan("tiny"));
 app.use(deserializeUser);
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: process.env.CORS_ORIGIN || "http://localhost:5173",
     credentials: true,
   })
 );
