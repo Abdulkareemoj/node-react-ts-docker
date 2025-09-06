@@ -9,19 +9,18 @@ export async function createUserHandler(
   res: Response
 ) {
   try {
-    // Destructure the roles field from the request body
-    const { role, ...restOfBody } = req.body;
-
-    // Pass the extracted roles along with the rest of the user data to createUser
-    const user = await createUser({ ...restOfBody, role });
+    const user = await createUser(req.body);
 
     // Omit password from the response
     return res.send(omit(user.toJSON(), "password"));
-  } catch (e: unknown) {
-    log.error(e);
-    if (e instanceof Error) {
-      return res.status(409).send(e.message);
+  } catch (error: unknown) {
+    log.error(error);
+    if (error instanceof Error && (error as any).code === 11000) {
+      return res
+        .status(409)
+        .send("User with this email or username already exists.");
     }
-    return res.status(500).send("Internal Server Error");
+    // For other errors, send a generic 400 Bad Request
+    return res.status(400).send((error as Error).message);
   }
 }
