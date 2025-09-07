@@ -39,6 +39,7 @@ const swaggerOptions = {
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
 
+dbconnect();
 app.use(express.json());
 app.use(morgan("tiny"));
 app.use(deserializeUser);
@@ -59,11 +60,11 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.get("/openapi.json", (req, res) => res.json(swaggerSpec));
+
+routes(app);
 app.listen(port, () => {
   log.info(`Server is running at http://localhost:${port}`);
   log.info(
     `Scalar is available at http://localhost:${port}/reference and Swagger at http://localhost:${port}/docs`
   );
-  dbconnect();
-  routes(app);
 });
