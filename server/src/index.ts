@@ -10,18 +10,17 @@ if (process.env.NODE_ENV !== "production") {
   const envPath = path.resolve(__dirname, "../../.env");
   dotenv.config({ path: envPath });
 }
-
+import { toNodeHandler } from "better-auth/node";
+import { auth } from "./utils/auth";
 import routes from "./routes";
 import bodyParser from "body-parser";
 import express from "express";
-import dbconnect from "./utils/dbconnect";
 import cors from "cors";
-import deserializeUser from "./middleware/deserializeUser";
 import log from "./logger";
-import morgan from "morgan";
 import { apiReference } from "@scalar/express-api-reference";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
+import { Dbconnect } from "./utils/dbconnect";
 
 const port = process.env.PORT;
 const app = express();
@@ -39,14 +38,18 @@ const swaggerOptions = {
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
 
-dbconnect();
+//Database Connection
+await Dbconnect();
+
+app.all("/api/auth/*", toNodeHandler(auth));
 app.use(express.json());
-app.use(morgan("tiny"));
-app.use(deserializeUser);
+
 app.use(
   cors({
     origin: process.env.CORS_ORIGIN || "http://localhost:5173",
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 app.use(
