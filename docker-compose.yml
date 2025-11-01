@@ -1,28 +1,13 @@
 version: "3.8"
 services:
-  app: # Single service for the entire application
-    container_name: docker-full-app
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    image: docker-full-app
+  app:
+    build: .
     ports:
-      - "80:80" # Map host port 80 to container port 80
+      - "80:80"
     environment:
-      # Backend environment variables (if needed)
       NODE_ENV: production
-      # ... other backend environment variables
-      PORT:
-      CORS_ORIGIN:
-      GOOGLE_CLIENT_ID:
-      JWT_SECRET:
-      ACCESS_TOKEN_TTL:
-      REFRESH_TOKEN_TTL:
-      MONGO_URI:
-      PUBLIC_KEY:
-      PRIVATE_KEY:
-      SALT_WORK_FACTOR:
-      VITE_BACKEND_BASE_URL:
-
-    restart: always
-    # No volumes needed in this setup (usually)
+      PORT: 80
+      CORS_ORIGIN: http://localhost
+      # Add other necessary environment variables for your backend
+      MONGO_URI: your_mongo_uri
+      JWT_SECRET: your_jwt_secret

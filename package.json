@@ -1,0 +1,12 @@
+{
+  "name": "node-react-ts-docker",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --parallel dev",
+    "build": "pnpm --filter \"./apps/*\" build",
+    "start": "pnpm --parallel start"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

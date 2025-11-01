@@ -1,38 +1,27 @@
-FROM node:20-alpine AS builder
+# Dockerfile
 
+# Base stage for installing pnpm
+FROM node:20-alpine AS base
+RUN npm install -g pnpm
 WORKDIR /app
 
-# Copy package.json and lock files for both client and server
-COPY client/package*.json client/
-COPY server/package*.json server/
-
-# Install dependencies for both client and server
-RUN npm install
-
-# Copy source code
+# Builder stage for building the application
+FROM base AS builder
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY apps/client/package.json ./apps/client/
+COPY apps/server/package.json ./apps/server/
+RUN pnpm install --frozen-lockfile
 COPY . .
+RUN pnpm run build
 
-# Build the client and server applications
-RUN cd client && pnpm run build
-RUN cd server && pnpm run build
-
-# Production image - Using Nginx to serve both frontend and backend
-FROM nginx:alpine
-
-# Remove default Nginx configuration
-RUN rm /etc/nginx/conf.d/default.conf
-
-# Copy custom Nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Copy built frontend files
-COPY --from=builder /app/client/build /usr/share/nginx/html
-
-# Copy built backend files (only necessary if you have static assets in the backend)
-# COPY --from=builder /app/server/dist /app/server/dist  # Uncomment if needed
-
-# Expose port 80 (or your desired port)
+# Production stage
+FROM base AS production
+COPY --from=builder /app/apps/server/dist ./dist
+COPY --from=builder /app/apps/client/dist ./dist/public
+COPY package.json pnpm-workspace.yaml ./
+COPY apps/server/package.json ./apps/server/
+RUN pnpm install --prod --filter=REST
+ENV NODE_ENV=production
+ENV PORT=80
 EXPOSE 80
-
-# Nginx starts automatically
-CMD ["nginx", "-g", "daemon off;"]
+CMD [ "pnpm", "start" ]
