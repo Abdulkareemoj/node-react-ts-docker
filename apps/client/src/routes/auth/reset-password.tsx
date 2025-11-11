@@ -16,7 +16,10 @@ import {
 } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
 import RootLayout from "@/components/layout/RootLayout";
-import { resetPasswordSchema, type ResetPasswordFormValues } from "@/lib/schemas";
+import {
+  resetPasswordSchema,
+  type ResetPasswordFormValues,
+} from "@/lib/schemas";
 
 export const Route = createFileRoute("/auth/reset-password")({
   component: ResetPassword,
@@ -61,7 +64,10 @@ function ResetPassword({ className, ...props }: React.ComponentProps<"div">) {
             <Card className="overflow-hidden p-0">
               <CardContent className="grid p-0 md:grid-cols-2">
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="p-6 md:p-8">
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="p-6 md:p-8"
+                  >
                     <div className="flex flex-col gap-6">
                       <div className="flex flex-col items-center text-center">
                         <h1 className="text-2xl font-bold">Reset Password</h1>
@@ -75,9 +81,13 @@ function ResetPassword({ className, ...props }: React.ComponentProps<"div">) {
                           name="password"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel htmlFor="password">New Password</FormLabel>
+                              <FormLabel>New Password</FormLabel>
                               <FormControl>
-                                <Input type="password" autoComplete="new-password" {...field} />
+                                <Input
+                                  type="password"
+                                  autoComplete="new-password"
+                                  {...field}
+                                />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -90,9 +100,13 @@ function ResetPassword({ className, ...props }: React.ComponentProps<"div">) {
                           name="confirmPassword"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel htmlFor="passwordConfirmation">Confirm New Password</FormLabel>
+                              <FormLabel>Confirm New Password</FormLabel>
                               <FormControl>
-                                <Input type="password" autoComplete="new-password" {...field} />
+                                <Input
+                                  type="password"
+                                  autoComplete="new-password"
+                                  {...field}
+                                />
                               </FormControl>
                               <FormMessage />
                             </FormItem>

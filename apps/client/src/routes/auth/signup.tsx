@@ -73,39 +73,39 @@ function SignUp() {
     },
   });
   // Handle form submission
-async function handleSignUp(values: SignUpFormValues) {
-  try {
-    await signUp.email(
-      {
-        email: values.email,
-        password: values.password,
-        name: `${values.firstName} ${values.lastName}`,
-        username: values.username,
-        image: image ? await convertImageToBase64(image) : "",
-      },
-      {
-        onRequest: () => {
-          setIsLoading(true);
-          setServerError(null);
+  async function handleSignUp(values: SignUpFormValues) {
+    try {
+      await signUp.email(
+        {
+          email: values.email,
+          password: values.password,
+          name: `${values.firstName} ${values.lastName}`,
+          username: values.username,
+          image: image ? await convertImageToBase64(image) : "",
         },
-        onResponse: () => {
-          setIsLoading(false);
-        },
+        {
+          onRequest: () => {
+            setIsLoading(true);
+            setServerError(null);
+          },
+          onResponse: () => {
+            setIsLoading(false);
+          },
           onError: (ctx: { error: { message: string } }) => {
-          setServerError(ctx.error.message);
-        },
-        onSuccess: async () => {
-          toast.success("Account created successfully!");
-          router.navigate({ to: "/dashboard" });
-        },
-      }
-    );
-  } catch (err) {
-    setServerError((err as Error)?.message || "Something went wrong");
-  } finally {
-    setIsLoading(false);
+            setServerError(ctx.error.message);
+          },
+          onSuccess: async () => {
+            toast.success("Account created successfully!");
+            router.navigate({ to: "/dashboard" });
+          },
+        }
+      );
+    } catch (err) {
+      setServerError((err as Error)?.message || "Something went wrong");
+    } finally {
+      setIsLoading(false);
+    }
   }
-}
   return (
     <RootLayout>
       <div className="bg-muted flex min-h-svh flex-col items-center justify-center p-6 md:p-10">
@@ -160,9 +160,13 @@ async function handleSignUp(values: SignUpFormValues) {
                           name="username"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel htmlFor="username">Username</FormLabel>
+                              <FormLabel>Username</FormLabel>
                               <FormControl>
-                                <Input type="text" autoComplete="username" {...field} />
+                                <Input
+                                  type="text"
+                                  autoComplete="username"
+                                  {...field}
+                                />
                               </FormControl>
 
                               <FormMessage />
@@ -176,9 +180,13 @@ async function handleSignUp(values: SignUpFormValues) {
                           name="email"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel htmlFor="email">Email</FormLabel>
+                              <FormLabel>Email</FormLabel>
                               <FormControl>
-                                <Input type="email" autoComplete="email" {...field} />
+                                <Input
+                                  type="email"
+                                  autoComplete="email"
+                                  {...field}
+                                />
                               </FormControl>
 
                               <FormMessage />
@@ -192,9 +200,7 @@ async function handleSignUp(values: SignUpFormValues) {
                           name="firstName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel htmlFor="firstName">
-                                Firstname
-                              </FormLabel>
+                              <FormLabel>Firstname</FormLabel>
                               <FormControl>
                                 <Input type="text" {...field} />
                               </FormControl>
@@ -210,7 +216,7 @@ async function handleSignUp(values: SignUpFormValues) {
                           name="lastName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel htmlFor="lastName">Lastname</FormLabel>
+                              <FormLabel>Lastname</FormLabel>
                               <FormControl>
                                 <Input type="text" {...field} />
                               </FormControl>
@@ -226,9 +232,13 @@ async function handleSignUp(values: SignUpFormValues) {
                           name="password"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel htmlFor="password">Password</FormLabel>
+                              <FormLabel>Password</FormLabel>
                               <FormControl>
-                                <Input type="password" autoComplete="new-password" {...field} />
+                                <Input
+                                  type="password"
+                                  autoComplete="new-password"
+                                  {...field}
+                                />
                               </FormControl>
 
                               <FormMessage />
@@ -242,11 +252,13 @@ async function handleSignUp(values: SignUpFormValues) {
                           name="confirmPassword"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel htmlFor="confirmPassword">
-                                Confirm Password
-                              </FormLabel>
+                              <FormLabel>Confirm Password</FormLabel>
                               <FormControl>
-                                <Input type="password" autoComplete="new-password" {...field} />
+                                <Input
+                                  type="password"
+                                  autoComplete="new-password"
+                                  {...field}
+                                />
                               </FormControl>
 
                               <FormMessage />
@@ -254,7 +266,11 @@ async function handleSignUp(values: SignUpFormValues) {
                           )}
                         />
                       </div>
-                      <Button type="submit" className="w-full" disabled={isLoading}>
+                      <Button
+                        type="submit"
+                        className="w-full"
+                        disabled={isLoading}
+                      >
                         {isLoading ? "Creating account..." : "Sign Up"}
                       </Button>
                       <div className="text-center text-sm">

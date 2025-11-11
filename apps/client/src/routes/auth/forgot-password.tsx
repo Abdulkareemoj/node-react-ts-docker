@@ -16,7 +16,10 @@ import {
 } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
 import RootLayout from "@/components/layout/RootLayout";
-import { forgotPasswordSchema, type ForgotPasswordFormValues } from "@/lib/schemas";
+import {
+  forgotPasswordSchema,
+  type ForgotPasswordFormValues,
+} from "@/lib/schemas";
 
 // @ts-ignore - route types will include this file
 export const Route = createFileRoute("/auth/forgot-password")({
@@ -39,7 +42,9 @@ function ForgotPassword({ className, ...props }: React.ComponentProps<"div">) {
       alert(response.data.message ?? "Password reset email sent");
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
-        alert(error.response.data.message ?? "Failed to send password reset email");
+        alert(
+          error.response.data.message ?? "Failed to send password reset email"
+        );
       } else {
         alert("An unexpected error occurred. Please try again later.");
       }
@@ -54,10 +59,15 @@ function ForgotPassword({ className, ...props }: React.ComponentProps<"div">) {
             <Card className="overflow-hidden p-0">
               <CardContent className="grid p-0 md:grid-cols-2">
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="p-6 md:p-8">
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="p-6 md:p-8"
+                  >
                     <div className="flex flex-col gap-6">
                       <div className="flex flex-col items-center text-center">
-                        <h1 className="text-2xl font-bold">Forgot your password?</h1>
+                        <h1 className="text-2xl font-bold">
+                          Forgot your password?
+                        </h1>
                         <p className="text-muted-foreground text-balance">
                           Enter your email to reset your password
                         </p>
@@ -68,9 +78,13 @@ function ForgotPassword({ className, ...props }: React.ComponentProps<"div">) {
                           name="email"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel htmlFor="email">Email</FormLabel>
+                              <FormLabel>Email</FormLabel>
                               <FormControl>
-                                <Input type="email" autoComplete="email" {...field} />
+                                <Input
+                                  type="email"
+                                  autoComplete="email"
+                                  {...field}
+                                />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -82,7 +96,10 @@ function ForgotPassword({ className, ...props }: React.ComponentProps<"div">) {
                       </Button>
                       <div className="text-center text-sm">
                         Remember your password?{" "}
-                        <Link to={"/auth/signin" as any} className="underline underline-offset-4">
+                        <Link
+                          to={"/auth/signin" as any}
+                          className="underline underline-offset-4"
+                        >
                           Sign in
                         </Link>
                       </div>

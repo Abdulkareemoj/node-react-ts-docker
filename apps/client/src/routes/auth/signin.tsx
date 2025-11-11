@@ -46,7 +46,11 @@ function SignIn() {
   // Handle form submission
   async function onSubmit(values: SignInFormValues) {
     await signIn.email(
-      { ...values, rememberMe },
+      {
+        ...values,
+        rememberMe,
+        email: "",
+      },
       {
         onRequest: (ctx) => {
           setIsLoading(true);
@@ -99,9 +103,7 @@ function SignIn() {
                           name="identifier"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel htmlFor="identifier">
-                                Email or Username
-                              </FormLabel>
+                              <FormLabel>Email or Username</FormLabel>
                               <FormControl>
                                 <Input {...field} />
                               </FormControl>
@@ -112,15 +114,14 @@ function SignIn() {
                         />
                       </div>
                       <div className="flex items-center">
-                          <Link
-                            to="/auth/forgot-password"
-                            className="ml-auto text-sm underline-offset-2 hover:underline"
-                          >
-                            Forgot your password?
-                          </Link>
-                        </div>
+                        <Link
+                          to="/auth/forgot-password"
+                          className="ml-auto text-sm underline-offset-2 hover:underline"
+                        >
+                          Forgot your password?
+                        </Link>
+                      </div>
                       <div className="grid gap-3">
-                      
                         <FormField
                           control={form.control}
                           name="password"
