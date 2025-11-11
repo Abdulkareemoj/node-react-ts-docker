@@ -1,15 +1,4 @@
-import path from "path";
-import { fileURLToPath } from "url";
-import dotenv from "dotenv";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Load environment variables before any other imports
-if (process.env.NODE_ENV !== "production") {
-  const envPath = path.resolve(__dirname, "../../.env");
-  dotenv.config({ path: envPath });
-}
+import "dotenv/config";
 import { toNodeHandler } from "better-auth/node";
 import { auth } from "./utils/auth";
 import routes from "./routes";
@@ -47,3 +36,26 @@ app.listen(port, () => {
     `Scalar is available at http://localhost:${port}/reference and Swagger at http://localhost:${port}/docs`
   );
 });
+
+// // graceful shutdown
+// process.on('SIGINT', () => {
+//   server.close((err: any) => {
+//     if (err) {
+//       log.error(err);
+//       process.exit(1);
+//     }
+//     log.info('Server shut down gracefully');
+//     process.exit(0);
+//   });
+// });
+
+// process.on('SIGTERM', () => {
+//   server.close((err: any) => {
+//     if (err) {
+//       log.error(err);
+//       process.exit(1);
+//     }
+//     log.info('Server shut down gracefully');
+//     process.exit(0);
+//   });
+// });

@@ -1,10 +1,10 @@
 import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { admin, username, oneTap, emailOTP } from "better-auth/plugins";
-import { client } from "./dbconnect";
+import { db, client } from "./dbconnect";
 export const auth = betterAuth({
   appName: "MyApp",
-  database: mongodbAdapter(client.db(), {
+  database: mongodbAdapter(db, {
     client,
   }),
   plugins: [
