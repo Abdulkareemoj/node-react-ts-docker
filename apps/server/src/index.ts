@@ -1,4 +1,4 @@
-import "dotenv/config";
+import dotenv from "dotenv";
 import { toNodeHandler } from "better-auth/node";
 import { auth } from "./utils/auth";
 import routes from "./routes";
@@ -8,13 +8,13 @@ import cors from "cors";
 import log from "./logger";
 import { Dbconnect } from "./utils/dbconnect";
 
+dotenv.config({ path: "../../.env" });
 const port = process.env.PORT;
 const app = express();
 
-//Database Connection
 await Dbconnect();
 
-app.all("/api/auth/*", toNodeHandler(auth));
+app.all("/api/auth/*splat", toNodeHandler(auth));
 app.use(express.json());
 
 app.use(
@@ -32,9 +32,6 @@ app.use(express.urlencoded({ extended: true }));
 routes(app);
 app.listen(port, () => {
   log.info(`Server is running at http://localhost:${port}`);
-  log.info(
-    `Scalar is available at http://localhost:${port}/reference and Swagger at http://localhost:${port}/docs`
-  );
 });
 
 // // graceful shutdown

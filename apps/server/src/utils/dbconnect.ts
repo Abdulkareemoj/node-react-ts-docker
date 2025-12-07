@@ -1,6 +1,7 @@
+import dotenv from "dotenv";
 import { MongoClient, Db } from "mongodb";
 import log from "../logger";
-
+dotenv.config({ path: "../../../.env" });
 let client: MongoClient;
 let db: Db;
 
@@ -10,7 +11,7 @@ const Dbconnect = async () => {
     process.exit(1);
   }
 
-  client = new MongoClient(process.env.MONGO_URI);
+  client = new MongoClient(process.env.MONGO_URI!);
 
   try {
     await client.connect();
