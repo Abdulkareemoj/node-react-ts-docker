@@ -38,8 +38,8 @@ import { Route as AdminProductsIndexRouteImport } from './routes/admin/products/
 import { Route as AdminPostsIndexRouteImport } from './routes/admin/posts/index'
 import { Route as AdminProductsAddProductRouteImport } from './routes/admin/products/addProduct'
 import { Route as AdminPostsAddPostRouteImport } from './routes/admin/posts/addPost'
-import { Route as AdminProductsProductIdIndexRouteImport } from './routes/admin/products/[productId]/index'
-import { Route as AdminPostsPostIdIndexRouteImport } from './routes/admin/posts/[postId]/index'
+import { Route as AdminProductsChar91productIdChar93IndexRouteImport } from './routes/admin/products/[productId]/index'
+import { Route as AdminPostsChar91postIdChar93IndexRouteImport } from './routes/admin/posts/[postId]/index'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -186,17 +186,18 @@ const AdminPostsAddPostRoute = AdminPostsAddPostRouteImport.update({
   path: '/admin/posts/addPost',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminProductsProductIdIndexRoute =
-  AdminProductsProductIdIndexRouteImport.update({
+const AdminProductsChar91productIdChar93IndexRoute =
+  AdminProductsChar91productIdChar93IndexRouteImport.update({
     id: '/admin/products/productId/',
     path: '/admin/products/productId/',
     getParentRoute: () => rootRouteImport,
   } as any)
-const AdminPostsPostIdIndexRoute = AdminPostsPostIdIndexRouteImport.update({
-  id: '/admin/posts/postId/',
-  path: '/admin/posts/postId/',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const AdminPostsChar91postIdChar93IndexRoute =
+  AdminPostsChar91postIdChar93IndexRouteImport.update({
+    id: '/admin/posts/postId/',
+    path: '/admin/posts/postId/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -219,17 +220,17 @@ export interface FileRoutesByFullPath {
   '/dashboard/contacts': typeof DashboardContactsRoute
   '/dashboard/links': typeof DashboardLinksRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
-  '/admin': typeof AdminIndexRoute
-  '/blog': typeof BlogIndexRoute
-  '/dashboard': typeof DashboardIndexRoute
+  '/admin/': typeof AdminIndexRoute
+  '/blog/': typeof BlogIndexRoute
+  '/dashboard/': typeof DashboardIndexRoute
   '/product/': typeof ProductIndexRoute
   '/admin/posts/addPost': typeof AdminPostsAddPostRoute
   '/admin/products/addProduct': typeof AdminProductsAddProductRoute
-  '/admin/posts': typeof AdminPostsIndexRoute
-  '/admin/products': typeof AdminProductsIndexRoute
-  '/tools/link-shortener': typeof ToolsLinkShortenerIndexRoute
-  '/admin/posts/postId': typeof AdminPostsPostIdIndexRoute
-  '/admin/products/productId': typeof AdminProductsProductIdIndexRoute
+  '/admin/posts/': typeof AdminPostsIndexRoute
+  '/admin/products/': typeof AdminProductsIndexRoute
+  '/tools/link-shortener/': typeof ToolsLinkShortenerIndexRoute
+  '/admin/posts/postId/': typeof AdminPostsChar91postIdChar93IndexRoute
+  '/admin/products/productId/': typeof AdminProductsChar91productIdChar93IndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -260,8 +261,8 @@ export interface FileRoutesByTo {
   '/admin/posts': typeof AdminPostsIndexRoute
   '/admin/products': typeof AdminProductsIndexRoute
   '/tools/link-shortener': typeof ToolsLinkShortenerIndexRoute
-  '/admin/posts/postId': typeof AdminPostsPostIdIndexRoute
-  '/admin/products/productId': typeof AdminProductsProductIdIndexRoute
+  '/admin/posts/postId': typeof AdminPostsChar91postIdChar93IndexRoute
+  '/admin/products/productId': typeof AdminProductsChar91productIdChar93IndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -294,8 +295,8 @@ export interface FileRoutesById {
   '/admin/posts/': typeof AdminPostsIndexRoute
   '/admin/products/': typeof AdminProductsIndexRoute
   '/tools/link-shortener/': typeof ToolsLinkShortenerIndexRoute
-  '/admin/posts/postId/': typeof AdminPostsPostIdIndexRoute
-  '/admin/products/productId/': typeof AdminProductsProductIdIndexRoute
+  '/admin/posts/postId/': typeof AdminPostsChar91postIdChar93IndexRoute
+  '/admin/products/productId/': typeof AdminProductsChar91productIdChar93IndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -320,17 +321,17 @@ export interface FileRouteTypes {
     | '/dashboard/contacts'
     | '/dashboard/links'
     | '/dashboard/settings'
-    | '/admin'
-    | '/blog'
-    | '/dashboard'
+    | '/admin/'
+    | '/blog/'
+    | '/dashboard/'
     | '/product/'
     | '/admin/posts/addPost'
     | '/admin/products/addProduct'
-    | '/admin/posts'
-    | '/admin/products'
-    | '/tools/link-shortener'
-    | '/admin/posts/postId'
-    | '/admin/products/productId'
+    | '/admin/posts/'
+    | '/admin/products/'
+    | '/tools/link-shortener/'
+    | '/admin/posts/postId/'
+    | '/admin/products/productId/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -427,8 +428,8 @@ export interface RootRouteChildren {
   AdminPostsIndexRoute: typeof AdminPostsIndexRoute
   AdminProductsIndexRoute: typeof AdminProductsIndexRoute
   ToolsLinkShortenerIndexRoute: typeof ToolsLinkShortenerIndexRoute
-  AdminPostsPostIdIndexRoute: typeof AdminPostsPostIdIndexRoute
-  AdminProductsProductIdIndexRoute: typeof AdminProductsProductIdIndexRoute
+  AdminPostsChar91postIdChar93IndexRoute: typeof AdminPostsChar91postIdChar93IndexRoute
+  AdminProductsChar91productIdChar93IndexRoute: typeof AdminProductsChar91productIdChar93IndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -492,21 +493,21 @@ declare module '@tanstack/react-router' {
     '/dashboard/': {
       id: '/dashboard/'
       path: '/dashboard'
-      fullPath: '/dashboard'
+      fullPath: '/dashboard/'
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
       id: '/blog/'
       path: '/blog'
-      fullPath: '/blog'
+      fullPath: '/blog/'
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/': {
       id: '/admin/'
       path: '/admin'
-      fullPath: '/admin'
+      fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -604,21 +605,21 @@ declare module '@tanstack/react-router' {
     '/tools/link-shortener/': {
       id: '/tools/link-shortener/'
       path: '/tools/link-shortener'
-      fullPath: '/tools/link-shortener'
+      fullPath: '/tools/link-shortener/'
       preLoaderRoute: typeof ToolsLinkShortenerIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/products/': {
       id: '/admin/products/'
       path: '/admin/products'
-      fullPath: '/admin/products'
+      fullPath: '/admin/products/'
       preLoaderRoute: typeof AdminProductsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/posts/': {
       id: '/admin/posts/'
       path: '/admin/posts'
-      fullPath: '/admin/posts'
+      fullPath: '/admin/posts/'
       preLoaderRoute: typeof AdminPostsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -639,15 +640,15 @@ declare module '@tanstack/react-router' {
     '/admin/products/productId/': {
       id: '/admin/products/productId/'
       path: '/admin/products/productId'
-      fullPath: '/admin/products/productId'
-      preLoaderRoute: typeof AdminProductsProductIdIndexRouteImport
+      fullPath: '/admin/products/productId/'
+      preLoaderRoute: typeof AdminProductsChar91productIdChar93IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/posts/postId/': {
       id: '/admin/posts/postId/'
       path: '/admin/posts/postId'
-      fullPath: '/admin/posts/postId'
-      preLoaderRoute: typeof AdminPostsPostIdIndexRouteImport
+      fullPath: '/admin/posts/postId/'
+      preLoaderRoute: typeof AdminPostsChar91postIdChar93IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -693,8 +694,10 @@ const rootRouteChildren: RootRouteChildren = {
   AdminPostsIndexRoute: AdminPostsIndexRoute,
   AdminProductsIndexRoute: AdminProductsIndexRoute,
   ToolsLinkShortenerIndexRoute: ToolsLinkShortenerIndexRoute,
-  AdminPostsPostIdIndexRoute: AdminPostsPostIdIndexRoute,
-  AdminProductsProductIdIndexRoute: AdminProductsProductIdIndexRoute,
+  AdminPostsChar91postIdChar93IndexRoute:
+    AdminPostsChar91postIdChar93IndexRoute,
+  AdminProductsChar91productIdChar93IndexRoute:
+    AdminProductsChar91productIdChar93IndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
